@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+  <title>ZoneUp - Coming Soon</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.8/lottie.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      background: linear-gradient(135deg, #e0f7f9, #f8f9fc);
+      color: #333;
+    }
+
+    .container {
+      text-align: center;
+    }
+    
+    .logo{
+      padding-top: 3%;
+    }
+
+    .logo img {
+      width: 60vh;
+    }
+
+    .message {
+      font-size: 2rem;
+      font-weight: bold;
+      animation: fadeInOut 2s infinite ease-in-out;
+    }
+    @keyframes fadeInOut {
+      0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .logo img {
+        width: 40vh;
+      }
+      
+
+      .message {
+        font-size: 2rem;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="logo.png" alt="ZoneUp Logo">
+    </div>
+    <div id="lottie-container" style="max-width: 100vh; max-height: 100vh; width: 60vh; height: 60vh;"></div>
+    <div class="message">Coming Soon...</div>
+  </div>
+  <script>
+    // Load Lottie animation
+    var animation = lottie.loadAnimation({
+      container: document.getElementById('lottie-container'), // Target container
+      renderer: 'svg', // Render type: 'svg', 'canvas', or 'html'
+      loop: true, // Animation loop
+      autoplay: true, // Auto start animation
+      path: 'rocket.json' // Path to the uploaded JSON file
+    });
+  </script>
+</body>
+
+</html>
