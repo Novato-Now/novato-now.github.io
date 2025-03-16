@@ -1,0 +1,71 @@
+/* Webpage colors  */
+:root {
+    --color-white: #fff;
+    --color-black: #000;
+   --footer-bg:#161C28;
+   --gray3:#A6A6A6;
+   --gray2:#475367;
+   --gray1:#1C2B33;
+   --gray4:#878787;
+   --primary:linear-gradient(132.778deg, #43CEA2 0%, #185A9D 93%);
+}
+*{
+    font-family: 'Lato','San-serif';
+}
+
+/* Footer Styles  */
+.img_logo_header {
+    width: 132px;
+}
+footer{
+    background-color: var(--footer-bg);
+    padding: 1.875rem 5.625rem 1rem 5.625rem;
+    color: var(--gray3);
+}
+footer ul li{
+    list-style: none;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+footer ul li a, footer a{
+    color: var(--gray3);
+    
+}
+footer ul li a:hover{
+    text-decoration: none;
+    color: var(--color-white);
+    transition: ease-in 0.3s;
+}
+.font-size-32{
+    font-size: 32px;
+}
+.Copyright{
+    font-size: 14px;
+    text-align: center;
+    margin-top: 32px;
+}
+.p-text{
+    font-size: 16px;
+    margin-top: 8px;
+}
+.let-chat{
+    font-size: 24px;
+}
+
+@media screen and (max-width: 768px) {
+    footer{
+        padding: 1.875rem 1.825rem 1rem 1.825rem;
+        font-size: 14px;
+    }
+    footer ul{
+        padding: 0;
+    }
+    .mb-16{
+        margin-bottom: 16px;
+    }
+    .Copyright{
+        font-size: 12px;
+        
+    }
+}
+

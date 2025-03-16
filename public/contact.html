@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="Css/home.css" />
+    <link rel="stylesheet" href="Css/contact.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="Assets/logo.png" />
+    <script defer src="Js/main.js"></script>
+</head>
+
+<body>
+    <main>
+        <header>
+            <div class="container1 navbar1">
+                <a href="index.html">
+                    <img src="Assets/logo footer.png" alt="Logo" class="logo" />
+                  </a>
+                <ul class="navigation">
+                    <li><a href="index.html" >Home</a></li>
+                    <li><a href="contact.html" class="active">Contact Us</a></li>
+                    <button class="nav-btn">Get the App</button>
+                </ul>
+                <button class="nav-toggle">
+                    <img src="Assets/menu.png" alt="" />
+                    <img class="hidden" src="Assets/close.png" alt="" />
+                </button>
+            </div>
+        </header>
+        <section class="hero">
+            <div class="contact-section " style="margin-bottom: 90px;">
+                <h1 class="section-heading mb-32">
+                    Get in Touch
+                </h1>
+                <div class="flex-row">
+                    <div class="flex-col contact-content">
+                        <h3 class="contact-heading">Leave us a message</h3>
+                        <input type="text" id="name" placeholder="Full Name" class="form-input" onblur="validateName()"
+                            required></input>
+                        <div class="validation margin-btm" id="nameError"></div>
+                        <input type="text" id="email" placeholder="Email Address" class="form-input"
+                            onblur="validateEmail()" required />
+                        <div class="validation margin-btm" id="mailError"></div>
+                        <textarea id="message" placeholder="Type your Message" class="textarea" required></textarea>
+                        <button class="submit-btn">Submit</button>
+
+
+                    </div>
+
+                    <div class="flex-col" style="gap: 3rem;">
+                        <div class="flex-row margin-btm" style="gap: .5rem;">
+                            <div class="icon col-auto mt-3">
+                                <img src="Assets/location.png" alt="location" class="icon-size" />
+                            </div>
+                            <div class="black-text col mt-3" style="text-align: start;">
+                                <a class="black-text" href="https://maps.app.goo.gl/WKniRERufAtHCJpn7">Koramangala,
+                                    Bangalore - 6000028</a>
+                            </div>
+                        </div>
+
+                        <div class="flex-row margin-btm" style="gap: .5rem;">
+                            <div class="icon col-auto mt-3">
+                                <img src="Assets/call.png" alt="location" class="icon-size" />
+                            </div>
+                            <div class="black-text col mt-3" style="text-align: start;">
+                                <a class="black-text" href="tel:+91 8220391187">+91 8220391187</a>
+                            </div>
+                        </div>
+                        <div class="flex-row margin-btm" style="gap: .5rem;">
+                            <div class="icon col-auto mt-3">
+                                <img src="Assets/mail.png" alt="location" class="icon-size" />
+                            </div>
+                            <div class="black-text col mt-3" style="text-align: start;">
+                                <a class="black-text" href="mailto:support@zoneup.com">support@zoneup.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex-row margin-btm" style="margin-left: 0;">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.90089794152!2d77.46612830987274!3d12.953945615505221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1734666629550!5m2!1sen!2sin"
+                                class="map" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="Js/main.js"></script>
+</body>
+
+</html>
