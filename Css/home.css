@@ -71,7 +71,6 @@ section {
   gap: 2.8rem;
   list-style: none;
   align-items: center;
-
   li {
     a {
       display: inline-block;
@@ -84,14 +83,15 @@ section {
     }
 
     a:hover {
-      color: var(--color-black);
-      font-size: 1.7rem;
-      /* transition: all 0.3s ease-out; */
+      color: var(--gray3);
+      /* font-size: 1.7rem; */
+      transition: all 0.3s ease-out;
     }
 
     a.active {
       color: var(--gray1);
-      font-size: 2rem;
+      font-weight: 700;
+      /* font-size: 2rem; */
     }
   }
 
@@ -290,7 +290,6 @@ section {
   .navigation {
     position: absolute;
     width: 100%;
-
     height: auto;
     top: 100%;
     right: -100rem;
@@ -299,7 +298,7 @@ section {
     z-index: 99;
     padding-bottom: 6rem;
     border-radius: 1.2rem;
-    transition: right .3s ease;
+    /* transition: right .3s ease; */
     box-shadow: -4px 6px 8px rgba(0, 0, 0, .05);
     gap: 0;
     background-color: var(--white);
@@ -493,8 +492,8 @@ section {
 }
 
 .icon-size {
-  width: 39px;
-  height: 39px;
+  width: 28px;
+  height: 28px;
   margin-bottom: 0.5rem;
 }
 
