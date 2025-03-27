@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Open in ZoneUp App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/javascript">
+      function handleRedirect() {
+        // Platform detection
+        const isAndroid = /Android/i.test(navigator.userAgent);
+        const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+        // App links
+        const appDeepLink = "zoneup://SharedPost";
+        const universalLink = "https://novato.co.in/SharedPost";
+
+        // Store links
+        const playStoreUrl =
+          "https://play.google.com/store/apps/details?id=com.zoneup12345.zoneup";
+        const appStoreUrl = "https://apps.apple.com/app/zoneup/idYOUR_APPLE_ID";
+
+        window.location.href = appDeepLink;
+
+        // Fallback after delay
+        setTimeout(() => {
+          if (window.location.href !== appDeepLink) {
+            if (isAndroid) {
+              window.location.href = playStoreUrl;
+            } else if (isIOS) {
+              window.location.href = appStoreUrl;
+            } else {
+              window.location.href = playStoreUrl; // Default fallback
+            }
+          }
+        }, 800);
+      }
+
+      window.onload = handleRedirect;
+    </script>
+  </head>
+  <body>
+    <noscript>
+      <div
+        style="
+          text-align: center;
+          padding: 50px;
+          font-family: Arial, sans-serif;
+        "
+      >
+        <h1>ZoneUp App Required</h1>
+        <p>Please install ZoneUp to view this content:</p>
+        <div style="margin-top: 20px">
+          <a
+            href="https://play.google.com/store/apps/details?id=com.zoneup12345.zoneup"
+            style="
+              padding: 10px 20px;
+              background: #4285f4;
+              color: white;
+              text-decoration: none;
+              border-radius: 5px;
+            "
+          >
+            Download App
+          </a>
+        </div>
+      </div>
+    </noscript>
+  </body>
+</html>
