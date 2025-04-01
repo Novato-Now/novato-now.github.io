@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "72QM5CB4VL.com.zoneup12345.zoneup",
+        "paths": [
+          "/SharedPost/*"
+        ]
+      }
+    ]
+  }
+}
