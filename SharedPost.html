@@ -9,27 +9,28 @@
         const isAndroid = /Android/i.test(navigator.userAgent);
         const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
+        // Get the post ID from the URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const postId = urlParams.get("postId"); // Assuming the URL is like ?postId=689de24f-b373-4cb2-bc3b-0872870bb335
+
         // App links
-        const appDeepLink = "zoneup://SharedPost";
-        const universalLink = "https://novato.co.in/SharedPost";
+        const appDeepLink = `zoneup://SharedPost/${postId}`;
 
-        // Store links
+        // Tinder store links
         const playStoreUrl =
-          "https://play.google.com/store/apps/details?id=com.zoneup12345.zoneup";
-        const appStoreUrl = "https://apps.apple.com/app/zoneup/idYOUR_APPLE_ID";
+          "https://play.google.com/store/apps/details?id=com.tinder";
+        const appStoreUrl = "https://apps.apple.com/app/tinder/id547702041"; // Tinder App Store link
 
+        // Attempt to open the app
         window.location.href = appDeepLink;
 
         // Fallback after delay
         setTimeout(() => {
-          if (window.location.href !== appDeepLink) {
-            if (isAndroid) {
-              window.location.href = playStoreUrl;
-            } else if (isIOS) {
-              window.location.href = appStoreUrl;
-            } else {
-              window.location.href = playStoreUrl; // Default fallback
-            }
+          // If the app did not open, redirect to the Tinder app in the appropriate store
+          if (isAndroid) {
+            window.location.href = playStoreUrl;
+          } else if (isIOS) {
+            window.location.href = appStoreUrl;
           }
         }, 800);
       }
@@ -38,31 +39,6 @@
     </script>
   </head>
   <body>
-    <noscript>
-      <div
-        style="
-          text-align: center;
-          padding: 50px;
-          font-family: Arial, sans-serif;
-        "
-      >
-        <h1>ZoneUp App Required</h1>
-        <p>Please install ZoneUp to view this content:</p>
-        <div style="margin-top: 20px">
-          <a
-            href="https://play.google.com/store/apps/details?id=com.zoneup12345.zoneup"
-            style="
-              padding: 10px 20px;
-              background: #4285f4;
-              color: white;
-              text-decoration: none;
-              border-radius: 5px;
-            "
-          >
-            Download App
-          </a>
-        </div>
-      </div>
-    </noscript>
+    <!-- No content displayed if the app is not installed -->
   </body>
 </html>
