@@ -9,24 +9,31 @@
         const isAndroid = /Android/i.test(navigator.userAgent);
         const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-        // Get the post ID from the URL parameters
+        // EXTRACT POST ID FROM BOTH URL FORMATS (NEW CHANGE)
         const urlParams = new URLSearchParams(window.location.search);
-        const postId = urlParams.get("postId"); // Assuming the URL is like ?postId=689de24f-b373-4cb2-bc3b-0872870bb335
+        let postId = urlParams.get("postId"); // For ?postId= param format
 
-        // App links
+        // If no query param, try extracting from path (e.g. /SharedPost/abc123)
+        if (!postId) {
+          const pathParts = window.location.pathname.split("/SharedPost/");
+          if (pathParts.length > 1) {
+            postId = pathParts[1].split("/")[0]; // Gets the ID part
+          }
+        }
+
+        // App links (UNCHANGED)
         const appDeepLink = `zoneup://SharedPost/${postId}`;
 
-        // Tinder store links
+        // Tinder store links (KEPT AS-IS)
         const playStoreUrl =
           "https://play.google.com/store/apps/details?id=com.tinder";
-        const appStoreUrl = "https://apps.apple.com/app/tinder/id547702041"; // Tinder App Store link
+        const appStoreUrl = "https://apps.apple.com/app/tinder/id547702041";
 
-        // Attempt to open the app
+        // Attempt to open the app (UNCHANGED)
         window.location.href = appDeepLink;
 
-        // Fallback after delay
+        // Fallback after delay (UNCHANGED)
         setTimeout(() => {
-          // If the app did not open, redirect to the Tinder app in the appropriate store
           if (isAndroid) {
             window.location.href = playStoreUrl;
           } else if (isIOS) {
