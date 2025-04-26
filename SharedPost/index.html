@@ -8,12 +8,10 @@
         // Get postId from query parameter (sent by 404.html)
         const urlParams = new URLSearchParams(window.location.search);
         let postId = urlParams.get("postId");
-
         if (!postId) {
           window.location.href = "https://zoneup.in";
           return;
         }
-
         // Clean postId
         postId = postId.split("/")[0].split("?")[0].split("#")[0];
 
@@ -36,7 +34,7 @@
             : isIOS
             ? appStoreUrl
             : "https://zoneup.in";
-        }, 500);
+        }, 100);
       })();
     </script>
   </head>
