@@ -2,40 +2,45 @@
 <html>
   <head>
     <title>Open in ZoneUp App</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script>
-      // Get postId ONLY from query parameter (404.html ensures this exists)
-      const urlParams = new URLSearchParams(window.location.search);
-      const postId = urlParams.get("postId");
+    <meta http-equiv="refresh" content="0;url=https://zoneup.in" />
+    <script type="text/javascript">
+      (function () {
+        // Get postId from query parameter (sent by 404.html)
+        const urlParams = new URLSearchParams(window.location.search);
+        let postId = urlParams.get("postId");
 
-      if (!postId) {
-        window.location.replace("https://zoneup.in");
-        return;
-      }
+        if (!postId) {
+          window.location.href = "https://zoneup.in";
+          return;
+        }
 
-      const isAndroid = /Android/i.test(navigator.userAgent);
-      const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-      const appDeepLink = `zoneup://SharedPost/${postId}`;
+        // Clean postId
+        postId = postId.split("/")[0].split("?")[0].split("#")[0];
 
-      // UPDATE THESE TO YOUR ACTUAL APP LINKS:
-      const playStoreUrl =
-        "https://play.google.com/store/apps/details?id=com.tinder";
-      const appStoreUrl = "https://apps.apple.com/app/tinder/id547702041";
+        const isAndroid = /Android/i.test(navigator.userAgent);
+        const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-      // Try to open app
-      window.location.href = appDeepLink;
+        // UPDATE THESE TO YOUR ACTUAL APP LINKS:
+        const appDeepLink = `zoneup://SharedPost/${postId}`;
+        const playStoreUrl =
+          "https://play.google.com/store/apps/details?id=com.tinder";
+        const appStoreUrl = "https://apps.apple.com/app/tinder/id547702041";
 
-      // Fallback after delay
-      setTimeout(() => {
-        window.location.href = isAndroid
-          ? playStoreUrl
-          : isIOS
-          ? appStoreUrl
-          : "https://zoneup.in";
-      }, 800);
+        // Immediate redirect attempt
+        window.location.href = appDeepLink;
+
+        // Double redirect with timeout
+        setTimeout(function () {
+          window.location.href = isAndroid
+            ? playStoreUrl
+            : isIOS
+            ? appStoreUrl
+            : "https://zoneup.in";
+        }, 500);
+      })();
     </script>
   </head>
   <body>
-    Redirecting to app...
+    <!-- Empty body ensures nothing shows during redirect -->
   </body>
 </html>

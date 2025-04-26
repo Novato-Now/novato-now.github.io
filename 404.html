@@ -2,12 +2,11 @@
 <html>
   <head>
     <script>
-      // Handle both /SharedPost/post-id and /SharedPost/index.html/post-id cases
+      // Immediately extract postId and redirect
       const pathParts = window.location.pathname.split("/SharedPost/");
-      let postId = pathParts[1] ? pathParts[1].split("/")[0] : null;
+      const postId = pathParts[1] ? pathParts[1].split("/")[0] : null;
 
       if (postId) {
-        // Redirect to the canonical query parameter format
         window.location.replace(
           `/SharedPost/index.html?postId=${encodeURIComponent(postId)}`
         );
@@ -17,6 +16,6 @@
     </script>
   </head>
   <body>
-    Redirecting...
+    <!-- Empty body ensures nothing shows during redirect -->
   </body>
 </html>
