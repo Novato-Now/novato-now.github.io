@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      // Extract postId from path
+      const postId = window.location.pathname
+        .split("/SharedPost/")[1]
+        ?.split("/")[0];
+
+      if (postId) {
+        // Redirect to your index.html with hash or query param
+        window.location.href = `./SharedPost/index.html?postId=${postId}`;
+      } else {
+        // Fallback to your main site
+        window.location.href = "https://zoneup.in";
+      }
+    </script>
+  </head>
+  <body>
+    Redirecting...
+  </body>
+</html>

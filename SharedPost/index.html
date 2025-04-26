@@ -5,32 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="text/javascript">
       function handleRedirect() {
-        // Platform detection
-        const isAndroid = /Android/i.test(navigator.userAgent);
-        const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-
-        // Extract postId from both formats:
-        // 1. Path format: /SharedPost/{postId}
-        // 2. Query format: /SharedPost?postId={postId} (backward compatibility)
         let postId = window.location.pathname.split("/SharedPost/")[1];
-
+        // If not found in path, try query parameter
         if (!postId) {
-          // Fallback to query parameter if path format not found
-          const urlParams = new URLSearchParams(window.location.search);
-          postId = urlParams.get("postId");
-        }
-
-        // Clean up postId (remove any trailing slashes or parameters)
-        if (postId) {
-          postId = postId.split("/")[0].split("?")[0];
+          postId = new URLSearchParams(window.location.search).get("postId");
         }
 
         if (!postId) {
-          // If no postId found, redirect to homepage or show error
           window.location.href = "https://zoneup.in";
           return;
         }
 
+        // Clean postId
+        postId = postId.split("/")[0].split("?")[0].split("#")[0];
+
+        const isAndroid = /Android/i.test(navigator.userAgent);
+        const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
         // App links (UNCHANGED)
         const appDeepLink = `zoneup://SharedPost/${postId}`;
 
@@ -48,6 +38,8 @@
             window.location.href = playStoreUrl;
           } else if (isIOS) {
             window.location.href = appStoreUrl;
+          } else {
+            window.location.href = "https://zoneup.in";
           }
         }, 800);
       }
