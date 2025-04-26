@@ -3,51 +3,39 @@
   <head>
     <title>Open in ZoneUp App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script type="text/javascript">
-      function handleRedirect() {
-        let postId = window.location.pathname.split("/SharedPost/")[1];
-        // If not found in path, try query parameter
-        if (!postId) {
-          postId = new URLSearchParams(window.location.search).get("postId");
-        }
+    <script>
+      // Get postId ONLY from query parameter (404.html ensures this exists)
+      const urlParams = new URLSearchParams(window.location.search);
+      const postId = urlParams.get("postId");
 
-        if (!postId) {
-          window.location.href = "https://zoneup.in";
-          return;
-        }
-
-        // Clean postId
-        postId = postId.split("/")[0].split("?")[0].split("#")[0];
-
-        const isAndroid = /Android/i.test(navigator.userAgent);
-        const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-        // App links (UNCHANGED)
-        const appDeepLink = `zoneup://SharedPost/${postId}`;
-
-        // Tinder store links (KEPT AS-IS)
-        const playStoreUrl =
-          "https://play.google.com/store/apps/details?id=com.tinder";
-        const appStoreUrl = "https://apps.apple.com/app/tinder/id547702041";
-
-        // Attempt to open the app (UNCHANGED)
-        window.location.href = appDeepLink;
-
-        // Fallback after delay (UNCHANGED)
-        setTimeout(() => {
-          if (isAndroid) {
-            window.location.href = playStoreUrl;
-          } else if (isIOS) {
-            window.location.href = appStoreUrl;
-          } else {
-            window.location.href = "https://zoneup.in";
-          }
-        }, 800);
+      if (!postId) {
+        window.location.replace("https://zoneup.in");
+        return;
       }
 
-      window.onload = handleRedirect;
+      const isAndroid = /Android/i.test(navigator.userAgent);
+      const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+      const appDeepLink = `zoneup://SharedPost/${postId}`;
+
+      // UPDATE THESE TO YOUR ACTUAL APP LINKS:
+      const playStoreUrl =
+        "https://play.google.com/store/apps/details?id=com.tinder";
+      const appStoreUrl = "https://apps.apple.com/app/tinder/id547702041";
+
+      // Try to open app
+      window.location.href = appDeepLink;
+
+      // Fallback after delay
+      setTimeout(() => {
+        window.location.href = isAndroid
+          ? playStoreUrl
+          : isIOS
+          ? appStoreUrl
+          : "https://zoneup.in";
+      }, 800);
     </script>
   </head>
   <body>
-    <!-- No content displayed if the app is not installed -->
+    Redirecting to app...
   </body>
 </html>
