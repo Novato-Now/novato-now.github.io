@@ -34,10 +34,50 @@
         </header>
         <section class="hero">
             <div class="contact-section " style="margin-bottom: 90px;">
-                <h1 class="section-heading mb-32">
+                <h1 class="section-heading mb-64">
                     Get in Touch
                 </h1>
-                <div class="flex-row">
+                <div class="flex-col margin-btm" style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-top: 40px;">
+    
+                    <!-- Mail Icon -->
+                    <div class="icon" style="display: flex; justify-content: center;">
+                        <img src="Assets/forward_5836127.png" alt="Mail Icon"
+                            style="width: 70px; height: 70px;" />
+                    </div>
+                
+                    <!-- Mail Us Button -->
+                    <div class="black-text" style="text-align: center;outline: none;">
+                        <button 
+                            onclick="openGmailCompose()" 
+                            style="
+                                background-color: #273d48;
+                                color: white;
+                                border: none;
+                                padding: 12px 24px;
+                                font-size: 16px;
+                                font-weight: 500;
+                                border-radius: 8px;
+                                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                                cursor: pointer;
+                                transition: background-color 0.9s ease;
+                            "
+                            onmouseover="this.style.backgroundColor='#51778a'"
+                            onmouseout="this.style.backgroundColor='#273d48'"
+                        >
+                            Mail Us
+                        </button>
+                    </div>
+                
+                    <!-- Privacy Text -->
+                    <div style="text-align: center; color: #555; font-size: 14px; max-width: 300px; line-height: 1.5;margin-top:18px;              ">
+                        Don’t worry. We respect your privacy.<br />
+                        If anything, reach out to us.
+                    </div>
+                </div>
+                
+              
+                
+                <!-- <div class="flex-row">
                     <div class="flex-col contact-content">
                         <h3 class="contact-heading">Leave us a message</h3>
                         <input type="text" id="name" placeholder="Full Name" class="form-input" onblur="validateName()"
@@ -87,7 +127,7 @@
                                 referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             </div>
 
@@ -96,6 +136,15 @@
     </main>
 
     <div id="footer-placeholder"></div>
+    <script>
+        function openGmailCompose() {
+            const to = "support@zoneup.in";
+            const subject = encodeURIComponent("Support Request");
+            const body = encodeURIComponent("Hi Team,\n\n");
+            const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${to}&su=${subject}&body=${body}`;
+            window.open(gmailUrl, '_blank');
+        }
+    </script>
     <script src="Js/main.js"></script>
 </body>
 

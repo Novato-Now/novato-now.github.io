@@ -13,6 +13,34 @@
     font-family: 'Lato','San-serif';
 }
 
+
+
+ /*header */
+ .navigation li a {
+    display: inline-block;
+    padding: 0px 14px;
+    color: var(--color-black);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 4px solid transparent;
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+    border-radius: 2px;
+}
+
+.navigation li a:hover {
+    background-color: rgba(0, 0, 0, 0.05); /* subtle gray background */
+    color: var(--color-black);
+    /* No color change */
+}
+
+.navigation li a.active {
+    border-bottom: 4px solid #000; /* Black underline for active item */
+    font-weight: 600;
+    background-color: transparent; /* Ensure no background change on active */
+}
+
+
+
 /* Footer Styles  */
 .img_logo_header {
     width: 132px;

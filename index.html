@@ -30,8 +30,9 @@
       </div>
     </header>
     <section class="hero">
-      <div class="container1 hero-container1">
-        <div class="hero-text">
+      <div class="container1 hero-container1" style="margin-bottom:48px;margin-top: 48px;display:flex;justify-content: space-between;">
+      
+        <div class="hero-text" style="padding: 48px;" >
           <h1>
             Start from your neighborhood and connect beyond!
           </h1>
@@ -43,9 +44,77 @@
           </p>
           <button class="btn"><a href="#get-the-app" class="get-the-app">Download the App Now !</a></button>
         </div>
-        <img class="hero-img" src="Assets/homeBanner.png" alt="" />
+        <!-- <iNEW IMAGE ADD HERE   alt=""new -->
+        <img src="./Assets/topHero.png" alt="Workflow" class="fourstepsection-img" style="width: 550px; height: 550px;" />
       </div>
-      <div class="four-steps-section " style="margin-bottom: 84px;margin-top: 84px;">
+      </div>
+     
+     
+      
+      <!-- Your Content Section Below -->
+      <div class="four-steps-section" style="margin-bottom:-48px;">
+        <p class="availability">
+          <b>3 steps</b> to simplify our application workflow.
+        </p>
+        <!-- <div class="flex-row"> -->
+          <!-- <div class="flex-col text-content"> -->
+            <div class="carousel-container">
+              <div class="carousel-slide">
+                <img id="carousel-image" src="" alt="Carousel Image" style="object-fit: cover;width: 400px;height: 400px; "/>
+                <!-- <div class="step-title" id="carousel-title"></div>
+                <div class="step-description" id="carousel-desc"></div> -->
+                <div class="dots" id="dots-container" style="margin-bottom: 24px;"></div>
+                <div class="step " style="background-color: whitesmoke;padding:36px 24px; opacity: 0.7;z-index: -1;">
+                  <img src="" alt="logo" class="icon-size" />
+                  <b class="boldy step-title" id="carousel-title" style="text-align: center" ></b>
+                  <p class="a mt-2 step-description" id="carousel-desc" style="text-align: center" >
+                    
+                  </p>
+                </div>
+              </div>
+              
+            <!-- </div> -->
+          <!-- </div> -->
+        </div>
+      </div>
+
+      <!-- <div class="four-steps-section" style="margin: 84px 0;">
+        <h1 class="section-heading mb-40">
+          <b>3 steps</b> to simplify our application workflow.
+        </h1>
+        <div class="flex-row">
+          <div class="flex-col text-content">
+            <div class="step">
+              <img src="Assets/fourstep2.svg" alt="Burn Posts" class="icon-size" />
+              <b class="boldy">Stay connected with people around you, not just your followers.</b>
+              <p class="a mt-2">
+                Discover what's happening in your neighborhood, meet new people nearby, connect with your followers, and
+                engage with your local community effortlessly!
+              </p>
+            </div>
+            <div class="step">
+              <img src="Assets/fourstep1.svg" alt="Customized Sharing" class="icon-size" />
+              <b class="boldy">Customize your posts for the audience you want.</b>
+              <p class="a mt-2">
+                Customize your posts by selecting language and interests, ensuring they'll appear first for users who
+                share the same preferences. Connect with those who truly relate to your content!
+              </p>
+            </div>
+            <div class="step">
+              <img src="Assets/fourstep3.svg" alt="Real-Time Updates" class="icon-size" />
+              <b class="boldy">Your audience, Your choice.</b>
+              <p class="a mt-2">
+                You have the power to tailor your posts so they reach the people you want. With customized options, you
+                can be sure your content gets seen by the right audience.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      
+      
+      
+      <!-- <div class="four-steps-section " style="margin-bottom: 84px;margin-top: 84px;">
         <h1 class="section-heading mb-40">
           <b>3 steps</b> to simplify our application workflow.
         </h1>
@@ -77,14 +146,13 @@
             </div>
 
           </div>
-          <div class="flex-col image-content">
-            <img src="./Assets/bg-image.png" alt="Workflow" class="fourstepsection-img" />
-          </div>
+          
         </div>
-      </div>
+      </div> -->
       <div class="four-steps-section " style="margin-bottom: 84px;">
-        <p class="availability mb-40">Understand key ideas quickly</p>
-        <div class="flex-container margin-btm">
+        <p class="availability" style="margin-bottom: 24px;">Understand key ideas quickly</p>
+        <div style="padding: 40px;">
+        <div class="flex-container margin-btm mt-3" style="">
           <div class="flex-item">
             <img src="./Assets/U1.svg" alt="img" class="icon-size" />
             <b class="boldy">Your Neighborhood, in Your Hand!</b>
@@ -130,6 +198,8 @@
               generating your feed.
             </p>
           </div>
+        </div>
+        
         </div>
       </div>
 
@@ -238,6 +308,75 @@
 
 
   <div id="footer-placeholder"></div>
+  <script>
+    const steps = [
+      {
+        logo:"Assets/fourstep2.svg",
+        image: "Assets/caro-1.png",
+        title: "Stay connected with people around you, not just your followers.",
+        description: "Discover what's happening in your neighborhood, meet new people nearby, connect with your followers, and engage with your local community effortlessly"
+      },
+      {
+        logo:"Assets/fourstep1.svg",
+        image: "Assets/caro-2.png",
+        title: "Customize your posts for the audience you want.",
+        description: "Customize your posts by selecting language and interests, ensuring they'll appear first for users who share the same preferences. Connect with those who truly relate to your content!"
+      },
+      {
+        logo:"Assets/fourstep3.svg",
+        image: "Assets/caro-3.png",
+        title: "Your audience, Your choice.",
+        description: "You have the power to tailor your posts so they reach the people you want. With customized options, you can be sure your content gets seen by the right audience."
+      }
+    ];
+  
+    let current = 0;
+    const img = document.getElementById("carousel-image");
+    const title = document.getElementById("carousel-title");
+    const desc = document.getElementById("carousel-desc");
+    const icon = document.querySelector(".icon-size");
+
+    const dotsContainer = document.getElementById("dots-container");
+  
+    function renderSlide(index) {
+      const step = steps[index];
+      img.src = step.image;
+      icon.src=step.logo;
+      title.innerText = step.title;
+      desc.innerText = step.description;
+  
+      document.querySelectorAll(".dot").forEach((dot, idx) => {
+        dot.classList.toggle("active", idx === index);
+      });
+    }
+  
+    function createDots() {
+      steps.forEach((_, idx) => {
+        const dot = document.createElement("span");
+        dot.classList.add("dot");
+        dot.addEventListener("click", () => {
+          current = idx;
+          renderSlide(current);
+        });
+        dotsContainer.appendChild(dot);
+      });
+    }
+  
+    function startAutoSlide() {
+      setInterval(() => {
+        current = (current + 1) % steps.length;
+        renderSlide(current);
+      }, 4000);
+    }
+  
+    // Initialize
+    createDots();
+    renderSlide(current);
+    startAutoSlide();
+  </script>
+    
+    
+    
   <script src="Js/main.js"></script>
 </body>
 

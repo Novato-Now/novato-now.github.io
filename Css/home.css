@@ -65,6 +65,50 @@ section {
     width: auto;
   }
 }
+/* Carousel Styles */
+.carousel-container {
+  max-width: 800px;
+  margin: 100px auto;
+  text-align: center;
+}
+
+.carousel-slide img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.step-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 12px 0 6px;
+}
+
+.step-description {
+  color: #444;
+  font-size: 16px;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.dots {
+  margin-top: 20px;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 6px;
+  background-color: #ccc;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #284d80;
+}
+
 
 .navigation {
   display: flex;

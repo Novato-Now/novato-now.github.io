@@ -1,3 +1,5 @@
+
+
 // Footer component
 fetch('footer.html')
   .then(response => response.text())
