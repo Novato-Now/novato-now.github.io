@@ -8,6 +8,15 @@
   <link rel="stylesheet" href="Css/home.css" />
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
   <link rel="icon" type="image/x-icon" href="./Assets/logo.png" />
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+/>
+    <!-- Boxicons CSS -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
   <script defer src="myscript.js"></script>
 </head>
 
@@ -18,6 +27,8 @@
         <a href="index.html">
           <img src="Assets/logo footer.png" alt="Logo" class="logo" />
         </a>
+       
+        
         <ul class="navigation">
           <li><a href="#" class="active">Home</a></li>
           <li><a href="contact.html">Contact Us</a></li>
@@ -52,30 +63,63 @@
      
       
       <!-- Your Content Section Below -->
-      <div class="four-steps-section" style="margin-bottom:-48px;">
+      <div class="four-steps-section mb-60" >
         <p class="availability">
           <b>3 steps</b> to simplify our application workflow.
         </p>
-        <!-- <div class="flex-row"> -->
-          <!-- <div class="flex-col text-content"> -->
-            <div class="carousel-container">
-              <div class="carousel-slide">
-                <img id="carousel-image" src="" alt="Carousel Image" style="object-fit: cover;width: 400px;height: 400px; "/>
-                <!-- <div class="step-title" id="carousel-title"></div>
-                <div class="step-description" id="carousel-desc"></div> -->
-                <div class="dots" id="dots-container" style="margin-bottom: 24px;"></div>
-                <div class="step " style="background-color: whitesmoke;padding:36px 24px; opacity: 0.7;z-index: -1;">
-                  <img src="" alt="logo" class="icon-size" />
-                  <b class="boldy step-title" id="carousel-title" style="text-align: center" ></b>
-                  <p class="a mt-2 step-description" id="carousel-desc" style="text-align: center" >
-                    
-                  </p>
-                </div>
+        <section class="threestepcontainer">
+          <div class="testimonial swiper mySwiper">
+            <div class="testi-content swiper-wrapper">
+              <div class="slide swiper-slide">
+                <img
+                  src="Assets/caro-1.png"
+                  alt="User"
+                  class="image"
+                />
+                <span class="name">Stay connected with people around you, not just your followers.</span>
+                <p class="para">
+                    Discover what's happening in your neighborhood, meet new people nearby, connect with your followers, and engage with your local community effortlessly
+                </p>
+                
               </div>
-              
-            <!-- </div> -->
-          <!-- </div> -->
-        </div>
+    
+              <div class="slide swiper-slide">
+                <img
+                  src="Assets/caro-2.png"
+                  alt="User"
+                  class="image"
+                />
+                <span class="name">Customize your posts for the audience you want.
+                </span>
+                <p class="para">
+                    Customize your posts by selecting language and interests, ensuring they'll appear first for users who share the same preferences. Connect with those who truly relate to your content!
+                </p>
+                
+              </div>
+    
+              <div class="slide swiper-slide">
+                <img
+                  src="Assets/caro-3.png"
+                  alt="User"
+                  class="image"
+                />
+                <span class="name">Your audience, Your choice.</span>
+                <p class="para">
+                    You have the power to tailor your posts so they reach the people you want. With customized options, you can be sure your content gets seen by the right audience.
+                </p>
+              </div>
+            </div>
+    
+            <!-- Navigation arrows -->
+             <div class="arrowhide">
+
+          
+            <div style="color: #475367;" class="swiper-button-next "></div>
+            <div style="color: #475367;" class="swiper-button-prev"></div>
+          </div>
+          </div>
+        </section>
+        
       </div>
 
       <!-- <div class="four-steps-section" style="margin: 84px 0;">
@@ -374,8 +418,25 @@
     renderSlide(current);
     startAutoSlide();
   </script>
-    
-    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        grabCursor: true,
+        loop: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+
+
     
   <script src="Js/main.js"></script>
 </body>

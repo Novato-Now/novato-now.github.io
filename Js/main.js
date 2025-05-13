@@ -37,34 +37,7 @@ var acc = document.getElementsByClassName("accordion");
           }
         });
       }
-
-// Name validation
-function validateName() {
-    var name = document.getElementById('name').value.trim(); // Trim to remove extra spaces
-    var nameError = document.getElementById('nameError');
-    var nameRegex = /^[A-Za-z\s]+$/;
-  
-    if (!nameRegex.test(name)) {
-      nameError.textContent = "Please enter a valid name. Only letters and spaces are allowed.";
-      console.log('Invalid name entered');
-    } else {
-      nameError.textContent = '';
-    }
-  }
   
 
-// Email validation
-function validateEmail() {
-    var email = document.getElementById('email').value.trim(); // Trim to handle extra spaces
-    var emailError = document.getElementById('mailError');
-    var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|org|net|edu|gov)$/;
-  
-    if (!emailRegex.test(email)) {
-      emailError.textContent = "Please enter a valid email address. Ensure it ends with .com, .org, .net, .edu, or .gov.";
-    } else {
-      emailError.textContent = '';
-    }
-  }
-  
 
   
