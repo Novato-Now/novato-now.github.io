@@ -67,60 +67,33 @@
         <p class="availability">
           <b>3 steps</b> to simplify our application workflow.
         </p>
-        <section class="threestepcontainer">
-          <div class="testimonial swiper mySwiper">
-            <div class="testi-content swiper-wrapper">
-              <div class="slide swiper-slide">
-                <img
-                  src="Assets/caro-1.png"
-                  alt="User"
-                  class="image"
-                />
-                <span class="name">Stay connected with people around you, not just your followers.</span>
-                <p class="para">
-                    Discover what's happening in your neighborhood, meet new people nearby, connect with your followers, and engage with your local community effortlessly
-                </p>
-                
-              </div>
-    
-              <div class="slide swiper-slide">
-                <img
-                  src="Assets/caro-2.png"
-                  alt="User"
-                  class="image"
-                />
-                <span class="name">Customize your posts for the audience you want.
-                </span>
-                <p class="para">
-                    Customize your posts by selecting language and interests, ensuring they'll appear first for users who share the same preferences. Connect with those who truly relate to your content!
-                </p>
-                
-              </div>
-    
-              <div class="slide swiper-slide">
-                <img
-                  src="Assets/caro-3.png"
-                  alt="User"
-                  class="image"
-                />
-                <span class="name">Your audience, Your choice.</span>
-                <p class="para">
-                    You have the power to tailor your posts so they reach the people you want. With customized options, you can be sure your content gets seen by the right audience.
-                </p>
-              </div>
+        
+        
+        <div class="carousel-container">
+          <button class="nav-button nav-left">&#10094;</button>
+          <div class="carousel-track" id="carouselTrack">
+            <div class="carousel-item">
+              <img src="caro-1.png" alt="Slide 1" />
+              <h2>Stay connected with people around you, not just your followers.</h2>
+              <p>"Discover what's happening in your neighborhood, meet new people nearby, connect with your followers, and engage with your local community effortlessly."</p>
             </div>
-    
-            <!-- Navigation arrows -->
-             <div class="arrowhide">
-
-          
-            <div style="color: #475367;" class="swiper-button-next "></div>
-            <div style="color: #475367;" class="swiper-button-prev"></div>
+            <div class="carousel-item">
+              <img src="caro-2.png" alt="Slide 2" />
+              <h2>Customize your posts for the audience you want.</h2>
+              <p>"You have the power to tailor your posts so they reach the people you want. With customized options, you can be sure your content gets seen by the right audience."</p>
+            </div>
+            <div class="carousel-item">
+              <img src="caro-1.png" alt="Slide 3" />
+              <h2>Your audience, Your choice.</h2>
+              <p>"You have the power to tailor your posts so they reach the people you want. With customized options, you can be sure your content gets seen by the right audience."</p>
+            </div>
           </div>
-          </div>
-        </section>
+          <button class="nav-button nav-right">&#10095;</button>
+          <div class="dots" id="dots"></div>
+        </div>
         
       </div>
+      
 
       <!-- <div class="four-steps-section" style="margin: 84px 0;">
         <h1 class="section-heading mb-40">
@@ -194,9 +167,10 @@
         </div>
       </div> -->
       <div class="four-steps-section " style="margin-bottom: 84px;">
+        
         <p class="availability" style="margin-bottom: 24px;">Understand key ideas quickly</p>
         <div style="padding: 40px;">
-        <div class="flex-container margin-btm mt-3" style="">
+        <div class="flex-container margin-btm mt-3" >
           <div class="flex-item">
             <img src="./Assets/U1.svg" alt="img" class="icon-size" />
             <b class="boldy">Your Neighborhood, in Your Hand!</b>
@@ -351,7 +325,7 @@
 
 
 
-  <div id="footer-placeholder"></div>
+  <!-- <div id="footer-placeholder"></div>
   <script>
     const steps = [
       {
@@ -374,65 +348,89 @@
       }
     ];
   
-    let current = 0;
-    const img = document.getElementById("carousel-image");
-    const title = document.getElementById("carousel-title");
-    const desc = document.getElementById("carousel-desc");
-    const icon = document.querySelector(".icon-size");
-
-    const dotsContainer = document.getElementById("dots-container");
-  
-    function renderSlide(index) {
-      const step = steps[index];
-      img.src = step.image;
-      icon.src=step.logo;
-      title.innerText = step.title;
-      desc.innerText = step.description;
-  
-      document.querySelectorAll(".dot").forEach((dot, idx) => {
-        dot.classList.toggle("active", idx === index);
-      });
-    }
-  
-    function createDots() {
-      steps.forEach((_, idx) => {
-        const dot = document.createElement("span");
-        dot.classList.add("dot");
-        dot.addEventListener("click", () => {
-          current = idx;
-          renderSlide(current);
-        });
-        dotsContainer.appendChild(dot);
-      });
-    }
-  
-    function startAutoSlide() {
-      setInterval(() => {
-        current = (current + 1) % steps.length;
-        renderSlide(current);
-      }, 4000);
-    }
-  
-    // Initialize
-    createDots();
-    renderSlide(current);
-    startAutoSlide();
-  </script>
+   
+  </script> -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <!-- Initialize Swiper -->
     <script>
-      var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 1,
-        grabCursor: true,
-        loop: true,
-        autoplay: {
-          delay: 3000,
-          disableOnInteraction: false,
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
+      const track = document.getElementById('carouselTrack');
+      const dotsContainer = document.getElementById('dots');
+      const items = document.querySelectorAll('.carousel-item');
+      const totalItems = items.length;
+      let currentIndex = 0;
+    
+      // Create dots
+      for (let i = 0; i < totalItems; i++) {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        if (i === 0) dot.classList.add('active');
+        dot.dataset.index = i;
+        dotsContainer.appendChild(dot);
+        dot.addEventListener('click', () => goToSlide(i));
+      }
+    
+      function updateDots(index) {
+        document.querySelectorAll('.dot').forEach(dot => dot.classList.remove('active'));
+        document.querySelectorAll('.dot')[index].classList.add('active');
+      }
+    
+      function goToSlide(index) {
+        track.scrollTo({ left: index * track.offsetWidth, behavior: 'smooth' });
+        currentIndex = index;
+        updateDots(index);
+      }
+    
+      document.querySelector('.nav-left').addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+        goToSlide(currentIndex);
+      });
+    
+      document.querySelector('.nav-right').addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % totalItems;
+        goToSlide(currentIndex);
+      });
+    
+      // Auto-slide
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % totalItems;
+        goToSlide(currentIndex);
+      }, 5000);
+    
+      // Sync scroll with dot indicators
+      track.addEventListener('scroll', () => {
+        const index = Math.round(track.scrollLeft / track.offsetWidth);
+        if (index !== currentIndex) {
+          currentIndex = index;
+          updateDots(index);
+        }
+      });
+    
+      // Enable drag-to-scroll with mouse
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+    
+      track.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - track.offsetLeft;
+        scrollLeft = track.scrollLeft;
+        track.classList.add('active');
+      });
+    
+      track.addEventListener('mouseleave', () => {
+        isDown = false;
+      });
+    
+      track.addEventListener('mouseup', () => {
+        isDown = false;
+      });
+    
+      track.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - track.offsetLeft;
+        const walk = (x - startX) * 1.5; // scroll-fastness multiplier
+        track.scrollLeft = scrollLeft - walk;
       });
     </script>
 
