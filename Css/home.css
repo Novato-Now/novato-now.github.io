@@ -90,6 +90,7 @@ section {
 }
 
 .carousel-item {
+  display: block!important;
   flex: 0 0 100%;
   scroll-snap-align: start;
   text-align: center;
