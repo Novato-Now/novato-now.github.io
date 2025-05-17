@@ -65,6 +65,10 @@ section {
     width: auto;
   }
 }
+.parent {
+  display: flex;
+  justify-content: center;
+}
 .carousel-container {
   position: relative;
   width: 700px;
@@ -136,55 +140,6 @@ section {
 .dots {
   text-align: center;
   margin-top: 10px;
-}
-
-.dot {
-  display: inline-block;
-  height: 8px;
-  width: 8px;
-  margin: 5px;
-  background-color: #bbb;
-  border-radius: 50%;
-  transition: background-color 0.3s;
-  cursor: pointer;
-}
-
-.dot.active {
-  background-color: #333;
-}
-
-.carousel-track::-webkit-scrollbar {
-  display: none;
-}
-
-.carousel-track {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.nav-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 18px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  z-index: 2;
-  color: #333;
-  padding: 5px 10px;
-}
-
-.nav-left {
-  left: 0;
-}
-
-.nav-right {
-  right: 0;
-}
-
-.dots {
-  text-align: center;
 }
 
 .dot {
@@ -616,8 +571,9 @@ section {
 
 /* Four Steps Section */
 .four-steps-section {
-  
+  display: block;
   text-align: center;
+  
 }
 
 .section-heading {
