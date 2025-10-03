@@ -333,43 +333,49 @@ section {
 
 
 .hero-container1 {
-  height: calc(100vh - 10rem);
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  padding-top: 1rem;
+  min-height: calc(100vh - 10rem); /* take full screen minus header */
+  display: flex;
+  flex-direction: column;          /* stack hero-text and images vertically */
+  justify-content: center;         /* center vertically */
+  align-items: center;             /* center horizontally */
+  text-align: center;
+  padding: 2rem 1rem; 
 }
 
 .hero-text {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center; /* ✅ center children horizontally */
+  text-align: center;  /* ✅ center text inside */
 
   h1 {
-    font-size: 6.4rem;
+    font-size: 6rem;
     color: var(--gray2);
-    font-weight: 400;
+    font-weight: 800;
     line-height: 120%;
     animation: left-reveal .6s ease;
+    margin-bottom: 10px;
   }
 
   p {
     font-size: 1.6rem;
     color: var(--gray2);
     line-height: 27px;
-    margin-top: 3rem;
     margin-bottom: 4rem;
     animation: left-reveal .65s ease;
   }
 
   .btn {
-    width: fit-content;
+    margin-top: 18px;
+    width: 60%;
     font-size: 1.6rem;
     color: var(--white);
     border: none;
     cursor: pointer;
     padding-block: 1.2rem;
     padding-inline: 2.6rem;
-    border-radius: 0.8rem;
+    border-radius: 50px;
     background-image: var(--gradient);
     background-color: transparent;
     transition: filter .3s ease;
@@ -486,7 +492,9 @@ section {
   .heading-text {
     font-size: 48px;
   }
-
+.mb-24 {
+    margin-bottom: 24px;
+  }
   .mb-60 {
     margin-bottom: 40px;
   }
@@ -677,11 +685,95 @@ section {
 .availability {
   /* margin-top: 48px; */
 
-  font-size: 36px;
+  font-size: 48px;
   color: #475367;
   text-align: center;
 }
 
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* ✅ always 2 per row */
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.step-card {
+  border-radius: 1rem;
+  overflow: hidden; /* makes images follow rounded corners */
+  
+  transition: transform 0.3s ease;
+  
+}
+.step2 {
+  display: grid;
+  grid-template-rows: auto 1fr; /* first row = main img, second row = sub cards */
+  gap: 1rem;
+}
+.step-card:hover {
+  transform: translateY(-5px);
+}
+
+.top-img {
+  display: block;
+  width: 100%;
+  height: 550px;
+  /* object-fit: cover; */
+  border-radius: inherit;
+}
+.img-sub1 {
+  width: 100%;
+  height: auto;
+  border-radius: 0.8rem;
+  margin-bottom: 1rem; /* space between big image and sub-cards */
+  object-fit: cover;
+}
+
+/* Container for the two sub images */
+.sub-cards {
+   display: grid;
+  grid-template-columns: 1fr 1fr; /* two equal sub cards side by side */
+  gap: 1rem;
+}
+
+/* Smaller sub images */
+.img-sub2,
+.img-sub3 {
+  width: 100%;
+  height: auto;
+  border-radius: 0.8rem;
+  object-fit: cover;
+}
+
+/* Ensure both small cards take equal space */
+.sub-cards .step-card {
+  flex: 1;
+}
+
+.step2{
+display: grid;
+  grid-template-rows: auto 1fr; /* first row = main img, second row = sub cards */
+  gap: 1rem;
+}
+
+
+/* Responsive: stack on small screens */
+@media (max-width: 768px) {
+  .steps-grid {
+    grid-template-columns: 1fr; /* 1 per row on mobile */
+  }
+   .sub-cards {
+    flex-direction: column;
+  }
+
+  .img-sub1 {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.u-section{
+  margin: 0 98px;
+}
 .flex-container {
   display: flex;
   flex-wrap: wrap;
@@ -713,7 +805,9 @@ section {
 }
 
 
-
+.section-3{
+  background-color: #333;
+}
 .wrapper {
   max-width: 75%;
   margin: auto;
@@ -748,6 +842,93 @@ section {
   border-radius: 6px;
 }
 
+.accordion.active {
+   background-color: #f1f7f5;
+  border: none;
+  outline: none;
+  border-radius: 0px;
+
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+.pannel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  background-color: #f1f7f5;
+  padding: 0 16px; /* optional */
+}
+
+/* .pannel {
+    padding: 0 2rem 2.5rem 2rem;
+
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  background-color: #f1f7f5;
+  padding: 0 16px;
+
+  
+} */
+.accordion img.icon {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
+}
+
+.pannel p {
+  color: var(--gray2);
+  font-size: 15px;
+  line-height: 1.4;
+  border-radius: 6px;
+}
+
+.faq {
+  margin: 10px 0;
+}
+.accordion.active + .pannel {
+  border: none;
+  
+
+  outline: none;
+  /* border-radius: 6px; */
+  /* adjust as needed */
+  padding: 16px;
+}
+
+.accordion:focus {
+  background-color: #f1f7f5;
+  border: none;
+  outline: none;
+}
+.active,
+.accordion:hover {
+  background-color: #f1f7f5;
+  border: none;
+  outline: none;
+}
+/* .accordion {
+  background-color: white;
+  color: var(--gray2);
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  padding: 2rem 2.5rem;
+  border: none;
+  outline: none;
+  outline-style: none;
+  transition: 0.4s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
 .active1,
 .accordion:hover {
   background-color: #f1f7f5;
@@ -755,7 +936,7 @@ section {
   outline: none;
 }
 
-.accordion:focus {
+C.accordion:focus {
   background-color: #f1f7f5;
   border: none;
   outline: none;
@@ -768,6 +949,11 @@ section {
   background-color: #f1f7f5;
   display: none;
 
+}
+.accordion img.icon {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
 }
 
 .pannel p {
@@ -786,7 +972,7 @@ section {
   border: none;
   outline: none;
   border-radius: 6px;
-}
+} */
 
 .footer-above {
   display: flex;

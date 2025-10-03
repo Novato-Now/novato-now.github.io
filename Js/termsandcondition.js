@@ -119,126 +119,126 @@
   
     //Categories sidebar
   
-    document.addEventListener("DOMContentLoaded", function () {
-        const categories = [
-            {
-              heading: "Introduction",
-              subSections: []
-            },
-            {
-              heading: "Eligibility",
-              subSections: [
-              ]
-            },
-            {
-              heading: "User Account",
-              subSections: ["Account Creation","Account Security"
+    // document.addEventListener("DOMContentLoaded", function () {
+    //     const categories = [
+    //         {
+    //           heading: "Introduction",
+    //           subSections: []
+    //         },
+    //         {
+    //           heading: "Eligibility",
+    //           subSections: [
+    //           ]
+    //         },
+    //         {
+    //           heading: "User Account",
+    //           subSections: ["Account Creation","Account Security"
                
-              ]
-            },
-            {
-              heading: "User Conduct",
-              subSections: []
-            },
-            {
-              heading: "Content Ownership and Licenses",
-              subSections: ["Your Content","Our Content"]
-            },
-            {
-              heading: "Termination",
-              subSections: []
-            },
-            {
-              heading: "Disclaimers and Limitation of Liability",
-              subSections: ["Disclaimers","Limitation of Liability"]
-            },
-            {
-              heading: "Indemnification",
-              subSections: []
-            },
-            {
-              heading: "Governing Law",
-              subSections: []
-            },
-            {
-              heading: "Changes to These Terms",
-              subSections: []
-            },
-            {
-              heading: "Contact Us",
-              subSections: []
-            }
-          ];
+    //           ]
+    //         },
+    //         {
+    //           heading: "User Conduct",
+    //           subSections: []
+    //         },
+    //         {
+    //           heading: "Content Ownership and Licenses",
+    //           subSections: ["Your Content","Our Content"]
+    //         },
+    //         {
+    //           heading: "Termination",
+    //           subSections: []
+    //         },
+    //         {
+    //           heading: "Disclaimers and Limitation of Liability",
+    //           subSections: ["Disclaimers","Limitation of Liability"]
+    //         },
+    //         {
+    //           heading: "Indemnification",
+    //           subSections: []
+    //         },
+    //         {
+    //           heading: "Governing Law",
+    //           subSections: []
+    //         },
+    //         {
+    //           heading: "Changes to These Terms",
+    //           subSections: []
+    //         },
+    //         {
+    //           heading: "Contact Us",
+    //           subSections: []
+    //         }
+    //       ];
       
-        const categoryList = document.getElementById("category-list");
+    //     const categoryList = document.getElementById("category-list");
       
-        categories.forEach((category, index) => {
-          const li = document.createElement("li");
-          const a = document.createElement("a");
-          const span = document.createElement("span");
-          span.classList.add("text");
-          span.textContent = `${index + 1}. ${category.heading}`;
+    //     categories.forEach((category, index) => {
+    //       const li = document.createElement("li");
+    //       const a = document.createElement("a");
+    //       const span = document.createElement("span");
+    //       span.classList.add("text");
+    //       span.textContent = `${index + 1}. ${category.heading}`;
       
-          // Add the arrow image for sections with sub-sections
-          let arrowImg;
-          if (category.subSections.length > 0) {
-            arrowImg = document.createElement("img");
-            arrowImg.src = "Assets/arrow-down.svg"; // Initially pointing right
-            arrowImg.alt = "Expand/Collapse";
-            arrowImg.classList.add("arrow-img"); // Add a CSS class for styling
-          }
+    //       // Add the arrow image for sections with sub-sections
+    //       let arrowImg;
+    //       if (category.subSections.length > 0) {
+    //         arrowImg = document.createElement("img");
+    //         arrowImg.src = "Assets/arrow-down.svg"; // Initially pointing right
+    //         arrowImg.alt = "Expand/Collapse";
+    //         arrowImg.classList.add("arrow-img"); // Add a CSS class for styling
+    //       }
       
-          // Set the href for the main category link
-          a.href = `#section-${index + 1}`; // Link to section using the index
-          a.appendChild(span);
-          if (category.subSections.length > 0) {
-            a.appendChild(arrowImg); // Append the arrow at the end of the text
-          }
+    //       // Set the href for the main category link
+    //       a.href = `#section-${index + 1}`; // Link to section using the index
+    //       a.appendChild(span);
+    //       if (category.subSections.length > 0) {
+    //         a.appendChild(arrowImg); // Append the arrow at the end of the text
+    //       }
       
-          // Create sub-menu for sections that have sub-sections
-          if (category.subSections.length > 0) {
-            const subMenu = document.createElement("ul");
-            subMenu.classList.add("sub-menu"); // Initially hidden via JS
+    //       // Create sub-menu for sections that have sub-sections
+    //       if (category.subSections.length > 0) {
+    //         const subMenu = document.createElement("ul");
+    //         subMenu.classList.add("sub-menu"); // Initially hidden via JS
       
-            // Apply custom styles to the sub-menu
-            subMenu.style.display = "none"; // Hide the sub-menu initially
-            subMenu.style.marginLeft = "20px";
-            subMenu.style.paddingLeft = "20px";
-            subMenu.style.paddingTop = "5px";
-            subMenu.style.borderLeft = "1px solid #f6f6f6";
-            subMenu.style.fontSize = "14px"; // Custom font size for sub-menu items
+    //         // Apply custom styles to the sub-menu
+    //         subMenu.style.display = "none"; // Hide the sub-menu initially
+    //         subMenu.style.marginLeft = "20px";
+    //         subMenu.style.paddingLeft = "20px";
+    //         subMenu.style.paddingTop = "5px";
+    //         subMenu.style.borderLeft = "1px solid #f6f6f6";
+    //         subMenu.style.fontSize = "14px"; // Custom font size for sub-menu items
       
-            category.subSections.forEach((subSection, subIndex) => {
-              const subLi = document.createElement("li");
-              const subA = document.createElement("a");
+    //         category.subSections.forEach((subSection, subIndex) => {
+    //           const subLi = document.createElement("li");
+    //           const subA = document.createElement("a");
       
-              subA.href = `#sub-section-${index + 1}-${subIndex + 1}`; // Link to sub-section using the section and sub-section index
-              subA.innerHTML = `<span class="text">${subSection}</span>`;
-              subLi.appendChild(subA);
-              subMenu.appendChild(subLi);
-            });
+    //           subA.href = `#sub-section-${index + 1}-${subIndex + 1}`; // Link to sub-section using the section and sub-section index
+    //           subA.innerHTML = `<span class="text">${subSection}</span>`;
+    //           subLi.appendChild(subA);
+    //           subMenu.appendChild(subLi);
+    //         });
       
-            li.appendChild(a);
-            li.appendChild(subMenu);
-            categoryList.appendChild(li);
+    //         li.appendChild(a);
+    //         li.appendChild(subMenu);
+    //         categoryList.appendChild(li);
       
-            // Add click event to toggle sub-menu visibility
-            a.addEventListener("click", function (event) {
-              event.preventDefault(); // Prevent default anchor behavior
-              if (subMenu.style.display === "none") {
-                subMenu.style.display = "block"; // Show the sub-menu
-                arrowImg.src = "Assets/arrow-up.svg"; // Change image to up arrow
-              } else {
-                subMenu.style.display = "none"; // Hide the sub-menu
-                arrowImg.src = "Assets/arrow-down.svg"; // Change image to down arrow
-              }
-            });
-          } else {
-            li.appendChild(a);
-            categoryList.appendChild(li);
-          }
-        });
-      });
+    //         // Add click event to toggle sub-menu visibility
+    //         a.addEventListener("click", function (event) {
+    //           event.preventDefault(); // Prevent default anchor behavior
+    //           if (subMenu.style.display === "none") {
+    //             subMenu.style.display = "block"; // Show the sub-menu
+    //             arrowImg.src = "Assets/arrow-up.svg"; // Change image to up arrow
+    //           } else {
+    //             subMenu.style.display = "none"; // Hide the sub-menu
+    //             arrowImg.src = "Assets/arrow-down.svg"; // Change image to down arrow
+    //           }
+    //         });
+    //       } else {
+    //         li.appendChild(a);
+    //         categoryList.appendChild(li);
+    //       }
+    //     });
+    //   });
       
       
 
@@ -262,100 +262,100 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* Search bar script */
 // Function to create a search bar
-function createSearchBar(container, data) {
-    const searchBarHTML = `
-      <div class="search-bar mb-3">
-        <input
-          type="text"
-          placeholder="Type something..."
-          class="search-input"
-        />
-        <img class="search-icon" src="Assets/search.png" alt="search" />
-        <div class="dropdown"></div>
-      </div>
-    `;
+// function createSearchBar(container, data) {
+//     const searchBarHTML = `
+//       <div class="search-bar mb-3">
+//         <input
+//           type="text"
+//           placeholder="Type something..."
+//           class="search-input"
+//         />
+//         <img class="search-icon" src="Assets/search.png" alt="search" />
+//         <div class="dropdown"></div>
+//       </div>
+//     `;
   
-    container.innerHTML = searchBarHTML;
+//     container.innerHTML = searchBarHTML;
   
-    // Populate the dropdown with data from the privacy-policy.json file
-    const dropdown = container.querySelector(".dropdown");
+//     // Populate the dropdown with data from the privacy-policy.json file
+//     const dropdown = container.querySelector(".dropdown");
   
-    // Helper function to process and add content
-    function addContentToDropdown(sectionId, content, prefix = "") {
-      content.forEach((item, contentIndex) => {
-        if (item.type === "paragraph") {
-          const paragraphAnchor = document.createElement("a");
-          paragraphAnchor.href = `#${sectionId}-paragraph-${contentIndex + 1}`; 
-          paragraphAnchor.textContent = `${prefix}${item.text.substring(0, 50)}...`; // Display first 50 characters
-          dropdown.appendChild(paragraphAnchor);
-        } else if (item.type === "bullet") {
-          item.items.forEach((bullet, bulletIndex) => {
-            const bulletAnchor = document.createElement("a");
-            bulletAnchor.href = `#${sectionId}-bullet-${bulletIndex + 1}`;
-            bulletAnchor.textContent = `${prefix}${bullet.heading}`;
-            dropdown.appendChild(bulletAnchor);
-          });
-        }
-      });
-    }
+//     // Helper function to process and add content
+//     function addContentToDropdown(sectionId, content, prefix = "") {
+//       content.forEach((item, contentIndex) => {
+//         if (item.type === "paragraph") {
+//           const paragraphAnchor = document.createElement("a");
+//           paragraphAnchor.href = `#${sectionId}-paragraph-${contentIndex + 1}`; 
+//           paragraphAnchor.textContent = `${prefix}${item.text.substring(0, 50)}...`; // Display first 50 characters
+//           dropdown.appendChild(paragraphAnchor);
+//         } else if (item.type === "bullet") {
+//           item.items.forEach((bullet, bulletIndex) => {
+//             const bulletAnchor = document.createElement("a");
+//             bulletAnchor.href = `#${sectionId}-bullet-${bulletIndex + 1}`;
+//             bulletAnchor.textContent = `${prefix}${bullet.heading}`;
+//             dropdown.appendChild(bulletAnchor);
+//           });
+//         }
+//       });
+//     }
   
-    data.sections.forEach((section, sectionIndex) => {
-      const sectionId = `section-${sectionIndex + 1}`;
+//     data.sections.forEach((section, sectionIndex) => {
+//       const sectionId = `section-${sectionIndex + 1}`;
   
-      // Add section heading
-      const sectionAnchor = document.createElement("a");
-      sectionAnchor.href = `#${sectionId}`;
-      sectionAnchor.textContent = section.heading;
-      dropdown.appendChild(sectionAnchor);
+//       // Add section heading
+//       const sectionAnchor = document.createElement("a");
+//       sectionAnchor.href = `#${sectionId}`;
+//       sectionAnchor.textContent = section.heading;
+//       dropdown.appendChild(sectionAnchor);
   
-      // Add section content
-      if (section.content) {
-        addContentToDropdown(sectionId, section.content);
-      }
+//       // Add section content
+//       if (section.content) {
+//         addContentToDropdown(sectionId, section.content);
+//       }
   
-      // Add subsections
-      if (section.subSections) {
-        section.subSections.forEach((subSection, subSectionIndex) => {
-          const subSectionId = `${sectionId}-sub-${subSectionIndex + 1}`;
-          const subSectionAnchor = document.createElement("a");
-          subSectionAnchor.href = `#${subSectionId}`;
-          subSectionAnchor.textContent = `${section.heading} - ${subSection.subHeading}`;
-          dropdown.appendChild(subSectionAnchor);
+//       // Add subsections
+//       if (section.subSections) {
+//         section.subSections.forEach((subSection, subSectionIndex) => {
+//           const subSectionId = `${sectionId}-sub-${subSectionIndex + 1}`;
+//           const subSectionAnchor = document.createElement("a");
+//           subSectionAnchor.href = `#${subSectionId}`;
+//           subSectionAnchor.textContent = `${section.heading} - ${subSection.subHeading}`;
+//           dropdown.appendChild(subSectionAnchor);
   
-          // Add subsection content
-          if (subSection.content) {
-            addContentToDropdown(subSectionId, subSection.content, `${subSection.subHeading}: `);
-          }
-        });
-      }
-    });
+//           // Add subsection content
+//           if (subSection.content) {
+//             addContentToDropdown(subSectionId, subSection.content, `${subSection.subHeading}: `);
+//           }
+//         });
+//       }
+//     });
   
-    // Attach event listeners for functionality
-    const searchInput = container.querySelector(".search-input");
-    const links = dropdown.getElementsByTagName("a");
+//     // Attach event listeners for functionality
+//     const searchInput = container.querySelector(".search-input");
+//     const links = dropdown.getElementsByTagName("a");
   
-    searchInput.addEventListener("input", () => {
-      const filter = searchInput.value.toLowerCase();
-      let hasResults = false;
+//     searchInput.addEventListener("input", () => {
+//       const filter = searchInput.value.toLowerCase();
+//       let hasResults = false;
   
-      for (let link of links) {
-        const text = link.textContent.toLowerCase();
-        if (text.includes(filter)) {
-          link.style.display = "block";
-          hasResults = true;
-        } else {
-          link.style.display = "none";
-        }
-      }
+//       for (let link of links) {
+//         const text = link.textContent.toLowerCase();
+//         if (text.includes(filter)) {
+//           link.style.display = "block";
+//           hasResults = true;
+//         } else {
+//           link.style.display = "none";
+//         }
+//       }
   
-      dropdown.style.display = hasResults ? "flex" : "none";
-    });
+//       dropdown.style.display = hasResults ? "flex" : "none";
+//     });
   
-    document.addEventListener("click", (e) => {
-      if (!e.target.closest(".search-bar")) {
-        dropdown.style.display = "none";
-      }
-    });
-  }
+//     document.addEventListener("click", (e) => {
+//       if (!e.target.closest(".search-bar")) {
+//         dropdown.style.display = "none";
+//       }
+//     });
+//   }
   
   

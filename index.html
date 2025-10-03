@@ -9,14 +9,14 @@
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
   <link rel="icon" type="image/x-icon" href="./Assets/logo.png" />
   <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
-/>
-    <!-- Boxicons CSS -->
-    <link
-      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
-      rel="stylesheet"
-    />
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+  />
+  <!-- Boxicons CSS -->
+  <link
+    href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+    rel="stylesheet"
+  />
   <script defer src="myscript.js"></script>
 </head>
 
@@ -27,12 +27,12 @@
         <a href="index.html">
           <img src="Assets/logo footer.png" alt="Logo" class="logo" />
         </a>
-       
-        
         <ul class="navigation">
-          <li><a href="#" class="active">Home</a></li>
+          <!-- <li><a href="#" class="active">Home</a></li> -->
           <li><a href="contact.html">Contact Us</a></li>
-          <button class="nav-btn"><a href="#get-the-app" class="get-the-app">Get the App</a></button>
+          <button class="nav-btn" style="border-radius: 48px;">
+            <a href="#get-the-app" class="get-the-app">Get the App</a>
+          </button>
         </ul>
         <button class="nav-toggle">
           <img src="Assets/menu.png" alt="" />
@@ -40,197 +40,70 @@
         </button>
       </div>
     </header>
+
     <section class="hero">
       <div class="container1 hero-container1" style="margin-bottom:48px;margin-top: 48px;display:flex;justify-content: space-between;">
-      
-        <div class="hero-text" style="padding: 48px;" >
-          <h1>
-            Start from your neighborhood and connect beyond!
-          </h1>
-          <p>
-            This social app helps you build connections wherever you are, or from any location you choose. Use it for
-            planning gatherings, organizing events, forming gaming squads, or connecting with local services like
-            plumbers and electricians. Whether you're planning a weekend outing, a function, or just sharing great
-            places to eat, this app makes it easy to connect, organize, and get things done!
-          </p>
-          <button class="btn"><a href="#get-the-app" class="get-the-app">Download the App Now !</a></button>
+        <div class="hero-text" style="padding: 48px;font-weight: 900;" >
+          <h1>Where</h1>
+          <h1>neighbours</h1>
+          <h1>become friends</h1>
+          <button class="btn">
+            <a href="#get-the-app" class="get-the-app">Download the App Now !</a>
+          </button>
+          <img src="./Assets/Section 03.svg" alt="Workflow" class="fourstepsection-img" style="width: 1000px; height: 1000px;" />
         </div>
-        <!-- <iNEW IMAGE ADD HERE   alt=""new -->
-        <img src="./Assets/topHero.png" alt="Workflow" class="fourstepsection-img" style="width: 550px; height: 550px;" />
       </div>
-      </div>
-     
-     
-      
-      <!-- Your Content Section Below -->
+
+      <!-- Four Steps Section -->
       <div class="four-steps-section mb-60" >
-        <p class="availability">
-          <b>3 steps</b> to simplify our application workflow.
-        </p>
-        
-        <div class="parent">
-        <div class="carousel-container">
-          <button class="nav-button nav-left">&#10094;</button>
-          <div class="carousel-track" id="carouselTrack">
-            <div class="carousel-item">
-              <img src="Assets/caro-1.png" alt="Slide 1" />
-              <h2>Stay connected with people around you, not just your followers.</h2>
-              <p>"Discover what's happening in your neighborhood, meet new people nearby, connect with your followers, and engage with your local community effortlessly."</p>
-            </div>
-            <div class="carousel-item">
-              <img src="Assets/caro-2.png" alt="Slide 2" />
-              <h2>Customize your posts for the audience you want.</h2>
-              <p>"You have the power to tailor your posts so they reach the people you want. With customized options, you can be sure your content gets seen by the right audience."</p>
-            </div>
-            <div class="carousel-item">
-              <img src="Assets/caro-3.png" alt="Slide 3" />
-              <h2>Your audience, Your choice.</h2>
-              <p>"You have the power to tailor your posts so they reach the people you want. With customized options, you can be sure your content gets seen by the right audience."</p>
+        <h1 class="availability"><b>4 steps to simplify our app</b></h1>
+        <div class="steps-grid">
+          <!-- Step 1 -->
+          <div class="step-card step1">
+            <img src="./Assets/img14steps.svg" alt="Targeted Posts" class="step-img top-img">
+          </div>
+          <!-- Step 2 -->
+          <div class="step-card step2">
+            <img src="./Assets/img24steps.svg" alt="Engage the Audience" class="step-img img-sub1">
+            <div class="sub-cards">
+              <!-- Step 3 -->
+              <div class="step-card step3">
+                <img src="./Assets/img34steps.svg" alt="Connect & Grow" class="step-img img-sub2">
+              </div>
+              <!-- Step 4 -->
+              <div class="step-card step4">
+                <img src="./Assets/img44steps.svg" alt="Private Messaging" class="step-img img-sub3">
+              </div>
             </div>
           </div>
-          <button class="nav-button nav-right">&#10095;</button>
-          <div class="dots" id="dots"></div>
-        </div>
-      </div>
-        
-      </div>
-      
-
-      <!-- <div class="four-steps-section" style="margin: 84px 0;">
-        <h1 class="section-heading mb-40">
-          <b>3 steps</b> to simplify our application workflow.
-        </h1>
-        <div class="flex-row">
-          <div class="flex-col text-content">
-            <div class="step">
-              <img src="Assets/fourstep2.svg" alt="Burn Posts" class="icon-size" />
-              <b class="boldy">Stay connected with people around you, not just your followers.</b>
-              <p class="a mt-2">
-                Discover what's happening in your neighborhood, meet new people nearby, connect with your followers, and
-                engage with your local community effortlessly!
-              </p>
-            </div>
-            <div class="step">
-              <img src="Assets/fourstep1.svg" alt="Customized Sharing" class="icon-size" />
-              <b class="boldy">Customize your posts for the audience you want.</b>
-              <p class="a mt-2">
-                Customize your posts by selecting language and interests, ensuring they'll appear first for users who
-                share the same preferences. Connect with those who truly relate to your content!
-              </p>
-            </div>
-            <div class="step">
-              <img src="Assets/fourstep3.svg" alt="Real-Time Updates" class="icon-size" />
-              <b class="boldy">Your audience, Your choice.</b>
-              <p class="a mt-2">
-                You have the power to tailor your posts so they reach the people you want. With customized options, you
-                can be sure your content gets seen by the right audience.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div> -->
-      
-      
-      
-      <!-- <div class="four-steps-section " style="margin-bottom: 84px;margin-top: 84px;">
-        <h1 class="section-heading mb-40">
-          <b>3 steps</b> to simplify our application workflow.
-        </h1>
-        <div class="flex-row">
-          <div class="flex-col text-content">
-            <div class="step">
-              <img src="Assets/fourstep2.svg" alt="Burn Posts" class="icon-size" />
-              <b class="boldy">Stay connected with people around you, not just your followers.</b>
-              <p class="a mt-2">
-                Discover what's happening in your neighborhood, meet new people nearby, connect with your followers, and
-                engage with your local community effortlessly!
-              </p>
-            </div>
-            <div class="step">
-              <img src="Assets/fourstep1.svg" alt="Customized Sharing" class="icon-size" />
-              <b class="boldy">Customize your posts for the audience you want.</b>
-              <p class="a mt-2">
-                Customize your posts by selecting language and interests, ensuring they'll appear first for users who
-                share the same preferences. Connect with those who truly relate to your content!
-              </p>
-            </div>
-            <div class="step">
-              <img src="Assets/fourstep3.svg" alt="Real-Time Updates" class="icon-size" />
-              <b class="boldy">Your audience, Your choice.</b>
-              <p class="a mt-2">
-                you have the power to tailor your posts so they reach the people you want. With customized options, you
-                can be sure your content gets seen by the right audience.
-              </p>
-            </div>
-
-          </div>
-          
-        </div>
-      </div> -->
-      <div class="four-steps-section " style="margin-bottom: 84px;">
-        
-        <p class="availability" style="margin-bottom: 24px;">Understand key ideas quickly</p>
-        <div style="padding: 40px;">
-        <div class="flex-container margin-btm mt-3" >
-          <div class="flex-item">
-            <img src="./Assets/U1.svg" alt="img" class="icon-size" />
-            <b class="boldy">Your Neighborhood, in Your Hand!</b>
-            <p class="a">
-              Stay connected with posts that begin right from the region you live in.
-            </p>
-          </div>
-          <div class="flex-item">
-            <img src="./Assets/U2.svg" alt="img" class="icon-size" />
-            <b class="boldy">Reach the Right Audience</b>
-            <p class="a">
-              Share posts that connect with people based on their language, interests, and more.
-            </p>
-          </div>
-          <div class="flex-item">
-            <img src="./Assets/U3.svg" alt="img" class="icon-size" />
-            <b class="boldy">The Gender play</b>
-            <p class="a">
-              Create and share posts that speak only to your gender, whether it’s awareness, humor, or inspiration.
-            </p>
-          </div>
-        </div>
-        <div class="flex-container mt-3">
-          <div class="flex-item">
-            <img src="./Assets/U4.svg" alt="img" class="icon-size" />
-            <b class="boldy">Tick-Tock, It’s Gone</b>
-            <p class="a">
-              Post content that disappears after a set time, just like a burn post!
-            </p>
-          </div>
-          <div class="flex-item">
-            <img src="./Assets/U5.svg" alt="img" class="icon-size" />
-            <b class="boldy">Privacy First</b>
-            <p class="a">
-              Your privacy is our top priority, we never share your precise location.
-            </p>
-          </div>
-          <div class="flex-item">
-            <img src="./Assets/U6.svg" alt="img" class="icon-size" />
-            <b class="boldy">Customized Feed</b>
-            <p class="a">
-              Change your feed sorting by interest and language in settings. We consider these preferences while
-              generating your feed.
-            </p>
-          </div>
-        </div>
-        
         </div>
       </div>
 
+      <!-- Section 3 -->
+      <div class="four-steps-section section-3" style="margin-bottom: 84px;">
+        <p class="availability" style="margin-bottom: 24px;color: white;">Understand key ideas quickly</p>
+        <div class="u-section" style="padding: 40px;">
+          <div class="flex-container margin-btm mt-3" >
+            <div class="flex-item"><img src="./Assets/u1.svg" alt="img" /></div>
+            <div class="flex-item"><img src="./Assets/u2.svg" alt="img" /></div>
+            <div class="flex-item"><img src="./Assets/u3.svg" alt="img" /></div>
+          </div>
+          <div class="flex-container mt-3">
+            <div class="flex-item"><img src="./Assets/u4.svg" alt="img" /></div>
+            <div class="flex-item"><img src="./Assets/u5.svg" alt="img" /></div>
+            <div class="flex-item"><img src="./Assets/u6.svg" alt="img" /></div>
+          </div>
+        </div>
+      </div>
 
-
+      <!-- FAQ Section -->
       <div class="wrapper" style="margin-bottom: 84px;">
         <p style="margin-bottom: 60px;" class="availability ">Frequently asking questions</p>
 
         <div class="faq">
           <button class="accordion">
             Is Gender-Specific Content Visible to Everyone?
-            <img id="toggle1" src="Assets/arrow-down.svg">
+            <img id="toggle1" src="Assets/PlusFAQ.svg" class="icon">
           </button>
           <div class="pannel">
             <p>
@@ -245,7 +118,7 @@
         <div class="faq">
           <button class="accordion">
             Do Language and Interest-Based Posts Work Like Gender-Specific Posts?
-            <img src="Assets/arrow-down.svg">
+            <img src="Assets/PlusFAQ.svg" class="icon">
           </button>
           <div class="pannel">
             <p>
@@ -259,7 +132,7 @@
         <div class="faq">
           <button class="accordion">
             What’s the Deal with Burn Posts?
-            <img src="Assets/arrow-down.svg">
+            <img src="Assets/PlusFAQ.svg" class="icon">
           </button>
           <div class="pannel">
             <p>
@@ -272,7 +145,7 @@
         <div class="faq">
           <button class="accordion">
             How Can I Change the Location and See Posts There?
-            <img src="Assets/arrow-down.svg">
+            <img src="Assets/PlusFAQ.svg" class="icon">
           </button>
           <div class="pannel">
             <p>
@@ -285,7 +158,7 @@
         <div class="faq">
           <button class="accordion">
             Will I Only See Posts from the Location I Select?
-            <img src="Assets/arrow-down.svg">
+            <img src="Assets/PlusFAQ.svg" class="icon">
           </button>
           <div class="pannel">
             <p>
@@ -299,7 +172,7 @@
         <div class="faq">
           <button class="accordion">
             Can I Select Multiple Locations to Post?
-            <img src="Assets/arrow-down.svg">
+            <img src="Assets/PlusFAQ.svg" class="icon">
           </button>
           <div class="pannel">
             <p>
@@ -309,35 +182,57 @@
         </div>
       </div>
 
-
-
-
-      <div class="footer-above" style="margin-bottom: 84px;" id="get-the-app">
-        <p class="availability">
-          Building a more <b> connected society. </b>
-        </p>
-        <p class="Available">Available Soon!</p>
-        
-      </div>
+      <!-- Footer Section -->
       
     </section>
+
     <div id="footer-placeholder"></div>
   </main>
 
+  <!-- Accordion Script -->
+<script>
+  const accordions = document.querySelectorAll(".accordion");
+
+  accordions.forEach((accordion) => {
+    accordion.addEventListener("click", function () {
+      const panel = this.nextElementSibling;
+      const icon = this.querySelector(".icon");
+
+      // Toggle this accordion only
+      if (this.classList.contains("active")) {
+        // ---- Close itself ----
+        panel.style.maxHeight = "0";           // collapse panel
+        icon.src = "Assets/PlusFAQ.svg";  
+        this.classList.remove("active");       
+             // reset icon
+      } else {
+        // ---- Open itself ----
+         panel.style.maxHeight = panel.scrollHeight + "px";  // expand panel
+        icon.src = "Assets/MinusFAQ.svg";  
+        this.classList.add("active");                                
+                         // minus icon
+      }
+    });
+  });
+</script>
 
 
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <!-- Initialize Swiper -->
-    <script>
-      const track = document.getElementById('carouselTrack');
-      const dotsContainer = document.getElementById('dots');
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+  <!-- Carousel Script -->
+  <script>
+    const track = document.getElementById('carouselTrack');
+    const dotsContainer = document.getElementById('dots');
+    if (track && dotsContainer) {
       const items = document.querySelectorAll('.carousel-item');
       const totalItems = items.length;
       let currentIndex = 0;
-    
+
       // Create dots
       for (let i = 0; i < totalItems; i++) {
         const dot = document.createElement('span');
@@ -347,34 +242,34 @@
         dotsContainer.appendChild(dot);
         dot.addEventListener('click', () => goToSlide(i));
       }
-    
+
       function updateDots(index) {
         document.querySelectorAll('.dot').forEach(dot => dot.classList.remove('active'));
         document.querySelectorAll('.dot')[index].classList.add('active');
       }
-    
+
       function goToSlide(index) {
         track.scrollTo({ left: index * track.offsetWidth, behavior: 'smooth' });
         currentIndex = index;
         updateDots(index);
       }
-    
+
       document.querySelector('.nav-left').addEventListener('click', () => {
         currentIndex = (currentIndex - 1 + totalItems) % totalItems;
         goToSlide(currentIndex);
       });
-    
+
       document.querySelector('.nav-right').addEventListener('click', () => {
         currentIndex = (currentIndex + 1) % totalItems;
         goToSlide(currentIndex);
       });
-    
+
       // Auto-slide
       setInterval(() => {
         currentIndex = (currentIndex + 1) % totalItems;
         goToSlide(currentIndex);
       }, 5000);
-    
+
       // Sync scroll with dot indicators
       track.addEventListener('scroll', () => {
         const index = Math.round(track.scrollLeft / track.offsetWidth);
@@ -383,39 +278,37 @@
           updateDots(index);
         }
       });
-    
+
       // Enable drag-to-scroll with mouse
       let isDown = false;
       let startX;
       let scrollLeft;
-    
+
       track.addEventListener('mousedown', (e) => {
         isDown = true;
         startX = e.pageX - track.offsetLeft;
         scrollLeft = track.scrollLeft;
         track.classList.add('active');
       });
-    
+
       track.addEventListener('mouseleave', () => {
         isDown = false;
       });
-    
+
       track.addEventListener('mouseup', () => {
         isDown = false;
       });
-    
+
       track.addEventListener('mousemove', (e) => {
         if (!isDown) return;
         e.preventDefault();
         const x = e.pageX - track.offsetLeft;
-        const walk = (x - startX) * 1.5; // scroll-fastness multiplier
+        const walk = (x - startX) * 1.5;
         track.scrollLeft = scrollLeft - walk;
       });
-    </script>
+    }
+  </script>
 
-
-    
   <script src="Js/main.js"></script>
 </body>
-
 </html>
