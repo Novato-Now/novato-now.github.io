@@ -252,12 +252,12 @@
             background: white;
             /* your card stays white */
             box-shadow:
-                0 0 5px rgba(255, 255, 255, 0.9),
-                /* subtle outline */
-                0 10px 20px rgba(68, 255, 154, 0.5),
-                0 10px 20px rgba(68, 176, 255, 0.4),
-                0 10px 20px rgba(139, 68, 255, 0.3),
-                0 10px 60px rgba(255, 102, 68, 0.25);
+            0 0 0px rgba(255, 255, 262, 19.9),
+            /* subtle outline */
+            0 0px 20px rgba(68, 255, 154, 0.5),
+            0 10px 20px rgba(68, 176, 255, 0.4),
+            0 0px 0px rgba(139, 68, 255, 0.3),
+            0 0px 60px rgba(255, 102, 68, 0.25)
         }
 
 
@@ -318,6 +318,16 @@
     color: white; */
             transform: rotate(45deg);
         }
+        .buttons-view{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: start;
+            gap: 7px;
+        }
+        .contact-btn{
+            display: none;;
+        }
 
         
 
@@ -338,6 +348,35 @@
         }
 
         @media (max-width:768px) {
+            .step-image{
+                border-radius: 32px;
+            }
+            .carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-image: none; /* remove Bootstrap’s default SVG */
+  mask: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.5 0l-4 4 4 4z'/%3E%3C/svg%3E") no-repeat center;
+  -webkit-mask: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.5 0l-4 4 4 4z'/%3E%3C/svg%3E") no-repeat center;
+  background-color: white; /* color of the arrow */
+}
+            .contact{
+               margin-right: 1px;
+            }
+            .buttons-view{
+                
+                justify-content: center;
+                
+            }
+            .contact-btn{
+                display: block;
+                color: #475367;
+                border: 1px solid #475367;
+                background: transparent;
+                padding: 14px 26px;
+                border-radius:40px ;
+            }
+            .download-btn{
+                padding: 14px 26px;
+            }
             .faq
             {
                 padding: 32px 7%;
