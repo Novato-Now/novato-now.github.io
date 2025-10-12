@@ -1,0 +1,179 @@
+ /* FOOTER */
+ .footer-bg{
+    background-color: #BCD1DC;
+}
+.footer {
+padding: 3rem 8rem;
+display: flex;
+flex-direction: column;
+}
+
+.footer-cta {
+margin-bottom: 2rem;
+}
+
+.footer-cta h2 {
+font-size: 2.5rem;
+font-weight: 700;
+margin: 0;
+color: #fff;
+}
+
+.footer-cta button {
+margin-top: 1rem;
+padding: 0.8rem 1.5rem;
+background-color: #fff;
+border: none;
+border-radius: 30px;
+font-weight: bold;
+cursor: pointer;
+}
+
+.footer-main {
+display: flex;
+gap: 1.5rem;
+flex-wrap: wrap;
+justify-content: center;
+margin-bottom: 2rem;
+width: 100%;
+max-width: 1300px;
+}
+
+.footer-card {
+background-color: #fff;
+border-radius: 25px;
+padding: 2rem;
+padding-top: 1rem;
+box-sizing: border-box;
+/* min-width: 250px; */
+}
+
+/* Let the other cards grow */
+.footer-card:not(.social) {
+flex: 1 1 280px;
+}
+
+/* Prevent social card from growing */
+.footer-card.social {
+flex: 0 0 auto;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 1rem;
+width: fit-content;
+}
+
+.brand {
+margin-top: 1.5rem;
+display: flex;
+align-items: center;
+gap: 0.5rem;
+}
+
+.brand img {
+width: 50%;
+}
+
+.footer-card.support p {
+margin: 0.5rem 0;
+font-size: 0.95rem;
+}
+
+.footer-card.social .icons {
+display: flex;
+flex-direction: column;
+gap: 1.9rem;
+}
+
+.icons img {
+width: 40px;
+height: 40px;
+}
+
+.footer-bottom {
+display: flex;
+gap: 2rem;
+justify-content: center;
+flex-wrap: wrap;
+padding: 1rem;
+border-radius: 20px;
+background-color: #fff;
+max-width: 900px;
+width: 100%;
+font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+.footer {
+padding: 2rem 1.5rem;
+}
+
+.footer-main {
+flex-direction: column;
+align-items: center;
+}
+
+.footer-cta h2 {
+font-size: 2rem;
+}
+
+.footer-card {
+width: 100%;
+}
+
+.footer-card.social {
+padding-top: 24px;
+width: 100%;
+gap: 0rem;
+}
+
+.footer-card.social .icons {
+flex-direction: row;
+justify-content: center;
+}
+.footer-bottom{
+width: 90%;
+gap: 1rem;
+}
+}
+
+/* RESPONSIVE */
+@media (max-width:1024px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-images {
+        margin-top: 30px;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width:768px) {
+    
+
+    .hero-images {
+        width: 80%;
+    }
+    .get-app {
+        display: none;
+    }
+    .hero-content {
+        flex: 1 1 320px;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+    .hero {
+        padding: 24px 7%;
+    }
+}

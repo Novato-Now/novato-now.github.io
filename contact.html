@@ -4,164 +4,117 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us</title>
-    <link rel="stylesheet" href="Css/home.css" />
-    <link rel="stylesheet" href="Css/contact.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
-    <link rel="icon" type="image/x-icon" href="Assets/logo.png" />
-    <script defer src="Js/main.js"></script>
+    <title>ZoneUp</title>
+    <link rel="icon" type="image/x-icon" href="new assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <script src="Js/main.js"></script>
+    <link rel="stylesheet" href="Css/footer.css">
+    <link rel="stylesheet" href="Css/contact.css">
+
+    
 </head>
 
 <body>
-    <main>
-        <header>
-            <div class="container1 navbar1">
-                <a href="index.html">
-                    <img src="Assets/logo footer.png" alt="Logo" class="logo" />
-                  </a>
-                <ul class="navigation">
-                    <!-- <li><a href="index.html" >Home</a></li> -->
-                    <!-- <li><a href="contact.html" class="active">Contact Us</a></li> -->
-                <button style="border-radius: 48px;" class="nav-btn">Get the App</button>
-                </ul>
-                <button class="nav-toggle">
-                    <img src="Assets/menu.png" alt="" />
-                    <img class="hidden" src="Assets/close.png" alt="" />
-                </button>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+            <img src="new assets/logo.svg" alt="ZoneUp Logo">
+        </a>
+        </div>
+        <a href="#" class="get-app">Get the App</a>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-images">
+            <img src="new assets/ContactUs.svg" alt="App screen 1">
+            
+        </div>
+        <div class="hero-content">
+            <h3>Don’t worry we respect your privacy</h3>
+            <p>If anything reach out to us.</p>
+           
+            
+            <button class="download-btn">Mail Us!</button>
+        </div>
+
+        <!-- Desktop images -->
+       
+
+        
+    </section>
+
+   
+
+    <!-- FOOTER -->
+     <div class="footer-bg">
+
+     
+    <footer class="footer">
+        <!-- CTA -->
+        <div class="footer-cta">
+          <h2>Ready to<br>start giving?</h2>
+          <button>Get ZoneUp</button>
+        </div>
+    
+        <!-- Main Cards -->
+        <div class="footer-main">
+          <!-- Left Card -->
+          <div class="footer-card">
+            <h2>Where<br>Neighbours<br>become friends.</h2>
+            <div class="brand">
+              <img src="new assets/logo.svg" alt="ZoneUp Logo" />
             </div>
-        </header>
-                        
-        <section class="hero">
-            <div class="flex-row" style=" text-align: left; align-items: center; justify-content: flex-start;">
-
-        <div class="flex-row" style="gap: 1rem;">
-                            <img src="Assets/back.svg" alt="">
-                        <a href="index.html" style="color: #878787;" class="back">Home</a> <p style="padding: 0;margin: 0;" class="page-name">/ Contact Us</p>
-                       
-                        </div>
-                        </div>
-            <div class="contact-section " style="margin-bottom: 90px;">
-                  
-                <img src="Assets/ContactUs.svg"/>
-                <h1 class="section-heading ">
-         Don’t worry we respect your privacy
-                </h1>
-                
-                <div class="flex-col " style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-top: 40px;">
-    <div style="text-align: center; color: #555; font-size: 24px; max-width: 300px; line-height: 1.5;margin-top:0px;              ">
-                       If anything reach out to us.
-                    </div>
-                    <!-- Mail Icon -->
-                    <div class="icon" style="display: flex; justify-content: center;">
-                        <img src="Assets/forward_5836127.png" alt="Mail Icon"
-                            style="width: 20%; height: 20%;" />
-                    </div>
-                
-                    <!-- Mail Us Button -->
-                    <div class="black-text" style="text-align: center;outline: none;">
-                        <!-- <button 
-                            onclick="openGmailCompose()" 
-                            style="
-                                background-color: #273d48;
-                                color: white;
-                                border: none;
-                                padding: 12px 24px;
-                                font-size: 16px;
-                                font-weight: 500;
-                                border-radius: 8px;
-                                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-                                cursor: pointer;
-                                transition: background-color 0.9s ease;
-                            "
-                            onmouseover="this.style.backgroundColor='#51778a'"
-                            onmouseout="this.style.backgroundColor='#273d48'"
-                        >
-                            Mail Us
-                        </button> -->
-                        <div class="navigation dots" >
-
-                        
-                        <button style="border-radius: 68px;" onclick="openGmailCompose()"  class="nav-btn">Mail Us</button>
-                    </div>
-                    </div>
-                
-                    <!-- Privacy Text -->
-                    
-                </div>
-                
-              
-                
-                <!-- <div class="flex-row">
-                    <div class="flex-col contact-content">
-                        <h3 class="contact-heading">Leave us a message</h3>
-                        <input type="text" id="name" placeholder="Full Name" class="form-input" onblur="validateName()"
-                            required></input>
-                        <div class="validation margin-btm" id="nameError"></div>
-                        <input type="text" id="email" placeholder="Email Address" class="form-input"
-                            onblur="validateEmail()" required />
-                        <div class="validation margin-btm" id="mailError"></div>
-                        <textarea id="message" placeholder="Type your Message" class="textarea" required></textarea>
-                        <button class="submit-btn">Submit</button>
-
-
-                    </div>
-
-                    <div class="flex-col" style="gap: 3rem;">
-                        <div class="flex-row margin-btm" style="gap: .3rem;">
-                            <div class="icon col-auto mt-3">
-                                <img src="Assets/location.png" alt="location" class="icon-size" />
-                            </div>
-                            <div class="black-text col mt-3" style="text-align: start;">
-                                <a class="black-text" href="https://maps.app.goo.gl/WKniRERufAtHCJpn7">Koramangala,
-                                    Bangalore - 6000028</a>
-                            </div>
-                        </div>
-
-                        <div class="flex-row margin-btm" style="gap: .3rem;">
-                            <div class="icon col-auto mt-3">
-                                <img src="Assets/call.png" alt="location" class="icon-size" />
-                            </div>
-                            <div class="black-text col mt-3" style="text-align: start;">
-                                <a class="black-text" href="tel:+91 8220391187">+91 8220391187</a>
-                            </div>
-                        </div>
-                        <div class="flex-row margin-btm" style="gap: .3rem;">
-                            <div class="icon col-auto mt-3">
-                                <img src="Assets/mail.png" alt="location" class="icon-size" />
-                            </div>
-                            <div class="black-text col mt-3" style="text-align: start;">
-                                <a class="black-text" href="mailto:support@zoneup.in">support@zoneup.in</a>
-                            </div>
-                        </div>
-
-                        <div class="flex-row margin-btm" style="margin-left: 0;">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.90089794152!2d77.46612830987274!3d12.953945615505221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1734666629550!5m2!1sen!2sin"
-                                class="map" allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        </div>
-                    </div>
-                </div> -->
+            <p style="margin-top: 1rem; font-size: 0.9rem;">
+              © 2024 ZoneUp Inc. Copyright and rights reserved
+            </p>
+          </div>
+    
+          <!-- Support Card -->
+          <div class="footer-card support">
+            <h3>Support</h3>
+            <p style="margin-top: 1.5rem; ">Have questions? Get in touch or check out our Help Center.</p>
+            <p>You can also text our support team at <strong>(310) 773-5384</strong></p>
+            <p>Email us at <a style="color: #667085; text-decoration: none;" href="mailto:athelp@givingli.com">support@zoneup.in</a></p>
+          
+            <div style="margin-top: 3rem; display: flex;gap: .5rem; flex-wrap: wrap;">
+              <span><a style="text-decoration: none; color: #667085;" href="termsandcondition.html"> Terms and Conditions ∘</a></span>
+              <span><a style="text-decoration: none; color: #667085;" href="cookiespolicy.html"> <span><a style="text-decoration: none; color: #667085;" href="cookiespolicy.html"> Cookies Policy ∘</a></span></a></span>
+              <span><a style="text-decoration: none; color: #667085;" href="privacypolicy.html"> Privacy Policy</a></span>
             </div>
+            
+          </div>
+    
+          <!-- Social Card -->
+          <div class="footer-card social">
+            <h3>Social</h3>
+            <div class="icons">
+              <img src="new assets/instagram.svg" alt="Instagram" />
+              <img src="new assets/facebook.svg" alt="Facebook" />
+              <img src="new assets/x.svg" alt="X (Twitter)" />
             </div>
+          </div>
+        </div>
+    
+       
+       
+      </footer>
+    </div>
 
-
-        </section>
-    </main>
-
-    <div id="footer-placeholder"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        function openGmailCompose() {
-            const to = "support@zoneup.in";
-            const subject = encodeURIComponent("Support Request");
-            const body = encodeURIComponent("Hi Team,\n\n");
-            const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${to}&su=${subject}&body=${body}`;
-            window.open(gmailUrl, '_blank');
-        }
+        // FAQ toggle
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active'); // toggles gradient
+                item.classList.toggle('faq-active'); // toggles content visibility
+            });
+        });
     </script>
-    <script src="Js/main.js"></script>
 </body>
 
 </html>

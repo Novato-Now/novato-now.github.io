@@ -40,4 +40,24 @@ var acc = document.getElementsByClassName("accordion");
   
 
 
-      
+      document.getElementById('getApp').addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent default link behavior
+    
+        // App store URLs
+        const iosURL = "https://www.apple.com/in/app-store/";
+        const androidURL = "https://play.google.com/store/games?hl=en_IN";
+    
+        // Detect platform
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    
+        if (/android/i.test(userAgent)) {
+          // Android device
+          window.location.href = androidURL;
+        } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+          // iOS device
+          window.location.href = iosURL;
+        } else {
+          // Laptop/Desktop
+          window.location.href = androidURL;
+        }
+      });

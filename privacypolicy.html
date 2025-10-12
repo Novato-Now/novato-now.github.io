@@ -1,76 +1,475 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Privacy Policy</title>
-    <link rel="stylesheet" href="Css/home.css" />
-    <link rel="stylesheet" href="Css/contact.css" />
+    <link rel="stylesheet" href="Css/footer.css">
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="Css/privacypolicy.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
-    <link rel="icon" type="image/x-icon" href="./Assets/logo.png" />
-    <script defer src="Js/main.js"></script>
-</head>
+  </head>
+  <body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+            <img src="new assets/logo.svg" alt="ZoneUp Logo">
+        </a>
+        </div>
+        <div class="d-md-flex gap-3 d-none align-items-center">
+            <a href="contact.html" class="contact">Contact</a>
+        <a href="#" class="get-app">Get the App</a>
 
-<body>
-    <main>
-        <header>
-            <div class="container1 navbar1">
-                <a href="index.html">
-                    <img src="Assets/logo footer.png" alt="Logo" class="logo" />
-                </a>
-                <ul class="navigation">
-                    <!-- <li><a href="index.html">Home</a></li> -->
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <!-- <button class="nav-btn">Get the App</button> -->
-                                     <button style="border-radius: 48px;" class="nav-btn">Get the App</button>
+        </div>
+        
+    </header>
+    <div class="container1">
+      <h1 id="page-title" class="title-text"></h1>
+      <div id="content"></div>
+    </div>
 
-                </ul>
-                <button class="nav-toggle">
-                    <img src="Assets/menu.png" alt="" />
-                    <img class="hidden" src="./Assets/close.png" alt="" />
-                </button>
+     <!-- FOOTER -->
+     <div class="footer-bg">
+
+     
+        <footer class="footer">
+            <!-- CTA -->
+            <div class="footer-cta">
+              <h2>Ready to<br>start giving?</h2>
+              <button>Get ZoneUp</button>
             </div>
-        </header>
-        <section class="hero">
-            <div class="contact-section " style="margin-bottom: 90px;">
-                <div class="flex-row" style=" text-align: left; align-items: flex-start; justify-content: flex-start;">
-
-                    <div class="flex-col contact-content" style="flex:3;">
-                        <div class="flex-row" style="gap: 1rem;">
-                            <img src="Assets/back.svg" alt="">
-                            <a href="index.html" class="back">Home</a>
-                            <p class="page-name">/ Privacy Policy</p>
-
-                        </div>
-                        <div id="searchBar2" style="margin-top: 16px;"></div>
-                        <div id="content">
-
-
-                            <h1 id="page-title"></h1>
-
-                        </div>
-
-                    </div>
-                
-
-
-
+        
+            <!-- Main Cards -->
+            <div class="footer-main">
+              <!-- Left Card -->
+              <div class="footer-card">
+                <h2>Where<br>Neighbours<br>become friends.</h2>
+                <div class="brand">
+                  <img src="new assets/logo.svg" alt="ZoneUp Logo" />
                 </div>
+                <p style="margin-top: 1rem; font-size: 0.9rem;">
+                  © 2024 ZoneUp Inc. Copyright and rights reserved
+                </p>
+              </div>
+        
+              <!-- Support Card -->
+              <div class="footer-card support">
+                <h3>Support</h3>
+                <p style="margin-top: 1.5rem; ">Have questions? Get in touch or check out our Help Center.</p>
+                <p>You can also text our support team at <strong>(310) 773-5384</strong></p>
+                <p>Email us at <a style="color: #667085; text-decoration: none;" href="mailto:athelp@givingli.com">support@zoneup.in</a></p>
+              
+                <div style="margin-top: 3rem; display: flex;gap: .5rem; flex-wrap: wrap;">
+                  <span><a style="text-decoration: none; color: #667085;" href="termsandcondition.html"> Terms and Conditions ∘</a></span>
+                  <span><a style="text-decoration: none; color: #667085;" href="cookiespolicy.html"> <span><a style="text-decoration: none; color: #667085;" href="cookiespolicy.html"> Cookies Policy ∘</a></span></a></span>
+                  <span><a style="text-decoration: none; color: #667085;" href="privacypolicy.html"> Privacy Policy</a></span>
+                </div>
+                
+              </div>
+        
+              <!-- Social Card -->
+              <div class="footer-card social">
+                <h3>Social</h3>
+                <div class="icons">
+                  <img src="new assets/instagram.svg" alt="Instagram" />
+                  <img src="new assets/facebook.svg" alt="Facebook" />
+                  <img src="new assets/x.svg" alt="X (Twitter)" />
+                </div>
+              </div>
             </div>
-            </div>
-            </div>
+        
+           
+           
+          </footer>
+        </div>
 
+    <script>
+      const data = {
+    "title": "Privacy Policy",
+    "sections": [
+      {
+        "heading": "1. Introduction and Scope of This Privacy Policy",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "ZoneUp (\"we,\" \"us,\" \"our\") values your privacy. This Privacy Policy explains how we collect, use, disclose, and protect your information when you use our mobile application (the \"App\")."
+          },
+          {
+            "type": "paragraph",
+            "text": "This Privacy Policy applies to the ZoneUp mobile application (the \"App\"), and any other related services or platforms provided by us. It governs the data collection, use, sharing, and protection practices related to your interaction with the App. This policy does not apply to third-party services or websites that you may access through the App. We encourage you to review the privacy policies of those third parties before sharing any personal information."
+          }
+        ]
+      },
+      {
+        "heading": "2. Information We Collect",
+        "subSections": [
+          {
+            "subHeading": "2.1 Information You Provide to Us",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "When you register for an account or interact with the App, we collect personal information that you voluntarily provide to us. This includes:"
+              },
+              {
+                "type": "bullet",
+                "items": [
+                  {
+                    "heading": "Personal Identification Information: ",
+                    "content": "Name, Date of Birth (to verify age eligibility), Username, Password, Mobile Number (verified via OTP)."
+                  },
+                  {
+                    "heading": "Profile Information: ",
+                    "content": "Gender, Language, Interests"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "subHeading": "2.2 Information We Collect Automatically",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "When you use the App, we may automatically collect certain information from your device:"
+              },
+              {
+                "type": "bullet",
+                "items": [
+                  {
+                    "heading": "Location Data: ",
+                    "content": "Your current location, if you grant us permission during onboarding."
+                  },
+                  {
+                    "heading": "Device Information: ",
+                    "content": "Information about your device, such as IP address, device type, operating system, and unique device identifiers."
+                  },
+                  {
+                    "heading": "Usage Information: ",
+                    "content": "Information about your interactions with the App, such as pages viewed, features used, and the frequency and duration of your activities."
+                  },
+                  {
+                    "heading": "Cookies and Similar Technologies: ",
+                    "content": "Information collected through cookies and other tracking technologies to understand your usage patterns."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "heading": "3. How We Use Your Information",
+        "content": [
+          {
+            "type": "bullet",
+            "items": [
+              {
+                "heading": "Provide and Improve the App: ",
+                "content": "Facilitate account creation, provide location-based services, and personalize your experience based on your preferences."
+              },
+              {
+                "heading": "Communications: ",
+                "content": "Send you updates, security alerts, and other information related to the App, with your explicit consent."
+              },
+              {
+                "heading": "Analytics and Research: ",
+                "content": "Understand and analyze usage trends and preferences to improve the App."
+              },
+              {
+                "heading": "Legal and Security Purposes: ",
+                "content": "Comply with legal obligations, enforce our terms, and protect the rights, safety, and property of ZoneUp, our users, and others."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "heading": "4. Sharing Your Information",
+        "content": [
+          {
+            "type": "bullet",
+            "items": [
+              {
+                "heading": "With Your Consent: ",
+                "content": "We may share your information when you give us explicit consent to do so."
+              },
+              {
+                "heading": "For Legal Reasons: ",
+                "content": "We may disclose your information if required by law or in response to legal processes, such as court orders or subpoenas."
+              },
+              {
+                "heading": "In Business Transfers: ",
+                "content": "If we engage in a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "heading": "5. Consent as a Legal Basis for Processing",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Under the Digital Personal Data Protection Act (DPDPA) and the General Data Protection Regulation (GDPR), consent is the primary legal basis for processing personal data. By using the App, you consent to the collection and processing of your personal data as outlined in this policy."
+          }
+        ]
+      },
+      {
+        "heading": "6. Data Retention",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "We retain your personal information for as long as necessary to fulfill the purposes outlined in this policy, unless a longer retention period is required or permitted by law."
+          }
+        ]
+      },
+      {
+        "heading": "7. Data Security",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "We implement appropriate technical and organizational measures to protect the security of your personal information. However, please note that no method of transmission over the internet, or method of electronic storage, is completely secure."
+          }
+        ]
+      },
+      {
+        "heading": "8. Your Rights and Choices",
+        "subSections": [
+          {
+            "subHeading": "8.1 Access and Correction",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "You can access and update your personal information through your account settings in the App. If you need further assistance, you can contact us directly."
+              }
+            ]
+          },
+          {
+            "subHeading": "8.2 Deletion of Information",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "You may request that we delete your account and personal information at any time. Please note that we may retain certain information as required by law or for legitimate business purposes."
+              }
+            ]
+          },
+          {
+            "subHeading": "8.3 Withdrawal of Consent",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "You have the right to withdraw your consent for data processing at any time. Withdrawal of consent will not affect the lawfulness of processing based on consent before its withdrawal. To withdraw your consent, please contact us through the mechanisms provided in the App."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "heading": "9. Grievance Redressal Mechanism",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "If you have any concerns about your privacy or how your personal information is being handled, you can contact our Grievance Officer at [Contact Information]. If you are not satisfied with the resolution of your grievance, you have the right to lodge a complaint with the Data Protection Board of India under Section 5 of the DPDPA."
+          }
+        ]
+      },
+      {
+        "heading": "10. Rights of Data Principals",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Under the DPDPA, you have the following rights:"
+          },
+          {
+            "type": "bullet",
+            "items": [
+              {
+                "heading": "Right to Access: ",
+                "content": "Access the personal data we hold about you."
+              },
+              {
+                "heading": "Right to Correction: ",
+                "content": "Request corrections to any inaccurate or incomplete data."
+              },
+              {
+                "heading": "Right to Erasure: ",
+                "content": "Request deletion of your personal data in certain circumstances."
+              },
+              {
+                "heading": "Right to Data Portability: ",
+                "content": "Request transfer of your data in a structured, machine-readable format."
+              },
+              {
+                "heading": "Right to Grievance Redressal: ",
+                "content": "Lodge a grievance with our Grievance Officer or escalate to the Data Protection Board."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "heading": "11. GDPR Compliance",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "If you are located in the European Economic Area (EEA), we are committed to processing your personal data in accordance with the GDPR."
+          }
+        ],
+        "subSections": [
+          {
+            "subHeading": "11.1 GDPR Data Subject Rights",
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Under GDPR, you have the following rights:"
+              },
+              {
+                "type": "bullet",
+                "items": [
+                  {
+                    "heading": "Right to Be Informed: ",
+                    "content": "Understand how your data is being used."
+                  },
+                  {
+                    "heading": "Right of Access: ",
+                    "content": "Access and receive a copy of your personal data."
+                  },
+                  {
+                    "heading": "Right to Rectification: ",
+                    "content": "Request correction of inaccurate or incomplete data."
+                  },
+                  {
+                    "heading": "Right to Be Forgotten:  ",
+                    "content": "Request deletion of your data in certain circumstances."
+                  },
+                  {
+                    "heading": "Right to Restrict Processing: ",
+                    "content": "Request limitation of data processing under specific conditions."
+                  },
+                  {
+                    "heading": "Right to Data Portability: ",
+                    "content": "Receive your data in a portable format and transfer it to another controller."
+                  },
+                  {
+                    "heading": "Right to Object: ",
+                    "content": "Object to data processing for direct marketing or other purposes."
+                  },
+                  {
+                    "heading": "Right Against Automated Decision-Making and Profiling: ",
+                    "content": "Opt-out of decisions based solely on automated processing."
+                  }
+                ]
+              }
+            ]
+          }
+          
+        ]
+      },
+      {
+        "heading": "12. Cookies and Similar Technologies",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "We use cookies and similar tracking technologies to collect and use information about you. You can manage your cookie preferences through your device settings. Please see our Cookies Policy for more information."
+          }
+        ]
+      },
+      {
+        "heading": "13. Children's Privacy",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "ZoneUp is not intended for children under the age of 16. We do not knowingly collect personal information from children under 16. If we become aware that we have collected information from a child under 16, we will take steps to delete such information."
+          }
+        ]
+      },
+      {
+        "heading": "14. International Data Transfers",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "ZoneUp is headquartered in India. Your information may be transferred to, and maintained on, servers and databases located outside your country, where data protection laws may differ. We will take all necessary measures to ensure that your data is treated securely and in accordance with this policy."
+          }
+        ]
+      },
+      {
+        "heading": "15. Changes to This Privacy Policy",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the \"Last Updated\" date. Your continued use of the App following the posting of changes constitutes your acceptance of such changes."
+          }
+        ]
+      }
+      
+    ]
+  };
+  
 
-        </section>
-    </main>
+      document.addEventListener("DOMContentLoaded", () => {
+        const contentDiv = document.getElementById("content");
+        const titleElement = document.getElementById("page-title");
+        titleElement.textContent = data.title || "Privacy Policy";
 
-    <div id="footer-placeholder"></div>
-    <script src="Js/main.js"></script>
-    <script src="Js/privacypolicy.js"></script>
-</body>
+        (data.sections || []).forEach((section, sectionIndex) => {
+          const sectionDiv = document.createElement("div");
+          sectionDiv.classList.add("section-block");
 
+          const heading = document.createElement("h3");
+          heading.textContent = section.heading;
+          heading.classList.add("heading-text");
+          sectionDiv.appendChild(heading);
+
+          if (section.content) renderContentItems(section.content, sectionDiv);
+
+          if (section.subSections) {
+            section.subSections.forEach((subSection) => {
+              const subDiv = document.createElement("div");
+              const subHeading = document.createElement("h5");
+              subHeading.textContent = subSection.subHeading;
+              subDiv.appendChild(subHeading);
+              renderContentItems(subSection.content, subDiv);
+              sectionDiv.appendChild(subDiv);
+            });
+          }
+
+          contentDiv.appendChild(sectionDiv);
+        });
+      });
+
+      function renderContentItems(items, parentElement) {
+        (items || []).forEach((item) => {
+          if (item.type === "paragraph") {
+            const p = document.createElement("p");
+            p.textContent = item.text;
+            p.classList.add("paragraph-text");
+            parentElement.appendChild(p);
+          } else if (item.type === "bullet") {
+            const ul = document.createElement("ul");
+            ul.classList.add("bullet-list");
+            (item.items || []).forEach((bullet) => {
+              const li = document.createElement("li");
+              const bold = document.createElement("b");
+              bold.textContent = bullet.heading;
+              li.appendChild(bold);
+
+              const span = document.createElement("span");
+              span.classList.add("bullet-content");
+              span.innerHTML = bullet.content;
+              li.appendChild(span);
+
+              ul.appendChild(li);
+            });
+            parentElement.appendChild(ul);
+          }
+        });
+      }
+    </script>
+  </body>
 </html>
