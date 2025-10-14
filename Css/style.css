@@ -1,421 +1,435 @@
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: "Lato", sans-serif;
-            background: #F1F8FB;
-            color: #1e2a3a;
-            overflow-x: hidden;
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 24px 7%;
-        }
-
-        .logo img {
-            width: 150px;
-        }
-        .contact{
-            color: #333333;
-            font-size: 1rem;
-            text-decoration: none;
-            font-weight: 400;
-            margin-right: 20px;
-            transition: transform 0.3s ease-in-out;
-        }
-        .contact:hover{
-            transform: scale(1.05);
-            
-        }
-
-        .get-app {
-            background: linear-gradient(132.778deg, #43CEA2 0%, #185A9D 93%);
-            color: #fff;
-            padding: 10px 24px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 400;
-            transition: all 0.3s ease;
-        }
-
-        .get-app:hover {
-            opacity: 0.9;
-            transform: scale(1.03);
-        }
-
-        /* HERO */
-        .hero {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            padding: 60px 7%;
-            gap: 40px;
-        }
-
-        .hero-content {
-            flex: 1 1 420px;
-            max-width: 540px;
-        }
-
-        .hero-content h1 {
-            font-size: 4rem;
-            font-weight: 600;
-            line-height: 1.4;
-            margin-bottom: 20px;
-            color: #475367;
-        }
-
-        .hero-content p {
-            font-size: 1.1rem;
-            color: #475367;
-            margin-bottom: 35px;
-            line-height: 1.6;
-        }
-
-        .download-btn {
-            background: linear-gradient(132.778deg, #43CEA2 0%, #185A9D 93%);
-            color: #fff;
-            padding: 14px 36px;
-            border: none;
-            border-radius: 40px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .download-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-        }
-
-        /* HERO IMAGES */
-        .hero-images {
-            background-color: transparent;
-            flex: 1 1 500px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            gap: 30px;
-        }
-
-        .hero-images img {
-            width: 160px;
-            border-radius: 30px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            transform: rotate(0deg);
-            transition: transform 0.3s ease;
-        }
-
-        .hero-images img.main {
-            width: 250px;
-            transform: scale(1.05);
-            z-index: 2;
-        }
-
-        .hero-images img:hover {
-            transform: rotate(2deg) scale(1.05);
-        }
-
-        /* 4 STEPS */
-        .steps-section {
-            padding: 80px 7%;
-            text-align: center;
-        }
-
-        .steps-section h2 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #1e2a3a;
-            margin-bottom: 60px;
-        }
-
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            justify-items: center;
-            align-items: center;
-        }
-
-        .step-image {
-            width: 100%;
-            border-radius: 50px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s ease;
-        }
-
-        .step-image:hover {
-            transform: rotate(2deg) scale(1.05);
-        }
-
-        /* UNDERSTAND */
-        .understand-container {
-            background: #1d1f21;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            padding: 60px 20px;
-        }
-
-        .understand-container .h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            width: 100%;
-            max-width: 1100px;
-        }
-
-        .card-u {
-            background: #fff;
-            color: #111;
-            border-radius: 24px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card-u:hover {
-            transform: rotate(2deg) scale(1.05);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .card-u img {
-            width: 100%;
-            height: 160px;
-            object-fit: cover;
-        }
-
-        .card-content {
-            padding: 16px 20px;
-        }
-
-        .card-u h3 {
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .card-u p {
-            font-size: 0.9rem;
-            color: #746B8E;
-            line-height: 1.5;
-        }
-
-        .title {
-            color: #190041 !important;
-            font-weight: 500 !important;
-        }
-
-        /* FAQ */
-        .faq {
-            padding: 60px 7%;
-        }
-
-        /* FAQ item styling */
-        .faq-item {
-            position: relative;
-            background: #fff;
-            border-radius: 24px;
-            padding: 28px;
-            margin-bottom: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-            z-index: 1;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
-            border: 1px solid #f1f5f9;
-        }
-
-        .faq-item:hover {
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        /* Active state with gradient box-shadow only */
-        .faq-item.active {
-            position: relative;
-            background: white;
-            /* your card stays white */
-            box-shadow:
-            0 0 0px rgba(255, 255, 262, 19.9),
-            /* subtle outline */
-            0 0px 20px rgba(68, 255, 154, 0.5),
-            0 10px 20px rgba(68, 176, 255, 0.4),
-            0 0px 0px rgba(139, 68, 255, 0.3),
-            0 0px 60px rgba(255, 102, 68, 0.25)
-        }
-
-
-        /* FAQ heading and content */
-        .faq-item h3 {
-            font-size: 1rem;
-            font-weight: 500;
-            margin-bottom: 10px;
-            padding-right: 40px;
-            color: #1e293b;
-        }
-
-        .faq-content {
-            display: none;
-            padding-top: 15px;
-            font-size: 1.05rem;
-            color: #64748b;
-            line-height: 1.7;
-        }
-
-        .faq-item.active .faq-content {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Toggle icon */
-        .faq-toggle {
-            position: absolute;
-            right: 25px;
-            top: 25px;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            background: #f1f5f9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            color: #64748b;
-            font-size: 18px;
-            cursor: pointer;
-        }
-
-        .faq-item.active .faq-toggle {
-            /* background: #4f46e5;
-    color: white; */
-            transform: rotate(45deg);
-        }
-        .buttons-view{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: start;
-            gap: 7px;
-        }
-        .contact-btn{
-            display: none;;
-        }
-
-        
-
-        /* RESPONSIVE */
-        @media (max-width:1024px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .hero-images {
-                margin-top: 30px;
-            }
-
-            .hero-content h1 {
-                font-size: 3rem;
-            }
-        }
-
-        @media (max-width:768px) {
-            .step-image{
-                border-radius: 32px;
-            }
-            .carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-image: none; /* remove Bootstrap’s default SVG */
-  mask: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.5 0l-4 4 4 4z'/%3E%3C/svg%3E") no-repeat center;
-  -webkit-mask: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.5 0l-4 4 4 4z'/%3E%3C/svg%3E") no-repeat center;
-  background-color: white; /* color of the arrow */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-            .contact{
-               margin-right: 1px;
-            }
-            .buttons-view{
-                
-                justify-content: center;
-                
-            }
-            .contact-btn{
-                display: block;
-                color: #475367;
-                border: 1px solid #475367;
-                background: transparent;
-                padding: 14px 26px;
-                border-radius:40px ;
-            }
-            .download-btn{
-                padding: 14px 26px;
-            }
-            .faq
-            {
-                padding: 32px 7%;
-            }
-            .faq-item h3{
-                font-size: 0.9rem;
-            }
-            .faq p{
-                font-size: 0.9rem;
-            }
-            .get-app {
-                display: none;
-            }
 
-            .hero-images {
-                display: none;
-            }
+body {
+    font-family: "Lato", sans-serif;
+    background: #F1F8FB;
+    color: #1e2a3a;
+    overflow-x: hidden;
+}
 
-            .steps-grid {
-                grid-template-columns: 1fr;
-            }
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 7%;
+}
 
-            .grid {
-                grid-template-columns: 1fr;
-            }
+.logo img {
+    width: 150px;
+}
 
-            .hero-content {
-                flex: 1 1 320px;
-            }
+.contact {
+    color: #333333;
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: 400;
+    margin-right: 20px;
+    transition: transform 0.3s ease-in-out;
+}
 
-            .hero-content h1 {
-                font-size: 2rem;
-            }
+.contact:hover {
+    transform: scale(1.05);
 
-            .hero-content p {
-                font-size: 1.1rem;
-            }
-            .hero {
-                padding: 24px 7%;
-            }
-        }
-    
+}
+
+.get-app {
+    background: linear-gradient(132.778deg, #43CEA2 0%, #185A9D 93%);
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 400;
+    transition: all 0.3s ease;
+}
+
+.get-app:hover {
+    opacity: 0.9;
+    transform: scale(1.03);
+}
+
+/* HERO */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 60px 7%;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1 1 420px;
+    max-width: 540px;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    color: #475367;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: #475367;
+    margin-bottom: 35px;
+    line-height: 1.6;
+}
+
+.download-btn {
+    background: linear-gradient(132.778deg, #43CEA2 0%, #185A9D 93%);
+    color: #fff;
+    padding: 14px 36px;
+    border: none;
+    border-radius: 40px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* HERO IMAGES */
+.hero-images {
+    background-color: transparent;
+    flex: 1 1 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    gap: 30px;
+}
+
+.hero-images img {
+    width: 160px;
+    border-radius: 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+}
+
+.hero-images img.main {
+    width: 250px;
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+.hero-images img:hover {
+    transform: rotate(2deg) scale(1.05);
+}
+
+/* 4 STEPS */
+.steps-section {
+    padding: 80px 7%;
+    text-align: center;
+}
+
+.steps-section h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #1e2a3a;
+    margin-bottom: 60px;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    justify-items: center;
+    align-items: center;
+}
+
+.step-image {
+    width: 100%;
+    border-radius: 50px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.step-image:hover {
+    transform: rotate(2deg) scale(1.05);
+}
+
+/* UNDERSTAND */
+.understand-container {
+    background: #1d1f21;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 60px 20px;
+}
+
+.understand-container .h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    width: 100%;
+    max-width: 1100px;
+}
+
+.card-u {
+    background: #fff;
+    color: #111;
+    border-radius: 24px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-u:hover {
+    transform: rotate(2deg) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-u img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 16px 20px;
+}
+
+.card-u h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.card-u p {
+    font-size: 0.9rem;
+    color: #746B8E;
+    line-height: 1.5;
+}
+
+.title {
+    color: #190041 !important;
+    font-weight: 500 !important;
+}
+
+/* FAQ */
+.faq {
+    padding: 60px 7%;
+}
+
+/* FAQ item styling */
+.faq-item {
+    position: relative;
+    background: #fff;
+    border-radius: 24px;
+    padding: 28px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    z-index: 1;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f1f5f9;
+}
+
+.faq-item:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Active state with gradient box-shadow only */
+.faq-item.active {
+    position: relative;
+    background: white;
+    /* your card stays white */
+    box-shadow:
+        0 0 0px rgba(255, 255, 262, 19.9),
+        /* subtle outline */
+        0 0px 20px rgba(68, 255, 154, 0.5),
+        0 10px 20px rgba(68, 176, 255, 0.4),
+        0 0px 0px rgba(139, 68, 255, 0.3),
+        0 0px 60px rgba(255, 102, 68, 0.25)
+}
+
+
+/* FAQ heading and content */
+.faq-item h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+    padding-right: 40px;
+    color: #1e293b;
+}
+
+.faq-content {
+    display: none;
+    padding-top: 15px;
+    font-size: 1.05rem;
+    color: #64748b;
+    line-height: 1.7;
+}
+
+.faq-item.active .faq-content {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Toggle icon */
+.faq-toggle {
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    color: #64748b;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.faq-item.active .faq-toggle {
+    /* background: #4f46e5;
+    color: white; */
+    transform: rotate(45deg);
+}
+
+.buttons-view {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 7px;
+}
+
+.contact-btn {
+    display: none;
+    ;
+}
+
+
+
+/* RESPONSIVE */
+@media (max-width:1024px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-images {
+        margin-top: 30px;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width:768px) {
+    .step-image {
+        border-radius: 32px;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-image: none;
+        /* remove Bootstrap’s default SVG */
+        mask: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.5 0l-4 4 4 4z'/%3E%3C/svg%3E") no-repeat center;
+        -webkit-mask: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.5 0l-4 4 4 4z'/%3E%3C/svg%3E") no-repeat center;
+        background-color: white;
+        /* color of the arrow */
+    }
+
+    .contact {
+        margin-right: 1px;
+    }
+
+    .buttons-view {
+
+        justify-content: center;
+
+    }
+
+    .contact-btn {
+        display: block;
+        color: #475367;
+        border: 1px solid #475367;
+        background: transparent;
+        padding: 14px 26px;
+        border-radius: 40px;
+    }
+
+    .download-btn {
+        padding: 14px 26px;
+    }
+
+    .faq {
+        padding: 32px 7%;
+    }
+
+    .faq-item h3 {
+        font-size: 0.9rem;
+    }
+
+    .faq p {
+        font-size: 0.9rem;
+    }
+
+    .get-app {
+        display: none;
+    }
+
+    .hero-images {
+        display: none;
+    }
+
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content {
+        flex: 1 1 320px;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    .hero {
+        padding: 24px 7%;
+    }
+}
