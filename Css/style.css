@@ -322,21 +322,52 @@ header {
 
 .buttons-view {
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: start;
-    gap: 7px;
-}
-
-.contact-btn {
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+  }
+  
+  .store-badge {
+    height: 150px;
+    width: auto;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+    .store-badge:hover {
+        opacity: 0.9;
+    transform: scale(1.03);
+    }
+  .contact-btn{
     display: none;
-    ;
-}
+  }
+  
+  
+  /* Responsiveness */
+  @media (max-width: 768px) {
+    .buttons-view {
+      justify-content: center;
+      gap: 8px;
+    }
+  
+    .store-badge {
+      height: 100px;
+    }
+    .contact-btn{
+        display: block;
+      }
+  }
+  
+
 
 
 
 /* RESPONSIVE */
 @media (max-width:1024px) {
+    .store-badge {
+        height: 100px;
+      }
     .hero {
         flex-direction: column;
         text-align: center;
@@ -352,19 +383,11 @@ header {
 }
 
 @media (max-width:768px) {
+  
     .step-image {
         border-radius: 32px;
     }
 
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-        background-image: none;
-        /* remove Bootstrap’s default SVG */
-        mask: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.5 0l-4 4 4 4z'/%3E%3C/svg%3E") no-repeat center;
-        -webkit-mask: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.5 0l-4 4 4 4z'/%3E%3C/svg%3E") no-repeat center;
-        background-color: white;
-        /* color of the arrow */
-    }
 
     .contact {
         margin-right: 1px;
@@ -432,4 +455,88 @@ header {
     .hero {
         padding: 24px 7%;
     }
+    .download-view{
+        display: flex;
+        flex-direction: column;
+        width: 10%;
+    }
 }
+
+/* carousel  */
+
+.custom-carousel {
+    position: relative;
+    width: 100%;
+    overflow: visible;
+    border-radius: 12px;
+  }
+  
+  .custom-carousel-track {
+    display: flex;
+    transition: transform 420ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  
+  .custom-carousel-item {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .custom-carousel-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    transition: transform 300ms ease;
+    display: block;
+  }
+  
+  .custom-carousel-item.active img {
+    transform: scale(1.03);
+  }
+  
+  /* Navigation Buttons */
+  .custom-carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(34, 34, 34, 0.82);
+    border: none;
+    color: white;
+    font-size: 26px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .custom-carousel-control.prev {
+    left: 8px;
+  }
+  
+  .custom-carousel-control.next {
+    right: 8px;
+  }
+  
+  .custom-carousel-control:active {
+    transform: translateY(-50%) scale(0.96);
+  }
+  
+  @media (max-width: 420px) {
+    .custom-carousel-control {
+      width: 30px;
+      height: 30px;
+      font-size: 27px;
+    }
+  }
+  
