@@ -30,8 +30,7 @@
         <img src="new assets/logo.svg" alt="ZoneUp Logo" />
       </div>
       <div class="d-md-flex gap-3 d-none align-items-center">
-        <!-- <a href="mailto:support@zoneup.in" class="contact">Contact</a> -->
-        <a href="comingSoon.html" class="get-app" id="getApp">Get the App</a>
+        <button class="get-app" id="getApp">Get the App</button>
       </div>
     </header>
 
@@ -65,10 +64,10 @@
             places to eat, this app makes it easy to connect, organize, and get things done!
         </p>
         <div class="buttons-view">
-          <a href="comingSoon.html">
+          <a href="https://apps.apple.com/in/app/zoneup/id6744461293">
             <img class="store-badge" src="new assets/app store.svg" alt="App Store" />
           </a>
-          <a href="comingSoon.html">
+          <a href="https://play.google.com/store/apps/details?id=com.zoneup12345.zoneup">
             <img class="store-badge" src="new assets/play store.svg" alt="Play Store" />
           </a>
         </div>
@@ -233,7 +232,8 @@
         <!-- CTA -->
         <div class="footer-cta">
           <h2>Ready to<br />start giving?</h2>
-          <button><a style="text-decoration: none; color: #333;" href="comingSoon.html">Get ZoneUp</a></button>
+          <button class="get-app" id="getApp">Get the App</button>
+          
         </div>
 
         <!-- Main Cards -->
@@ -414,6 +414,26 @@
   window.addEventListener("mouseup", pointerUp);
 });
 
-    </script>
+
+document.getElementById("getApp").addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    // Android
+    if (/android/i.test(userAgent)) {
+      window.location.href = "https://play.google.com/store/apps/details?id=com.zoneup12345.zoneup";
+    }
+    // iOS
+    else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      window.location.href = "https://apps.apple.com/in/app/zoneup/id6744461293";
+    }
+    // Desktop or unknown
+    else {
+      window.location.href = "https://play.google.com/store/apps/details?id=com.zoneup12345.zoneup";
+    }
+});
+
+  </script>
   </body>
 </html>
