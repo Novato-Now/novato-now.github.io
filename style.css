@@ -1032,7 +1032,7 @@ font-family: 'Satoshi', sans-serif;
   .header-inner {
     padding: 14px 18px;
     overflow: hidden;
-    max-width: 90%;
+    max-width: 100%;
   }
 
   .header.shrink .header-inner {
@@ -1292,9 +1292,13 @@ font-family: 'Satoshi', sans-serif;
     flex: none;
     font-size: 1.4rem;
   }
+  .feature-card-title {
+    font-size: 1.4rem;
+  }
 
-  .step-card-desc {
+  .step-card-desc, .feature-card-desc {
     font-size: 0.9rem;
+    text-align: left;
   }
 
   /* Download CTA mobile */
