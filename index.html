@@ -1,439 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ZoneUp</title>
-    <link rel="icon" type="image/x-icon" href="new assets/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-    <script src="Js/main.js"></script>
-    <link rel="stylesheet" href="Css/footer.css" />
-    <link rel="stylesheet" href="Css/style.css" />
-  </head>
-
-  <body>
-    <header>
-      <div class="logo">
-        <img src="new assets/logo.svg" alt="ZoneUp Logo" />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
+  <title>ZoneUp</title>
+  <link rel="icon" type="image/x-icon" href="./Assets/favIcon.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="header-spacer" id="headerSpacer"></div>
+  <header class="header" id="header">
+    <div class="header-inner" id="headerInner">
+      <div class="header-top">
+        <div class="logo">
+          <img src="./Assets/logo.svg" class="logo-icon" alt="ZoneUp Logo">
+        </div>
+        <nav class="nav" id="nav">
+          <a href="#features"><span data-text="Features">Features</span></a>
+          <a href="#benefits"><span data-text="Benefits">Benefits</span></a>
+          <a href="#faq"><span data-text="FAQ">FAQ</span></a>  
+        </nav>
+        <a href="#" class="btn-purchase desktop-purchase">Get the app <span class="btn-icon"><span data-icon="⚡">⚡</span></span></a></a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
-      <div class="d-md-flex gap-3 d-none align-items-center">
-        <button class="get-app" id="getApp">Get the App</button>
+      <div class="mobile-expand" id="mobileExpand">
+        <div class="mobile-expand-inner">
+          <div class="mobile-divider"></div>
+          <div class="mobile-links">
+            <a href="#features">Features</a>
+            <a href="#benefits">Benefits</a>
+            <a href="#faq">FAQ</a>
+          </div>
+          <a href="https://play.google.com/store/apps/details?id=com.zoneup12345.zoneup" class="btn-purchase mobile-purchase">Get the app <span class="btn-icon"><span data-icon="⚡">⚡</span></span></a>
+        </div>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <!-- HERO -->
+  <main>
+    <!-- Hero Section -->
     <section class="hero">
-      <div class="hero-content">
-        <h1>Where Neighbors<br />Become Friends.</h1>
-      <!-- Mobile Hero Carousel -->
-      <!-- Mobile Swipe Carousel -->
-<div id="heroCarousel" class="custom-carousel d-md-none mt-4 mb-4">
-  <div class="custom-carousel-track">
-    <div class="custom-carousel-item active">
-      <img src="../new assets/HeroMobile01.png" alt="Screen 1" />
-    </div>
-    <div class="custom-carousel-item">
-      <img src="../new assets/HeroMobile02.png" alt="Screen 2" />
-    </div>
-    <div class="custom-carousel-item">
-      <img src="../new assets/HeroMobile03.png" alt="Screen 3" />
-    </div>
-  </div>
+      <div class="hero-inner">
+        <div class="hero-left">
+          <h1 class="hero-title">Where Neighbors <br>
+                Become Friends.</h1>
+          <p class="hero-subtitle">This social app helps you build connections wherever you are, or from any location you choose. Use it for planning gatherings, organizing events, forming gaming squads, or connecting with local services like plumbers and electricians. Whether you're planning a weekend outing, a function, or just sharing great places to eat, this app makes it easy to connect, organize, and get things done!
 
-  <button class="custom-carousel-control prev" aria-label="Previous slide">‹</button>
-  <button class="custom-carousel-control next" aria-label="Next slide">›</button>
-</div>
-
-        <p>
-            This social app helps you build connections wherever you are, or from any location you choose. Use it for
-            planning gatherings, organizing events, forming gaming squads, or connecting with local services like
-            plumbers and electricians. Whether you're planning a weekend outing, a function, or just sharing great
-            places to eat, this app makes it easy to connect, organize, and get things done!
-        </p>
-        <div class="buttons-view">
-          <a href="https://apps.apple.com/in/app/zoneup/id6744461293">
-            <img class="store-badge" src="new assets/app store.svg" alt="App Store" />
+</p>
+          <div class="hero-buttons hero-buttons-desktop">
+            <a href="https://play.google.com/store/apps/details?id=com.zoneup12345.zoneup" class="store-btn">
+              <img  class="store-img" src="./Assets/play.svg" alt="Playstore Icon">
+            </a>
+            <a href="https://apps.apple.com/in/app/zoneup/id6744461293" class="store-btn">
+              <img class="store-img" src="./Assets/Apple.svg" alt="Playstore Icon">
+            </a>
+          </div>
+         
+        </div>
+        <div class="hero-right">
+          <img src="./Assets/hero.png" alt="Hero" class="hero-image">
+        </div>
+        <div class="hero-buttons hero-buttons-mobile">
+          <a href="#" class="store-btn">
+            <img class="store-img" src="./Assets/play.svg" alt="Playstore Icon">
           </a>
-          <a href="https://play.google.com/store/apps/details?id=com.zoneup12345.zoneup">
-            <img class="store-badge" src="new assets/play store.svg" alt="Play Store" />
+          <a href="#" class="store-btn">
+            <img class="store-img" src="./Assets/Apple.svg" alt="Playstore Icon">
           </a>
         </div>
       </div>
-
-      <!-- Desktop images -->
-      <div class="hero-images d-none d-md-flex">
-        <img src="new assets/HeroMobile02.png" alt="App screen 1" />
-        <img
-          src="new assets/HeroMobile01.png"
-          class="main"
-          alt="App main screen"
-        />
-        <img src="new assets/HeroMobile03.png" alt="App screen 2" />
-      </div>
     </section>
 
-    <!-- 4 STEPS -->
-    <section class="steps-section">
-      <h2>4 simple steps to simplify our app</h2>
-      <div class="steps-grid">
-        <img
-          src="new assets/targetedPosts.png"
-          alt="Step 1"
-          class="step-image"
-        />
-        <img
-          src="new assets/engageTheAudiance.png"
-          alt="Step 2"
-          class="step-image"
-        />
-        <img
-          src="new assets/connetAndGrow.png"
-          alt="Step 3"
-          class="step-image"
-        />
-        <img
-          src="new assets/privateMessaging.png"
-          alt="Step 4"
-          class="step-image"
-        />
+    <!-- Features Section -->
+    <section class="features" id="features">
+      <div class="features-header">
+        <h2 class="features-title">For 🧑 you, 👯 new friends<br>and 🌍 your community</h2>
+        <p class="features-subtitle">Discover, connect, and build meaningful relationships with people around you.</p>
       </div>
-    </section>
+      <div class="features-grid">
+        <!-- Col 1, Row 1 -->
+        <div class="feature-card">
+          <div class="feature-card-img">
+            <img src="./Assets/Alert post.png" alt="Match">
+          </div>
+          <h3 class="feature-card-title">Alert Post</h3>
+          <p class="feature-card-desc">Send instant alerts to people nearby and get help when you need it the most.
 
-    <!-- UNDERSTAND -->
-    <div class="understand-container">
-      <h1 class="h1">Understand Key ideas Quickly</h1>
-      <div class="grid">
-        <div class="card-u">
-          <img src="new assets/understand01.svg" alt="Customised sharing" />
-          <div class="card-content">
-            <h3 class="title">Customised sharing</h3>
-            <p>
-              Share and discover posts with your local community in real-time.
-            </p>
-          </div>
+</p>
         </div>
-        <div class="card-u">
-          <img src="new assets/understand02.svg" alt="Real-Time Updates" />
-          <div class="card-content">
-            <h3 class="title">Real-Time Updates</h3>
-            <p>Stay updated instantly with local happenings as they unfold.</p>
+        <!-- Col 2, Row 1 (tall) -->
+        <div class="feature-card">
+          <div class="feature-card-img">
+            <img src="./Assets/locationbased.png" alt="Verified">
           </div>
+          <h3 class="feature-card-title">Trending Near You</h3>
+          <p class="feature-card-desc">Find popular locations and explore the latest posts from each area.</p>
         </div>
-        <div class="card-u">
-          <img src="new assets/understand03.svg" alt="Burn Posts" />
-          <div class="card-content">
-            <h3 class="title">Burn Posts</h3>
-            <p>Share posts that automatically disappear after a short time.</p>
+        <!-- Col 3, Row 1 -->
+        <div class="feature-card">
+          <div class="feature-card-img">
+            <img src="./Assets/Burn post.png" alt="Speed">
           </div>
-        </div>
-        <div class="card-u">
-          <img src="new assets/understand04.svg" alt="Personalised posts" />
-          <div class="card-content">
-            <h3 class="title">Personalised posts</h3>
-            <p>Tailor your feed based on your interests and local trends.</p>
-          </div>
-        </div>
-        <div class="card-u">
-          <img src="new assets/understand05.svg" alt="Safety and Security" />
-          <div class="card-content">
-            <h3 class="title">Safety and Security</h3>
-            <p>Your privacy and safety are always our top priorities.</p>
-          </div>
-        </div>
-        <div class="card-u">
-          <img src="new assets/understand06.svg" alt="Instant connect" />
-          <div class="card-content">
-            <h3 class="title">Instant connect</h3>
-            <p>Build real connections instantly with your nearby community.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+          <h3 class="feature-card-title">Burn Posts</h3>
+          <p class="feature-card-desc">Share moments that disappear
+after a short time automatically
 
-    <!-- FAQ -->
-    <section class="faq">
-      <h2 style="text-align: center; margin-bottom: 60px">
-        Frequently asking questions
-      </h2>
-      <div class="faq-item">
-        <h3>Is Gender-Specific Content Visible to Everyone?</h3>
-        <div class="faq-content">
-          <p>
-            No, gender-specific content is only shown to users matching that gender. It won’t be visible to users of other genders or those who select 'Prefer Not to Say.' Once you select your gender during onboarding, it cannot be changed. Users who choose 'Prefer Not to Say' won’t see any gender-specific posts but can update their gender later in the settings page.
-          </p>
-        </div>
-        <i class="faq-toggle bi bi-plus-circle"></i>
-      </div>
-      <div class="faq-item">
-        <h3>
-          Do Language and Interest-Based Posts Work Like Gender-Specific Posts?
-        </h3>
-        <div class="faq-content">
-          <p>
-            No, language and interest-based posts are shown to all users but are prioritized at the top of their feeds if they match their preferences. Gender-specific posts, however, are only visible to users of the matching gender.
-          </p>
-        </div>
-        <i class="faq-toggle bi bi-plus-circle"></i>
-      </div>
-      <div class="faq-item">
-        <h3>What’s the Deal with Burn Posts?</h3>
-        <div class="faq-content">
-          <p>
-            Burn posts are time-sensitive and expire after a set period. They’re perfect for limited-time offers, sales, or short-term updates. Once the timer runs out, the post disappears automatically.
-          </p>
-        </div>
-        <i class="faq-toggle bi bi-plus-circle"></i>
-      </div>
-      <div class="faq-item">
-        <h3>How Can I Change the Location and See Posts There?</h3>
-        <div class="faq-content">
-          <p>
-            Click on the location name on the feed page, right below the zoneup. Select any location to explore what’s
-          </p>
-        </div>
-        <i class="faq-toggle bi bi-plus-circle"></i>
-      </div>
-      <div class="faq-item">
-        <h3>Will I Only See Posts from the Location I Select?</h3>
-        <div class="faq-content">
-          <p>
-            No, the location you select acts as an anchor for your feed. Once posts from your selected location are done, you’ll see posts from nearby locations. You may even see posts from other locations at the top if they match your interests and language preferences.
-          </p>
-        </div>
-        <i class="faq-toggle bi bi-plus-circle"></i>
-      </div>
-      <div class="faq-item">
-        <h3>Can I Select Multiple Locations to Post?</h3>
-        <div class="faq-content">
-          <p>
-            No, you can’t. To maintain post credibility, you’re allowed to post in only one location at a time.
-          </p>
-        </div>
-        <i class="faq-toggle bi bi-plus-circle"></i>
-      </div>
-    </section>
 
-    <!-- FOOTER -->
-    <div class="footer-bg">
-      <footer class="footer">
-        <!-- CTA -->
-        <div class="footer-cta">
-          <h2>Ready to<br />start giving?</h2>
-          <button class="get-app" id="getApp">Get the App</button>
-          
+</p>
         </div>
+        <!-- Col 1, Row 2 -->
+        <div class="feature-card">
+          <div class="feature-card-img">
+            <img src="./Assets/Safety.png" alt="Memories">
+          </div>
+          <h3 class="feature-card-title">Safety and Security</h3>
+          <p class="feature-card-desc">Your privacy and safety come first
+            with secure and trusted interactions
 
-        <!-- Main Cards -->
-        <div class="footer-main">
-          <!-- Left Card -->
-          <div class="footer-card">
-            <h2>Where<br />Neighbours<br />become friends.</h2>
-            <div class="brand">
-              <img src="new assets/logo.svg" alt="ZoneUp Logo" />
+</p>
+        </div>
+        <!-- Col 2, Row 2 (short) -->
+        <div class="feature-card ">
+          <div class="feature-card-img">
+            <img src="./Assets/Coming soon.png" alt="Coming Soon">
+          </div>
+          <h3 class="feature-card-title">More Features Coming Soon!</h3>
+        </div>
+        <!-- Col 3, Row 2 -->
+        <div class="feature-card">
+          <div class="feature-card-img">
+            <img src="./Assets/Real time updates.png" alt="Reveal">
+          </div>
+          <h3 class="feature-card-title">Real-Time Updates
+</h3>
+          <p class="feature-card-desc">Stay updated instantly with local happenings as they unfold.</p>
+        </div>
+      </div>
+      <div class="feature-card feature-card-full">
+        <div class="feature-full-left">
+          <h3 class="feature-full-title">Built Around You</h3>
+          <p class="feature-full-desc">Filter by interests, language, and preferences to see content that feels relevant and personal to you.</p>
+          <a href="https://play.google.com/store/apps/details?id=com.zoneup12345.zoneup" class="btn-purchase">Explore Your Feed <span class="btn-icon"><span data-icon="⚡">⚡</span></span></a>
+        </div>
+        <div class="feature-full-right">
+          <div class="marquee-columns">
+            <div class="marquee-col marquee-down">
+              <div class="marquee-track">
+                <img src="./Assets/Location cards/bengali.png" alt="Art 1">
+                <img src="./Assets/Location cards/english.png" alt="Art 2">
+                <img src="./Assets/Location cards/hindi.png" alt="Art 3">
+                <img src="./Assets/Location cards/kanada.png" alt="Art 1">
+                <img src="./Assets/Location cards/malayalam.png" alt="Art 2">
+                <img src="./Assets/Location cards/marathi.png" alt="Art 3">
+                <img src="./Assets/Location cards/Punjabi.png" alt="Art 3">
+                <img src="./Assets/Location cards/Tamil.png" alt="Art 3">
+                <img src="./Assets/Location cards/telugu.png" alt="Art 3">
+                <img src="./Assets/Location cards/urdu.png" alt="Art 3">
+              </div>
             </div>
-            <p style="margin-top: 1rem; font-size: 0.9rem">
-              © 2026 ZoneUp Inc. Copyright and rights reserved
-            </p>
-          </div>
-
-          <!-- Support Card -->
-          <div class="footer-card support">
-            <h3>Support</h3>
-            <p style="margin-top: 1.5rem">
-              Have questions? Get in touch or check out our Help Center.
-            </p>
-            <p>
-              You can also text our support team at
-              <strong>+91 7092211099</strong>
-            </p>
-            <p>
-              Email us at
-              <a
-                style="color: #333; text-decoration: none"
-                href="mailto:athelp@givingli.com"
-                ><strong>support@zoneup.in</strong></a
-              >
-            </p>
-            <a href="mailto:support@zoneup.in" class="contact"
-              ><button class="contact-btn mt-3">Contact us</button></a
-            >
-
-            <div
-              style="
-                margin-top: 2rem;
-                display: flex;
-                gap: 0.5rem;
-                flex-wrap: wrap;
-              "
-            >
-              <span
-                ><a
-                  style="text-decoration: none; color: #667085"
-                  href="termsandcondition.html"
-                >
-                  Terms and Conditions ∘</a
-                ></span
-              >
-              <span
-                ><a
-                  style="text-decoration: none; color: #667085"
-                  href="cookiespolicy.html"
-                >
-                  <span
-                    ><a
-                      style="text-decoration: none; color: #667085"
-                      href="cookiespolicy.html"
-                    >
-                      Cookies Policy ∘</a
-                    ></span
-                  ></a
-                ></span
-              >
-              <span
-                ><a
-                  style="text-decoration: none; color: #667085"
-                  href="privacypolicy.html"
-                >
-                  Privacy Policy</a
-                ></span
-              >
-              <span
-                ><a
-                  style="text-decoration: none; color: #667085"
-                  href="deleteAccount.html"
-                >
-                ∘ Delete Account</a
-                ></span
-              >
-            </div>
-          </div>
-
-          <!-- Social Card -->
-          <div class="footer-card social">
-            <h3>Social</h3>
-            <div class="icons">
-              <a href="https://www.instagram.com/zoneup_official/"><img src="new assets/instagram.svg" alt="Instagram" /></a>
-              <img src="new assets/facebook.svg" alt="Facebook" />
-              <a href="https://x.com/zoneup_official?s=11"><img src="new assets/x.svg" alt="X (Twitter)" /></a>
+            <div class="marquee-col marquee-up">
+              <div class="marquee-track">
+                <img src="./Assets/Interest/cinema.png" alt="Art 4">
+                <img src="./Assets/Interest/entertainment.png" alt="Art 5">
+                <img src="./Assets/Interest/fitness.png" alt="Art 6">
+                <img src="./Assets/Interest/food.png" alt="Art 4">
+                <img src="./Assets/Interest/party.png" alt="Art 5">
+                <img src="./Assets/Interest/tech.png" alt="Art 6">
+              </div>
             </div>
           </div>
         </div>
-      </footer>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-      // FAQ toggle
-      document.querySelectorAll(".faq-item").forEach((item) => {
-        item.addEventListener("click", () => {
-          item.classList.toggle("active"); // toggles gradient
-          item.classList.toggle("faq-active"); // toggles content visibility
-        });
-      });
+      </div>
      
+    </section>
 
+    <!-- Steps Section -->
+    <section class="steps" id="benefits">
+      <div class="steps-sticky">
+        <div class="steps-left">
+          <h2 class="steps-title">Simplify <br class="desktop-br">our app <br class="desktop-br">in 4 Steps.</h2>
+          <p class="steps-subtitle">Every great experience begins with a simple step.
+Here’s how ZoneUp helps you simplify your routine and stay in control—effortlessly, in just 4 steps.</p>
+        </div>
+        <div class="steps-right">
+          <div class="steps-track" id="stepsTrack">
+            <div class="step-card">
+              <div class="step-card-img">
+                <img src="./Assets/understand.png" alt="Step 1">
+              </div>
+              <div class="step-card-body">
+                <h3 class="step-card-title">Targeted Posts</h3>
+                <p class="step-card-desc">You're matched based on your preferences, no physical details, just potential for a real connection between you and your match.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-card-img">
+                <img src="./Assets/understand2.png" alt="Step 2">
+              </div>
+              <div class="step-card-body">
+                <h3 class="step-card-title">Engage the Audiance</h3>
+                <p class="step-card-desc">No swiping, no judging by looks. Just real conversations that let you discover who someone truly is.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-card-img">
+                <img src="./Assets/understand3.png" alt="Step 3">
+              </div>
+              <div class="step-card-body">
+                <h3 class="step-card-title">Nearby Connect</h3>
+                <p class="step-card-desc">Spend time chatting, sharing stories, and building trust before revealing who you are.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-card-img">
+                <img src="./Assets/understand4.png" alt="Step 4">
+              </div>
+              <div class="step-card-body">
+                <h3 class="step-card-title">Private Messaging</h3>
+                <p class="step-card-desc">When you both feel the connection, choose to reveal your profiles together. It's mutual and meaningful.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("heroCarousel");
-  if (!container) return;
+    <!-- Download CTA Section -->
+    <section class="download-cta">
+      <div class="download-cta-inner">
+        <div class="download-cta-left">
+          <h2 class="download-cta-title">Get the app</h2>
+          <p class="download-cta-subtitle">Just scan the QR code to get started.</p>
+          <div class="download-qr">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://example.com" alt="QR Code">
+          </div>
+          <a href="#" class="btn-download">↓ Download now</a>
+        </div>
+        <div class="download-cta-right">
+          <img src="./Assets/downloadTheApp.png" alt="App Preview" class="download-phone-img">
+        </div>
+      </div>
+    </section>
 
-  const track = container.querySelector(".custom-carousel-track");
-  const items = Array.from(container.querySelectorAll(".custom-carousel-item"));
-  const prevBtn = container.querySelector(".custom-carousel-control.prev");
-  const nextBtn = container.querySelector(".custom-carousel-control.next");
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+      <h2 class="faq-title">Frequently Asked<br>Questions.</h2>
+      <div class="faq-list" id="faqList"></div>
+    </section>
 
-  if (!track || items.length === 0) return;
+  </main>
 
-  let index = 0;
-  const maxIndex = items.length - 1;
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <!-- CTA -->
+      <div class="footer-cta">
+        <div class="footer-cta-left">
+          <h2 class="footer-cta-title">Where Neighbours become friends. <br> Ready to start giving?</h2>
+          <div class="footer-cta-buttons">
+            <a href="https://play.google.com/store/apps/details?id=com.zoneup12345.zoneup" class="btn-purchase footer-btn-light">Get the app <span class="btn-icon"><span data-icon="⚡">⚡</span></span></a>
+          </div>
+        </div>
+        <div class="footer-right">
+        <div class="footer-socials">
+          <a href="https://x.com/zoneup_official?s=11" aria-label="Twitter" class="social-icon social-x">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4l11.733 16h4.267l-11.733 -16z M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn" class="social-icon social-linkedin">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" stroke="none"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          
+          <a href="https://www.instagram.com/zoneup_official/" aria-label="Instagram" class="social-icon social-instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.instagram.com/zoneup_official/" aria-label="Facebook" class="social-icon social-facebook">
+            <img src="./Assets/facebook.svg" class="social-facebook" alt="">
+          </a>
+        </div>
+       
+          <p class="footer-copyright">Reach out us at: <a href="mailto:support@zoneup.in"><span class="mailto">support@zoneup.in</span></a></p></div>
+      </div>
 
-  function update() {
-    track.style.transform = `translateX(-${index * 100}%)`;
-    items.forEach((it, i) => it.classList.toggle("active", i === index));
-    prevBtn.disabled = index === 0;
-    nextBtn.disabled = index === maxIndex;
-  }
+      <!-- Watermark -->
+      <div class="footer-watermark" id="footerWatermark">
+        <span class="watermark-text">zoneup</span>
+        <div class="watermark-glow" id="watermarkGlow"></div>
+      </div>
 
-  function slideTo(newIndex) {
-    index = Math.max(0, Math.min(newIndex, maxIndex));
-    update();
-  }
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-bar">
+        <div class="footer-status">
+          <span class="status-dot"></span>
+          <span>Alive & Kicking!</span>
+        </div>
+        <div class="footer-legal">
+          <a href="legal.html?page=privacy-policy"><span data-text="Privacy Policy">Privacy Policy</span></a>
+          <a href="legal.html?page=cookies-policy"><span data-text="Cookies Policy">Cookies Policy</span></a>
+          <a href="legal.html?page=terms-of-service"><span data-text="Terms and Condition">Terms and Condition</span></a>
+        </div>
+        <p class="footer-copyright">© 2026 ZoneUp Inc. Copyright and rights reserved</p>
+      </div>
+    </div>
+  </footer>
 
-  update();
-
-  prevBtn.addEventListener("click", () => slideTo(index - 1));
-  nextBtn.addEventListener("click", () => slideTo(index + 1));
-
-  // Touch & drag support
-  let startX = 0, currentX = 0, dragging = false;
-  const threshold = 50;
-
-  const pointerDown = (x) => {
-    dragging = true;
-    startX = x;
-    currentX = x;
-    track.style.transition = "none";
-  };
-
-  const pointerMove = (x) => {
-    if (!dragging) return;
-    currentX = x;
-    const delta = currentX - startX;
-    track.style.transform = `translateX(calc(-${index * 100}% + ${delta}px))`;
-  };
-
-  const pointerUp = () => {
-    if (!dragging) return;
-    dragging = false;
-    const delta = currentX - startX;
-    track.style.transition = "";
-    if (delta < -threshold && index < maxIndex) slideTo(index + 1);
-    else if (delta > threshold && index > 0) slideTo(index - 1);
-    else update();
-  };
-
-  track.addEventListener("touchstart", (e) => pointerDown(e.touches[0].clientX), { passive: true });
-  track.addEventListener("touchmove", (e) => pointerMove(e.touches[0].clientX), { passive: true });
-  track.addEventListener("touchend", pointerUp);
-
-  track.addEventListener("mousedown", (e) => { e.preventDefault(); pointerDown(e.clientX); });
-  window.addEventListener("mousemove", (e) => pointerMove(e.clientX));
-  window.addEventListener("mouseup", pointerUp);
-});
-
-
-document.getElementById("getApp").addEventListener("click", function (e) {
-    e.preventDefault();
-
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-    // Android
-    if (/android/i.test(userAgent)) {
-      window.location.href = "https://play.google.com/store/apps/details?id=com.zoneup12345.zoneup";
-    }
-    // iOS
-    else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-      window.location.href = "https://apps.apple.com/in/app/zoneup/id6744461293";
-    }
-    // Desktop or unknown
-    else {
-      window.location.href = "https://play.google.com/store/apps/details?id=com.zoneup12345.zoneup";
-    }
-});
-
+  <script src="main.js"></script>
+  <script>
+    // Page transition: fade in on load, fade out on navigate
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.classList.add('page-ready');
+    });
+    document.addEventListener('click', function(e) {
+      var link = e.target.closest('a[href]');
+      if (!link) return;
+      var href = link.getAttribute('href');
+      // Only intercept actual page navigations (not anchors or #)
+      if (!href || href.startsWith('#') || href.startsWith('javascript') || link.target === '_blank') return;
+      e.preventDefault();
+      document.body.classList.add('page-leaving');
+      document.body.classList.remove('page-ready');
+      setTimeout(function() {
+        window.location.href = href;
+      }, 300);
+    });
   </script>
-  </body>
+</body>
 </html>
