@@ -1294,6 +1294,7 @@ font-family: 'Satoshi', sans-serif;
   }
   .feature-card-title {
     font-size: 1.4rem;
+    text-align: left;
   }
 
   .step-card-desc, .feature-card-desc {
