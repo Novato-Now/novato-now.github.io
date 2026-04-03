@@ -69,7 +69,7 @@ if (stepsSection && stepsTrack) {
     stepsTrack.style.transform = 'translateX(' + (-progress * maxShift) + 'px)';
   }
 
-  window.addEventListener('scroll', function() {
+  window.addEventListener('scroll', function () {
     requestAnimationFrame(updateStepsScroll);
   }, { passive: true });
   window.addEventListener('resize', updateStepsScroll);
@@ -90,16 +90,16 @@ if (faqList) {
         item.className = 'faq-item';
         item.innerHTML =
           '<button class="faq-question">' +
-            '<span>' + faq.question + '</span>' +
-            '<span class="faq-icon">+</span>' +
+          '<span>' + faq.question + '</span>' +
+          '<span class="faq-icon">+</span>' +
           '</button>' +
           '<div class="faq-answer">' +
-            '<div class="faq-answer-inner">' +
-              '<p>' + faq.answer + '</p>' +
-            '</div>' +
+          '<div class="faq-answer-inner">' +
+          '<p>' + faq.answer + '</p>' +
+          '</div>' +
           '</div>';
 
-        item.querySelector('.faq-question').addEventListener('click', function() {
+        item.querySelector('.faq-question').addEventListener('click', function () {
           const wasOpen = item.classList.contains('open');
           // Close all others
           faqList.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
@@ -118,23 +118,23 @@ const footerWatermark = document.getElementById('footerWatermark');
 const watermarkText = footerWatermark ? footerWatermark.querySelector('.watermark-text') : null;
 
 if (footerWatermark && watermarkText) {
-  footerWatermark.addEventListener('mouseenter', function() {
+  footerWatermark.addEventListener('mouseenter', function () {
     if (window.innerWidth > 768) {
       // glow will be set on mousemove
     }
   });
 
-  footerWatermark.addEventListener('mousemove', function(e) {
+  footerWatermark.addEventListener('mousemove', function (e) {
     if (window.innerWidth > 768) {
       var rect = footerWatermark.getBoundingClientRect();
       var x = e.clientX - rect.left;
       var y = e.clientY - rect.top;
-      watermarkText.style.background = 'radial-gradient(circle 400px at ' + x + 'px ' + y + 'px, rgba(67, 206, 162, 0.55) 0%, rgba(24, 90, 157, 0.3) 25%, rgba(67, 206, 162, 0.1) 50%, rgba(255, 255, 255, 0.06) 70%)';      watermarkText.style.webkitBackgroundClip = 'text';
+      watermarkText.style.background = 'radial-gradient(circle 400px at ' + x + 'px ' + y + 'px, rgba(67, 206, 162, 0.55) 0%, rgba(24, 90, 157, 0.3) 25%, rgba(67, 206, 162, 0.1) 50%, rgba(255, 255, 255, 0.06) 70%)'; watermarkText.style.webkitBackgroundClip = 'text';
       watermarkText.style.backgroundClip = 'text';
     }
   });
 
-  footerWatermark.addEventListener('mouseleave', function() {
+  footerWatermark.addEventListener('mouseleave', function () {
     if (window.innerWidth > 768) {
       watermarkText.style.background = 'rgba(255, 255, 255, 0.06)';
       watermarkText.style.webkitBackgroundClip = 'text';
@@ -142,3 +142,20 @@ if (footerWatermark && watermarkText) {
     }
   });
 }
+
+
+const downloadBtn = document.getElementById("downloadBtn");
+
+const appleStoreUrl =
+  "https://apps.apple.com/in/app/zoneup/id6744461293";
+
+const playStoreUrl =
+  "https://play.google.com/store/apps/details?id=com.zoneup12345.zoneup";
+
+const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+downloadBtn.href = isIOS ? appleStoreUrl : playStoreUrl;
+
+const footerDownloadBtn = document.getElementById("footerDownloadBtn");
+
+footerDownloadBtn.href = isIOS ? appleStoreUrl : playStoreUrl;

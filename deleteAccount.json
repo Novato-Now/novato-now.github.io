@@ -1,0 +1,53 @@
+{
+    "title": "Delete Account Policy",
+    "sections": [
+      {
+        "heading": "1. Introduction",
+        "content": [
+          "ZoneUp ('we,' 'us,' 'our') provides users with the ability to delete their account at any time. This Delete Account Policy explains how you can delete your account and what happens to your data after deletion."
+        ]
+      },
+      {
+        "heading": "2. Data Retention After Deletion",
+        "content": [
+          "Once you request account deletion, your account will be deactivated immediately.",
+          "Your data will be retained for 30 days for security and recovery purposes.",
+          "After 30 days, all your data will be permanently deleted from our systems."
+        ]
+      },
+      {
+        "heading": "3. How to Delete Your Account",
+        "content": [
+          "To delete your account, follow these steps:",
+          "1. Log in using the account you want to delete.",
+          "2. Go to Settings from your Profile page.",
+          "3. Tap on 'Account Settings'.",
+          "4. Tap on 'More (Additional Settings)'.",
+          "5. Tap on 'Delete Account'.",
+          "6. Tap the confirmation box to enable the 'Delete Account' button.",
+          "7. Press 'Delete Account' to permanently delete your account."
+        ]
+      },
+      {
+        "heading": "4. Important Information",
+        "content": [
+          "Account deletion is irreversible after the 30-day retention period.",
+          "You may not be able to recover your account or data after it has been permanently deleted.",
+          "Certain information may be retained if required for legal or regulatory purposes."
+        ]
+      },
+      {
+        "heading": "5. Changes to This Policy",
+        "content": [
+          "We may update this Delete Account Policy from time to time to reflect changes in our practices or for legal and regulatory reasons.",
+          "We will notify you of any updates by posting the revised policy in the App."
+        ]
+      },
+      {
+        "heading": "6. Contact Us",
+        "content": [
+          "If you have any questions about this Delete Account Policy, please contact us at support@zoneup.in"
+        ]
+      }
+    ]
+  }
