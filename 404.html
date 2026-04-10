@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      // Immediately extract postId and redirect
+      const pathParts = window.location.pathname.split("/SharedPost/");
+      const postId = pathParts[1] ? pathParts[1].split("/")[0] : null;
+
+      if (postId) {
+        window.location.replace(
+          `/SharedPost/index.html?postId=${encodeURIComponent(postId)}`
+        );
+      } else {
+        window.location.replace("https://zoneup.in");
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Empty body ensures nothing shows during redirect -->
+  </body>
+</html>
