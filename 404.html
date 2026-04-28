@@ -7,9 +7,9 @@
       const postId = pathParts[1] ? pathParts[1].split("/")[0] : null;
 
       if (postId) {
-       window.location.replace(
-  `zoneup://SharedPost/${encodeURIComponent(postId)}`
-);
+        window.location.replace(
+          `zoneup://SharedPost/${encodeURIComponent(postId)}`
+        );
       } else {
         window.location.replace("https://zoneup.in");
       }
