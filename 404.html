@@ -2,20 +2,25 @@
 <html>
   <head>
     <script>
-      // Immediately extract postId and redirect
-      const pathParts = window.location.pathname.split("/SharedPost/");
-      const postId = pathParts[1] ? pathParts[1].split("/")[0] : null;
+      const path = window.location.pathname;
 
-      if (postId) {
+      const sharedPostMatch = path.split("/SharedPost/");
+      const profileMatch = path.split("/Profile/");
+
+      if (sharedPostMatch[1]) {
+        const postId = sharedPostMatch[1].split("/")[0];
         window.location.replace(
           `zoneup://SharedPost/${encodeURIComponent(postId)}`
+        );
+      } else if (profileMatch[1]) {
+        const username = profileMatch[1].split("/")[0];
+        window.location.replace(
+          `zoneup://Profile/${encodeURIComponent(username)}`
         );
       } else {
         window.location.replace("https://zoneup.in");
       }
     </script>
   </head>
-  <body>
-    <!-- Empty body ensures nothing shows during redirect -->
-  </body>
+  <body></body>
 </html>
