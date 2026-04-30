@@ -5,29 +5,28 @@
     <meta http-equiv="refresh" content="0;url=https://zoneup.in" />
     <script type="text/javascript">
       (function () {
-        // Get postId from query parameter (sent by 404.html)
         const urlParams = new URLSearchParams(window.location.search);
         let postId = urlParams.get("postId");
-        if (!postId) {
-          window.location.href = "https://zoneup.in";
-          return;
-        }
-        // Clean postId
-        postId = postId.split("/")[0].split("?")[0].split("#")[0];
+        let username = urlParams.get("username");
 
         const isAndroid = /Android/i.test(navigator.userAgent);
         const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-        // UPDATE THESE TO YOUR ACTUAL APP LINKS:
-        const appDeepLink = `zoneup://SharedPost/${postId}`;
         const playStoreUrl =
           "https://play.google.com/store/apps/details?id=com.zoneup12345.zoneup";
         const appStoreUrl = "itms-apps://itunes.apple.com/app/id6744461293";
 
-        // Immediate redirect attempt
-        window.location.href = appDeepLink;
+        if (postId) {
+          postId = postId.split("/")[0].split("?")[0].split("#")[0];
+          window.location.href = `zoneup://SharedPost/${postId}`;
+        } else if (username) {
+          username = username.split("/")[0].split("?")[0].split("#")[0];
+          window.location.href = `zoneup://Profile/${username}`;
+        } else {
+          window.location.href = "https://zoneup.in";
+          return;
+        }
 
-        // Double redirect with timeout
         setTimeout(function () {
           window.location.href = isAndroid
             ? playStoreUrl
@@ -38,7 +37,5 @@
       })();
     </script>
   </head>
-  <body>
-    <!-- Empty body ensures nothing shows during redirect -->
-  </body>
+  <body></body>
 </html>
