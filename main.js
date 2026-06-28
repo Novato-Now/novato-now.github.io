@@ -144,18 +144,26 @@ if (footerWatermark && watermarkText) {
 }
 
 
-const downloadBtn = document.getElementById("downloadBtn");
-
 const appleStoreUrl =
   "https://apps.apple.com/in/app/zoneup/id6744461293";
 
 const playStoreUrl =
   "https://play.google.com/store/apps/details?id=com.zoneup12345.zoneup";
 
-const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+function getStoreUrl() {
+  const userAgent = navigator.userAgent || navigator.vendor || window.opera || '';
+  const isIOS = /iPad|iPhone|iPod/i.test(userAgent);
+  const isAndroid = /Android/i.test(userAgent);
 
-downloadBtn.href = isIOS ? appleStoreUrl : playStoreUrl;
+  if (isIOS) return appleStoreUrl;
+  if (isAndroid) return playStoreUrl;
 
-const footerDownloadBtn = document.getElementById("footerDownloadBtn");
+  return appleStoreUrl;
+}
 
-footerDownloadBtn.href = isIOS ? appleStoreUrl : playStoreUrl;
+document.querySelectorAll('[data-store-cta]').forEach(link => {
+  const storeUrl = getStoreUrl();
+  link.href = storeUrl;
+  link.setAttribute('target', '_blank');
+  link.setAttribute('rel', 'noopener noreferrer');
+});
