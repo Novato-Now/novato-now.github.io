@@ -281,7 +281,7 @@ Here’s how ZoneUp helps you simplify your routine and stay in control—effort
           <a href="https://x.com/zoneup_official?s=11" aria-label="Twitter" class="social-icon social-x">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4l11.733 16h4.267l-11.733 -16z M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" stroke="currentColor" stroke-width="2" fill="none"/></svg>
           </a>
-          <a href="#" aria-label="LinkedIn" class="social-icon social-linkedin">
+          <a href="https://www.linkedin.com/company/zoneupofficial/" aria-label="LinkedIn" class="social-icon social-linkedin">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" stroke="none"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           </a>
           
@@ -322,9 +322,14 @@ Here’s how ZoneUp helps you simplify your routine and stay in control—effort
   <script src="main.js"></script>
   <script>
     // Page transition: fade in on load, fade out on navigate
-    document.addEventListener('DOMContentLoaded', function() {
+    function showPage() {
       document.body.classList.add('page-ready');
-    });
+      document.body.classList.remove('page-leaving');
+    }
+
+    document.addEventListener('DOMContentLoaded', showPage);
+    window.addEventListener('pageshow', showPage);
+
     document.addEventListener('click', function(e) {
       var link = e.target.closest('a[href]');
       if (!link) return;

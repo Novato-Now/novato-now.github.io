@@ -152,13 +152,16 @@ const playStoreUrl =
 
 function getStoreUrl() {
   const userAgent = navigator.userAgent || navigator.vendor || window.opera || '';
-  const isIOS = /iPad|iPhone|iPod/i.test(userAgent);
-  const isAndroid = /Android/i.test(userAgent);
+  const platform = navigator.platform || '';
+  const uaDataPlatform = (navigator.userAgentData && navigator.userAgentData.platform) || '';
 
-  if (isIOS) return appleStoreUrl;
-  if (isAndroid) return playStoreUrl;
+  const isIOS = /iPad|iPhone|iPod/i.test(userAgent) || /iPad|iPhone|iPod/i.test(platform) || /iOS/i.test(uaDataPlatform);
+  const isMac = /Macintosh|Mac OS X/i.test(userAgent) || /Mac/i.test(platform) || /Mac OS X/i.test(uaDataPlatform);
+  const isAndroid = /Android/i.test(userAgent) || /Android/i.test(uaDataPlatform);
+  const isWindows = /Windows NT/i.test(userAgent) || /^Win/i.test(platform) || /Windows/i.test(uaDataPlatform);
 
-  return appleStoreUrl;
+  if (isIOS || isMac) return appleStoreUrl;
+  return playStoreUrl;
 }
 
 document.querySelectorAll('[data-store-cta]').forEach(link => {
