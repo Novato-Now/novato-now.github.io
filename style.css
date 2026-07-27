@@ -810,6 +810,8 @@ font-family: 'Satoshi', sans-serif;
   justify-content: space-between;
   gap: 40px;
   margin-bottom: 28px;
+  position: relative;
+  z-index: 2;
 }
 .footer-right{
   display: flex;
