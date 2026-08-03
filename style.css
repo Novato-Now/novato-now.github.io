@@ -286,11 +286,12 @@ body {
   font-family: 'Lora', Georgia, serif;
   font-size: 4.5rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #d1d1d1;
   line-height: 1.15;
   letter-spacing: -0.02em;
   margin: 0;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+
 }
 
 .hero-title sup {
@@ -1123,6 +1124,7 @@ body {
   letter-spacing: -0.02em;
   margin: 0;
   max-width: 580px;
+  font-style: italic;
 }
 
 .circled-word {

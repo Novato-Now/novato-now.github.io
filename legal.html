@@ -13,7 +13,7 @@
 
 <body>
   <div class="header-spacer" id="headerSpacer"></div>
-  <header class="header" id="header">
+  <header class="header shrink" id="header">
     <div class="header-inner" id="headerInner">
       <div class="header-top">
         <a href="index.html" class="logo">
@@ -123,19 +123,14 @@
     </div>
   </footer>
 
+  <script src="legal-data.js"></script>
   <script>
-    // Header shrink
+    // Header spacer setup
     const header = document.getElementById("header");
     const spacer = document.getElementById("headerSpacer");
-    spacer.style.height = header.offsetHeight + "px";
-
-    window.addEventListener("scroll", function () {
-      if (window.scrollY > spacer.offsetHeight) {
-        header.classList.add("shrink");
-      } else {
-        header.classList.remove("shrink");
-      }
-    });
+    if (header && spacer) {
+      spacer.style.height = header.offsetHeight + "px";
+    }
 
     // Watermark glow
     var footerWatermark = document.getElementById("footerWatermark");
@@ -183,29 +178,26 @@
         return c.toUpperCase();
       }) + " – ZoneUp";
 
-    fetch("./" + page + ".json")
-      .then(function (res) {
-        return res.json();
-      })
-      .then(function (data) {
-        document.getElementById("legalTitle").textContent = data.title;
+    var data = window.legalData ? window.legalData[page] : null;
+    if (data) {
+      document.getElementById("legalTitle").textContent = data.title;
 
-        var container = document.getElementById("legalContent");
-        data.sections.forEach(function (section) {
-          if (section.heading) {
-            var h2 = document.createElement("h2");
-            h2.className = "legal-section-title";
-            h2.textContent = section.heading;
-            container.appendChild(h2);
-          }
-          section.content.forEach(function (text) {
-            var p = document.createElement("p");
-            p.className = "legal-text";
-            p.textContent = text;
-            container.appendChild(p);
-          });
+      var container = document.getElementById("legalContent");
+      data.sections.forEach(function (section) {
+        if (section.heading) {
+          var h2 = document.createElement("h2");
+          h2.className = "legal-section-title";
+          h2.textContent = section.heading;
+          container.appendChild(h2);
+        }
+        section.content.forEach(function (text) {
+          var p = document.createElement("p");
+          p.className = "legal-text";
+          p.textContent = text;
+          container.appendChild(p);
         });
       });
+    }
 
     // Device-specific app store links for Legal page buttons
     var appleStoreUrl = "https://apps.apple.com/in/app/zoneup/id6744461293";
