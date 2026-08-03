@@ -38,52 +38,7 @@ mobileExpand.querySelectorAll('a').forEach(link => {
   });
 });
 
-// Steps horizontal scroll on desktop
-const stepsSection = document.getElementById('benefits');
-const stepsTrack = document.getElementById('stepsTrack');
 
-if (stepsSection && stepsTrack) {
-  function updateStepsScroll() {
-    if (window.innerWidth <= 768) {
-      stepsTrack.style.transform = 'none';
-      return;
-    }
-
-    const sectionRect = stepsSection.getBoundingClientRect();
-    const sectionHeight = stepsSection.offsetHeight;
-    const vh = window.innerHeight;
-
-    // scrolled = how many px we've scrolled past the top of the section
-    const scrolled = -sectionRect.top;
-    // total scrollable distance within the section
-    const scrollRange = sectionHeight - vh;
-
-    if (scrollRange <= 0) return;
-
-    const progress = Math.max(0, Math.min(1, scrolled / scrollRange));
-
-    // total width of all cards + gaps
-    const cards = stepsTrack.children;
-    let totalWidth = 0;
-    for (let i = 0; i < cards.length; i++) {
-      totalWidth += cards[i].offsetWidth;
-    }
-    totalWidth += 28 * (cards.length - 1); // gap
-
-    const containerWidth = stepsTrack.parentElement.clientWidth;
-    const maxShift = Math.max(0, totalWidth - containerWidth);
-
-    stepsTrack.style.transform = 'translateX(' + (-progress * maxShift) + 'px)';
-  }
-
-  window.addEventListener('scroll', function () {
-    requestAnimationFrame(updateStepsScroll);
-  }, { passive: true });
-  window.addEventListener('resize', updateStepsScroll);
-
-  // Run on load
-  updateStepsScroll();
-}
 
 // FAQ accordion from JSON
 const faqList = document.getElementById('faqList');
@@ -177,3 +132,45 @@ document.querySelectorAll('[data-store-cta]').forEach(link => {
   link.setAttribute('target', '_blank');
   link.setAttribute('rel', 'noopener noreferrer');
 });
+
+// Parallax scroll effect for Principles Image
+const principlesImg = document.querySelector('.principles-img');
+const principlesSec = document.querySelector('.principles-section');
+
+if (principlesImg && principlesSec) {
+  function handleParallax() {
+    if (window.innerWidth <= 768) {
+      principlesImg.style.transform = 'none';
+      return;
+    }
+    const rect = principlesSec.getBoundingClientRect();
+    const vh = window.innerHeight;
+    if (rect.top < vh && rect.bottom > 0) {
+      const scrolled = vh - rect.top;
+      const totalRange = vh + rect.height;
+      const progress = Math.max(0, Math.min(1, scrolled / totalRange));
+      const shift = (progress - 0.5) * -120; // translates from 60px to -60px
+      principlesImg.style.transform = `translateY(${shift}px)`;
+    }
+  }
+
+  window.addEventListener('scroll', () => {
+    requestAnimationFrame(handleParallax);
+  }, { passive: true });
+  window.addEventListener('resize', handleParallax);
+  handleParallax();
+}
+
+// Intersection Observer for drawing SVG numbers in Values Section
+const valuesSec = document.querySelector('.values-section');
+if (valuesSec) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        valuesSec.classList.add('in-view');
+        observer.unobserve(entry.target); // trigger animation only once
+      }
+    });
+  }, { threshold: 0.15 });
+  observer.observe(valuesSec);
+}
