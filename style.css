@@ -51,7 +51,6 @@ body {
 
 .header.shrink .header-inner {
   padding: 16px 0;
-  /* Slightly tighter vertical height when scrolled */
 }
 
 /* ── Transparent Header Overlay ── */
@@ -1043,7 +1042,6 @@ body {
   max-width: 90%;
   margin: 0 auto;
   padding: 160px 28px 200px;
-  /* Large padding top and bottom */
   gap: 40px;
   overflow: visible;
 }
@@ -1058,9 +1056,7 @@ body {
   font-size: 0.95rem;
   font-weight: 500;
   color: #185A9D;
-  /* Brand Blue color */
   margin-bottom: 32px;
-  /* Generous spacing from heading */
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -1068,19 +1064,14 @@ body {
 .approach-title {
   font-family: 'Lora', Georgia, serif;
   font-size: 4rem;
-  /* ~80px display heading */
-  font-weight: 700;
-  /* Bold appearance */
+  font-weight: 500;
   color: #020202;
-  /* High contrast black */
   line-height: 1.2;
-  /* Tight line height */
   letter-spacing: -0.02em;
   margin: 0;
   max-width: 580px;
 }
 
-/* Hand-drawn sketchy circle border outline around "last" */
 .circled-word {
   position: relative;
   display: inline-block;
@@ -1094,9 +1085,7 @@ body {
   position: absolute;
   inset: -6px -16px -8px -18px;
   border: 3.5px solid #185A9D;
-  /* Blue circle */
   border-radius: 54% 46% 56% 44% / 48% 54% 46% 52%;
-  /* Sketchy organic oval shape */
   transform: rotate(-2deg);
   z-index: -1;
   pointer-events: none;
@@ -1105,10 +1094,8 @@ body {
 .approach-arrow-container {
   position: absolute;
   right: -6%;
-  /* Overlaps intermediate gap naturally */
   bottom: -150px;
   width: clamp(10px, 5vw, 50px);
-  /* Scales naturally */
   z-index: 5;
   pointer-events: none;
 }
@@ -1118,15 +1105,12 @@ body {
   height: auto;
   display: block;
   transform: scaleX(-1) rotate(20deg);
-  /* Mirrors and angles from title to para */
   filter: brightness(0) invert(27%) sepia(50%) saturate(2364%) hue-rotate(193deg) brightness(96%) contrast(92%);
-  /* Converts SVG base color to match brand blue #185A9D exactly */
 }
 
 .approach-right {
   flex: 0 0 40%;
   margin-top: 400px;
-  /* Right column sits noticeably lower */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -1135,13 +1119,10 @@ body {
 .approach-desc {
   font-family: 'Satoshi', sans-serif;
   font-size: 1.25rem;
-  /* ~20px sans-serif paragraph */
   color: #3b3b3b;
   line-height: 1.65;
-  /* Comfortable line height */
   margin: 0 0 36px 0;
   max-width: 520px;
-  /* Paragraph max width */
   letter-spacing: -0.01em;
 }
 
@@ -1152,9 +1133,7 @@ body {
   background: #020202;
   color: #ffffff;
   padding: 14px 36px;
-  /* Medium padding */
   border-radius: 30px;
-  /* Fully rounded pill */
   font-family: 'Satoshi', sans-serif;
   font-size: 1rem;
   font-weight: 700;
