@@ -40,38 +40,18 @@ mobileExpand.querySelectorAll('a').forEach(link => {
 
 
 
-// FAQ accordion from JSON
+// FAQ accordion logic
 const faqList = document.getElementById('faqList');
-
 if (faqList) {
-  fetch('./faq.json')
-    .then(res => res.json())
-    .then(faqs => {
-      faqs.forEach(faq => {
-        const item = document.createElement('div');
-        item.className = 'faq-item';
-        item.innerHTML =
-          '<button class="faq-question">' +
-          '<span>' + faq.question + '</span>' +
-          '<span class="faq-icon">+</span>' +
-          '</button>' +
-          '<div class="faq-answer">' +
-          '<div class="faq-answer-inner">' +
-          '<p>' + faq.answer + '</p>' +
-          '</div>' +
-          '</div>';
-
-        item.querySelector('.faq-question').addEventListener('click', function () {
-          const wasOpen = item.classList.contains('open');
-          // Close all others
-          faqList.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
-          // Toggle current
-          if (!wasOpen) item.classList.add('open');
-        });
-
-        faqList.appendChild(item);
-      });
+  faqList.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-question').addEventListener('click', () => {
+      const wasOpen = item.classList.contains('open');
+      // Close all others
+      faqList.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+      // Toggle current
+      if (!wasOpen) item.classList.add('open');
     });
+  });
 }
 
 
@@ -173,4 +153,50 @@ if (valuesSec) {
     });
   }, { threshold: 0.15 });
   observer.observe(valuesSec);
+}
+
+// Adjust header theme dynamically when crossing the dark values section boundary
+if (header && valuesSec) {
+  function adjustHeaderTheme() {
+    const headerRect = header.getBoundingClientRect();
+    const headerBottom = headerRect.bottom;
+    const valuesRect = valuesSec.getBoundingClientRect();
+
+    // If the bottom of the header is within the boundaries of the dark values section
+    if (valuesRect.top <= headerBottom && valuesRect.bottom >= headerBottom) {
+      header.classList.add('dark-bg');
+    } else {
+      header.classList.remove('dark-bg');
+    }
+  }
+
+  window.addEventListener('scroll', () => {
+    requestAnimationFrame(adjustHeaderTheme);
+  }, { passive: true });
+  window.addEventListener('resize', adjustHeaderTheme);
+  adjustHeaderTheme();
+}
+
+// Parallax scroll effect for Footer Banner Image
+const footerBannerImg = document.querySelector('.footer-banner-img');
+const footerBannerSec = document.querySelector('.footer-banner-section');
+
+if (footerBannerImg && footerBannerSec) {
+  function handleFooterBannerParallax() {
+    const rect = footerBannerSec.getBoundingClientRect();
+    const vh = window.innerHeight;
+    if (rect.top < vh && rect.bottom > 0) {
+      const scrolled = vh - rect.top;
+      const totalRange = vh + rect.height;
+      const progress = Math.max(0, Math.min(1, scrolled / totalRange));
+      const shift = (progress - 0.5) * -120; // translates from 60px to -60px
+      footerBannerImg.style.transform = `translateY(${shift}px)`;
+    }
+  }
+
+  window.addEventListener('scroll', () => {
+    requestAnimationFrame(handleFooterBannerParallax);
+  }, { passive: true });
+  window.addEventListener('resize', handleFooterBannerParallax);
+  handleFooterBannerParallax();
 }
