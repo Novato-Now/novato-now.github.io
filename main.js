@@ -8,7 +8,12 @@ spacer.style.height = header.offsetHeight + 'px';
 
 // Shrink header on scroll
 window.addEventListener('scroll', () => {
-  if (window.scrollY > spacer.offsetHeight) {
+  const hero = document.querySelector('.hero');
+  const heroHeight = hero ? hero.offsetHeight : 0;
+  // Shrink only after scrolling past the hero section (minus header height for transition buffer)
+  const threshold = heroHeight ? (heroHeight - header.offsetHeight) : (spacer.offsetHeight || 50);
+
+  if (window.scrollY > threshold) {
     header.classList.add('shrink');
   } else {
     header.classList.remove('shrink');
@@ -20,6 +25,7 @@ hamburger.addEventListener('click', () => {
   const isOpen = mobileExpand.classList.toggle('open');
   hamburger.classList.toggle('active');
   hamburger.setAttribute('aria-expanded', isOpen);
+  header.classList.toggle('menu-open', isOpen);
 });
 
 // Close on link click
@@ -28,6 +34,7 @@ mobileExpand.querySelectorAll('a').forEach(link => {
     mobileExpand.classList.remove('open');
     hamburger.classList.remove('active');
     hamburger.setAttribute('aria-expanded', 'false');
+    header.classList.remove('menu-open');
   });
 });
 

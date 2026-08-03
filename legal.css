@@ -1,3 +1,7 @@
+.header-spacer {
+  display: block !important;
+}
+
 .legal-page {
   padding: 40px 20px 80px;
   display: flex;
