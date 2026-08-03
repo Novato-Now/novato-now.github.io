@@ -1667,7 +1667,7 @@ body {
   }
 
   .hero-inner {
-    padding: 100px 18px 80px;
+    padding: 100px 18px 150px;
     flex-direction: column;
     border-radius: 0;
     max-width: 100%;
@@ -1755,6 +1755,7 @@ body {
 
   .approach-arrow {
     transform: none;
+    filter: brightness(0) invert(27%) sepia(50%) saturate(2364%) hue-rotate(193deg) brightness(96%) contrast(92%) !important;
   }
 
   .approach-right {
@@ -2080,26 +2081,26 @@ body {
 
   .values-grid {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 28px;
   }
 
   .value-number {
-    max-width: 140px;
-    height: 114px;
-    margin-bottom: 16px;
-  }
-
-  .value-number-text {
-    font-size: 8rem;
-  }
-
-  .value-card-title {
-    font-size: 1.65rem;
+    max-width: 120px;
+    height: 96px;
     margin-bottom: 10px;
   }
 
+  .value-number-text {
+    font-size: 7.2rem;
+  }
+
+  .value-card-title {
+    font-size: 1.55rem;
+    margin-bottom: 8px;
+  }
+
   .value-card-desc {
-    font-size: 1.05rem;
+    font-size: 1rem;
   }
 
   .principles-top {
