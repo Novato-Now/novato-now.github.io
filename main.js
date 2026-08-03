@@ -141,29 +141,36 @@ if (principlesImg && principlesSec) {
   handleParallax();
 }
 
-// Intersection Observer for drawing SVG numbers in Values Section
-const valuesSec = document.querySelector('.values-section');
-if (valuesSec) {
+// Intersection Observer for drawing SVG circles and numbers in Approach and Values Sections
+const animatedSections = document.querySelectorAll('.approach-section, .values-section');
+if (animatedSections.length > 0) {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        valuesSec.classList.add('in-view');
+        entry.target.classList.add('in-view');
         observer.unobserve(entry.target); // trigger animation only once
       }
     });
   }, { threshold: 0.15 });
-  observer.observe(valuesSec);
+  animatedSections.forEach(sec => observer.observe(sec));
 }
 
-// Adjust header theme dynamically when crossing the dark values section boundary
-if (header && valuesSec) {
+// Adjust header theme dynamically when crossing dark section boundaries
+const darkSections = document.querySelectorAll('.values-section, .download-cta');
+if (header && darkSections.length > 0) {
   function adjustHeaderTheme() {
     const headerRect = header.getBoundingClientRect();
     const headerBottom = headerRect.bottom;
-    const valuesRect = valuesSec.getBoundingClientRect();
+    
+    let isOverDark = false;
+    darkSections.forEach(sec => {
+      const rect = sec.getBoundingClientRect();
+      if (rect.top <= headerBottom && rect.bottom >= headerBottom) {
+        isOverDark = true;
+      }
+    });
 
-    // If the bottom of the header is within the boundaries of the dark values section
-    if (valuesRect.top <= headerBottom && valuesRect.bottom >= headerBottom) {
+    if (isOverDark) {
       header.classList.add('dark-bg');
     } else {
       header.classList.remove('dark-bg');

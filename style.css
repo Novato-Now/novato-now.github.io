@@ -630,17 +630,18 @@ body {
 
 /* ── Download CTA Section ── */
 .download-cta {
-  padding: 40px 20px;
+  padding: 0;
+  width: 100%;
 }
 
 .download-cta-inner {
-  max-width: 1400px;
-  margin: 0 auto;
-  background: #020202;
-  border-radius: 24px;
+  width: 100%;
+  max-width: 100%;
+  background: #171717;
+  border-radius: 0;
   display: flex;
   align-items: flex-end;
-  padding: 60px 60px 0;
+  padding: 80px 5vw 0;
   gap: 16px;
   overflow: hidden;
   position: relative;
@@ -648,19 +649,22 @@ body {
 
 .download-cta-left {
   flex: 1;
-  padding-bottom: 60px;
+  padding-bottom: 80px;
 }
 
 .download-cta-title {
+  font-family: 'Lora', Georgia, serif;
   font-size: 4rem;
   font-weight: 700;
-  color: #e9e9e9;
-  margin-bottom: 8px;
+  color: #ffffff;
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
 }
 
 .download-cta-subtitle {
   font-size: 1.4rem;
-  color: #8b8b8b;
+  color: #a0aec0;
   margin-bottom: 28px;
 }
 
@@ -705,6 +709,7 @@ body {
   padding: 100px 20px;
   max-width: 800px;
   margin: 0 auto;
+  font-family: 'Satoshi', sans-serif;
 }
 
 .faq-title {
@@ -714,6 +719,7 @@ body {
   text-align: center;
   margin-bottom: 48px;
   line-height: 1.2;
+  font-family: 'Satoshi', sans-serif;
 }
 
 .faq-item {
@@ -729,16 +735,17 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 22px 0;
+  padding: 24px 0;
   background: none;
   border: none;
   cursor: pointer;
   text-align: left;
   font-family: 'Satoshi', sans-serif;
   font-size: 1rem;
-  font-weight: 500;
-  color: #0E172A;
+  font-weight: 400;
+  color: #020202;
   gap: 16px;
+  letter-spacing: -0.015em;
 }
 
 .faq-icon {
@@ -774,10 +781,10 @@ body {
 }
 
 .faq-answer p {
-  padding: 0 0 22px;
-  font-size: 0.9rem;
-  color: #666;
-  line-height: 1.7;
+  padding: 0 0 24px;
+  font-size: 1.05rem;
+  color: #4a4a4a;
+  line-height: 1.65;
 }
 
 /* ── Footer Banner Section ── */
@@ -820,7 +827,7 @@ body {
   max-width: 100%;
   background: #0a0a0a;
   border-radius: 0;
-  padding: 80px 5vw 40px;
+  padding: 120px 5vw 60px;
   position: relative;
   overflow: hidden;
 }
@@ -994,17 +1001,19 @@ body {
 .watermark-text {
   display: block;
   width: 100%;
-  font-size: 16vw;
-  font-weight: 900;
+  font-family: 'Lora', Georgia, serif;
+  font-size: 17vw;
+  font-weight: 700;
   line-height: 0.85;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.04em;
   text-transform: lowercase;
   text-align: center;
   color: transparent;
-  background: radial-gradient(circle 400px at 50% 50%, rgba(67, 206, 162, 0.55) 0%, rgba(24, 90, 157, 0.3) 25%, rgba(67, 206, 162, 0.1) 50%, rgba(255, 255, 255, 0.06) 70%);
+  background: radial-gradient(circle 400px at 50% 50%, rgba(67, 206, 162, 0.25) 0%, rgba(24, 90, 157, 0.15) 25%, rgba(67, 206, 162, 0.05) 50%, transparent 70%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.06);
 }
 
 .watermark-glow {
@@ -1120,19 +1129,28 @@ body {
   position: relative;
   display: inline-block;
   white-space: nowrap;
-  padding: 0 10px;
+  padding: 0 16px;
   z-index: 1;
 }
 
-.circled-word::after {
-  content: "";
+.sketchy-circle {
   position: absolute;
-  inset: -6px -16px -8px -18px;
-  border: 3.5px solid #185A9D;
-  border-radius: 54% 46% 56% 44% / 48% 54% 46% 52%;
-  transform: rotate(-2deg);
+  top: -8px;
+  left: -8px;
+  width: calc(100% + 16px);
+  height: calc(100% + 16px);
   z-index: -1;
   pointer-events: none;
+}
+
+.sketchy-circle path {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.approach-section.in-view .sketchy-circle path {
+  stroke-dashoffset: 0;
 }
 
 .approach-arrow-container {
@@ -1430,6 +1448,9 @@ body {
   border-radius: 20px;
   overflow: hidden;
   position: relative;
+  /* Fix Webkit compositing clipping bug on parent overflow:hidden + child transforms */
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
 }
 
 .principles-img {
@@ -1706,9 +1727,19 @@ body {
     max-width: 100%;
   }
 
-  .circled-word::after {
-    inset: -4px -10px -6px -10px;
-    border-width: 2.5px;
+  .circled-word {
+    padding: 0 10px;
+  }
+
+  .sketchy-circle {
+    top: -5px;
+    left: -5px;
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+  }
+
+  .sketchy-circle path {
+    stroke-width: 2.5px;
   }
 
   .approach-arrow-container {
@@ -1878,20 +1909,20 @@ body {
 
   /* Download CTA mobile */
   .download-cta {
-    padding: 20px 16px;
+    padding: 0;
   }
 
   .download-cta-inner {
     flex-direction: column;
-    padding: 40px 28px 0;
-    border-radius: 24px;
+    padding: 60px 18px 0;
+    border-radius: 0;
     gap: 32px;
     text-align: left;
     overflow: hidden;
   }
 
   .download-cta-title {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
   }
 
   .download-qr {
@@ -1933,6 +1964,16 @@ body {
     margin-bottom: 32px;
   }
 
+  .faq-question {
+    font-size: 1.15rem;
+    padding: 20px 0;
+  }
+
+  .faq-answer p {
+    font-size: 0.95rem;
+    padding-bottom: 20px;
+  }
+
   /* Footer mobile */
   .footer {
     padding: 0;
@@ -1942,7 +1983,7 @@ body {
     width: 100%;
     max-width: 100%;
     border-radius: 0;
-    padding: 60px 18px 30px;
+    padding: 90px 18px 45px;
   }
 
   .footer-cta {
