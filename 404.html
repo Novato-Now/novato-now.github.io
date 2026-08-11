@@ -1,26 +1,125 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script>
-      const path = window.location.pathname;
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      const sharedPostMatch = path.split("/SharedPost/");
-      const profileMatch = path.split("/Profile/");
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ZoneUp - Discover People Nearby">
+    <meta property="og:description" content="View this post or profile inside the ZoneUp app. Discover and meet amazing people who actually live near you, join local communities, and message people directly.">
+    <meta property="og:image" content="https://web-assets-r2.zoneup.in/hero.png">
+    <meta property="og:url" content="https://zoneup.in">
 
-      if (sharedPostMatch[1]) {
-        const postId = sharedPostMatch[1].split("/")[0];
-        window.location.replace(
-          `zoneup://SharedPost/${encodeURIComponent(postId)}`
-        );
-      } else if (profileMatch[1]) {
-        const username = profileMatch[1].split("/")[0];
-        window.location.replace(
-          `zoneup://Profile/${encodeURIComponent(username)}`
-        );
-      } else {
-        window.location.replace("https://zoneup.in");
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ZoneUp - Discover People Nearby">
+    <meta name="twitter:description" content="View this post or profile inside the ZoneUp app. Discover and meet amazing people who actually live near you, join local communities, and message people directly.">
+    <meta name="twitter:image" content="https://web-assets-r2.zoneup.in/hero.png">
+
+    <title>ZoneUp</title>
+
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #060708;
+        color: #ffffff;
+        text-align: center;
+        padding: 20px;
       }
+      .logo-container {
+        position: relative;
+        margin-bottom: 24px;
+      }
+      .logo {
+        width: 100px;
+        height: 100px;
+        border-radius: 24px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      }
+      h1 {
+        font-size: 24px;
+        margin-bottom: 8px;
+        font-weight: 700;
+      }
+      p {
+        color: #88888b;
+        margin-bottom: 32px;
+        max-width: 320px;
+        line-height: 1.5;
+        font-size: 15px;
+      }
+      .btn {
+        background-color: #007aff;
+        color: #ffffff;
+        text-decoration: none;
+        padding: 14px 28px;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 16px;
+        box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
+        transition: background-color 0.2s, transform 0.1s;
+      }
+      .btn:active {
+        transform: scale(0.98);
+      }
+    </style>
+
+    <script>
+      (function () {
+        const path = window.location.pathname;
+        const sharedPostMatch = path.split("/SharedPost/");
+        const profileMatch = path.split("/Profile/");
+
+        let appUrl = "https://zoneup.in";
+        let isRedirect = false;
+
+        if (sharedPostMatch[1]) {
+          const postId = sharedPostMatch[1].split("/")[0].split("?")[0];
+          appUrl = `zoneup://SharedPost/${encodeURIComponent(postId)}`;
+          isRedirect = true;
+        } else if (profileMatch[1]) {
+          const username = profileMatch[1].split("/")[0].split("?")[0];
+          appUrl = `zoneup://Profile/${encodeURIComponent(username)}`;
+          isRedirect = true;
+        }
+
+        if (isRedirect) {
+          // Attempt to open the app
+          window.location.replace(appUrl);
+
+          // Fallback to App Store / Play Store if the app isn't installed
+          const isAndroid = /Android/i.test(navigator.userAgent);
+          const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+          
+          const playStoreUrl = "https://play.google.com/store/apps/details?id=com.zoneup12345.zoneup";
+          const appStoreUrl = "https://apps.apple.com/app/id6744461293";
+          const fallbackUrl = isAndroid ? playStoreUrl : (isIOS ? appStoreUrl : "https://zoneup.in");
+
+          setTimeout(function () {
+            // Check if the page is still active (if the app opened, the page becomes hidden or paused)
+            if (!document.hidden) {
+              window.location.replace(fallbackUrl);
+            }
+          }, 2000);
+        } else {
+          // Default redirect if it's a generic 404 page
+          window.location.replace("https://zoneup.in");
+        }
+      })();
     </script>
   </head>
-  <body></body>
+  <body>
+    <div class="logo-container">
+      <img src="https://web-assets-r2.zoneup.in/logo.svg" class="logo" alt="ZoneUp Logo">
+    </div>
+    <h1>Opening ZoneUp...</h1>
+    <p>If you don't have the app installed, you will be redirected to the app store shortly.</p>
+  </body>
 </html>
