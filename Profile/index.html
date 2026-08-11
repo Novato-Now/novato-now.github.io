@@ -6,15 +6,15 @@
 
     <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="ZoneUp - Shared Post">
-    <meta property="og:description" content="View this post inside the ZoneUp app. Connect with your local neighborhood, discover people nearby, and join the conversation.">
+    <meta property="og:title" content="ZoneUp - Shared Profile">
+    <meta property="og:description" content="View this profile inside the ZoneUp app. Connect with your local neighborhood, discover people nearby, and join the conversation.">
     <meta property="og:image" content="https://web-assets-r2.zoneup.in/hero.png">
     <meta property="og:url" content="https://zoneup.in">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ZoneUp - Shared Post">
-    <meta name="twitter:description" content="View this post inside the ZoneUp app. Connect with your local neighborhood, discover people nearby, and join the conversation.">
+    <meta name="twitter:title" content="ZoneUp - Shared Profile">
+    <meta name="twitter:description" content="View this profile inside the ZoneUp app. Connect with your local neighborhood, discover people nearby, and join the conversation.">
     <meta name="twitter:image" content="https://web-assets-r2.zoneup.in/hero.png">
 
     <title>Open in ZoneUp App</title>
@@ -70,7 +70,7 @@
     <script type="text/javascript">
       (function () {
         const urlParams = new URLSearchParams(window.location.search);
-        let postId = urlParams.get("postId");
+        let username = urlParams.get("username");
 
         const isAndroid = /Android/i.test(navigator.userAgent);
         const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
@@ -79,9 +79,9 @@
         const appStoreUrl = "https://apps.apple.com/app/id6744461293";
         const fallbackUrl = isAndroid ? playStoreUrl : (isIOS ? appStoreUrl : "https://zoneup.in");
 
-        if (postId) {
-          postId = postId.split("/")[0].split("?")[0].split("#")[0];
-          const appUrl = `zoneup://SharedPost/${encodeURIComponent(postId)}`;
+        if (username) {
+          username = username.split("/")[0].split("?")[0].split("#")[0];
+          const appUrl = `zoneup://Profile/${encodeURIComponent(username)}`;
           
           // Attempt to open the app
           window.location.replace(appUrl);
