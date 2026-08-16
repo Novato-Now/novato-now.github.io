@@ -70,7 +70,16 @@
     <script type="text/javascript">
       (function () {
         const urlParams = new URLSearchParams(window.location.search);
-        let postId = urlParams.get("postId");
+        // Extracts postId from either 'postId' or 'p' parameter
+        let postId = urlParams.get("postId") || urlParams.get("p");
+
+        // Fallback: extract postId from path e.g. /SharedPost/12345
+        if (!postId) {
+          const pathParts = window.location.pathname.split("/SharedPost/");
+          if (pathParts[1]) {
+            postId = pathParts[1].split("/")[0].split("?")[0].split("#")[0];
+          }
+        }
 
         const isAndroid = /Android/i.test(navigator.userAgent);
         const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
@@ -79,15 +88,13 @@
         const appStoreUrl = "https://apps.apple.com/app/id6744461293";
         const fallbackUrl = isAndroid ? playStoreUrl : (isIOS ? appStoreUrl : "https://zoneup.in");
 
-        if (postId) {
+        if (postId && postId.trim() !== "") {
           postId = postId.split("/")[0].split("?")[0].split("#")[0];
           const appUrl = `zoneup://SharedPost/${encodeURIComponent(postId)}`;
           
-          // Attempt to open the app
           window.location.replace(appUrl);
 
           setTimeout(function () {
-            // Check if the page is still active (if the app opened, the page becomes hidden or paused)
             if (!document.hidden) {
               window.location.replace(fallbackUrl);
             }
