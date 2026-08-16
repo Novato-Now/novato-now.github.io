@@ -74,27 +74,38 @@
     <script>
       (function () {
         const path = window.location.pathname;
-        const sharedPostMatch = path.split("/SharedPost/");
-        const profileMatch = path.split("/Profile/");
+        const urlParams = new URLSearchParams(window.location.search);
+
+        let postId = urlParams.get("postId") || urlParams.get("p");
+        if (!postId) {
+          const sharedPostMatch = path.split("/SharedPost/");
+          if (sharedPostMatch[1]) {
+            postId = sharedPostMatch[1].split("/")[0].split("?")[0].split("#")[0];
+          }
+        }
+
+        let username = urlParams.get("username") || urlParams.get("u");
+        if (!username) {
+          const profileMatch = path.split("/Profile/");
+          if (profileMatch[1]) {
+            username = profileMatch[1].split("/")[0].split("?")[0].split("#")[0];
+          }
+        }
 
         let appUrl = "https://zoneup.in";
         let isRedirect = false;
 
-        if (sharedPostMatch[1]) {
-          const postId = sharedPostMatch[1].split("/")[0].split("?")[0];
+        if (postId && postId.trim() !== "") {
           appUrl = `zoneup://SharedPost/${encodeURIComponent(postId)}`;
           isRedirect = true;
-        } else if (profileMatch[1]) {
-          const username = profileMatch[1].split("/")[0].split("?")[0];
+        } else if (username && username.trim() !== "") {
           appUrl = `zoneup://Profile/${encodeURIComponent(username)}`;
           isRedirect = true;
         }
 
         if (isRedirect) {
-          // Attempt to open the app
           window.location.replace(appUrl);
 
-          // Fallback to App Store / Play Store if the app isn't installed
           const isAndroid = /Android/i.test(navigator.userAgent);
           const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
           
@@ -103,13 +114,11 @@
           const fallbackUrl = isAndroid ? playStoreUrl : (isIOS ? appStoreUrl : "https://zoneup.in");
 
           setTimeout(function () {
-            // Check if the page is still active (if the app opened, the page becomes hidden or paused)
             if (!document.hidden) {
               window.location.replace(fallbackUrl);
             }
           }, 2000);
         } else {
-          // Default redirect if it's a generic 404 page
           window.location.replace("https://zoneup.in");
         }
       })();
