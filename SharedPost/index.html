@@ -4,18 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="ZoneUp - Shared Post">
     <meta property="og:description" content="View this post inside the ZoneUp app. Connect with your local neighborhood, discover people nearby, and join the conversation.">
     <meta property="og:image" content="https://web-assets-r2.zoneup.in/hero.png">
     <meta property="og:url" content="https://zoneup.in">
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ZoneUp - Shared Post">
-    <meta name="twitter:description" content="View this post inside the ZoneUp app. Connect with your local neighborhood, discover people nearby, and join the conversation.">
-    <meta name="twitter:image" content="https://web-assets-r2.zoneup.in/hero.png">
 
     <title>Open in ZoneUp App</title>
 
@@ -55,25 +48,13 @@
         line-height: 1.5;
         font-size: 15px;
       }
-      .btn {
-        background-color: #007aff;
-        color: #ffffff;
-        text-decoration: none;
-        padding: 14px 28px;
-        border-radius: 12px;
-        font-weight: 600;
-        font-size: 16px;
-        box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
-      }
     </style>
 
     <script type="text/javascript">
       (function () {
         const urlParams = new URLSearchParams(window.location.search);
-        // Extracts postId from either 'postId' or 'p' parameter
         let postId = urlParams.get("postId") || urlParams.get("p");
 
-        // Fallback: extract postId from path e.g. /SharedPost/12345
         if (!postId) {
           const pathParts = window.location.pathname.split("/SharedPost/");
           if (pathParts[1]) {
