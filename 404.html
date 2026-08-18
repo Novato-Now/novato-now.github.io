@@ -92,32 +92,42 @@
           }
         }
 
+        const isAndroid = /Android/i.test(navigator.userAgent);
+        const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+        
+        const playStoreUrl = "https://play.google.com/store/apps/details?id=com.zoneup12345.zoneup";
+        const appStoreUrl = "https://apps.apple.com/app/id6744461293";
+        const fallbackUrl = isAndroid ? playStoreUrl : (isIOS ? appStoreUrl : "https://zoneup.in");
+
         let appUrl = "https://zoneup.in";
         let isRedirect = false;
 
         if (postId && postId.trim() !== "") {
-          appUrl = `zoneup://SharedPost/${encodeURIComponent(postId)}`;
+          if (isAndroid) {
+            appUrl = `intent://SharedPost/${encodeURIComponent(postId)}#Intent;scheme=zoneup;package=com.zoneup12345.zoneup;S.browser_fallback_url=${encodeURIComponent(playStoreUrl)};end`;
+          } else {
+            appUrl = `zoneup://SharedPost/${encodeURIComponent(postId)}`;
+          }
           isRedirect = true;
         } else if (username && username.trim() !== "") {
-          appUrl = `zoneup://Profile/${encodeURIComponent(username)}`;
+          if (isAndroid) {
+            appUrl = `intent://Profile/${encodeURIComponent(username)}#Intent;scheme=zoneup;package=com.zoneup12345.zoneup;S.browser_fallback_url=${encodeURIComponent(playStoreUrl)};end`;
+          } else {
+            appUrl = `zoneup://Profile/${encodeURIComponent(username)}`;
+          }
           isRedirect = true;
         }
 
         if (isRedirect) {
           window.location.replace(appUrl);
 
-          const isAndroid = /Android/i.test(navigator.userAgent);
-          const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-          
-          const playStoreUrl = "https://play.google.com/store/apps/details?id=com.zoneup12345.zoneup";
-          const appStoreUrl = "https://apps.apple.com/app/id6744461293";
-          const fallbackUrl = isAndroid ? playStoreUrl : (isIOS ? appStoreUrl : "https://zoneup.in");
-
-          setTimeout(function () {
-            if (!document.hidden) {
-              window.location.replace(fallbackUrl);
-            }
-          }, 2000);
+          if (!isAndroid) {
+            setTimeout(function () {
+              if (!document.hidden) {
+                window.location.replace(fallbackUrl);
+              }
+            }, 2000);
+          }
         } else {
           window.location.replace("https://zoneup.in");
         }
