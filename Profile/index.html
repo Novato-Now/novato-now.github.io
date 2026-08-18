@@ -84,9 +84,9 @@
           
           let appUrl;
           if (isAndroid) {
-            appUrl = `intent://Profile/${encodeURIComponent(username)}#Intent;scheme=zoneup;package=com.zoneup12345.zoneup;S.browser_fallback_url=${encodeURIComponent(playStoreUrl)};end`;
+            appUrl = `intent:///Profile/${encodeURIComponent(username)}#Intent;scheme=zoneup;package=com.zoneup12345.zoneup;S.browser_fallback_url=${encodeURIComponent(playStoreUrl)};end`;
           } else {
-            appUrl = `zoneup://Profile/${encodeURIComponent(username)}`;
+            appUrl = `zoneup:///Profile/${encodeURIComponent(username)}`;
           }
           
           // Attempt to open the app
