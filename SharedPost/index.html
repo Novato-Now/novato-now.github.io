@@ -71,15 +71,23 @@
 
         if (postId && postId.trim() !== "") {
           postId = postId.split("/")[0].split("?")[0].split("#")[0];
-          const appUrl = `zoneup://SharedPost/${encodeURIComponent(postId)}`;
+          
+          let appUrl;
+          if (isAndroid) {
+            appUrl = `intent://SharedPost/${encodeURIComponent(postId)}#Intent;scheme=zoneup;package=com.zoneup12345.zoneup;S.browser_fallback_url=${encodeURIComponent(playStoreUrl)};end`;
+          } else {
+            appUrl = `zoneup://SharedPost/${encodeURIComponent(postId)}`;
+          }
           
           window.location.replace(appUrl);
 
-          setTimeout(function () {
-            if (!document.hidden) {
-              window.location.replace(fallbackUrl);
-            }
-          }, 2000);
+          if (!isAndroid) {
+            setTimeout(function () {
+              if (!document.hidden) {
+                window.location.replace(fallbackUrl);
+              }
+            }, 2000);
+          }
         } else {
           window.location.replace("https://zoneup.in");
         }
