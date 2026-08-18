@@ -81,17 +81,25 @@
 
         if (username) {
           username = username.split("/")[0].split("?")[0].split("#")[0];
-          const appUrl = `zoneup://Profile/${encodeURIComponent(username)}`;
+          
+          let appUrl;
+          if (isAndroid) {
+            appUrl = `intent://Profile/${encodeURIComponent(username)}#Intent;scheme=zoneup;package=com.zoneup12345.zoneup;S.browser_fallback_url=${encodeURIComponent(playStoreUrl)};end`;
+          } else {
+            appUrl = `zoneup://Profile/${encodeURIComponent(username)}`;
+          }
           
           // Attempt to open the app
           window.location.replace(appUrl);
 
-          setTimeout(function () {
-            // Check if the page is still active (if the app opened, the page becomes hidden or paused)
-            if (!document.hidden) {
-              window.location.replace(fallbackUrl);
-            }
-          }, 2000);
+          if (!isAndroid) {
+            setTimeout(function () {
+              // Check if the page is still active (if the app opened, the page becomes hidden or paused)
+              if (!document.hidden) {
+                window.location.replace(fallbackUrl);
+              }
+            }, 2000);
+          }
         } else {
           window.location.replace("https://zoneup.in");
         }
