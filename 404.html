@@ -104,16 +104,16 @@
 
         if (postId && postId.trim() !== "") {
           if (isAndroid) {
-            appUrl = `intent://SharedPost/${encodeURIComponent(postId)}#Intent;scheme=zoneup;package=com.zoneup12345.zoneup;S.browser_fallback_url=${encodeURIComponent(playStoreUrl)};end`;
+            appUrl = `intent:///SharedPost/${encodeURIComponent(postId)}#Intent;scheme=zoneup;package=com.zoneup12345.zoneup;S.browser_fallback_url=${encodeURIComponent(playStoreUrl)};end`;
           } else {
-            appUrl = `zoneup://SharedPost/${encodeURIComponent(postId)}`;
+            appUrl = `zoneup:///SharedPost/${encodeURIComponent(postId)}`;
           }
           isRedirect = true;
         } else if (username && username.trim() !== "") {
           if (isAndroid) {
-            appUrl = `intent://Profile/${encodeURIComponent(username)}#Intent;scheme=zoneup;package=com.zoneup12345.zoneup;S.browser_fallback_url=${encodeURIComponent(playStoreUrl)};end`;
+            appUrl = `intent:///Profile/${encodeURIComponent(username)}#Intent;scheme=zoneup;package=com.zoneup12345.zoneup;S.browser_fallback_url=${encodeURIComponent(playStoreUrl)};end`;
           } else {
-            appUrl = `zoneup://Profile/${encodeURIComponent(username)}`;
+            appUrl = `zoneup:///Profile/${encodeURIComponent(username)}`;
           }
           isRedirect = true;
         }
