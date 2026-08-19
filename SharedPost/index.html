@@ -48,21 +48,6 @@
         line-height: 1.5;
         font-size: 15px;
       }
-      .btn {
-        background-color: #007aff;
-        color: #ffffff;
-        text-decoration: none;
-        padding: 14px 28px;
-        border-radius: 12px;
-        font-weight: 600;
-        font-size: 16px;
-        box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
-        transition: background-color 0.2s, transform 0.1s;
-        display: inline-block;
-      }
-      .btn:active {
-        transform: scale(0.98);
-      }
     </style>
 
     <script type="text/javascript">
@@ -82,45 +67,27 @@
 
         const playStoreUrl = "https://play.google.com/store/apps/details?id=com.zoneup12345.zoneup";
         const appStoreUrl = "https://apps.apple.com/app/id6744461293";
-        const fallbackUrl = isAndroid ? playStoreUrl : (isIOS ? appStoreUrl : playStoreUrl);
+        const fallbackUrl = isAndroid ? playStoreUrl : (isIOS ? appStoreUrl : "https://zoneup.in");
 
-        let appUrl = fallbackUrl;
         if (postId && postId.trim() !== "") {
           postId = postId.split("/")[0].split("?")[0].split("#")[0];
           
+          let appUrl;
           if (isAndroid) {
             appUrl = `intent://SharedPost/${encodeURIComponent(postId)}#Intent;scheme=zoneup;package=com.zoneup12345.zoneup;S.browser_fallback_url=${encodeURIComponent(playStoreUrl)};end`;
-          } else if (isIOS) {
+          } else {
             appUrl = `zoneup:///SharedPost/${encodeURIComponent(postId)}`;
           }
-        }
-
-        let appOpened = false;
-        function markAppOpened() { appOpened = true; }
-        window.addEventListener("pagehide", markAppOpened);
-        window.addEventListener("blur", markAppOpened);
-        document.addEventListener("visibilitychange", function () {
-          if (document.hidden) markAppOpened();
-        });
-
-        function openZoneUp() {
-          const start = Date.now();
-          window.location.href = appUrl;
+          
+          window.location.replace(appUrl);
 
           setTimeout(function () {
-            const elapsed = Date.now() - start;
-            if (!document.hidden && !appOpened && elapsed < 3000) {
-              window.location.href = fallbackUrl;
+            if (!document.hidden) {
+              window.location.replace(fallbackUrl);
             }
-          }, 1500);
-        }
-
-        window.openZoneUp = openZoneUp;
-
-        if (document.readyState === "loading") {
-          document.addEventListener("DOMContentLoaded", openZoneUp);
+          }, 2000);
         } else {
-          openZoneUp();
+          window.location.replace("https://zoneup.in");
         }
       })();
     </script>
@@ -130,7 +97,6 @@
       <img src="https://web-assets-r2.zoneup.in/logo.svg" class="logo" alt="ZoneUp Logo">
     </div>
     <h1>Opening ZoneUp...</h1>
-    <p>If you don't have the app installed, you will be redirected to the store shortly.</p>
-    <a href="javascript:void(0)" onclick="openZoneUp()" class="btn">Open in App / Store</a>
+    <p>If you don't have the app installed, you will be redirected to the app store shortly.</p>
   </body>
 </html>
