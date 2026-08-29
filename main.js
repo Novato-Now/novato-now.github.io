@@ -54,36 +54,7 @@ if (faqList) {
   });
 }
 
-
-// Footer watermark glow on hover (desktop only)
-const footerWatermark = document.getElementById('footerWatermark');
-const watermarkText = footerWatermark ? footerWatermark.querySelector('.watermark-text') : null;
-
-if (footerWatermark && watermarkText) {
-  footerWatermark.addEventListener('mouseenter', function () {
-    if (window.innerWidth > 768) {
-      // glow will be set on mousemove
-    }
-  });
-
-  footerWatermark.addEventListener('mousemove', function (e) {
-    if (window.innerWidth > 768) {
-      var rect = footerWatermark.getBoundingClientRect();
-      var x = e.clientX - rect.left;
-      var y = e.clientY - rect.top;
-      watermarkText.style.background = 'radial-gradient(circle 400px at ' + x + 'px ' + y + 'px, rgba(67, 206, 162, 0.55) 0%, rgba(24, 90, 157, 0.3) 25%, rgba(67, 206, 162, 0.1) 50%, rgba(255, 255, 255, 0.06) 70%)'; watermarkText.style.webkitBackgroundClip = 'text';
-      watermarkText.style.backgroundClip = 'text';
-    }
-  });
-
-  footerWatermark.addEventListener('mouseleave', function () {
-    if (window.innerWidth > 768) {
-      watermarkText.style.background = 'rgba(255, 255, 255, 0.06)';
-      watermarkText.style.webkitBackgroundClip = 'text';
-      watermarkText.style.backgroundClip = 'text';
-    }
-  });
-}
+// Footer watermark glow on hover removed because new layout uses static image-masked watermark
 
 
 const appleStoreUrl =
