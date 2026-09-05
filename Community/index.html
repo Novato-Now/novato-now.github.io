@@ -6,15 +6,15 @@
 
     <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="ZoneUp - Shared Profile">
-    <meta property="og:description" content="View this profile inside the ZoneUp app. Connect with your local neighborhood, discover people nearby, and join the conversation.">
+    <meta property="og:title" content="ZoneUp - Join Community">
+    <meta property="og:description" content="View and join this community inside the ZoneUp app. Connect with your local neighborhood and meet people nearby.">
     <meta property="og:image" content="https://web-assets-r2.zoneup.in/hero.png">
     <meta property="og:url" content="https://zoneup.in">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ZoneUp - Shared Profile">
-    <meta name="twitter:description" content="View this profile inside the ZoneUp app. Connect with your local neighborhood, discover people nearby, and join the conversation.">
+    <meta name="twitter:title" content="ZoneUp - Join Community">
+    <meta name="twitter:description" content="View and join this community inside the ZoneUp app.">
     <meta name="twitter:image" content="https://web-assets-r2.zoneup.in/hero.png">
 
     <title>Open in ZoneUp App</title>
@@ -55,28 +55,26 @@
         line-height: 1.5;
         font-size: 15px;
       }
-      .btn {
-        background-color: #007aff;
-        color: #ffffff;
-        text-decoration: none;
-        padding: 14px 28px;
-        border-radius: 12px;
-        font-weight: 600;
-        font-size: 16px;
-        box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
-      }
     </style>
 
     <script type="text/javascript">
       (function () {
         const path = window.location.pathname;
         const urlParams = new URLSearchParams(window.location.search);
-        let username = urlParams.get("username") || urlParams.get("u");
+        let communityId = urlParams.get("communityId") || urlParams.get("c") || urlParams.get("community") || urlParams.get("id");
 
-        if (!username) {
-          const profileMatch = path.split("/Profile/");
-          if (profileMatch[1]) {
-            username = profileMatch[1].split("/")[0].split("?")[0].split("#")[0];
+        if (!communityId) {
+          const cMatch = path.split(/\/c\//i);
+          const communityMatch = path.split(/\/community\//i);
+          if (cMatch[1]) {
+            communityId = cMatch[1].split("/")[0].split("?")[0].split("#")[0];
+          } else if (communityMatch[1]) {
+            communityId = communityMatch[1].split("/")[0].split("?")[0].split("#")[0];
+          } else {
+            const pathSegments = path.split("/").filter(Boolean);
+            if (pathSegments.length > 1 && (pathSegments[0].toLowerCase() === "c" || pathSegments[0].toLowerCase() === "community")) {
+              communityId = pathSegments[1].split("?")[0].split("#")[0];
+            }
           }
         }
 
@@ -87,21 +85,19 @@
         const appStoreUrl = "https://apps.apple.com/app/id6744461293";
         const fallbackUrl = isAndroid ? playStoreUrl : (isIOS ? appStoreUrl : "https://zoneup.in");
 
-        if (username) {
-          username = username.split("/")[0].split("?")[0].split("#")[0];
+        if (communityId && communityId.trim() !== "") {
+          communityId = communityId.split("/")[0].split("?")[0].split("#")[0];
           
           let appUrl;
           if (isAndroid) {
-            appUrl = `intent://Profile/${encodeURIComponent(username)}#Intent;scheme=zoneup;package=com.zoneup12345.zoneup;S.browser_fallback_url=${encodeURIComponent(playStoreUrl)};end`;
+            appUrl = `intent://c/${encodeURIComponent(communityId)}#Intent;scheme=zoneup;package=com.zoneup12345.zoneup;S.browser_fallback_url=${encodeURIComponent(playStoreUrl)};end`;
           } else {
-            appUrl = `zoneup:///Profile/${encodeURIComponent(username)}`;
+            appUrl = `zoneup:///c/${encodeURIComponent(communityId)}`;
           }
-          
-          // Attempt to open the app
+
           window.location.replace(appUrl);
 
           setTimeout(function () {
-            // Check if the page is still active (if app is not installed, redirect to store)
             if (!document.hidden) {
               window.location.replace(fallbackUrl);
             }
