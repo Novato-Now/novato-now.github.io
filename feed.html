@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+    rel="stylesheet">
+  <title>Real-Time Local Feed – ZoneUp</title>
+  <meta name="description"
+    content="Experience the real-time social feed for your neighborhood. Swipe through verified local alerts, free item swaps, trusted recommendations, and community polls.">
+  <link rel="icon" type="image/x-icon" href="https://web-assets-r2.zoneup.in/favIcon.svg">
+  <link rel="stylesheet" href="style.css?v=19.0">
+</head>
+
+<body class="hinge-body-bg">
+  <div class="header-spacer" id="headerSpacer"></div>
+  <header class="header header-light-page" id="header">
+    <div class="header-inner" id="headerInner">
+      <div class="header-top">
+        <a href="index.html" class="logo">
+          <img src="https://web-assets-r2.zoneup.in/logo.svg" class="logo-icon" alt="ZoneUp Logo">
+        </a>
+        <nav class="nav" id="nav">
+          <a href="feed.html" class="active-nav-link"><span data-text="Real-time Feed">Real-time Feed</span></a>
+          <a href="neighbors.html"><span data-text="Nearby Neighbors">Nearby Neighbors</span></a>
+          <a href="rules.html"><span data-text="Community Rules">Community Rules</span></a>
+          <a href="about.html"><span data-text="About Us">About Us</span></a>
+        </nav>
+        <div class="header-buttons desktop-purchase">
+          <a href="https://play.google.com/store/apps/details?id=com.zoneup12345.zoneup" class="header-store-btn"
+            target="_blank" rel="noopener noreferrer" aria-label="Google Play Store">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 466 511.98" width="22" height="22">
+              <g fill-rule="nonzero">
+                <path fill="#EA4335"
+                  d="M199.9 237.8 1.4 470.17c7.22 24.57 30.16 41.81 55.8 41.81 11.16 0 20.93-2.79 29.3-8.37l244.16-139.46L199.9 237.8z" />
+                <path fill="#FBBC04"
+                  d="m433.91 205.1-104.65-60-111.61 110.22 113.01 108.83 104.64-58.6c18.14-9.77 30.7-29.3 30.7-50.23-1.4-20.93-13.95-40.46-32.09-50.22z" />
+                <path fill="#34A853"
+                  d="M199.42 273.45 329.27 145.1 87.9 8.37C79.53 2.79 68.36 0 57.2 0 30.7 0 6.98 18.14 1.4 41.86l198.02 231.59z" />
+                <path fill="#4285F4"
+                  d="M1.39 41.86C0 46.04 0 51.63 0 57.2v397.64c0 5.57 0 9.76 1.4 15.34l216.27-214.86L1.39 41.86z" />
+              </g>
+            </svg>
+          </a>
+          <a href="https://apps.apple.com/in/app/zoneup/id6744461293" class="header-store-btn" target="_blank"
+            rel="noopener noreferrer" aria-label="Apple App Store">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="20" height="20">
+              <path fill="#000000"
+                d="M318.7 268.7c-.2-36.2 16.4-61.2 41.2-90.5-23.7-34.7-65.7-48.4-106.8-49.8-37.4-1.4-74.8 22.2-94.7 22.2-19.7 0-51.5-21.7-84.9-21.7-44.5 0-85.9 26.6-108.9 67.5C-13.3 358.5 40.4 489.1 116.5 489.1c25.4 0 37.1-16.7 68.6-16.7 31.5 0 40.5 16.7 69 16.7 75.3 0 121.2-113.3 121.2-113.3-3.6-1.1-23.5-8.4-23.5-31.5zM263.6 84.7c17.2-20.9 28.7-49.9 25.5-78.7-24.8 1.1-54.8 16.6-72.5 37.6-15.6 18.2-28.1 47.7-24.6 76.5 27.7 2.1 54.4-15.3 71.6-35.4z" />
+            </svg>
+          </a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <div class="mobile-expand" id="mobileExpand">
+        <div class="mobile-expand-inner">
+          <div class="mobile-divider"></div>
+          <div class="mobile-links">
+            <a href="feed.html">Real-time Feed</a>
+            <a href="neighbors.html">Nearby Neighbors</a>
+            <a href="rules.html">Community Rules</a>
+            <a href="about.html">About Us</a>
+          </div>
+          <div class="header-buttons mobile-purchase">
+            <a href="https://play.google.com/store/apps/details?id=com.zoneup12345.zoneup" class="header-store-btn"
+              target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 466 511.98" width="18" height="18">
+                <g fill-rule="nonzero">
+                  <path fill="#EA4335"
+                    d="M199.9 237.8 1.4 470.17c7.22 24.57 30.16 41.81 55.8 41.81 11.16 0 20.93-2.79 29.3-8.37l244.16-139.46L199.9 237.8z" />
+                  <path fill="#FBBC04"
+                    d="m433.91 205.1-104.65-60-111.61 110.22 113.01 108.83 104.64-58.6c18.14-9.77 30.7-29.3 30.7-50.23-1.4-20.93-13.95-40.46-32.09-50.22z" />
+                  <path fill="#34A853"
+                    d="M199.42 273.45 329.27 145.1 87.9 8.37C79.53 2.79 68.36 0 57.2 0 30.7 0 6.98 18.14 1.4 41.86l198.02 231.59z" />
+                  <path fill="#4285F4"
+                    d="M1.39 41.86C0 46.04 0 51.63 0 57.2v397.64c0 5.57 0 9.76 1.4 15.34l216.27-214.86L1.39 41.86z" />
+                </g>
+              </svg>
+            </a>
+            <a href="https://apps.apple.com/in/app/zoneup/id6744461293" class="header-store-btn" target="_blank"
+              rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="16" height="16">
+                <path fill="#000000"
+                  d="M318.7 268.7c-.2-36.2 16.4-61.2 41.2-90.5-23.7-34.7-65.7-48.4-106.8-49.8-37.4-1.4-74.8 22.2-94.7 22.2-19.7 0-51.5-21.7-84.9-21.7-44.5 0-85.9 26.6-108.9 67.5C-13.3 358.5 40.4 489.1 116.5 489.1c25.4 0 37.1-16.7 68.6-16.7 31.5 0 40.5 16.7 69 16.7 75.3 0 121.2-113.3 121.2-113.3-3.6-1.1-23.5-8.4-23.5-31.5zM263.6 84.7c17.2-20.9 28.7-49.9 25.5-78.7-24.8 1.1-54.8 16.6-72.5 37.6-15.6 18.2-28.1 47.7-24.6 76.5 27.7 2.1 54.4-15.3 71.6-35.4z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="hinge-feed-page">
+
+    <!-- Hinge-Style Editorial Hero -->
+    <section class="hinge-hero">
+      <div class="hinge-hero-inner">
+        
+        <span class="hinge-eyebrow-tag">THE STREET FEED DESIGNED FOR REAL LIFE</span>
+
+        <h1 class="hinge-hero-title">
+          Swipe through the pulse <br class="desktop-br">of your street.
+        </h1>
+        <p class="hinge-hero-desc">
+          No endless toxic scrolling. Experience your neighborhood through interactive, prompt-and-photo story cards. Discover urgent alerts, free trades, and trusted recommendations within walking distance.
+        </p>
+
+        <!-- Quick Channel Filter Pills -->
+        <div class="hinge-channel-pills" id="hingeChannelPills">
+          <button class="channel-pill active" data-index="0">🚨 Lost Pet Alert</button>
+          <button class="channel-pill" data-index="1">🎁 Free On Porch</button>
+          <button class="channel-pill" data-index="2">🗳️ Community Vote</button>
+          <button class="channel-pill" data-index="3">🏃 Saturday 5K Run</button>
+          <button class="channel-pill" data-index="4">⭐ Plumber Rec</button>
+          <button class="channel-pill" data-index="5">⚡ Water Notice</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Swipable Card Stage (Hinge Swipable Feed Experience) -->
+    <section class="hinge-stage-section">
+      <div class="hinge-stage-container">
+        
+        <!-- Deck Header Status -->
+        <div class="deck-status-bar">
+          <div class="deck-count-chip">
+            <span class="pulse-beacon-dot"></span>
+            <span id="deckCounterText">Story 01 of 06</span>
+          </div>
+          <div class="deck-zone-chip">
+            <span>📍 Indiranagar 4th Block • 1.5km Radius</span>
+          </div>
+        </div>
+
+        <!-- Physical Card Stack Container -->
+        <div class="hinge-card-deck" id="hingeCardDeck">
+          
+          <!-- CARD 1: Urgent Lost Dog Alert -->
+          <div class="hinge-feed-card active-card" data-card-index="0" data-channel="alerts">
+            
+            <!-- Prompt Banner Header -->
+            <div class="prompt-header-box">
+              <span class="prompt-category-tag alert-tag">🚨 URGENT LOCAL ALERT</span>
+              <h2 class="prompt-main-question">"Have you spotted Toby? He slipped out near 12th Main Park 20 mins ago."</h2>
+            </div>
+
+            <!-- Full-Bleed Media Frame -->
+            <div class="prompt-media-frame">
+              <img src="Assets/feed_lost_dog.jpg" alt="Beagle dog Toby wearing blue collar" class="prompt-main-photo" loading="lazy">
+              <div class="photo-caption-pill">
+                <span>📍 Last seen heading towards 6th Cross bakery</span>
+              </div>
+            </div>
+
+            <!-- Content Details & Context -->
+            <div class="prompt-narrative-box">
+              <p class="narrative-text">
+                Our 3-year-old beagle Toby escaped while unloading groceries. He is friendly, microchipped, and wearing his bright <strong>blue collar with nametag</strong>. Please comment or call if spotted!
+              </p>
+              
+              <!-- Resident Sighting Quote (Hinge style comment callout) -->
+              <div class="hinge-quote-callout">
+                <span class="quote-avatar">RK</span>
+                <div class="quote-content">
+                  <div class="quote-header">
+                    <strong>Rajesh Kumar (4th Cross)</strong>
+                    <span class="quote-time">2m ago</span>
+                  </div>
+                  <p class="quote-body">"Saw a beagle matching Toby near the bakery 5 mins ago! A security guard offered him water."</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Resident Stamp Footer -->
+            <div class="prompt-stamp-footer">
+              <div class="stamp-author">
+                <span class="author-name-bold">Meera Ganguly</span>
+                <span class="stamp-pill">🛡️ Verified Resident • 350m</span>
+              </div>
+              <span class="stamp-time">4m ago</span>
+            </div>
+
+          </div>
+
+          <!-- CARD 2: Free & Trade Items (Monstera & Boxes) -->
+          <div class="hinge-feed-card next-card" data-card-index="1" data-channel="marketplace">
+            
+            <div class="prompt-header-box">
+              <span class="prompt-category-tag market-tag">🎁 FREE ON OUR PORCH</span>
+              <h2 class="prompt-main-question">"Free for any neighbor: 12 heavy-duty moving boxes + 3 rooted Monstera cuttings 🌿"</h2>
+            </div>
+
+            <div class="prompt-media-frame">
+              <img src="Assets/feed_plants_boxes.jpg" alt="Moving boxes and potted plants on balcony" class="prompt-main-photo" loading="lazy">
+              <div class="photo-caption-pill">
+                <span>📦 Ready for porch pickup on 80 Feet Road</span>
+              </div>
+            </div>
+
+            <div class="prompt-narrative-box">
+              <p class="narrative-text">
+                Just finished unpacking our move! Clean double-walled cardboard packing boxes and bubble wrap available for porch pickup today until 8 PM. Also took rooted cuttings from our healthy Monstera for plant lovers.
+              </p>
+              
+              <div class="hinge-quote-callout">
+                <span class="quote-avatar avatar-purple">PM</span>
+                <div class="quote-content">
+                  <div class="quote-header">
+                    <strong>Pooja Menon (Double Road)</strong>
+                    <span class="quote-time">14m ago</span>
+                  </div>
+                  <p class="quote-body">"Would love the Monstera cuttings! Can pick them up at 4:30 PM on my walk home."</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="prompt-stamp-footer">
+              <div class="stamp-author">
+                <span class="author-name-bold">Ananya Trivedi</span>
+                <span class="stamp-pill">🛡️ Verified Resident • 500m</span>
+              </div>
+              <span class="stamp-time">22m ago</span>
+            </div>
+
+          </div>
+
+          <!-- CARD 3: Civic Speed Calmer Community Vote -->
+          <div class="hinge-feed-card" data-card-index="2" data-channel="polls">
+            
+            <div class="prompt-header-box">
+              <span class="prompt-category-tag poll-tag">🗳️ COMMUNITY DECISION</span>
+              <h2 class="prompt-main-question">"Should we install rubber speed calmers at the 6th Cross blind curve?"</h2>
+            </div>
+
+            <!-- Visual Interactive Poll Frame -->
+            <div class="prompt-poll-frame">
+              <div class="hinge-poll-deck" id="hingePollWidget">
+                
+                <div class="hinge-poll-row" data-pct="68">
+                  <div class="poll-row-content">
+                    <span class="poll-bullet"></span>
+                    <span class="poll-text">Yes, calmers & convex mirror</span>
+                    <span class="poll-pct">68%</span>
+                  </div>
+                  <div class="poll-progress-bg" style="width: 68%;"></div>
+                </div>
+
+                <div class="hinge-poll-row" data-pct="24">
+                  <div class="poll-row-content">
+                    <span class="poll-bullet"></span>
+                    <span class="poll-text">Only convex mirror is needed</span>
+                    <span class="poll-pct">24%</span>
+                  </div>
+                  <div class="poll-progress-bg" style="width: 24%;"></div>
+                </div>
+
+                <div class="hinge-poll-row" data-pct="8">
+                  <div class="poll-row-content">
+                    <span class="poll-bullet"></span>
+                    <span class="poll-text">Keep current road layout</span>
+                    <span class="poll-pct">8%</span>
+                  </div>
+                  <div class="poll-progress-bg" style="width: 8%;"></div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="prompt-narrative-box">
+              <p class="narrative-text">
+                Delivery bikes frequently take the 6th Cross turn at speed. We are submitting a verified proposal to the ward engineer.
+              </p>
+              
+              <div class="poll-meta-strip">
+                <span>🗳️ 135 verified resident votes • 1 vote per household</span>
+              </div>
+            </div>
+
+            <div class="prompt-stamp-footer">
+              <div class="stamp-author">
+                <span class="author-name-bold">Suresh Chandran</span>
+                <span class="stamp-pill">🛡️ Street Representative • 800m</span>
+              </div>
+              <span class="stamp-time">1h ago</span>
+            </div>
+
+          </div>
+
+          <!-- CARD 4: Saturday Morning 5K & Coffee -->
+          <div class="hinge-feed-card" data-card-index="3" data-channel="events">
+            
+            <div class="prompt-header-box">
+              <span class="prompt-category-tag event-tag">🗓️ OUR SATURDAY RITUAL</span>
+              <h2 class="prompt-main-question">"Saturday 7:00 AM: 5K morning green loop & filter coffee at Third Wave 🏃‍♀️☕"</h2>
+            </div>
+
+            <div class="prompt-media-frame">
+              <img src="Assets/feed_morning_run.jpg" alt="Friends jogging happily down morning neighborhood street" class="prompt-main-photo" loading="lazy">
+              <div class="photo-caption-pill">
+                <span>🗓️ Saturday • 7:00 AM • Indiranagar Club Gate</span>
+              </div>
+            </div>
+
+            <div class="prompt-narrative-box">
+              <p class="narrative-text">
+                Hey runners! We do a relaxed 5K morning jog every Saturday around the Defence Colony tree canopy. All paces welcome!
+              </p>
+              
+              <div class="event-rsvp-strip">
+                <span class="rsvp-tag">🏃 16 neighbors RSVP'd</span>
+                <span class="rsvp-sub">Filter Coffee & Dosa afterwards</span>
+              </div>
+            </div>
+
+            <div class="prompt-stamp-footer">
+              <div class="stamp-author">
+                <span class="author-name-bold">Priya Kapoor</span>
+                <span class="stamp-pill">🛡️ Verified Resident • 400m</span>
+              </div>
+              <span class="stamp-time">2h ago</span>
+            </div>
+
+          </div>
+
+          <!-- CARD 5: Ramesh Plumbing Recommendation -->
+          <div class="hinge-feed-card" data-card-index="4" data-channel="recommendations">
+            
+            <div class="prompt-header-box">
+              <span class="prompt-category-tag rec-tag">⭐ NEIGHBOR RECOMMENDATION</span>
+              <h2 class="prompt-main-question">"The most honest plumber down our road is Ramesh (saved us from a flood this morning!)"</h2>
+            </div>
+
+            <!-- Visual Service Micro Frame -->
+            <div class="prompt-rec-frame">
+              <div class="hinge-rec-box">
+                <div class="rec-icon">🔧</div>
+                <div class="rec-details">
+                  <strong class="rec-title">Ramesh Plumbing & Sanitary</strong>
+                  <span class="rec-meta">⭐ 4.9 Rating • 24 Neighbor Endorsements</span>
+                  <span class="rec-location">📍 4th Cross, Indiranagar • 15m arrival</span>
+                </div>
+                <a href="#" class="btn-rec-action" data-store-cta>Save Number</a>
+              </div>
+            </div>
+
+            <div class="prompt-narrative-box">
+              <p class="narrative-text">
+                Had an overhead brass valve rupture at 7:30 AM. Ramesh reached our flat in under 15 mins, brought parts, and charged a fair rate with a 6-month guarantee.
+              </p>
+
+              <div class="hinge-quote-callout">
+                <span class="quote-avatar">DL</span>
+                <div class="quote-content">
+                  <div class="quote-header">
+                    <strong>David Lawrence</strong>
+                    <span class="quote-time">Verified</span>
+                  </div>
+                  <p class="quote-body">"Saved our kitchen from flooding on 20 mins notice. Highly recommended!"</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="prompt-stamp-footer">
+              <div class="stamp-author">
+                <span class="author-name-bold">David Lawrence</span>
+                <span class="stamp-pill">🛡️ Verified Resident • 650m</span>
+              </div>
+              <span class="stamp-time">3h ago</span>
+            </div>
+
+          </div>
+
+          <!-- CARD 6: Civic Water Line Maintenance Notice -->
+          <div class="hinge-feed-card" data-card-index="5" data-channel="alerts">
+            
+            <div class="prompt-header-box">
+              <span class="prompt-category-tag alert-tag">⚡ CIVIC ADVISORY</span>
+              <h2 class="prompt-main-question">"Scheduled water board valve maintenance on 4th Block tomorrow (8 AM – 12 PM)"</h2>
+            </div>
+
+            <!-- Visual Civic Notice Frame -->
+            <div class="prompt-advisory-frame">
+              <div class="advisory-badge-card">
+                <div class="advisory-icon-big">💧</div>
+                <div class="advisory-details">
+                  <strong class="advisory-title">Ward 112 Municipal Water Supply</strong>
+                  <span class="advisory-time-tag">Tomorrow: 8:00 AM – 12:00 PM</span>
+                  <span class="advisory-streets">Affected: 3rd Cross, 4th Cross & 6th Main</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="prompt-narrative-box">
+              <p class="narrative-text">
+                The municipal water board confirmed scheduled pipeline valve replacements tomorrow morning. Please ensure overhead tanks are topped up today.
+              </p>
+
+              <div class="advisory-callout-box">
+                <span>⚠️ Low pressure expected during maintenance window.</span>
+              </div>
+            </div>
+
+            <div class="prompt-stamp-footer">
+              <div class="stamp-author">
+                <span class="author-name-bold">Vikram K.</span>
+                <span class="stamp-pill">🛡️ Resident Welfare Rep • 900m</span>
+              </div>
+              <span class="stamp-time">4h ago</span>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Hinge Tactile Floating Action Controller -->
+        <div class="hinge-deck-controls">
+          
+          <button class="deck-btn btn-pass" id="btnPassCard" title="Pass / Next Story" aria-label="Next Story">
+            <span class="btn-symbol">✕</span>
+            <span class="btn-hint">Next</span>
+          </button>
+
+          <a href="#" class="deck-btn btn-reply-app" data-store-cta>
+            <span class="btn-reply-icon">💬</span>
+            <span class="btn-reply-text">Reply on App</span>
+          </a>
+
+          <button class="deck-btn btn-like" id="btnLikeCard" title="High-Five / Like" aria-label="Like Story">
+            <span class="btn-symbol">❤️</span>
+            <span class="btn-hint">Like</span>
+          </button>
+
+          <button class="deck-btn btn-share" id="btnShareCard" title="Share Story" aria-label="Share Story" data-store-cta>
+            <span class="btn-symbol">↗️</span>
+            <span class="btn-hint">Share</span>
+          </button>
+
+        </div>
+
+        <div class="swipe-hint-line">
+          <span>← Drag left or right to swipe • Or tap Next ✕ →</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Hinge-Style Editorial Bento (Designed for Real Life) -->
+    <section class="hinge-editorial-section">
+      <div class="hinge-editorial-inner">
+        
+        <div class="editorial-intro">
+          <span class="hinge-eyebrow-tag">DESIGNED FOR REAL LIFE</span>
+          <h2 class="editorial-title">Built to connect you offline.<br>Not to keep you scrolling.</h2>
+          <p class="editorial-desc">
+            Social feeds shouldn't be endless dopamine traps. ZoneUp replaces chaotic WhatsApp groups with focused, categorized stories designed to help you solve problems and meet neighbors in the physical world.
+          </p>
+        </div>
+
+        <div class="hinge-bento-grid">
+          
+          <div class="hinge-bento-card">
+            <span class="bento-num">01</span>
+            <h3 class="bento-title">High-Signal Channels</h3>
+            <p class="bento-desc">
+              No forwards, no spam, no noise. Every card belongs to a dedicated channel: Urgent Alerts, Recommendations, Free Swaps, or Civic Polls.
+            </p>
+          </div>
+
+          <div class="hinge-bento-card">
+            <span class="bento-num">02</span>
+            <h3 class="bento-title">100% Verified Residents</h3>
+            <p class="bento-desc">
+              Every profile is address-verified. Your phone number and exact door location are never exposed to strangers.
+            </p>
+          </div>
+
+          <div class="hinge-bento-card">
+            <span class="bento-num">03</span>
+            <h3 class="bento-title">Real Offline Outcomes</h3>
+            <p class="bento-desc">
+              Reuniting lost pets in minutes, finding running buddies, borrowing tools, and supporting local craftsmen down your street.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+      <h2 class="faq-title">Frequently Asked<br>Questions.</h2>
+      <div class="faq-list" id="faqList">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How does the ZoneUp real-time feed work?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>ZoneUp delivers a chronological stream of verified posts originating strictly within your customized walking radius (500m to 5km). Stories are organized into Urgent Alerts, Recommendations, Free & Trade, Events, and Polls.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Can I comment, like, or post from this website?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>To prevent web spam, verify physical residence, and keep messaging 100% private, all live posting, comment threads, and private chats occur exclusively inside the ZoneUp mobile app.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>Will other residents see my phone number or live GPS?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>Never. Unlike noisy WhatsApp groups where everyone's phone number is exposed, ZoneUp never shares your mobile number, flat number, or live GPS coordinates.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How are emergency alerts prioritized?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p>Urgent safety alerts (such as lost pets, utility shutdowns, or security notices) are highlighted at the top of the feed and pushed in real time to neighbors living within immediate walking distance.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Parallax Banner -->
+    <section class="footer-banner-section">
+      <div class="footer-banner-wrapper">
+        <img src="Assets/friends.png" alt="Neighbors connected" class="footer-banner-img">
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Download CTA Section -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2 class="cta-title">Where Neighbours become friends. <br> Ready to see your local stream?</h2>
+      <div class="cta-buttons">
+        <a href="#" class="cta-btn" id="footerDownloadBtn" data-store-cta target="_blank"
+          rel="noopener noreferrer">
+          Get the app
+          <span class="btn-icon">
+            <span data-icon="⚡">⚡</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      
+      <!-- Top Grid: Left branding & Link columns -->
+      <div class="footer-grid">
+        
+        <!-- Left Column: Branding, Badges, Socials -->
+        <div class="footer-brand-col">
+          <div class="footer-logo-wrapper">
+            <img src="https://web-assets-r2.zoneup.in/logo.svg" class="footer-logo-img" alt="ZoneUp Logo">
+          </div>
+          <p class="footer-tagline">Where neighbours become friends.</p>
+
+          <!-- Social Links -->
+          <div class="footer-social-wrapper">
+            <span class="social-label">Find us at</span>
+            <div class="footer-socials">
+              <a href="https://x.com/zoneup_official?s=11" aria-label="Twitter" class="social-icon" target="_blank" rel="noopener noreferrer">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </a>
+              <a href="https://www.linkedin.com/company/zoneupofficial/" aria-label="LinkedIn" class="social-icon" target="_blank" rel="noopener noreferrer">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
+                </svg>
+              </a>
+              <a href="https://www.instagram.com/zoneup_official/" aria-label="Instagram" class="social-icon" target="_blank" rel="noopener noreferrer">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                </svg>
+              </a>
+              <a href="https://www.facebook.com/zoneupofficial/" aria-label="Facebook" class="social-icon" target="_blank" rel="noopener noreferrer">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Link Columns -->
+        <div class="footer-links-col">
+          <span class="column-title">FEATURES</span>
+          <a href="feed.html" class="footer-link"><span data-text="Real-time Feed">Real-time Feed</span></a>
+          <a href="neighbors.html" class="footer-link"><span data-text="Nearby Neighbors">Nearby Neighbors</span></a>
+          <a href="index.html#benefits" class="footer-link"><span data-text="Local Groups">Local Groups</span></a>
+        </div>
+        
+        <div class="footer-links-col">
+          <span class="column-title">RESOURCES</span>
+          <a href="index.html#benefits" class="footer-link"><span data-text="Safety Guidelines">Safety Guidelines</span></a>
+          <a href="rules.html" class="footer-link"><span data-text="Community Rules">Community Rules</span></a>
+          <a href="index.html#faq" class="footer-link"><span data-text="FAQs">FAQs</span></a>
+        </div>
+        
+        <div class="footer-links-col">
+          <span class="column-title">COMPANY</span>
+          <a href="about.html" class="footer-link"><span data-text="About Us">About Us</span></a>
+          <a href="mailto:support@zoneup.in" class="footer-link"><span data-text="Contact Us">Contact Us</span></a>
+        </div>
+        
+        <div class="footer-links-col">
+          <span class="column-title">LEGAL</span>
+          <a href="legal.html?page=privacy-policy" class="footer-link"><span data-text="Privacy Policy">Privacy Policy</span></a>
+          <a href="legal.html?page=cookies-policy" class="footer-link"><span data-text="Cookies Policy">Cookies Policy</span></a>
+          <a href="legal.html?page=terms-of-service" class="footer-link"><span data-text="Terms & Conditions">Terms & Conditions</span></a>
+          <a href="legal.html?page=delete-account" class="footer-link"><span data-text="Delete Account">Delete Account</span></a>
+        </div>
+        
+      </div>
+      
+      <!-- Masked watermark name -->
+      <div class="footer-huge-watermark">
+        <span class="huge-watermark-text">zoneup</span>
+      </div>
+      
+      <!-- Copyright -->
+      <p class="footer-bottom-copyright">© 2026 ZoneUp Private Limited. All rights reserved.</p>
+      
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    // Page transitions
+    function showPage() {
+      document.body.classList.add('page-ready');
+      document.body.classList.remove('page-leaving');
+    }
+    document.addEventListener('DOMContentLoaded', showPage);
+    window.addEventListener('pageshow', showPage);
+
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest('a[href]');
+      if (!link) return;
+      var href = link.getAttribute('href');
+      if (!href || href.startsWith('#') || href.startsWith('javascript') || link.target === '_blank') return;
+      e.preventDefault();
+      document.body.classList.add('page-leaving');
+      document.body.classList.remove('page-ready');
+      setTimeout(function () {
+        window.location.href = href;
+      }, 300);
+    });
+  </script>
+</body>
+
+</html>

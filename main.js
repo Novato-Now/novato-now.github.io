@@ -178,3 +178,246 @@ if (footerBannerImg && footerBannerSec) {
   window.addEventListener('resize', handleFooterBannerParallax);
   handleFooterBannerParallax();
 }
+
+/* ═════════════════════════════════════════════════════════════════════════════
+   ── Nearby Neighbors Sample Posts Filter Logic ──
+   ═════════════════════════════════════════════════════════════════════════════ */
+
+const postFilterTabs = document.getElementById('postFilterTabs');
+const postsFeedGrid = document.getElementById('postsFeedGrid');
+
+if (postFilterTabs && postsFeedGrid) {
+  const tabs = postFilterTabs.querySelectorAll('.filter-tab');
+  const postCards = postsFeedGrid.querySelectorAll('.post-card');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      // Update active tab state
+      tabs.forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+
+      const selectedCategory = tab.getAttribute('data-category');
+
+      // Filter post cards with subtle opacity transition
+      postCards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        if (selectedCategory === 'all' || cardCategory === selectedCategory) {
+          card.style.display = 'flex';
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, 20);
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(10px)';
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+}
+
+/* ═════════════════════════════════════════════════════════════════════════════
+   ── Hinge-Inspired Swipable Card Deck Engine ──
+   ═════════════════════════════════════════════════════════════════════════════ */
+
+const hingeDeck = document.getElementById('hingeCardDeck');
+if (hingeDeck) {
+  const cards = Array.from(hingeDeck.querySelectorAll('.hinge-feed-card'));
+  const totalCards = cards.length;
+  let currentIndex = 0;
+  let isAnimating = false;
+
+  const deckCounterText = document.getElementById('deckCounterText');
+  const channelPills = document.querySelectorAll('.channel-pill');
+  const btnPass = document.getElementById('btnPassCard');
+  const btnLike = document.getElementById('btnLikeCard');
+
+  function updateDeckState() {
+    cards.forEach((card, i) => {
+      card.classList.remove('active-card', 'next-card', 'next-card-2', 'hidden-card', 'card-exit-left', 'card-exit-right', 'swiping-left', 'swiping-right');
+      card.style.removeProperty('--swipe-x');
+      card.style.removeProperty('--swipe-y');
+
+      const relativePos = (i - currentIndex + totalCards) % totalCards;
+
+      if (relativePos === 0) {
+        card.classList.add('active-card');
+      } else if (relativePos === 1) {
+        card.classList.add('next-card');
+      } else if (relativePos === 2) {
+        card.classList.add('next-card-2');
+      } else {
+        card.classList.add('hidden-card');
+      }
+    });
+
+    if (deckCounterText) {
+      const cardNum = String(currentIndex + 1).padStart(2, '0');
+      const totalNum = String(totalCards).padStart(2, '0');
+      deckCounterText.textContent = `Story ${cardNum} of ${totalNum}`;
+    }
+
+    if (channelPills.length > 0) {
+      channelPills.forEach(pill => {
+        const pillIdx = parseInt(pill.getAttribute('data-index'), 10);
+        pill.classList.toggle('active', pillIdx === currentIndex);
+      });
+    }
+
+    isAnimating = false;
+  }
+
+  function advanceCard(direction = 'left') {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    const activeCard = cards[currentIndex];
+    if (activeCard) {
+      activeCard.classList.add(direction === 'left' ? 'card-exit-left' : 'card-exit-right');
+    }
+
+    setTimeout(() => {
+      currentIndex = (currentIndex + 1) % totalCards;
+      updateDeckState();
+    }, 380);
+  }
+
+  function jumpToCard(index) {
+    if (isAnimating || index === currentIndex) return;
+    isAnimating = true;
+    const activeCard = cards[currentIndex];
+    if (activeCard) {
+      activeCard.classList.add('card-exit-left');
+    }
+    setTimeout(() => {
+      currentIndex = index;
+      updateDeckState();
+    }, 320);
+  }
+
+  // Button Listeners
+  if (btnPass) {
+    btnPass.addEventListener('click', () => advanceCard('left'));
+  }
+
+  if (btnLike) {
+    btnLike.addEventListener('click', () => advanceCard('right'));
+  }
+
+  if (channelPills.length > 0) {
+    channelPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        const idx = parseInt(pill.getAttribute('data-index'), 10);
+        jumpToCard(idx);
+      });
+    });
+  }
+
+  // Keyboard navigation
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+      advanceCard('right');
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      advanceCard('left');
+    }
+  });
+
+  // Touch & Mouse Drag Swiping Physics
+  let isDragging = false;
+  let startX = 0;
+  let startY = 0;
+  let currentX = 0;
+  let currentY = 0;
+
+  function onDragStart(e) {
+    if (isAnimating) return;
+    const activeCard = cards[currentIndex];
+    if (!activeCard || !e.target.closest('.active-card')) return;
+    if (e.target.closest('button, a, input, .hinge-poll-row')) return;
+
+    isDragging = true;
+    const point = e.touches ? e.touches[0] : e;
+    startX = point.clientX;
+    startY = point.clientY;
+    currentX = startX;
+    currentY = startY;
+  }
+
+  function onDragMove(e) {
+    if (!isDragging) return;
+    const point = e.touches ? e.touches[0] : e;
+    currentX = point.clientX;
+    currentY = point.clientY;
+
+    const deltaX = currentX - startX;
+    const deltaY = currentY - startY;
+
+    const activeCard = cards[currentIndex];
+    if (activeCard) {
+      activeCard.style.setProperty('--swipe-x', deltaX);
+      activeCard.style.setProperty('--swipe-y', deltaY);
+
+      if (deltaX < 0) {
+        activeCard.classList.add('swiping-left');
+        activeCard.classList.remove('swiping-right');
+      } else {
+        activeCard.classList.add('swiping-right');
+        activeCard.classList.remove('swiping-left');
+      }
+    }
+  }
+
+  function onDragEnd() {
+    if (!isDragging) return;
+    isDragging = false;
+
+    const deltaX = currentX - startX;
+    const activeCard = cards[currentIndex];
+
+    if (Math.abs(deltaX) > 85) {
+      advanceCard(deltaX < 0 ? 'left' : 'right');
+    } else if (activeCard) {
+      activeCard.classList.remove('swiping-left', 'swiping-right');
+      activeCard.style.removeProperty('--swipe-x');
+      activeCard.style.removeProperty('--swipe-y');
+    }
+  }
+
+  hingeDeck.addEventListener('mousedown', onDragStart);
+  window.addEventListener('mousemove', onDragMove);
+  window.addEventListener('mouseup', onDragEnd);
+
+  hingeDeck.addEventListener('touchstart', onDragStart, { passive: true });
+  window.addEventListener('touchmove', onDragMove, { passive: true });
+  window.addEventListener('touchend', onDragEnd);
+
+  // Initialize deck states
+  updateDeckState();
+}
+
+// Hinge Interactive Poll Choice Logic
+const hingePollWidget = document.getElementById('hingePollWidget');
+if (hingePollWidget) {
+  const pollRows = hingePollWidget.querySelectorAll('.hinge-poll-row');
+  let pollVoted = false;
+
+  pollRows.forEach(row => {
+    row.addEventListener('click', () => {
+      if (pollVoted) return;
+      pollVoted = true;
+
+      pollRows.forEach(r => r.classList.remove('voted'));
+      row.classList.add('voted');
+
+      const metaFooter = hingePollWidget.querySelector('.poll-meta-footer');
+      if (metaFooter) {
+        metaFooter.innerHTML = `✓ Vote Saved Locally • <a href="${getStoreUrl()}" style="color: #185a9d; font-weight: 700; text-decoration: underline;" target="_blank" rel="noopener noreferrer">Get ZoneUp App to Cast Official Vote</a>`;
+      }
+    });
+  });
+}
