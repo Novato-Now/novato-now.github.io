@@ -1,0 +1,31 @@
+/* ── Reset & Global ── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Satoshi', sans-serif;
+  color: #0E172A;
+  background: #f9f9f9;
+}
+
+/* ── Page Transition ── */
+body {
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+body.page-ready {
+  opacity: 1;
+}
+
+body.page-leaving {
+  opacity: 0;
+}
