@@ -1,0 +1,13 @@
+{
+  "name": "novato-now.github.io",
+  "version": "1.0.0",
+  "description": "ZoneUp website",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve .",
+    "dev": "serve ."
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
+  }
+}
