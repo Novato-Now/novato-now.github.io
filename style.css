@@ -110,7 +110,8 @@ body {
 .logo {
   display: flex;
   align-items: center;
-
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .logo-icon {
@@ -850,8 +851,10 @@ body {
 }
 
 .footer-logo-wrapper {
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .footer-logo-img {
