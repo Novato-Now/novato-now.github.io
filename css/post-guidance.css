@@ -1,0 +1,667 @@
+/* ==========================================================================
+   Post Guidance Page Styles (Clean Black Theme - ZoneUp)
+   ========================================================================== */
+
+:root {
+  --bg-black: #000000;
+  --bg-card: rgba(255, 255, 255, 0.04);
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --border-focus: rgba(67, 206, 162, 0.4);
+  --text-white: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.68);
+  --accent-gradient: linear-gradient(135deg, #43CEA2 0%, #185A9D 100%);
+}
+
+body.post-guidance-page {
+  background-color: var(--bg-black);
+  color: var(--text-white);
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Container ── */
+.pg-container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ── Hero Section ── */
+.pg-hero {
+  position: relative;
+  padding: 160px 0 100px;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.pg-hero::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  right: 15%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(67, 206, 162, 0.12) 0%, rgba(24, 90, 157, 0.06) 50%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pg-hero-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 64px;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.pg-hero-content {
+  flex: 1 1 520px;
+  max-width: 580px;
+}
+
+.pg-hero-title {
+  font-size: clamp(2.8rem, 5.2vw, 4.4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--text-white);
+  margin-bottom: 24px;
+}
+
+.pg-hero-desc {
+  font-size: 1.12rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-bottom: 36px;
+}
+
+.pg-hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  border-radius: 9999px;
+  background: #212734;
+  color: #ffffff;
+  font-size: 0.96rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.pg-hero-btn:hover {
+  background: #2b3345;
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* Hero Media Stack */
+.pg-hero-illustration {
+  flex: 0 0 clamp(320px, 40vw, 460px);
+  position: relative;
+  height: clamp(420px, 50vw, 580px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pg-phone-frame {
+  position: relative;
+  width: 250px;
+  height: 520px;
+  z-index: 2;
+}
+
+.pg-phone-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.pg-hero-video-card {
+  position: absolute;
+  top: 15%;
+  left: 0;
+  width: 220px;
+  height: 290px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.15);
+  transform: rotate(-7deg);
+  z-index: 1;
+  transition: transform 0.4s ease;
+}
+
+.pg-hero-video-card:hover {
+  transform: rotate(-3deg) scale(1.04);
+}
+
+.pg-hero-video-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pg-hero-gif-card {
+  position: absolute;
+  bottom: 12%;
+  right: -10px;
+  width: 210px;
+  height: 280px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.15);
+  transform: rotate(8deg);
+  z-index: 3;
+  transition: transform 0.4s ease;
+}
+
+.pg-hero-gif-card:hover {
+  transform: rotate(4deg) scale(1.04);
+}
+
+.pg-hero-gif-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── General Guidelines Section (What works on ZoneUp) ── */
+.pg-section {
+  padding: 120px 0;
+  position: relative;
+  background: #000000;
+}
+
+.pg-guidelines-layout {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 72px;
+}
+
+/* Visual Image Frame (Synced with Accordion) */
+.pg-visual-frame {
+  flex: 0 0 clamp(340px, 44vw, 540px);
+  position: sticky;
+  top: 120px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.02);
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+}
+
+.pg-visual-frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(1.02);
+}
+
+.pg-visual-frame img.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Accordion Right Column */
+.pg-guidelines-content {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.pg-section-title {
+  font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-white);
+  margin-bottom: 12px;
+}
+
+.pg-section-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+/* Accordion Component */
+.pg-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.pg-accordion-item {
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pg-accordion-item:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.pg-accordion-item.open {
+  border-color: rgba(67, 206, 162, 0.4);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.pg-accordion-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 26px;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 1.15rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  user-select: none;
+}
+
+.pg-accordion-header span {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pg-accordion-icon {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.pg-accordion-icon svg {
+  stroke: #ffffff;
+  transition: transform 0.3s ease;
+}
+
+.pg-accordion-item.open .pg-accordion-icon {
+  transform: rotate(45deg);
+}
+
+.pg-accordion-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              padding 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 0 26px;
+}
+
+.pg-accordion-inner {
+  overflow: hidden;
+  min-height: 0;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pg-accordion-item.open .pg-accordion-body {
+  grid-template-rows: 1fr;
+  padding: 0 26px 24px;
+}
+
+.pg-accordion-item.open .pg-accordion-inner {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pg-accordion-body p {
+  font-size: 0.96rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.pg-accordion-body p:last-child {
+  margin-bottom: 0;
+}
+
+.pg-accordion-body ul {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+/* ── Ad Specs Section ── */
+.pg-specs-section {
+  padding: 120px 0;
+  background: #000000;
+}
+
+.pg-specs-layout {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 72px;
+}
+
+.pg-specs-left {
+  flex: 1 1 0;
+}
+
+.pg-specs-illustration {
+  flex: 0 0 clamp(320px, 42vw, 500px);
+  position: sticky;
+  top: 120px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+}
+
+.pg-specs-illustration img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.pg-note-box {
+  margin-top: 14px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 3px solid #43CEA2;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+}
+
+/* ── Creative Gallery Section (Marquee Ticker) ── */
+.pg-gallery-section {
+  padding: 120px 0 140px;
+  background: #000000;
+  overflow: hidden;
+  position: relative;
+}
+
+.pg-gallery-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.pg-marquee-container {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+  user-select: none;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+}
+
+.pg-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+  animation: pgMarquee 42s linear infinite;
+  will-change: transform;
+}
+
+.pg-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes pgMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% - 24px));
+  }
+}
+
+.pg-creative-card {
+  width: clamp(200px, 22vw, 270px);
+  aspect-ratio: 0.635;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  background: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+  flex-shrink: 0;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.pg-creative-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(67, 206, 162, 0.4);
+}
+
+.pg-creative-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── CTA Banner Section (Atmospheric Horizon Glow Effect - ZoneUp) ── */
+.pg-cta-banner {
+  position: relative;
+  width: 100%;
+  background: #000000;
+  padding: 110px 24px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+/* Atmospheric Horizon Glow Arc radiating up from bottom flush against the image */
+.pg-cta-horizon-glow {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1300px, 115vw);
+  height: 240px;
+  border-radius: 50% 50% 0 0;
+  background: radial-gradient(
+    ellipse 75% 100% at 50% 100%,
+    rgba(67, 206, 162, 0.95) 0%,
+    rgba(24, 90, 157, 0.8) 35%,
+    rgba(24, 90, 157, 0.25) 70%,
+    transparent 100%
+  );
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Secondary bright horizon line right along bottom boundary */
+.pg-cta-horizon-glow::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(24, 90, 157, 0.35) 30%,
+    rgba(67, 206, 162, 0.65) 80%,
+    rgba(67, 206, 162, 0.9) 100%
+  );
+  filter: blur(22px);
+  pointer-events: none;
+}
+
+/* Subtle top vignette to guarantee 100% pitch black at top */
+.pg-cta-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 65%;
+  background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.9) 45%, transparent 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.pg-cta-content {
+  position: relative;
+  z-index: 3;
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.pg-cta-title {
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(2.3rem, 4.8vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  max-width: 720px;
+  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.5);
+}
+
+.pg-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 36px;
+  border-radius: 9999px;
+  background: #ffffff;
+  color: #0b1a2b;
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.98rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+}
+
+.pg-cta-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.6);
+  background: #f0f0f0;
+}
+
+/* ── Responsive Queries ── */
+@media (max-width: 980px) {
+  .pg-hero-grid,
+  .pg-guidelines-layout,
+  .pg-specs-layout {
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .pg-hero-content {
+    max-width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pg-hero-illustration {
+    width: 100%;
+  }
+
+  .pg-visual-frame,
+  .pg-specs-illustration {
+    position: relative;
+    top: 0;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .pg-guidelines-content,
+  .pg-specs-left {
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .pg-container {
+    padding: 0 20px;
+  }
+
+  .pg-hero {
+    padding: 130px 0 70px;
+  }
+
+  .pg-section,
+  .pg-specs-section,
+  .pg-gallery-section {
+    padding: 80px 0;
+  }
+
+  .pg-accordion-header {
+    padding: 18px 20px;
+    font-size: 1.05rem;
+  }
+
+  .pg-accordion-body {
+    padding: 0 20px;
+  }
+
+  .pg-accordion-item.open .pg-accordion-body {
+    padding: 0 20px 20px;
+  }
+
+  .pg-hero-video-card {
+    width: 160px;
+    height: 220px;
+  }
+
+  .pg-hero-gif-card {
+    width: 150px;
+    height: 210px;
+  }
+
+  .pg-phone-frame {
+    width: 200px;
+    height: 420px;
+  }
+}

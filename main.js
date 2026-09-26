@@ -3,17 +3,31 @@ const spacer = document.getElementById('headerSpacer');
 const hamburger = document.getElementById('hamburger');
 const mobileExpand = document.getElementById('mobileExpand');
 
-// Spacer holds the header's space since it's always fixed
-spacer.style.height = header.offsetHeight + 'px';
-
-// Shrink header on scroll
-window.addEventListener('scroll', () => {
-  if (window.scrollY > spacer.offsetHeight) {
-    header.classList.add('shrink');
-  } else {
-    header.classList.remove('shrink');
+// Spacer holds the header's space on content pages, but hero starts at top: 0
+const heroSection = document.getElementById('hero') || document.querySelector('.hero') || document.querySelector('.pg-hero');
+if (spacer) {
+  if (heroSection) {
+    spacer.style.height = '0px';
+  } else if (header) {
+    spacer.style.height = header.offsetHeight + 'px';
   }
-});
+}
+
+// Fixed header scroll effect (frosted glass on scroll)
+function updateHeaderScroll() {
+  if (!header) return;
+  if (window.scrollY > 30) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+}
+
+window.addEventListener('scroll', () => {
+  requestAnimationFrame(updateHeaderScroll);
+}, { passive: true });
+window.addEventListener('resize', updateHeaderScroll, { passive: true });
+updateHeaderScroll();
 
 // Toggle mobile menu expand
 hamburger.addEventListener('click', () => {
@@ -30,53 +44,6 @@ mobileExpand.querySelectorAll('a').forEach(link => {
     hamburger.setAttribute('aria-expanded', 'false');
   });
 });
-
-// Steps horizontal scroll on desktop
-const stepsSection = document.getElementById('benefits');
-const stepsTrack = document.getElementById('stepsTrack');
-
-if (stepsSection && stepsTrack) {
-  function updateStepsScroll() {
-    if (window.innerWidth <= 768) {
-      stepsTrack.style.transform = 'none';
-      return;
-    }
-
-    const sectionRect = stepsSection.getBoundingClientRect();
-    const sectionHeight = stepsSection.offsetHeight;
-    const vh = window.innerHeight;
-
-    // scrolled = how many px we've scrolled past the top of the section
-    const scrolled = -sectionRect.top;
-    // total scrollable distance within the section
-    const scrollRange = sectionHeight - vh;
-
-    if (scrollRange <= 0) return;
-
-    const progress = Math.max(0, Math.min(1, scrolled / scrollRange));
-
-    // total width of all cards + gaps
-    const cards = stepsTrack.children;
-    let totalWidth = 0;
-    for (let i = 0; i < cards.length; i++) {
-      totalWidth += cards[i].offsetWidth;
-    }
-    totalWidth += 28 * (cards.length - 1); // gap
-
-    const containerWidth = stepsTrack.parentElement.clientWidth;
-    const maxShift = Math.max(0, totalWidth - containerWidth);
-
-    stepsTrack.style.transform = 'translateX(' + (-progress * maxShift) + 'px)';
-  }
-
-  window.addEventListener('scroll', function () {
-    requestAnimationFrame(updateStepsScroll);
-  }, { passive: true });
-  window.addEventListener('resize', updateStepsScroll);
-
-  // Run on load
-  updateStepsScroll();
-}
 
 // FAQ accordion from JSON
 const faqList = document.getElementById('faqList');
@@ -113,34 +80,28 @@ if (faqList) {
 }
 
 
-// Footer watermark glow on hover (desktop only)
-const footerWatermark = document.getElementById('footerWatermark');
-const watermarkText = footerWatermark ? footerWatermark.querySelector('.watermark-text') : null;
+// Parallax scroll effect for Footer Banner Image
+const footerBannerImg = document.querySelector('.footer-banner-img');
+const footerBannerSec = document.querySelector('.footer-banner-section');
 
-if (footerWatermark && watermarkText) {
-  footerWatermark.addEventListener('mouseenter', function () {
-    if (window.innerWidth > 768) {
-      // glow will be set on mousemove
+if (footerBannerImg && footerBannerSec) {
+  function handleFooterBannerParallax() {
+    const rect = footerBannerSec.getBoundingClientRect();
+    const vh = window.innerHeight;
+    if (rect.top < vh && rect.bottom > 0) {
+      const scrolled = vh - rect.top;
+      const totalRange = vh + rect.height;
+      const progress = Math.max(0, Math.min(1, scrolled / totalRange));
+      const shift = (progress - 0.5) * -120; // translates from 60px to -60px
+      footerBannerImg.style.transform = `translateY(${shift}px)`;
     }
-  });
+  }
 
-  footerWatermark.addEventListener('mousemove', function (e) {
-    if (window.innerWidth > 768) {
-      var rect = footerWatermark.getBoundingClientRect();
-      var x = e.clientX - rect.left;
-      var y = e.clientY - rect.top;
-      watermarkText.style.background = 'radial-gradient(circle 400px at ' + x + 'px ' + y + 'px, rgba(67, 206, 162, 0.55) 0%, rgba(24, 90, 157, 0.3) 25%, rgba(67, 206, 162, 0.1) 50%, rgba(255, 255, 255, 0.06) 70%)'; watermarkText.style.webkitBackgroundClip = 'text';
-      watermarkText.style.backgroundClip = 'text';
-    }
-  });
-
-  footerWatermark.addEventListener('mouseleave', function () {
-    if (window.innerWidth > 768) {
-      watermarkText.style.background = 'rgba(255, 255, 255, 0.06)';
-      watermarkText.style.webkitBackgroundClip = 'text';
-      watermarkText.style.backgroundClip = 'text';
-    }
-  });
+  window.addEventListener('scroll', () => {
+    requestAnimationFrame(handleFooterBannerParallax);
+  }, { passive: true });
+  window.addEventListener('resize', handleFooterBannerParallax);
+  handleFooterBannerParallax();
 }
 
 

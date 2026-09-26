@@ -4,9 +4,9 @@
    - css/base.css       : Reset, Typography, Global, Page Transitions
    - css/header.css     : Header, Navigation, Logo, Buttons, Mobile Menu
    - css/hero.css       : Hero Section, App Store CTAs, Responsive Layouts
+   - css/showcase.css   : 3-Row Alternating Video Showcase Moments
+   - css/targeting.css  : Audience & Interest Auto-Scrolling Chips Portal
    - css/features.css   : Features Grid, Full-width Feature Card, Marquee Animations
-   - css/steps.css      : Horizontal Scroll Track & Benefit Step Cards
-   - css/download.css   : App Download CTA Banner & QR Code
    - css/faq.css        : Interactive FAQ Accordion
    - css/footer.css     : Footer, Socials, Legal, Interactive Watermark Glow & Bottom Bar
    ========================================================================== */
@@ -14,8 +14,8 @@
 @import url('./css/base.css');
 @import url('./css/header.css');
 @import url('./css/hero.css');
+@import url('./css/showcase.css');
+@import url('./css/targeting.css');
 @import url('./css/features.css');
-@import url('./css/steps.css');
-@import url('./css/download.css');
 @import url('./css/faq.css');
 @import url('./css/footer.css');

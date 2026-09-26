@@ -1,6 +1,15 @@
-/* ── Header ── */
+/* ==========================================================================
+   Header & Navigation (Fixed Full-Width Glass Header)
+   ========================================================================== */
+
 .header-spacer {
   width: 100%;
+}
+
+/* Hide header spacer on pages with hero so video starts at top: 0 */
+body:has(.hero) .header-spacer,
+body.post-guidance-page .header-spacer {
+  display: none;
 }
 
 .header {
@@ -10,96 +19,89 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 20px 20px;
+  padding: 22px 48px;
   background: transparent;
   z-index: 1000;
+  border-bottom: 1px solid transparent;
+  transition:
+    padding 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    backdrop-filter 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    -webkit-backdrop-filter 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* ── Scrolled state (Fixed full-width frosted glass over black background) ── */
+.header.scrolled,
 .header.shrink {
-  /* only inner width changes, no padding shift */
+  padding: 16px 48px;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
 }
 
 .header-inner {
   width: 100%;
-  max-width: 90%;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  border-radius: 20px;
-  padding: 20px 28px;
-
-  box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
-
-  transition:
-    max-width 0.6s ease,
-    background 0.6s ease,
-    box-shadow 0.6s ease,
-    backdrop-filter 0.6s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.header-inner::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.75) 0%,
-    rgba(255, 255, 255, 0.15) 45%,
-    rgba(255, 255, 255, 0.05) 100%
-  );
-  pointer-events: none;
-}
-
-.header.shrink .header-inner {
-  max-width: 800px;
-  background: rgba(255, 255, 255, 0.82);
-
-  box-shadow:
-    0 12px 40px rgba(0, 0, 0, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
-
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  max-width: 1360px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .header-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
 }
 
 /* ── Logo ── */
 .logo {
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .logo-icon {
-  width: 70%;
+  height: 38px;
+  width: auto;
+  display: block;
+  filter: brightness(0) invert(1);
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
-/* ── Nav ── */
+.logo:hover .logo-icon {
+  opacity: 0.9;
+  transform: scale(1.03);
+}
+
+/* ── Primary Nav Links ── */
 .nav {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 36px;
 }
 
 .nav a {
   text-decoration: none;
-  color: #020202;
-  font-size: 1rem;
-  font-weight: 400;
+  color: #ffffff;
+  font-size: 0.98rem;
+  font-weight: 500;
   display: inline-block;
   overflow: hidden;
   height: 1.4em;
   line-height: 1.4em;
+  opacity: 0.9;
+  transition: opacity 0.2s ease, color 0.2s ease;
 }
 
 .nav a span {
@@ -114,59 +116,15 @@
   position: absolute;
   top: 100%;
   left: 0;
+  color: #ffffff;
+}
+
+.nav a:hover {
+  opacity: 1;
 }
 
 .nav a:hover span {
   transform: translateY(-100%);
-}
-
-.nav a:hover {
-  color: #111;
-}
-
-/* ── Purchase Button ── */
-.btn-purchase {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  background: #020202;
-  color: #fff;
-  padding: 9px 20px;
-  border-radius: 10px;
-  font-size: 0.92rem;
-  text-decoration: none;
-  transition: background 0.2s;
-  white-space: nowrap;
-}
-
-.btn-purchase:hover {
-  background: #333;
-}
-
-/* Button icon flip */
-.btn-icon {
-  display: inline-block;
-  overflow: hidden;
-  width: 1.1em;
-  vertical-align: middle;
-  position: relative;
-}
-
-.btn-icon span {
-  display: inline-block;
-  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-  position: relative;
-}
-
-.btn-icon span::after {
-  content: attr(data-icon);
-  position: absolute;
-  top: 0;
-  right: 100%;
-}
-
-.btn-purchase:hover .btn-icon span {
-  transform: translateX(100%);
 }
 
 /* ── Hamburger ── */
@@ -185,9 +143,9 @@
   display: block;
   width: 22px;
   height: 2px;
-  background: #020202;
+  background: #ffffff;
   border-radius: 2px;
-  transition: transform 0.35s ease, opacity 0.25s ease;
+  transition: transform 0.35s ease, opacity 0.25s ease, background 0.25s ease;
 }
 
 .hamburger.active span:nth-child(1) {
@@ -202,30 +160,54 @@
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* ── Mobile Expandable Section (hidden by default) ── */
+/* ── Mobile Expandable Section ── */
 .mobile-expand {
   display: none;
 }
 
-/* ── Header Responsive ── */
+/* ── Fallback for Light Pages without Hero (e.g. legal.html) ── */
+body:not(:has(.hero)):not(.post-guidance-page) .header {
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+body:not(:has(.hero)):not(.post-guidance-page) .logo-icon {
+  filter: none;
+}
+
+body:not(:has(.hero)):not(.post-guidance-page) .nav a {
+  color: #020202;
+}
+
+body:not(:has(.hero)):not(.post-guidance-page) .nav a span::after {
+  color: #020202;
+}
+
+body:not(:has(.hero)):not(.post-guidance-page) .hamburger span {
+  background: #020202;
+}
+
+/* ── Responsive Adaptations ── */
 @media (max-width: 768px) {
+  .header {
+    padding: 16px 20px;
+  }
+
+  .header.scrolled,
+  .header.shrink {
+    padding: 14px 20px;
+  }
+
   .hamburger {
     display: flex;
   }
 
-  .nav,
-  .desktop-purchase {
+  .nav {
     display: none;
   }
 
-  .header-inner {
-    padding: 14px 18px;
-    overflow: hidden;
-    max-width: 100%;
-  }
-
-  .header.shrink .header-inner {
-    max-width: 95%;
+  .logo-icon {
+    height: 32px;
   }
 
   /* Expandable area */
@@ -233,6 +215,11 @@
     display: grid;
     grid-template-rows: 0fr;
     transition: grid-template-rows 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 0 16px;
   }
 
   .mobile-expand.open {
@@ -244,44 +231,35 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-
-  .mobile-divider {
-    width: 100%;
-    height: 1px;
-    background: #eee;
-    margin-top: 14px;
+    background: rgba(15, 15, 15, 0.96);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    margin-top: 8px;
+    padding: 16px 20px 20px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
   }
 
   .mobile-links {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4px;
-    padding: 16px 0 8px;
+    gap: 8px;
+    padding: 8px 0;
+    width: 100%;
   }
 
   .mobile-links a {
     text-decoration: none;
-    padding: 10px 0;
+    padding: 8px 0;
     transition: color 0.2s;
-    color: #020202;
-    font-size: 1.1rem;
-    font-weight: 400;
+    color: #ffffff;
+    font-size: 1.05rem;
+    font-weight: 500;
   }
 
   .mobile-links a:hover {
-    color: #555;
-  }
-
-  .mobile-purchase {
-    display: inline-flex;
-    align-self: center;
-    padding: 12px 36px;
-    font-size: 0.95rem;
-  }
-
-  .logo-icon {
-    width: 60%;
+    color: #888888;
   }
 }
