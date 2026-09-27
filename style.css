@@ -1,21 +1,1659 @@
 /* ==========================================================================
-   ZoneUp Stylesheet
-   Modularized Architecture:
-   - css/base.css       : Reset, Typography, Global, Page Transitions
-   - css/header.css     : Header, Navigation, Logo, Buttons, Mobile Menu
-   - css/hero.css       : Hero Section, App Store CTAs, Responsive Layouts
-   - css/showcase.css   : 3-Row Alternating Video Showcase Moments
-   - css/targeting.css  : Audience & Interest Auto-Scrolling Chips Portal
-   - css/features.css   : Features Grid, Full-width Feature Card, Marquee Animations
-   - css/faq.css        : Interactive FAQ Accordion
-   - css/footer.css     : Footer, Socials, Legal, Interactive Watermark Glow & Bottom Bar
+   ZoneUp Main Stylesheet (Bundled for Universal Reliability & Zero-CORS)
    ========================================================================== */
 
-@import url('./css/base.css');
-@import url('./css/header.css');
-@import url('./css/hero.css');
-@import url('./css/showcase.css');
-@import url('./css/targeting.css');
-@import url('./css/features.css');
-@import url('./css/faq.css');
-@import url('./css/footer.css');
+/* ── css/base.css ── */
+/* ── Reset & Global ── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  background: #000000;
+}
+
+body,
+button,
+input,
+textarea,
+select,
+optgroup {
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  color: #ffffff;
+  background: #000000;
+  min-height: 100vh;
+}
+
+/* ── Page Transition ── */
+body.page-leaving {
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+
+
+/* ── css/header.css ── */
+/* ==========================================================================
+   Header & Navigation (Fixed Full-Width Glass Header)
+   ========================================================================== */
+
+.header-spacer {
+  width: 100%;
+}
+
+/* Hide header spacer on pages with hero so video starts at top: 0 */
+body:has(.hero) .header-spacer,
+body.post-guidance-page .header-spacer {
+  display: none;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 22px 48px;
+  background: transparent;
+  z-index: 1000;
+  border-bottom: 1px solid transparent;
+  transition:
+    padding 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    backdrop-filter 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    -webkit-backdrop-filter 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Scrolled state (Fixed full-width frosted glass over black background) ── */
+.header.scrolled,
+.header.shrink {
+  padding: 16px 48px;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
+}
+
+.header-inner {
+  width: 100%;
+  max-width: 1360px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+/* ── Logo ── */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.logo-icon {
+  height: 38px;
+  width: auto;
+  display: block;
+  filter: brightness(0) invert(1);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.logo:hover .logo-icon {
+  opacity: 0.9;
+  transform: scale(1.03);
+}
+
+/* ── Primary Nav Links ── */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 0.98rem;
+  font-weight: 500;
+  display: inline-block;
+  overflow: hidden;
+  height: 1.4em;
+  line-height: 1.4em;
+  opacity: 0.9;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.nav a span {
+  display: block;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative;
+}
+
+.nav a span::after {
+  content: attr(data-text);
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  color: #ffffff;
+}
+
+.nav a:hover {
+  opacity: 1;
+}
+
+.nav a:hover span {
+  transform: translateY(-100%);
+}
+
+/* ── Hamburger ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: transform 0.35s ease, opacity 0.25s ease, background 0.25s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Mobile Expandable Section ── */
+.mobile-expand {
+  display: none;
+}
+
+/* ── Fallback for Light Pages without Hero (e.g. legal.html) ── */
+body:not(:has(.hero)):not(.post-guidance-page) .header {
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+body:not(:has(.hero)):not(.post-guidance-page) .logo-icon {
+  filter: none;
+}
+
+body:not(:has(.hero)):not(.post-guidance-page) .nav a {
+  color: #020202;
+}
+
+body:not(:has(.hero)):not(.post-guidance-page) .nav a span::after {
+  color: #020202;
+}
+
+body:not(:has(.hero)):not(.post-guidance-page) .hamburger span {
+  background: #020202;
+}
+
+/* ── Responsive Adaptations ── */
+@media (max-width: 768px) {
+  .header {
+    padding: 16px 20px;
+  }
+
+  .header.scrolled,
+  .header.shrink {
+    padding: 14px 20px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .logo-icon {
+    height: 32px;
+  }
+
+  /* Expandable area */
+  .mobile-expand {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 0 16px;
+  }
+
+  .mobile-expand.open {
+    grid-template-rows: 1fr;
+  }
+
+  .mobile-expand-inner {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(15, 15, 15, 0.96);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    margin-top: 8px;
+    padding: 16px 20px 20px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+  }
+
+  .mobile-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0;
+    width: 100%;
+  }
+
+  .mobile-links a {
+    text-decoration: none;
+    padding: 8px 0;
+    transition: color 0.2s;
+    color: #ffffff;
+    font-size: 1.05rem;
+    font-weight: 500;
+  }
+
+  .mobile-links a:hover {
+    color: #888888;
+  }
+}
+
+
+
+/* ── css/hero.css ── */
+/* ==========================================================================
+   Hero Section - ZoneUp Fullscreen Video Hero
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #020202;
+}
+
+/* ── Fullscreen Video Background ── */
+.hero-video-wrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+/* ── Dark Vignette & Gradient Overlays ── */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at center, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.45) 100%),
+    linear-gradient(180deg,
+      rgba(0, 0, 0, 0.72) 0%,
+      rgba(0, 0, 0, 0.22) 22%,
+      rgba(0, 0, 0, 0.18) 50%,
+      rgba(0, 0, 0, 0.5) 75%,
+      rgba(0, 0, 0, 0.88) 92%,
+      #020202 100%);
+}
+
+/* ── Centered Hero Content ── */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 24px 60px;
+  max-width: 860px;
+  width: 100%;
+  margin: 0 auto;
+  color: #ffffff;
+}
+
+
+/* ── Headline Title / Quote ── */
+.hero-title {
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: clamp(2.4rem, 5.2vw, 4.4rem);
+  font-weight: 600;
+  line-height: 1.16;
+  letter-spacing: -0.012em;
+  color: #ffffff;
+  margin: 0 0 26px 0;
+  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.65);
+  max-width: 820px;
+  text-wrap: balance;
+}
+
+/* ── CTA Link ── */
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1.12rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.hero-cta:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+}
+
+.hero-cta:active {
+  transform: translateY(0);
+}
+
+.hero-cta-arrow {
+  width: 17px;
+  height: 17px;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-cta:hover .hero-cta-arrow {
+  transform: translate(3px, -3px);
+}
+
+/* ── Responsive Adaptations ── */
+@media (max-width: 1024px) {
+  .hero-content {
+    padding: 90px 20px 50px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    margin-bottom: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100vh;
+    min-height: 100svh;
+  }
+
+  .hero-content {
+    padding: 80px 18px 40px;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 7.5vw, 2.75rem);
+    line-height: 1.16;
+    letter-spacing: -0.02em;
+    margin-bottom: 22px;
+  }
+
+  .hero-cta {
+    font-size: 1.05rem;
+    padding: 9px 18px;
+  }
+
+  .hero-cta-arrow {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.15rem;
+    line-height: 1.18;
+  }
+
+  .hero-cta {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+}
+
+
+/* ── css/showcase.css ── */
+/* ==========================================================================
+   Showcase Section - 3 Alternating Framer Rows with ZoneUp Gradient
+   ========================================================================== */
+
+.showcase-section {
+  position: relative;
+  background: #000000;
+  color: #ffffff;
+  padding: 200px 32px 180px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.showcase-container {
+  position: relative;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 160px;
+}
+
+/* ── Individual Showcase Row ── */
+.showcase-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  width: 100%;
+}
+
+.showcase-row.showcase-row-reverse {
+  flex-direction: row-reverse;
+}
+
+/* ── Video Card Container (Framer .framer-451lqd structure) ── */
+.showcase-video-card {
+  position: relative;
+  flex: 0 1 390px;
+  width: 100%;
+  max-width: 390px;
+  aspect-ratio: 0.75; /* Exact 3:4 aspect ratio */
+  border-radius: 18px;
+  overflow: hidden;
+  background: #000000;
+}
+
+.showcase-video-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.showcase-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  display: block;
+  background: transparent;
+}
+
+/* ── ZoneUp Signature Gradient Overlay ── */
+.showcase-zoneup-gradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 95% 75% at 90% 12%,
+    rgba(67, 206, 162, 0.85) 0%,
+    rgba(24, 90, 157, 0.7) 38%,
+    rgba(10, 24, 40, 0.4) 65%,
+    transparent 85%
+  );
+  mix-blend-mode: hue;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.showcase-zoneup-gradient::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 85% 65% at 85% 15%,
+    rgba(67, 206, 162, 0.2) 0%,
+    rgba(24, 90, 157, 0.12) 42%,
+    transparent 72%
+  );
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+/* ── Content Container ── */
+.showcase-content {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  max-width: 520px;
+}
+
+.showcase-title {
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: clamp(2.4rem, 4.4vw, 3.6rem);
+  font-weight: 650;
+  line-height: 1.16;
+  letter-spacing: -0.012em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.showcase-desc {
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: -0.005em;
+  color: rgb(209, 214, 222);
+  margin: 0;
+}
+
+/* ── Responsive Adaptations ── */
+@media (max-width: 900px) {
+  .showcase-section {
+    padding: 140px 24px 120px;
+  }
+
+  .showcase-container {
+    gap: 90px;
+  }
+
+  .showcase-row,
+  .showcase-row.showcase-row-reverse {
+    flex-direction: column;
+    gap: 36px;
+    text-align: center;
+  }
+
+  .showcase-video-card {
+    max-width: 320px;
+    order: 1;
+  }
+
+  .showcase-content {
+    align-items: center;
+    text-align: center;
+    order: 0;
+    max-width: 100%;
+  }
+
+  .showcase-title {
+    font-size: clamp(2rem, 6.5vw, 2.75rem);
+  }
+
+  .showcase-desc {
+    font-size: 1.05rem;
+    line-height: 1.65;
+  }
+}
+
+@media (max-width: 480px) {
+  .showcase-section {
+    padding: 100px 16px 90px;
+  }
+
+  .showcase-container {
+    gap: 75px;
+  }
+
+  .showcase-video-card {
+    max-width: 260px;
+    border-radius: 14px;
+  }
+
+  .showcase-title {
+    font-size: 2rem;
+  }
+
+  .showcase-desc {
+    font-size: 0.98rem;
+  }
+}
+
+
+
+/* ── css/targeting.css ── */
+/* ==========================================================================
+   Targeting Section - Audience & Interest Auto-Scrolling Chips Portal
+   ========================================================================== */
+
+.targeting-section {
+  position: relative;
+  background: #000000;
+  color: #ffffff;
+  padding: 140px 32px 160px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.targeting-container {
+  position: relative;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 64px;
+}
+
+/* ── Left Content ── */
+.targeting-content {
+  flex: 1 1 0;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.targeting-title {
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: clamp(2.4rem, 4.4vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.targeting-desc {
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+}
+
+/* ── Right Chips Portal (Circular Vignette Lens) ── */
+.targeting-portal {
+  position: relative;
+  flex: 0 0 clamp(360px, 45vw, 540px);
+  width: clamp(360px, 45vw, 540px);
+  height: clamp(360px, 45vw, 540px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+  overflow: hidden;
+  /* Circular soft radial vignette mask */
+  -webkit-mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 36%, rgba(0, 0, 0, 0) 72%);
+  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 36%, rgba(0, 0, 0, 0) 72%);
+  pointer-events: auto;
+}
+
+.targeting-portal::before {
+  content: '';
+  position: absolute;
+  inset: 15%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(67, 206, 162, 0.08) 0%, rgba(24, 90, 157, 0.04) 45%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Chips Rows & Marquee Tracks ── */
+.chips-row {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
+  user-select: none;
+  position: relative;
+  z-index: 1;
+  gap: 12px;
+}
+
+.chips-track {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  will-change: transform;
+}
+
+/* Row Scroll Directions & Speeds */
+.row-scroll-left .chips-track {
+  animation: chipsMarqueeLeft 28s linear infinite;
+}
+
+.row-scroll-right .chips-track {
+  animation: chipsMarqueeRight 26s linear infinite;
+}
+
+.row-scroll-left-slow .chips-track {
+  animation: chipsMarqueeLeft 34s linear infinite;
+}
+
+.row-scroll-right-slow .chips-track {
+  animation: chipsMarqueeRight 32s linear infinite;
+}
+
+.row-scroll-left-fast .chips-track {
+  animation: chipsMarqueeLeft 24s linear infinite;
+}
+
+.row-scroll-right-fast .chips-track {
+  animation: chipsMarqueeRight 22s linear infinite;
+}
+
+/* Infinite Marquee Keyframes */
+@keyframes chipsMarqueeLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% - 12px));
+  }
+}
+
+@keyframes chipsMarqueeRight {
+  0% {
+    transform: translateX(calc(-100% - 12px));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* ── Individual Chip Styling ── */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.chip:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(67, 206, 162, 0.4);
+  transform: scale(1.04);
+}
+
+.chip-avatar {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  justify-content: center;
+  font-size: 1.15rem;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.chip-emoji {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* ── Responsive Adaptations ── */
+@media (max-width: 900px) {
+  .targeting-section {
+    padding: 100px 24px 110px;
+  }
+
+  .targeting-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 48px;
+  }
+
+  .targeting-content {
+    max-width: 100%;
+    align-items: center;
+  }
+
+  .targeting-portal {
+    flex: none;
+    width: min(100%, 460px);
+    height: 420px;
+  }
+}
+
+@media (max-width: 480px) {
+  .targeting-section {
+    padding: 80px 16px 90px;
+  }
+
+  .targeting-portal {
+    width: 100%;
+    height: 340px;
+    gap: 10px;
+  }
+
+  .chip {
+    padding: 7px 14px;
+    font-size: 0.8rem;
+  }
+}
+
+
+
+/* ── css/features.css ── */
+/* ==========================================================================
+   Features / Authenticity Section - Black Theme
+   "ZoneUp is where people stay real" 3-Column Story Layout
+   ========================================================================== */
+
+.features {
+  width: 100%;
+  background: #000000;
+  color: #ffffff;
+  padding: 120px 24px 140px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.features-container {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.features-header {
+  text-align: center;
+  margin-bottom: 64px;
+  width: 100%;
+  max-width: 840px;
+}
+
+.features-title {
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: clamp(2.4rem, 4.4vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0;
+  text-align: center;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px 32px;
+  width: 100%;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+}
+
+.feature-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.5; /* 3:2 matches original 7000x4667 framer photos */
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #111111;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.feature-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 20px;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.feature-item:hover .feature-img {
+  transform: scale(1.04);
+}
+
+.feature-content {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.feature-item-title {
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.feature-item-desc {
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #d1d6de;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── Responsive Media Queries ── */
+@media (max-width: 960px) {
+  .features {
+    padding: 90px 20px 100px;
+  }
+
+  .features-header {
+    margin-bottom: 48px;
+  }
+
+  .features-grid {
+    gap: 24px;
+  }
+
+  .feature-img-wrap,
+  .feature-img {
+    border-radius: 16px;
+  }
+
+  .feature-item-title {
+    font-size: 1.2rem;
+  }
+
+  .feature-item-desc {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .features {
+    padding: 70px 16px 80px;
+  }
+
+  .features-header {
+    margin-bottom: 36px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .feature-content {
+    margin-top: 18px;
+  }
+}
+
+
+
+/* ── css/faq.css ── */
+/* ==========================================================================
+   FAQ Section - Black Theme (Clean White & Monochrome)
+   ========================================================================== */
+
+.faq {
+  width: 100%;
+  background: #000000;
+  padding: 120px 20px 100px;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.faq::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(850px, 90vw);
+  height: 350px;
+  background: radial-gradient(ellipse at top, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.faq-title {
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 54px;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.faq-list {
+  max-width: 820px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.faq-item {
+  position: relative;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  margin-bottom: 14px;
+  padding: 0 28px;
+  transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+}
+
+.faq-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.16);
+  transform: translateY(-1px);
+}
+
+.faq-item.open {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #ffffff;
+  gap: 16px;
+  transition: color 0.3s ease;
+}
+
+.faq-question span:first-child {
+  flex: 1;
+  line-height: 1.4;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.faq-item.open .faq-question > span:first-child {
+  color: #ffffff;
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: #ffffff;
+  background-clip: unset;
+}
+
+.faq-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.35s ease,
+              border-color 0.35s ease,
+              color 0.35s ease;
+}
+
+.faq-item.open .faq-icon {
+  transform: rotate(45deg);
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.28);
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-answer-inner {
+  overflow: hidden;
+  min-height: 0;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-item.open .faq-answer {
+  grid-template-rows: 1fr;
+}
+
+.faq-item.open .faq-answer-inner {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.faq-answer p {
+  padding: 0 0 24px;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.7;
+}
+
+/* ── FAQ Responsive ── */
+@media (max-width: 768px) {
+  .faq {
+    padding: 70px 16px 60px;
+  }
+
+  .faq-title {
+    font-size: 2.2rem;
+    margin-bottom: 36px;
+  }
+
+  .faq-item {
+    padding: 0 20px;
+  }
+
+  .faq-question {
+    font-size: 0.98rem;
+    padding: 20px 0;
+  }
+
+  .faq-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 1.15rem;
+  }
+
+  .faq-answer p {
+    font-size: 0.9rem;
+    padding-bottom: 20px;
+  }
+}
+
+
+
+/* ── css/footer.css ── */
+/* ==========================================================================
+   Footer & Parallax Banner Section - Black Theme
+   Refined Modern Layout with Ambient Glow & Rich Balance
+   ========================================================================== */
+
+/* ── Parallax Friends Banner Section ── */
+.footer-banner-section {
+  width: 100%;
+  height: clamp(320px, 42vw, 560px);
+  overflow: hidden;
+  position: relative;
+  background: #000000;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.footer-banner-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.footer-banner-img {
+  position: absolute;
+  top: -20%;
+  left: 0;
+  width: 100%;
+  height: 140%;
+  object-fit: cover;
+  display: block;
+  will-change: transform;
+}
+
+
+
+/* ── Footer ── */
+.footer {
+  width: 100%;
+  background: #000000;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 70px 0 35px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ambient Radial Glow to fill negative space with atmospheric depth */
+.footer-ambient-glow {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  width: min(1000px, 92vw);
+  height: 440px;
+  background: radial-gradient(ellipse, rgba(67, 206, 162, 0.12) 0%, rgba(24, 90, 157, 0.08) 45%, transparent 75%);
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(55px);
+}
+
+.footer-inner {
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 0 5vw;
+  position: relative;
+  z-index: 2;
+}
+
+/* Footer Balanced 3-Column Grid */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1.1fr 0.9fr;
+  gap: 52px;
+  align-items: flex-start;
+  position: relative;
+  z-index: 10;
+}
+
+/* Column 1: Left Brand Column */
+.footer-brand-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.footer-logo-wrapper {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footer-logo-img {
+  height: 38px;
+  width: auto;
+}
+
+.footer-tagline {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Live City Pill */
+.footer-city-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 2px;
+  width: fit-content;
+}
+
+.status-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #43CEA2;
+  box-shadow: 0 0 8px #43CEA2;
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.85); }
+}
+
+/* Social Media Section */
+.footer-social-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.social-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.footer-socials {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-socials .social-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.85);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  text-decoration: none;
+}
+
+.footer-socials .social-icon:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.25);
+}
+
+/* Column 2: App Download Hub */
+.footer-app-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-app-desc {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.footer-store-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.footer-store-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 12px;
+  text-decoration: none;
+  color: #ffffff;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  width: fit-content;
+  min-width: 195px;
+}
+
+.footer-store-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(67, 206, 162, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+.store-svg {
+  flex-shrink: 0;
+}
+
+.store-card-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.store-card-sub {
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.store-card-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+/* Column 3: Legal & Support */
+.footer-links-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.column-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.footer-link {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  display: inline-block;
+  overflow: hidden;
+  height: 1.4em;
+  line-height: 1.4em;
+  width: fit-content;
+}
+
+.footer-link span {
+  display: block;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative;
+}
+
+.footer-link span::after {
+  content: attr(data-text);
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  color: #ffffff;
+}
+
+.footer-link:hover span {
+  transform: translateY(-100%);
+}
+
+.footer-link:hover {
+  color: #ffffff;
+}
+
+.footer-support-link {
+  color: #43CEA2 !important;
+  margin-top: 4px;
+}
+
+/* Bottom Bar */
+.footer-bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 28px;
+  margin-top: 56px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  z-index: 10;
+}
+
+.footer-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #43CEA2;
+  box-shadow: 0 0 6px #43CEA2;
+}
+
+.footer-bottom-copyright {
+  text-align: right;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+}
+
+/* ── Responsive Rules ── */
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 60px 0 30px;
+  }
+
+  .footer-inner {
+    padding: 0 20px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .footer-brand-col,
+  .footer-app-col,
+  .footer-links-col {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-city-badge {
+    margin: 0 auto;
+  }
+
+  .footer-socials {
+    justify-content: center;
+  }
+
+  .footer-store-buttons {
+    align-items: center;
+  }
+
+  .footer-bottom-bar {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .footer-bottom-copyright {
+    text-align: center;
+  }
+
+}
+
+

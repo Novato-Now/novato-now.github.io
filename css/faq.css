@@ -1,5 +1,5 @@
 /* ==========================================================================
-   FAQ Section - Black Theme
+   FAQ Section - Black Theme (Clean White & Monochrome)
    ========================================================================== */
 
 .faq {
@@ -19,11 +19,12 @@
   transform: translateX(-50%);
   width: min(850px, 90vw);
   height: 350px;
-  background: radial-gradient(ellipse at top, rgba(67, 206, 162, 0.1) 0%, rgba(24, 90, 157, 0.05) 50%, transparent 80%);
+  background: radial-gradient(ellipse at top, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
   pointer-events: none;
 }
 
 .faq-title {
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 3.2rem;
   font-weight: 700;
   color: #ffffff;
@@ -66,29 +67,10 @@
   transform: translateY(-1px);
 }
 
-.faq-item::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: 16px;
-  padding: 1px;
-  background: linear-gradient(135deg, #43CEA2 0%, #185A9D 100%);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  pointer-events: none;
-}
-
 .faq-item.open {
-  background: #0c0e12;
-  border-color: transparent;
-  box-shadow: 0 0 28px rgba(67, 206, 162, 0.14), 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-.faq-item.open::before {
-  opacity: 1;
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .faq-question {
@@ -101,7 +83,7 @@
   border: none;
   cursor: pointer;
   text-align: left;
-  font-family: 'Satoshi', sans-serif;
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 1.05rem;
   font-weight: 600;
   color: #ffffff;
@@ -112,14 +94,16 @@
 .faq-question span:first-child {
   flex: 1;
   line-height: 1.4;
-  transition: all 0.3s ease;
+  color: #ffffff;
+  transition: color 0.3s ease;
 }
 
 .faq-item.open .faq-question > span:first-child {
-  background: linear-gradient(90deg, #43CEA2 0%, #4facfe 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #ffffff;
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: #ffffff;
+  background-clip: unset;
 }
 
 .faq-icon {
@@ -127,7 +111,7 @@
   height: 34px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -137,15 +121,16 @@
   flex-shrink: 0;
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
               background 0.35s ease,
-              box-shadow 0.35s ease;
+              border-color 0.35s ease,
+              color 0.35s ease;
 }
 
 .faq-item.open .faq-icon {
   transform: rotate(45deg);
-  background: linear-gradient(135deg, #43CEA2 0%, #185A9D 100%);
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.28);
   color: #ffffff;
-  border-color: transparent;
-  box-shadow: 0 0 14px rgba(67, 206, 162, 0.4);
+  box-shadow: none;
 }
 
 .faq-answer {
