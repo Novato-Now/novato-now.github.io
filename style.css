@@ -39,6 +39,38 @@ body.page-leaving {
   transition: opacity 0.35s ease;
 }
 
+/* ── Global Autoplay Video Rules (Prevent Browser Play Overlays & Ensure Muted Loop) ── */
+video {
+  pointer-events: none;
+}
+
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+video::-webkit-media-controls-play-button {
+  display: none !important;
+  -webkit-appearance: none !important;
+  opacity: 0 !important;
+}
+
+video::-webkit-media-controls-panel {
+  display: none !important;
+  -webkit-appearance: none !important;
+  opacity: 0 !important;
+}
+
+video::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+
 
 
 /* ── css/header.css ── */

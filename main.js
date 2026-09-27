@@ -163,3 +163,87 @@ document.querySelectorAll('[data-store-cta]').forEach(link => {
   link.setAttribute('target', '_blank');
   link.setAttribute('rel', 'noopener noreferrer');
 });
+
+// ==========================================================================
+// Robust Autoplay & Looping Controller for HTML5 Videos
+// Ensures seamless muted autoplay, hides play buttons, and loops infinitely
+// ==========================================================================
+function setupAutoplayVideos() {
+  const videos = document.querySelectorAll('video');
+  if (!videos.length) return;
+
+  videos.forEach(video => {
+    // 1. Force muted properties in DOM and HTML attributes
+    video.muted = true;
+    video.defaultMuted = true;
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
+    video.setAttribute('x5-playsinline', '');
+    video.setAttribute('loop', '');
+    video.setAttribute('autoplay', '');
+    video.removeAttribute('controls');
+
+    // 2. Loop fallback guarantee
+    video.addEventListener('ended', function () {
+      video.currentTime = 0;
+      const p = video.play();
+      if (p !== undefined) p.catch(() => {});
+    });
+
+    // 3. Prevent video pauses on click/tap
+    video.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (video.paused) {
+        video.play().catch(() => {});
+      }
+    });
+
+    // 4. Initial play attempt
+    const promise = video.play();
+    if (promise !== undefined) {
+      promise.catch(() => {
+        // Will be resumed by IntersectionObserver or interaction
+      });
+    }
+  });
+
+  // 5. IntersectionObserver for viewport-based playback (smooth on mobile)
+  if ('IntersectionObserver' in window) {
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const vid = entry.target;
+        if (entry.isIntersecting) {
+          vid.muted = true;
+          const p = vid.play();
+          if (p !== undefined) p.catch(() => {});
+        } else {
+          // Pause offscreen videos to save memory and battery
+          vid.pause();
+        }
+      });
+    }, { threshold: 0.15 });
+
+    videos.forEach(vid => videoObserver.observe(vid));
+  }
+
+  // 6. User interaction unlocker (for iOS Low Power Mode and strict browsers)
+  const unlockVideos = () => {
+    videos.forEach(v => {
+      v.muted = true;
+      if (v.paused) {
+        v.play().catch(() => {});
+      }
+    });
+  };
+
+  ['touchstart', 'touchend', 'click', 'scroll', 'keydown'].forEach(evt => {
+    window.addEventListener(evt, unlockVideos, { once: true, passive: true });
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', setupAutoplayVideos);
+} else {
+  setupAutoplayVideos();
+}
