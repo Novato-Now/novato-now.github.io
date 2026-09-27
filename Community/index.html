@@ -176,6 +176,10 @@
       })();
 
       document.addEventListener("DOMContentLoaded", function () {
+        var goBtn = document.getElementById("goBtn");
+        if (goBtn && appUrl) {
+          goBtn.href = appUrl;
+        }
         var storeLink = document.getElementById("storeLink");
         if (storeLink && fallbackUrl) {
           storeLink.href = fallbackUrl;
