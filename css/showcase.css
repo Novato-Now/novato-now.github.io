@@ -6,7 +6,7 @@
   position: relative;
   background: #000000;
   color: #ffffff;
-  padding: 200px 32px 180px;
+  padding: 220px 32px 180px;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -38,13 +38,21 @@
 /* ── Video Card Container (Framer .framer-451lqd structure) ── */
 .showcase-video-card {
   position: relative;
-  flex: 0 1 390px;
+  flex: 0 1 430px;
   width: 100%;
-  max-width: 390px;
+  max-width: 430px;
   aspect-ratio: 0.75; /* Exact 3:4 aspect ratio */
-  border-radius: 18px;
+  border-radius: 28px;
   overflow: hidden;
   background: #000000;
+  border: none;
+  box-shadow: none;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.showcase-video-card:hover {
+  transform: translateY(-4px);
+  box-shadow: none;
 }
 
 .showcase-video-wrapper {
@@ -52,6 +60,7 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
+  background: transparent;
 }
 
 .showcase-video {
@@ -61,6 +70,135 @@
   object-position: 50% 50%;
   display: block;
   background: transparent;
+}
+
+/* ── Realistic 3D Device Mockup (ZoneUp Custom Device Frame) ── */
+.device-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  padding: 38px 20px 24px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 28px;
+}
+
+/* Ambient soft gradient aura behind phone that fades into pure black body */
+.device-frame::before {
+  content: '';
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 130%;
+  height: 130%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(67, 206, 162, 0.10) 0%,
+    rgba(24, 90, 157, 0.05) 35%,
+    transparent 65%
+  );
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(32px);
+}
+
+.device-body {
+  position: relative;
+  width: 66%;
+  height: 96%;
+  background: #000000;
+  border-radius: 36px;
+  border: 3.5px solid #232730;
+  outline: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.95),
+    0 0 35px rgba(67, 206, 162, 0.10),
+    inset 0 0 3px rgba(255, 255, 255, 0.3);
+  padding: 8px;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  z-index: 3;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+}
+
+/* Ambient soft shimmer beam passing smoothly behind the mobile (not on phone) */
+.device-bg-shimmer {
+  position: absolute;
+  inset: -60%;
+  width: 220%;
+  height: 220%;
+  background: linear-gradient(
+    52deg,
+    transparent 0%,
+    transparent 32%,
+    rgba(67, 206, 162, 0.08) 40%,
+    rgba(110, 215, 250, 0.18) 46%,
+    rgba(255, 255, 255, 0.28) 49%,
+    rgba(255, 255, 255, 0.28) 51%,
+    rgba(110, 215, 250, 0.18) 54%,
+    rgba(24, 90, 157, 0.08) 60%,
+    transparent 68%,
+    transparent 100%
+  );
+  transform: translate(-70%, 70%);
+  animation: bgShimmerSlowSmooth 6.5s cubic-bezier(0.35, 0, 0.25, 1) infinite;
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(24px);
+  mix-blend-mode: screen;
+}
+
+@keyframes bgShimmerSlowSmooth {
+  0% {
+    transform: translate(-70%, 70%);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.75;
+  }
+  60% {
+    opacity: 0.75;
+  }
+  80% {
+    transform: translate(70%, -70%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(70%, -70%);
+    opacity: 0;
+  }
+}
+
+.device-frame:hover .device-body {
+  transform: translateY(-4px) scale(1.015);
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.9),
+    0 0 50px rgba(67, 206, 162, 0.25),
+    inset 0 0 4px rgba(255, 255, 255, 0.4);
+}
+
+.device-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #000000;
+}
+
+.device-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
 }
 
 /* ── ZoneUp Signature Gradient Overlay ── */
@@ -142,8 +280,13 @@
   }
 
   .showcase-video-card {
-    max-width: 320px;
+    max-width: 360px;
+    border-radius: 24px;
     order: 1;
+  }
+
+  .device-frame {
+    padding: 30px 16px 20px;
   }
 
   .showcase-content {
@@ -161,6 +304,16 @@
     font-size: 1.05rem;
     line-height: 1.65;
   }
+
+  .device-body {
+    border-radius: 30px;
+    border-width: 3px;
+    padding: 7px;
+  }
+
+  .device-screen {
+    border-radius: 23px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -173,8 +326,12 @@
   }
 
   .showcase-video-card {
-    max-width: 260px;
-    border-radius: 14px;
+    max-width: 290px;
+    border-radius: 20px;
+  }
+
+  .device-frame {
+    padding: 24px 12px 16px;
   }
 
   .showcase-title {
@@ -183,5 +340,15 @@
 
   .showcase-desc {
     font-size: 0.98rem;
+  }
+
+  .device-body {
+    border-radius: 24px;
+    border-width: 2.5px;
+    padding: 5px;
+  }
+
+  .device-screen {
+    border-radius: 19px;
   }
 }

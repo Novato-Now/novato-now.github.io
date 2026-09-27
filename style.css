@@ -258,20 +258,29 @@ body:not(:has(.hero)):not(.post-guidance-page) .hamburger span {
   .mobile-expand {
     display: grid;
     grid-template-rows: 0fr;
-    transition: grid-template-rows 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: grid-template-rows 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+                opacity 0.25s ease,
+                visibility 0.25s ease;
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
     padding: 0 16px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
   }
 
   .mobile-expand.open {
     grid-template-rows: 1fr;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
 
   .mobile-expand-inner {
     overflow: hidden;
+    min-height: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -281,8 +290,13 @@ body:not(:has(.hero)):not(.post-guidance-page) .hamburger span {
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.12);
     margin-top: 8px;
-    padding: 16px 20px 20px;
+    padding: 0 20px;
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+    transition: padding 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .mobile-expand.open .mobile-expand-inner {
+    padding: 16px 20px 20px;
   }
 
   .mobile-links {
@@ -490,6 +504,222 @@ body:not(:has(.hero)):not(.post-guidance-page) .hamburger span {
 }
 
 
+/* ── css/create-zoneup.css ── */
+/* ==========================================================================
+   Create for ZoneUp Section (Home Page Featured Section)
+   ========================================================================== */
+
+.create-zoneup-section {
+  position: relative;
+  padding: 140px 0 100px;
+  background: #000000;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.create-zoneup-section::before {
+  content: '';
+  position: absolute;
+  top: 15%;
+  right: 15%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(67, 206, 162, 0.12) 0%, rgba(24, 90, 157, 0.06) 50%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.create-zoneup-container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.create-zoneup-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 64px;
+  position: relative;
+  width: 100%;
+}
+
+.create-zoneup-content {
+  flex: 1 1 520px;
+  max-width: 580px;
+}
+
+.create-zoneup-title {
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: clamp(2.8rem, 5.2vw, 4.4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin-bottom: 24px;
+}
+
+.create-zoneup-desc {
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1.12rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.68);
+  margin-bottom: 36px;
+}
+
+.create-zoneup-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  border-radius: 9999px;
+  background: #212734;
+  color: #ffffff;
+  font-size: 0.96rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.create-zoneup-btn:hover {
+  background: #2b3345;
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* Media Stack */
+.create-zoneup-illustration {
+  flex: 0 0 clamp(320px, 40vw, 460px);
+  position: relative;
+  height: clamp(420px, 50vw, 580px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.create-zoneup-phone-frame {
+  position: relative;
+  width: 250px;
+  height: 520px;
+  z-index: 2;
+}
+
+.create-zoneup-phone-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.create-zoneup-video-card {
+  position: absolute;
+  top: 15%;
+  left: 0;
+  width: 220px;
+  height: 290px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.15);
+  transform: rotate(-7deg);
+  z-index: 1;
+  transition: transform 0.4s ease;
+}
+
+.create-zoneup-video-card:hover {
+  transform: rotate(-3deg) scale(1.04);
+}
+
+.create-zoneup-video-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.create-zoneup-gif-card {
+  position: absolute;
+  bottom: 12%;
+  right: -10px;
+  width: 210px;
+  height: 280px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.15);
+  transform: rotate(8deg);
+  z-index: 3;
+  transition: transform 0.4s ease;
+}
+
+.create-zoneup-gif-card:hover {
+  transform: rotate(4deg) scale(1.04);
+}
+
+.create-zoneup-gif-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 980px) {
+  .create-zoneup-grid {
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .create-zoneup-content {
+    max-width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .create-zoneup-illustration {
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .create-zoneup-container {
+    padding: 0 20px;
+  }
+
+  .create-zoneup-section {
+    padding: 100px 0 60px;
+  }
+
+  .create-zoneup-phone-frame {
+    width: 200px;
+    height: 420px;
+  }
+
+  .create-zoneup-video-card {
+    width: 170px;
+    height: 230px;
+    top: 10%;
+  }
+
+  .create-zoneup-gif-card {
+    width: 160px;
+    height: 220px;
+    bottom: 8%;
+    right: 0;
+  }
+}
+
+
+
 /* ── css/showcase.css ── */
 /* ==========================================================================
    Showcase Section - 3 Alternating Framer Rows with ZoneUp Gradient
@@ -499,7 +729,7 @@ body:not(:has(.hero)):not(.post-guidance-page) .hamburger span {
   position: relative;
   background: #000000;
   color: #ffffff;
-  padding: 200px 32px 180px;
+  padding: 220px 32px 180px;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -531,13 +761,21 @@ body:not(:has(.hero)):not(.post-guidance-page) .hamburger span {
 /* ── Video Card Container (Framer .framer-451lqd structure) ── */
 .showcase-video-card {
   position: relative;
-  flex: 0 1 390px;
+  flex: 0 1 430px;
   width: 100%;
-  max-width: 390px;
+  max-width: 430px;
   aspect-ratio: 0.75; /* Exact 3:4 aspect ratio */
-  border-radius: 18px;
+  border-radius: 28px;
   overflow: hidden;
   background: #000000;
+  border: none;
+  box-shadow: none;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.showcase-video-card:hover {
+  transform: translateY(-4px);
+  box-shadow: none;
 }
 
 .showcase-video-wrapper {
@@ -545,6 +783,7 @@ body:not(:has(.hero)):not(.post-guidance-page) .hamburger span {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  background: transparent;
 }
 
 .showcase-video {
@@ -554,6 +793,135 @@ body:not(:has(.hero)):not(.post-guidance-page) .hamburger span {
   object-position: 50% 50%;
   display: block;
   background: transparent;
+}
+
+/* ── Realistic 3D Device Mockup (ZoneUp Custom Device Frame) ── */
+.device-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  padding: 38px 20px 24px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 28px;
+}
+
+/* Ambient soft gradient aura behind phone that fades into pure black body */
+.device-frame::before {
+  content: '';
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 130%;
+  height: 130%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(67, 206, 162, 0.10) 0%,
+    rgba(24, 90, 157, 0.05) 35%,
+    transparent 65%
+  );
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(32px);
+}
+
+.device-body {
+  position: relative;
+  width: 66%;
+  height: 96%;
+  background: #000000;
+  border-radius: 36px;
+  border: 3.5px solid #232730;
+  outline: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.95),
+    0 0 35px rgba(67, 206, 162, 0.10),
+    inset 0 0 3px rgba(255, 255, 255, 0.3);
+  padding: 8px;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  z-index: 3;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+}
+
+/* Ambient soft shimmer beam passing smoothly behind the mobile (not on phone) */
+.device-bg-shimmer {
+  position: absolute;
+  inset: -60%;
+  width: 220%;
+  height: 220%;
+  background: linear-gradient(
+    52deg,
+    transparent 0%,
+    transparent 32%,
+    rgba(67, 206, 162, 0.08) 40%,
+    rgba(110, 215, 250, 0.18) 46%,
+    rgba(255, 255, 255, 0.28) 49%,
+    rgba(255, 255, 255, 0.28) 51%,
+    rgba(110, 215, 250, 0.18) 54%,
+    rgba(24, 90, 157, 0.08) 60%,
+    transparent 68%,
+    transparent 100%
+  );
+  transform: translate(-70%, 70%);
+  animation: bgShimmerSlowSmooth 6.5s cubic-bezier(0.35, 0, 0.25, 1) infinite;
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(24px);
+  mix-blend-mode: screen;
+}
+
+@keyframes bgShimmerSlowSmooth {
+  0% {
+    transform: translate(-70%, 70%);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.75;
+  }
+  60% {
+    opacity: 0.75;
+  }
+  80% {
+    transform: translate(70%, -70%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(70%, -70%);
+    opacity: 0;
+  }
+}
+
+.device-frame:hover .device-body {
+  transform: translateY(-4px) scale(1.015);
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.9),
+    0 0 50px rgba(67, 206, 162, 0.25),
+    inset 0 0 4px rgba(255, 255, 255, 0.4);
+}
+
+.device-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #000000;
+}
+
+.device-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
 }
 
 /* ── ZoneUp Signature Gradient Overlay ── */
@@ -635,8 +1003,13 @@ body:not(:has(.hero)):not(.post-guidance-page) .hamburger span {
   }
 
   .showcase-video-card {
-    max-width: 320px;
+    max-width: 360px;
+    border-radius: 24px;
     order: 1;
+  }
+
+  .device-frame {
+    padding: 30px 16px 20px;
   }
 
   .showcase-content {
@@ -654,6 +1027,16 @@ body:not(:has(.hero)):not(.post-guidance-page) .hamburger span {
     font-size: 1.05rem;
     line-height: 1.65;
   }
+
+  .device-body {
+    border-radius: 30px;
+    border-width: 3px;
+    padding: 7px;
+  }
+
+  .device-screen {
+    border-radius: 23px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -666,8 +1049,12 @@ body:not(:has(.hero)):not(.post-guidance-page) .hamburger span {
   }
 
   .showcase-video-card {
-    max-width: 260px;
-    border-radius: 14px;
+    max-width: 290px;
+    border-radius: 20px;
+  }
+
+  .device-frame {
+    padding: 24px 12px 16px;
   }
 
   .showcase-title {
@@ -676,6 +1063,16 @@ body:not(:has(.hero)):not(.post-guidance-page) .hamburger span {
 
   .showcase-desc {
     font-size: 0.98rem;
+  }
+
+  .device-body {
+    border-radius: 24px;
+    border-width: 2.5px;
+    padding: 5px;
+  }
+
+  .device-screen {
+    border-radius: 19px;
   }
 }
 
@@ -1655,5 +2052,6 @@ body:not(:has(.hero)):not(.post-guidance-page) .hamburger span {
   }
 
 }
+
 
 

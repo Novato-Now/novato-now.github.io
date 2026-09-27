@@ -11,15 +11,16 @@
     rel="stylesheet">
   <title>ZoneUp</title>
   <link rel="icon" type="image/x-icon" href="https://web-assets-r2.zoneup.in/favIcon.svg">
-  <link rel="stylesheet" href="style.css?v=21.0">
-  <link rel="stylesheet" href="css/base.css?v=21.0">
-  <link rel="stylesheet" href="css/header.css?v=21.0">
-  <link rel="stylesheet" href="css/hero.css?v=21.0">
-  <link rel="stylesheet" href="css/showcase.css?v=21.0">
-  <link rel="stylesheet" href="css/targeting.css?v=21.0">
-  <link rel="stylesheet" href="css/features.css?v=21.0">
-  <link rel="stylesheet" href="css/faq.css?v=21.0">
-  <link rel="stylesheet" href="css/footer.css?v=21.0">
+  <link rel="stylesheet" href="style.css?v=33.0">
+  <link rel="stylesheet" href="css/base.css?v=33.0">
+  <link rel="stylesheet" href="css/header.css?v=33.0">
+  <link rel="stylesheet" href="css/hero.css?v=33.0">
+  <link rel="stylesheet" href="css/create-zoneup.css?v=33.0">
+  <link rel="stylesheet" href="css/showcase.css?v=33.0">
+  <link rel="stylesheet" href="css/targeting.css?v=33.0">
+  <link rel="stylesheet" href="css/features.css?v=33.0">
+  <link rel="stylesheet" href="css/faq.css?v=33.0">
+  <link rel="stylesheet" href="css/footer.css?v=33.0">
 </head>
 
 <body class="page-ready">
@@ -33,8 +34,8 @@
           </a>
         </div>
         <nav class="nav" id="nav">
-          <a href="#features"><span data-text="Features">Features</span></a>
           <a href="#targeting"><span data-text="Audience">Audience</span></a>
+          <a href="#features"><span data-text="Features">Features</span></a>
           <a href="post-guidance.html"><span data-text="Post Guidance">Post Guidance</span></a>
           <a href="#faq"><span data-text="FAQ">FAQ</span></a>
         </nav>
@@ -47,8 +48,8 @@
       <div class="mobile-expand" id="mobileExpand">
         <div class="mobile-expand-inner">
           <div class="mobile-links">
-            <a href="#features">Features</a>
             <a href="#targeting">Audience</a>
+            <a href="#features">Features</a>
             <a href="post-guidance.html">Post Guidance</a>
             <a href="#faq">FAQ</a>
           </div>
@@ -83,81 +84,43 @@
       </div>
     </section>
 
-    <!-- Showcase Section (3 Alternating Rows) -->
-    <section class="showcase-section" id="showcase">
-      <div class="showcase-container">
+    <!-- Create for ZoneUp Section -->
+    <section class="create-zoneup-section" id="create-zoneup">
+      <div class="create-zoneup-container">
+        <div class="create-zoneup-grid">
 
-        <!-- Row 1: Left Video, Right Content -->
-        <div class="showcase-row">
-          <div class="showcase-video-card">
-            <div class="showcase-video-wrapper">
-              <video src="https://videos.voodoo.io/bereal/step-1-portrait.mp4" loop preload="auto" muted playsinline
-                autoplay class="showcase-video"></video>
-              <div class="showcase-zoneup-gradient"></div>
+          <!-- Content Left -->
+          <div class="create-zoneup-content">
+            <h2 class="create-zoneup-title">Create for ZoneUp.</h2>
+            <p class="create-zoneup-desc">
+              ZoneUp is built to bring your local community closer, helping you discover what’s happening around you,
+              connect with people nearby, and be part of the conversations, places, and moments that make your
+              neighborhood feel like home. </p>
+            <a href="post-guidance.html#guidelines" class="create-zoneup-btn">Learn more</a>
+          </div>
+
+          <!-- Phone & Overlays Illustration Right -->
+          <div class="create-zoneup-illustration">
+            <!-- Center Phone Mock Frame -->
+            <div class="create-zoneup-phone-frame">
+              <img src="https://framerusercontent.com/images/ejd41zc5bMVYHBRNQPaGdjiVU4.png?width=1179&height=2556"
+                alt="ZoneUp Device Frame" loading="lazy">
+            </div>
+
+            <!-- Left Rotated Video Overlay -->
+            <div class="create-zoneup-video-card">
+              <video src="https://framerusercontent.com/assets/JdGFu0U2Ll42Zrq1DLvq9rD3qc.mp4" autoplay loop muted
+                playsinline preload="auto"></video>
+            </div>
+
+            <!-- Right Rotated GIF Overlay -->
+            <div class="create-zoneup-gif-card">
+              <img src="https://framerusercontent.com/images/OHQezSMVXTbXmThEIheGnuFFYio.gif?width=768&height=1024"
+                alt="ZoneUp Real Moment" loading="lazy">
             </div>
           </div>
-          <div class="showcase-content">
-            <h2 class="showcase-title">Set your location</h2>
-            <p class="showcase-desc">
-              Set your location to discover what’s happening around you, connect with your local community, and explore
-              places, people, and conversations that matter to you.
-            </p>
-          </div>
-        </div>
 
-        <!-- Row 2: Right Video, Left Content (Alternating) -->
-        <div class="showcase-row showcase-row-reverse">
-          <div class="showcase-video-card">
-            <div class="showcase-video-wrapper">
-              <video src="https://videos.voodoo.io/bereal/step-1-portrait.mp4" loop preload="auto" muted playsinline
-                autoplay class="showcase-video"></video>
-              <div class="showcase-zoneup-gradient"></div>
-            </div>
-          </div>
-          <div class="showcase-content">
-            <h2 class="showcase-title">Discover your city</h2>
-            <p class="showcase-desc">
-              Explore what’s happening around you, meet people with shared interests, and stay connected to your local
-              community.
-            </p>
-          </div>
         </div>
-
-        <!-- Row 3: Left Video, Right Content (Alternating) -->
-        <div class="showcase-row">
-          <div class="showcase-video-card">
-            <div class="showcase-video-wrapper">
-              <video src="https://videos.voodoo.io/bereal/step-1-portrait.mp4" loop preload="auto" muted playsinline
-                autoplay class="showcase-video"></video>
-              <div class="showcase-zoneup-gradient"></div>
-            </div>
-          </div>
-          <div class="showcase-content">
-            <h2 class="showcase-title">Join and connect</h2>
-            <p class="showcase-desc">
-              Follow people who share your interests, join local communities, start conversations, and build meaningful
-              connections around you.
-            </p>
-          </div>
-        </div>
-
-        <div class="showcase-row showcase-row-reverse">
-          <div class="showcase-video-card">
-            <div class="showcase-video-wrapper">
-              <video src="https://videos.voodoo.io/bereal/step-1-portrait.mp4" loop preload="auto" muted playsinline
-                autoplay class="showcase-video"></video>
-              <div class="showcase-zoneup-gradient"></div>
-            </div>
-          </div>
-          <div class="showcase-content">
-            <h2 class="showcase-title">Meet in real life</h2>
-            <p class="showcase-desc">
-              Take conversations beyond the screen, meet people nearby, and turn shared interests into real-world
-              connections.
-            </p>
-          </div>
-        </div>
-
       </div>
     </section>
 
@@ -282,6 +245,121 @@
       </div>
     </section>
 
+    <!-- Showcase Section (3 Alternating Rows) -->
+    <section class="showcase-section" id="showcase">
+      <div class="showcase-container">
+
+        <!-- Row 1: Left Video, Right Content -->
+        <div class="showcase-row">
+          <div class="showcase-video-card">
+            <div class="showcase-video-wrapper">
+              <div class="device-frame">
+                <!-- Smooth Ambient Shimmer behind the mobile -->
+                <div class="device-bg-shimmer"></div>
+                <div class="device-body">
+                  <div class="device-screen">
+                    <video class="device-video" autoplay loop muted playsinline preload="auto">
+                      <source src="Assets/step1.mp4" type="video/mp4">
+                      <source src="Assets/step1.mov" type="video/quicktime">
+                    </video>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="showcase-content">
+            <h2 class="showcase-title">Set your location</h2>
+            <p class="showcase-desc">
+              Set your location to discover what’s happening around you, connect with your local community, and explore
+              places, people, and conversations that matter to you.
+            </p>
+          </div>
+        </div>
+
+        <!-- Row 2: Right Video, Left Content (Alternating) -->
+        <div class="showcase-row showcase-row-reverse">
+          <div class="showcase-video-card">
+            <div class="showcase-video-wrapper">
+              <div class="device-frame">
+                <!-- Smooth Ambient Shimmer behind the mobile -->
+                <div class="device-bg-shimmer"></div>
+                <div class="device-body">
+                  <div class="device-screen">
+                    <video class="device-video" autoplay loop muted playsinline preload="auto">
+                      <source src="Assets/step2.mp4" type="video/mp4">
+                      <source src="Assets/step2.mov" type="video/quicktime">
+                    </video>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="showcase-content">
+            <h2 class="showcase-title">Discover your city</h2>
+            <p class="showcase-desc">
+              Explore what’s happening around you, meet people with shared interests, and stay connected to your local
+              community.
+            </p>
+          </div>
+        </div>
+
+        <!-- Row 3: Left Video, Right Content (Alternating) -->
+        <div class="showcase-row">
+          <div class="showcase-video-card">
+            <div class="showcase-video-wrapper">
+              <div class="device-frame">
+                <!-- Smooth Ambient Shimmer behind the mobile -->
+                <div class="device-bg-shimmer"></div>
+                <div class="device-body">
+                  <div class="device-screen">
+                    <video class="device-video" autoplay loop muted playsinline preload="auto">
+                      <source src="Assets/step1.mp4" type="video/mp4">
+                      <source src="Assets/step1.mov" type="video/quicktime">
+                    </video>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="showcase-content">
+            <h2 class="showcase-title">Join and connect</h2>
+            <p class="showcase-desc">
+              Follow people who share your interests, join local communities, start conversations, and build meaningful
+              connections around you.
+            </p>
+          </div>
+        </div>
+
+        <!-- Row 4: Right Video, Left Content (Alternating) -->
+        <div class="showcase-row showcase-row-reverse">
+          <div class="showcase-video-card">
+            <div class="showcase-video-wrapper">
+              <div class="device-frame">
+                <!-- Smooth Ambient Shimmer behind the mobile -->
+                <div class="device-bg-shimmer"></div>
+                <div class="device-body">
+                  <div class="device-screen">
+                    <video class="device-video" autoplay loop muted playsinline preload="auto">
+                      <source src="Assets/step1.mp4" type="video/mp4">
+                      <source src="Assets/step1.mov" type="video/quicktime">
+                    </video>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="showcase-content">
+            <h2 class="showcase-title">Meet in real life</h2>
+            <p class="showcase-desc">
+              Take conversations beyond the screen, meet people nearby, and turn shared interests into real-world
+              connections.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- Features / Authenticity Section -->
     <section class="features" id="features" data-framer-name="StoryTelling - Celebrate Authenticity">
       <div class="features-container">
@@ -297,14 +375,16 @@
             </div>
             <div class="feature-content">
               <h3 class="feature-item-title">Alert Post</h3>
-              <p class="feature-item-desc">Send instant alerts to people nearby and get help when you need it the most.</p>
+              <p class="feature-item-desc">Send instant alerts to people nearby and get help when you need it the most.
+              </p>
             </div>
           </div>
 
           <!-- 2. Trending Near You -->
           <div class="feature-item">
             <div class="feature-img-wrap">
-              <img decoding="auto" loading="lazy" src="Assets/trendingNearYou.jpg" alt="Trending Near You" class="feature-img">
+              <img decoding="auto" loading="lazy" src="Assets/trendingNearYou.jpg" alt="Trending Near You"
+                class="feature-img">
             </div>
             <div class="feature-content">
               <h3 class="feature-item-title">Trending Near You</h3>
@@ -326,7 +406,8 @@
           <!-- 4. Safety and Security -->
           <div class="feature-item">
             <div class="feature-img-wrap">
-              <img decoding="auto" loading="lazy" src="Assets/safetyandSecurity.jpg" alt="Safety and Security" class="feature-img">
+              <img decoding="auto" loading="lazy" src="Assets/safetyandSecurity.jpg" alt="Safety and Security"
+                class="feature-img">
             </div>
             <div class="feature-content">
               <h3 class="feature-item-title">Safety and Security</h3>
@@ -337,7 +418,8 @@
           <!-- 5. Real-Time Updates -->
           <div class="feature-item">
             <div class="feature-img-wrap">
-              <img decoding="auto" loading="lazy" src="Assets/realtimeUpdates.jpg" alt="Real-Time Updates" class="feature-img">
+              <img decoding="auto" loading="lazy" src="Assets/realtimeUpdates.jpg" alt="Real-Time Updates"
+                class="feature-img">
             </div>
             <div class="feature-content">
               <h3 class="feature-item-title">Real-Time Updates</h3>
@@ -348,7 +430,8 @@
           <!-- 6. More Features Coming Soon! -->
           <div class="feature-item">
             <div class="feature-img-wrap">
-              <img decoding="auto" loading="lazy" src="Assets/comingSoon.jpg" alt="More Features Coming Soon!" class="feature-img">
+              <img decoding="auto" loading="lazy" src="Assets/comingSoon.jpg" alt="More Features Coming Soon!"
+                class="feature-img">
             </div>
             <div class="feature-content">
               <h3 class="feature-item-title">More Features Coming Soon!</h3>

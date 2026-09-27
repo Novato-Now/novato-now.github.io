@@ -1,0 +1,212 @@
+/* ==========================================================================
+   Create for ZoneUp Section (Home Page Featured Section)
+   ========================================================================== */
+
+.create-zoneup-section {
+  position: relative;
+  padding: 140px 0 100px;
+  background: #000000;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.create-zoneup-section::before {
+  content: '';
+  position: absolute;
+  top: 15%;
+  right: 15%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(67, 206, 162, 0.12) 0%, rgba(24, 90, 157, 0.06) 50%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.create-zoneup-container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.create-zoneup-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 64px;
+  position: relative;
+  width: 100%;
+}
+
+.create-zoneup-content {
+  flex: 1 1 520px;
+  max-width: 580px;
+}
+
+.create-zoneup-title {
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: clamp(2.8rem, 5.2vw, 4.4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin-bottom: 24px;
+}
+
+.create-zoneup-desc {
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1.12rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.68);
+  margin-bottom: 36px;
+}
+
+.create-zoneup-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  border-radius: 9999px;
+  background: #212734;
+  color: #ffffff;
+  font-size: 0.96rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.create-zoneup-btn:hover {
+  background: #2b3345;
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* Media Stack */
+.create-zoneup-illustration {
+  flex: 0 0 clamp(320px, 40vw, 460px);
+  position: relative;
+  height: clamp(420px, 50vw, 580px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.create-zoneup-phone-frame {
+  position: relative;
+  width: 250px;
+  height: 520px;
+  z-index: 2;
+}
+
+.create-zoneup-phone-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.create-zoneup-video-card {
+  position: absolute;
+  top: 15%;
+  left: 0;
+  width: 220px;
+  height: 290px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.15);
+  transform: rotate(-7deg);
+  z-index: 1;
+  transition: transform 0.4s ease;
+}
+
+.create-zoneup-video-card:hover {
+  transform: rotate(-3deg) scale(1.04);
+}
+
+.create-zoneup-video-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.create-zoneup-gif-card {
+  position: absolute;
+  bottom: 12%;
+  right: -10px;
+  width: 210px;
+  height: 280px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.15);
+  transform: rotate(8deg);
+  z-index: 3;
+  transition: transform 0.4s ease;
+}
+
+.create-zoneup-gif-card:hover {
+  transform: rotate(4deg) scale(1.04);
+}
+
+.create-zoneup-gif-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 980px) {
+  .create-zoneup-grid {
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .create-zoneup-content {
+    max-width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .create-zoneup-illustration {
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .create-zoneup-container {
+    padding: 0 20px;
+  }
+
+  .create-zoneup-section {
+    padding: 100px 0 60px;
+  }
+
+  .create-zoneup-phone-frame {
+    width: 200px;
+    height: 420px;
+  }
+
+  .create-zoneup-video-card {
+    width: 170px;
+    height: 230px;
+    top: 10%;
+  }
+
+  .create-zoneup-gif-card {
+    width: 160px;
+    height: 220px;
+    bottom: 8%;
+    right: 0;
+  }
+}
