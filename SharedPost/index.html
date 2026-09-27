@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,55 +10,127 @@
     <meta property="og:image" content="https://web-assets-r2.zoneup.in/hero.png">
     <meta property="og:url" content="https://zoneup.in">
 
+    <link rel="icon" type="image/x-icon" href="https://web-assets-r2.zoneup.in/favIcon.svg">
     <title>Open in ZoneUp App</title>
 
     <style>
+      * {
+        box-sizing: border-box;
+      }
       body {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: 100vh;
+        min-height: 100vh;
         margin: 0;
         background-color: #060708;
         color: #ffffff;
         text-align: center;
-        padding: 20px;
+        padding: 24px;
       }
       .logo-container {
         position: relative;
         margin-bottom: 24px;
       }
       .logo {
-        width: 100px;
-        height: 100px;
-        border-radius: 24px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        width: 96px;
+        height: 96px;
+        border-radius: 22px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
       }
       h1 {
         font-size: 24px;
-        margin-bottom: 8px;
+        margin: 0 0 10px;
         font-weight: 700;
+        color: #ffffff;
       }
-      p {
+      p.subtitle {
         color: #88888b;
-        margin-bottom: 32px;
-        max-width: 320px;
+        margin: 0 0 32px;
+        max-width: 340px;
         line-height: 1.5;
         font-size: 15px;
+      }
+      .btn {
+        background: linear-gradient(135deg, #007aff 0%, #0056b3 100%);
+        color: #ffffff;
+        text-decoration: none;
+        padding: 15px 38px;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 16px;
+        letter-spacing: 0.2px;
+        box-shadow: 0 8px 24px rgba(0, 122, 255, 0.4);
+        transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border: none;
+        outline: none;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 28px rgba(0, 122, 255, 0.5);
+      }
+      .btn:active {
+        transform: translateY(0) scale(0.98);
+      }
+      .store-fallback {
+        margin-top: 26px;
+        font-size: 14px;
+        color: #88888b;
+      }
+      .store-fallback a {
+        color: #43cea2;
+        text-decoration: none;
+        font-weight: 500;
+      }
+      .store-fallback a:hover {
+        text-decoration: underline;
       }
     </style>
 
     <script type="text/javascript">
+      var appUrl = "";
+      var fallbackUrl = "";
+      var appOpened = false;
+
+      function markAppOpened() {
+        appOpened = true;
+      }
+      window.addEventListener("pagehide", markAppOpened);
+      window.addEventListener("blur", markAppOpened);
+      document.addEventListener("visibilitychange", function () {
+        if (document.hidden) markAppOpened();
+      });
+
+      function openZoneUp(e) {
+        if (e && e.preventDefault) e.preventDefault();
+        if (!appUrl) return;
+
+        var start = Date.now();
+        window.location.href = appUrl;
+
+        setTimeout(function () {
+          var elapsed = Date.now() - start;
+          if (!document.hidden && !appOpened && elapsed < 3500) {
+            window.location.href = fallbackUrl;
+          }
+        }, 1800);
+      }
+
       (function () {
+        const path = window.location.pathname;
         const urlParams = new URLSearchParams(window.location.search);
-        let postId = urlParams.get("postId") || urlParams.get("p");
+        let postId = urlParams.get("postId") || urlParams.get("p") || urlParams.get("post");
 
         if (!postId) {
-          const pathParts = window.location.pathname.split("/SharedPost/");
-          if (pathParts[1]) {
-            postId = pathParts[1].split("/")[0].split("?")[0].split("#")[0];
+          const match = path.match(/(?:sharedpost|post|p)\/([^/?#]+)/i);
+          if (match && match[1]) {
+            postId = match[1];
           }
         }
 
@@ -66,37 +138,48 @@
         const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
 
         const playStoreUrl = "https://play.google.com/store/apps/details?id=com.zoneup12345.zoneup";
-        const appStoreUrl = "https://apps.apple.com/app/id6744461293";
-        const fallbackUrl = isAndroid ? playStoreUrl : (isIOS ? appStoreUrl : "https://zoneup.in");
+        const appStoreUrl = "https://apps.apple.com/in/app/zoneup/id6744461293";
+        fallbackUrl = isAndroid ? playStoreUrl : (isIOS ? appStoreUrl : "https://zoneup.in");
 
         if (postId && postId.trim() !== "") {
           postId = postId.split("/")[0].split("?")[0].split("#")[0];
-          
-          let appUrl;
+
           if (isAndroid) {
             appUrl = `intent://SharedPost/${encodeURIComponent(postId)}#Intent;scheme=zoneup;package=com.zoneup12345.zoneup;S.browser_fallback_url=${encodeURIComponent(playStoreUrl)};end`;
           } else {
             appUrl = `zoneup:///SharedPost/${encodeURIComponent(postId)}`;
           }
-          
-          window.location.replace(appUrl);
 
+          // Automatically attempt to open on mobile
           setTimeout(function () {
-            if (!document.hidden) {
-              window.location.replace(fallbackUrl);
+            if (isAndroid || isIOS) {
+              openZoneUp();
             }
-          }, 2000);
+          }, 400);
         } else {
-          window.location.replace("https://zoneup.in");
+          fallbackUrl = "https://zoneup.in";
         }
       })();
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var storeLink = document.getElementById("storeLink");
+        if (storeLink && fallbackUrl) {
+          storeLink.href = fallbackUrl;
+        }
+      });
     </script>
   </head>
   <body>
     <div class="logo-container">
       <img src="https://web-assets-r2.zoneup.in/logo.svg" class="logo" alt="ZoneUp Logo">
     </div>
-    <h1>Opening ZoneUp...</h1>
-    <p>If you don't have the app installed, you will be redirected to the app store shortly.</p>
+    <h1 id="pageTitle">Opening Shared Post...</h1>
+    <p class="subtitle" id="pageSubtitle">Click the button below to view this post inside the ZoneUp app.</p>
+    
+    <a href="javascript:void(0)" id="goBtn" class="btn" onclick="openZoneUp(event)">Go to ZoneUp ⚡</a>
+
+    <p class="store-fallback">
+      Don't have the app? <a id="storeLink" href="https://apps.apple.com/in/app/zoneup/id6744461293" target="_blank" rel="noopener noreferrer">Download ZoneUp</a>
+    </p>
   </body>
 </html>

@@ -7,8 +7,8 @@
   --bg-card: rgba(255, 255, 255, 0.04);
   --border-subtle: rgba(255, 255, 255, 0.1);
   --border-focus: rgba(67, 206, 162, 0.4);
-  --text-white: #ffffff;
-  --text-muted: rgba(255, 255, 255, 0.68);
+  --text-white: #ededed;
+  --text-muted: #a4a9b3;
   --accent-gradient: linear-gradient(135deg, #43CEA2 0%, #185A9D 100%);
 }
 
@@ -91,7 +91,7 @@ body.post-guidance-page {
   padding: 14px 32px;
   border-radius: 9999px;
   background: #212734;
-  color: #ffffff;
+  color: #ededed;
   font-size: 0.96rem;
   font-weight: 600;
   text-decoration: none;
@@ -282,7 +282,7 @@ body.post-guidance-page {
   padding: 22px 26px;
   background: none;
   border: none;
-  color: #ffffff;
+  color: #dfe2e8;
   font-family: inherit;
   font-size: 1.15rem;
   font-weight: 600;
@@ -559,7 +559,7 @@ body.post-guidance-page {
   font-size: clamp(2.3rem, 4.8vw, 3.6rem);
   font-weight: 700;
   line-height: 1.15;
-  color: #ffffff;
+  color: #ededed;
   letter-spacing: -0.02em;
   max-width: 720px;
   text-shadow: 0 4px 28px rgba(0, 0, 0, 0.5);

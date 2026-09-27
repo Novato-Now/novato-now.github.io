@@ -5,7 +5,7 @@
 .targeting-section {
   position: relative;
   background: #000000;
-  color: #ffffff;
+  color: #ededed;
   padding: 140px 32px 160px;
   overflow: hidden;
   display: flex;
@@ -38,7 +38,7 @@
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.02em;
-  color: #ffffff;
+  color: #ededed;
   margin: 0;
 }
 
@@ -47,7 +47,7 @@
   font-size: 1.05rem;
   font-weight: 400;
   line-height: 1.75;
-  color: rgba(255, 255, 255, 0.65);
+  color: #a4a9b3;
   margin: 0;
 }
 
@@ -151,7 +151,7 @@
   border-radius: 9999px;
   background: rgba(255, 255, 255, 0.07);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #ffffff;
+  color: #dfe2e8;
   font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 0.88rem;
   font-weight: 500;

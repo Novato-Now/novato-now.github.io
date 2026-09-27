@@ -11,16 +11,32 @@
     rel="stylesheet">
   <title>ZoneUp</title>
   <link rel="icon" type="image/x-icon" href="https://web-assets-r2.zoneup.in/favIcon.svg">
-  <link rel="stylesheet" href="style.css?v=33.0">
-  <link rel="stylesheet" href="css/base.css?v=33.0">
-  <link rel="stylesheet" href="css/header.css?v=33.0">
-  <link rel="stylesheet" href="css/hero.css?v=33.0">
-  <link rel="stylesheet" href="css/create-zoneup.css?v=33.0">
-  <link rel="stylesheet" href="css/showcase.css?v=33.0">
-  <link rel="stylesheet" href="css/targeting.css?v=33.0">
-  <link rel="stylesheet" href="css/features.css?v=33.0">
-  <link rel="stylesheet" href="css/faq.css?v=33.0">
-  <link rel="stylesheet" href="css/footer.css?v=33.0">
+  <link rel="stylesheet" href="style.css?v=37.0">
+  <link rel="stylesheet" href="css/base.css?v=37.0">
+  <link rel="stylesheet" href="css/header.css?v=37.0">
+  <link rel="stylesheet" href="css/hero.css?v=37.0">
+  <link rel="stylesheet" href="css/create-zoneup.css?v=37.0">
+  <link rel="stylesheet" href="css/showcase.css?v=37.0">
+  <link rel="stylesheet" href="css/targeting.css?v=37.0">
+  <link rel="stylesheet" href="css/features.css?v=37.0">
+  <link rel="stylesheet" href="css/faq.css?v=37.0">
+  <link rel="stylesheet" href="css/footer.css?v=37.0">
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var postId = params.get("postId") || params.get("p") || params.get("post");
+      var username = params.get("username") || params.get("u") || params.get("user");
+      var communityId = params.get("communityId") || params.get("c") || params.get("community") || params.get("id");
+
+      if (postId) {
+        window.location.replace("SharedPost/index.html?postId=" + encodeURIComponent(postId));
+      } else if (username) {
+        window.location.replace("Profile/index.html?username=" + encodeURIComponent(username));
+      } else if (communityId) {
+        window.location.replace("c/index.html?c=" + encodeURIComponent(communityId));
+      }
+    })();
+  </script>
 </head>
 
 <body class="page-ready">
@@ -34,9 +50,9 @@
           </a>
         </div>
         <nav class="nav" id="nav">
+          <a href="post-guidance.html"><span data-text="Post Guidance">Post Guidance</span></a>
           <a href="#targeting"><span data-text="Audience">Audience</span></a>
           <a href="#features"><span data-text="Features">Features</span></a>
-          <a href="post-guidance.html"><span data-text="Post Guidance">Post Guidance</span></a>
           <a href="#faq"><span data-text="FAQ">FAQ</span></a>
         </nav>
         <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
@@ -48,9 +64,9 @@
       <div class="mobile-expand" id="mobileExpand">
         <div class="mobile-expand-inner">
           <div class="mobile-links">
+            <a href="post-guidance.html">Post Guidance</a>
             <a href="#targeting">Audience</a>
             <a href="#features">Features</a>
-            <a href="post-guidance.html">Post Guidance</a>
             <a href="#faq">FAQ</a>
           </div>
         </div>
@@ -103,19 +119,19 @@
           <div class="create-zoneup-illustration">
             <!-- Center Phone Mock Frame -->
             <div class="create-zoneup-phone-frame">
-              <img src="https://framerusercontent.com/images/ejd41zc5bMVYHBRNQPaGdjiVU4.png?width=1179&height=2556"
+              <img src="Assets/guidance3.png"
                 alt="ZoneUp Device Frame" loading="lazy">
             </div>
 
             <!-- Left Rotated Video Overlay -->
             <div class="create-zoneup-video-card">
-              <video src="https://framerusercontent.com/assets/JdGFu0U2Ll42Zrq1DLvq9rD3qc.mp4" autoplay loop muted
+              <video src="Assets/guidance2.mp4" autoplay loop muted
                 playsinline preload="auto"></video>
             </div>
 
             <!-- Right Rotated GIF Overlay -->
             <div class="create-zoneup-gif-card">
-              <img src="https://framerusercontent.com/images/OHQezSMVXTbXmThEIheGnuFFYio.gif?width=768&height=1024"
+              <img src="Assets/guidance1.gif"
                 alt="ZoneUp Real Moment" loading="lazy">
             </div>
           </div>
@@ -313,8 +329,8 @@
                 <div class="device-body">
                   <div class="device-screen">
                     <video class="device-video" autoplay loop muted playsinline preload="auto">
-                      <source src="Assets/step1.mp4" type="video/mp4">
-                      <source src="Assets/step1.mov" type="video/quicktime">
+                      <source src="Assets/step3.mp4" type="video/mp4">
+                      <source src="Assets/step3.mov" type="video/quicktime">
                     </video>
                   </div>
                 </div>
@@ -340,8 +356,8 @@
                 <div class="device-body">
                   <div class="device-screen">
                     <video class="device-video" autoplay loop muted playsinline preload="auto">
-                      <source src="Assets/step1.mp4" type="video/mp4">
-                      <source src="Assets/step1.mov" type="video/quicktime">
+                      <source src="Assets/step4.mp4" type="video/mp4">
+                      <source src="Assets/step4.mov" type="video/quicktime">
                     </video>
                   </div>
                 </div>
@@ -371,7 +387,7 @@
           <!-- 1. Alert Post -->
           <div class="feature-item">
             <div class="feature-img-wrap">
-              <img decoding="auto" loading="lazy" src="Assets/alertPosts.jpg" alt="Alert Post" class="feature-img">
+              <img decoding="async" loading="lazy" src="Assets/alertPosts.jpg?v=2" alt="Alert Post" class="feature-img" width="600" height="400">
             </div>
             <div class="feature-content">
               <h3 class="feature-item-title">Alert Post</h3>
@@ -383,8 +399,8 @@
           <!-- 2. Trending Near You -->
           <div class="feature-item">
             <div class="feature-img-wrap">
-              <img decoding="auto" loading="lazy" src="Assets/trendingNearYou.jpg" alt="Trending Near You"
-                class="feature-img">
+              <img decoding="async" loading="lazy" src="Assets/trendingNearYou.jpg?v=2" alt="Trending Near You"
+                class="feature-img" width="600" height="400">
             </div>
             <div class="feature-content">
               <h3 class="feature-item-title">Trending Near You</h3>
@@ -395,7 +411,7 @@
           <!-- 3. Burn Posts -->
           <div class="feature-item">
             <div class="feature-img-wrap">
-              <img decoding="auto" loading="lazy" src="Assets/burnPosts.jpg" alt="Burn Posts" class="feature-img">
+              <img decoding="async" loading="lazy" src="Assets/burnPosts.jpg?v=2" alt="Burn Posts" class="feature-img" width="600" height="400">
             </div>
             <div class="feature-content">
               <h3 class="feature-item-title">Burn Posts</h3>
@@ -406,8 +422,8 @@
           <!-- 4. Safety and Security -->
           <div class="feature-item">
             <div class="feature-img-wrap">
-              <img decoding="auto" loading="lazy" src="Assets/safetyandSecurity.jpg" alt="Safety and Security"
-                class="feature-img">
+              <img decoding="async" loading="lazy" src="Assets/safetyandSecurity.jpg?v=2" alt="Safety and Security"
+                class="feature-img" width="600" height="400">
             </div>
             <div class="feature-content">
               <h3 class="feature-item-title">Safety and Security</h3>
@@ -418,8 +434,8 @@
           <!-- 5. Real-Time Updates -->
           <div class="feature-item">
             <div class="feature-img-wrap">
-              <img decoding="auto" loading="lazy" src="Assets/realtimeUpdates.jpg" alt="Real-Time Updates"
-                class="feature-img">
+              <img decoding="async" loading="lazy" src="Assets/realtimeUpdates.jpg?v=2" alt="Real-Time Updates"
+                class="feature-img" width="600" height="400">
             </div>
             <div class="feature-content">
               <h3 class="feature-item-title">Real-Time Updates</h3>
@@ -430,8 +446,8 @@
           <!-- 6. More Features Coming Soon! -->
           <div class="feature-item">
             <div class="feature-img-wrap">
-              <img decoding="auto" loading="lazy" src="Assets/comingSoon.jpg" alt="More Features Coming Soon!"
-                class="feature-img">
+              <img decoding="async" loading="lazy" src="Assets/comingSoon.jpg?v=2" alt="More Features Coming Soon!"
+                class="feature-img" width="600" height="400">
             </div>
             <div class="feature-content">
               <h3 class="feature-item-title">More Features Coming Soon!</h3>
@@ -507,6 +523,7 @@
                 </svg>
               </a>
             </div>
+            <p class="footer-reachout">Reach out to us: <a href="mailto:support@zoneup.in" class="footer-reachout-link">support@zoneup.in</a></p>
           </div>
         </div>
 
@@ -548,24 +565,22 @@
           </div>
         </div>
 
-        <!-- Column 3: Legal & Support -->
+        <!-- Column 3: Legal -->
         <div class="footer-links-col">
-          <span class="column-title">LEGAL &amp; SUPPORT</span>
-          <a href="post-guidance.html" class="footer-link"><span data-text="Post Guidance">Post Guidance</span></a>
-          <a href="legal.html?page=privacy-policy" class="footer-link"><span data-text="Privacy Policy">Privacy
-              Policy</span></a>
-          <a href="legal.html?page=cookies-policy" class="footer-link"><span data-text="Cookies Policy">Cookies
-              Policy</span></a>
-          <a href="legal.html?page=terms-of-service" class="footer-link"><span data-text="Terms & Conditions">Terms &
-              Conditions</span></a>
-          <a href="legal.html?page=delete-account" class="footer-link"><span data-text="Delete Account">Delete
-              Account</span></a>
-          <a href="mailto:support@zoneup.in" class="footer-link footer-support-link"><span
-              data-text="support@zoneup.in">support@zoneup.in</span></a>
+          <span class="column-title">LEGAL</span>
+          <a href="privacy-policy.html" class="footer-link"><span data-text="Privacy Policy">Privacy Policy</span></a>
+          <a href="cookies-policy.html" class="footer-link"><span data-text="Cookies Policy">Cookies Policy</span></a>
+          <a href="terms-of-service.html" class="footer-link"><span data-text="Terms & Conditions">Terms & Conditions</span></a>
+          <a href="delete-account.html" class="footer-link"><span data-text="Delete Account">Delete Account</span></a>
         </div>
 
       </div>
 
+      <!-- Watermark -->
+      <div class="footer-watermark" id="footerWatermark">
+        <span class="watermark-text">zoneup</span>
+        <div class="watermark-glow" id="watermarkGlow"></div>
+      </div>
 
       <!-- Bottom Bar: Status Indicator & Copyright -->
       <div class="footer-bottom-bar">
@@ -579,7 +594,7 @@
     </div>
   </footer>
 
-  <script src="main.js"></script>
+  <script src="main.js?v=37.0"></script>
   <script>
     // Page transition: fade in on load, fade out on navigate
     function showPage() {

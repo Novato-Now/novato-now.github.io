@@ -6,7 +6,7 @@
 .features {
   width: 100%;
   background: #000000;
-  color: #ffffff;
+  color: #ededed;
   padding: 120px 24px 140px;
   display: flex;
   justify-content: center;
@@ -36,7 +36,7 @@
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.02em;
-  color: #ffffff;
+  color: #ededed;
   margin: 0;
   text-align: center;
 }
@@ -89,7 +89,7 @@
   font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 1.35rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #dfe2e8;
   line-height: 1.3;
   letter-spacing: -0.01em;
   margin: 0;
@@ -99,7 +99,7 @@
   font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 0.95rem;
   font-weight: 400;
-  color: #d1d6de;
+  color: #a4a9b3;
   line-height: 1.65;
   margin: 0;
 }

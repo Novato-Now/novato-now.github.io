@@ -93,7 +93,7 @@ body.post-guidance-page .header-spacer {
 
 .nav a {
   text-decoration: none;
-  color: #ffffff;
+  color: #dfe2e8;
   font-size: 0.98rem;
   font-weight: 500;
   display: inline-block;
@@ -116,7 +116,7 @@ body.post-guidance-page .header-spacer {
   position: absolute;
   top: 100%;
   left: 0;
-  color: #ffffff;
+  color: #dfe2e8;
 }
 
 .nav a:hover {
@@ -165,25 +165,25 @@ body.post-guidance-page .header-spacer {
   display: none;
 }
 
-/* ── Fallback for Light Pages without Hero (e.g. legal.html) ── */
-body:not(:has(.hero)):not(.post-guidance-page) .header {
+/* ── Fallback for Light Pages without Hero (e.g. legacy light pages) ── */
+body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .header {
   background: rgba(255, 255, 255, 0.92);
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-body:not(:has(.hero)):not(.post-guidance-page) .logo-icon {
+body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .logo-icon {
   filter: none;
 }
 
-body:not(:has(.hero)):not(.post-guidance-page) .nav a {
+body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .nav a {
   color: #020202;
 }
 
-body:not(:has(.hero)):not(.post-guidance-page) .nav a span::after {
+body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .nav a span::after {
   color: #020202;
 }
 
-body:not(:has(.hero)):not(.post-guidance-page) .hamburger span {
+body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger span {
   background: #020202;
 }
 
@@ -268,7 +268,7 @@ body:not(:has(.hero)):not(.post-guidance-page) .hamburger span {
     text-decoration: none;
     padding: 8px 0;
     transition: color 0.2s;
-    color: #ffffff;
+    color: #dfe2e8;
     font-size: 1.05rem;
     font-weight: 500;
   }
