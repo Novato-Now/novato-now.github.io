@@ -4,7 +4,7 @@
 
 .create-zoneup-section {
   position: relative;
-  padding: 140px 0 100px;
+  padding: 60px 0 50px;
   background: #000000;
   color: #ffffff;
   display: flex;
@@ -64,7 +64,7 @@
   font-size: 1.12rem;
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.68);
-  margin-bottom: 36px;
+  margin-bottom: 0;
 }
 
 .create-zoneup-btn {
@@ -189,7 +189,7 @@
   }
 
   .create-zoneup-section {
-    padding: 100px 0 60px;
+    padding: 40px 0 30px;
   }
 
   .create-zoneup-phone-frame {

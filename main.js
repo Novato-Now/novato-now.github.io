@@ -45,7 +45,7 @@ mobileExpand.querySelectorAll('a').forEach(link => {
   });
 });
 
-// FAQ accordion from JSON
+// FAQ accordion from JSON (Motion-Primitives AccordionVariant)
 const faqList = document.getElementById('faqList');
 
 if (faqList) {
@@ -56,22 +56,36 @@ if (faqList) {
         const item = document.createElement('div');
         item.className = 'faq-item';
         item.innerHTML =
-          '<button class="faq-question">' +
-          '<span>' + faq.question + '</span>' +
-          '<span class="faq-icon">+</span>' +
+          '<button class="faq-question" aria-expanded="false">' +
+          '<div class="faq-question-wrap">' +
+          '<svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">' +
+          '<path d="m9 18 6-6-6-6"/>' +
+          '</svg>' +
+          '<span class="faq-question-text">' + faq.question + '</span>' +
+          '</div>' +
           '</button>' +
           '<div class="faq-answer">' +
-          '<div class="faq-answer-inner">' +
-          '<p>' + faq.answer + '</p>' +
+          '<div class="faq-answer-inner origin-left">' +
+          '<p class="faq-answer-text">' + faq.answer + '</p>' +
           '</div>' +
           '</div>';
 
-        item.querySelector('.faq-question').addEventListener('click', function () {
+        const btn = item.querySelector('.faq-question');
+        btn.addEventListener('click', function () {
           const wasOpen = item.classList.contains('open');
           // Close all others
-          faqList.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+          faqList.querySelectorAll('.faq-item.open').forEach(el => {
+            el.classList.remove('open');
+            const b = el.querySelector('.faq-question');
+            if (b) b.setAttribute('aria-expanded', 'false');
+          });
           // Toggle current
-          if (!wasOpen) item.classList.add('open');
+          if (!wasOpen) {
+            item.classList.add('open');
+            btn.setAttribute('aria-expanded', 'true');
+          } else {
+            btn.setAttribute('aria-expanded', 'false');
+          }
         });
 
         faqList.appendChild(item);
@@ -246,4 +260,87 @@ if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', setupAutoplayVideos);
 } else {
   setupAutoplayVideos();
+}
+
+// ── Hero Kinetic Word Conveyor (Fixed Slot, Zero Overlap, Seamless Loop) ──
+function initHeroWordTicker() {
+  const slot = document.getElementById('heroDynamicSlot');
+  const track = document.getElementById('heroWordsTrack');
+  if (!slot || !track) return;
+  if (track.dataset.tickerInit) return;
+  track.dataset.tickerInit = 'true';
+
+  const words = track.querySelectorAll('.hero-word');
+  if (!words.length) return;
+
+  const totalItems = words.length; // 5 (ZoneUp, neighbors, community, friends, ZoneUp clone)
+  const originalWordCount = totalItems - 1; // 4 unique words
+
+  let currentIndex = 0;
+  let timerId = null;
+
+  // Measure and set slot width to the longest word so "Get connect with" never shifts
+  function updateSlotWidth() {
+    let maxWidth = 0;
+    words.forEach(w => {
+      const wWidth = w.getBoundingClientRect().width;
+      if (wWidth > maxWidth) maxWidth = wWidth;
+    });
+    if (maxWidth > 0) {
+      slot.style.width = Math.ceil(maxWidth) + 'px';
+    }
+  }
+
+  updateSlotWidth();
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(updateSlotWidth);
+  }
+  window.addEventListener('resize', updateSlotWidth, { passive: true });
+
+  function step() {
+    const prevIndex = currentIndex;
+    currentIndex++;
+    const percent = (currentIndex * 100) / totalItems;
+    track.style.transition = 'transform 0.65s cubic-bezier(0.16, 1, 0.3, 1)';
+    track.style.transform = `translate3d(0, -${percent}%, 0)`;
+
+    // Update is-current for fade-in-blur transition
+    if (words[prevIndex]) words[prevIndex].classList.remove('is-current');
+    if (words[currentIndex]) words[currentIndex].classList.add('is-current');
+
+    if (currentIndex === originalWordCount) {
+      // Slid up to cloned ZoneUp at index 4; silently jump back to index 0 after transition
+      setTimeout(() => {
+        track.style.transition = 'none';
+        currentIndex = 0;
+        track.style.transform = 'translate3d(0, 0%, 0)';
+        if (words[originalWordCount]) words[originalWordCount].classList.remove('is-current');
+        if (words[0]) words[0].classList.add('is-current');
+        void track.offsetHeight; // Force reflow
+      }, 670);
+    }
+
+    // ZoneUp gets longer showcase time (3.4s), others get 2.5s
+    const isBrand = (currentIndex === 0 || currentIndex === originalWordCount);
+    const dwell = isBrand ? 3400 : 2500;
+    timerId = setTimeout(step, dwell);
+  }
+
+  timerId = setTimeout(step, 3200);
+
+  // Pause when tab is inactive to prevent timer drift, resume cleanly
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      clearTimeout(timerId);
+    } else {
+      clearTimeout(timerId);
+      timerId = setTimeout(step, 1800);
+    }
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initHeroWordTicker);
+} else {
+  initHeroWordTicker();
 }
