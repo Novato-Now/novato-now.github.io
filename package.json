@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "motion": "^13.4.6"
+    "motion": "^13.4.6",
+    "react-use-measure": "^2.1.7"
   }
 }

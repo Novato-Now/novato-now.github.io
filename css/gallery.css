@@ -1,0 +1,123 @@
+/* ==========================================================================
+   Gallery Section - Motion-Primitives InfiniteSlider (speedOnHover={20} gap={24})
+   ========================================================================== */
+
+.pg-gallery-section {
+  padding: 60px 0 50px;
+  background: #000000;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.pg-gallery-container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.pg-gallery-header {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.pg-gallery-section .pg-section-title {
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: clamp(2.4rem, 4.4vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin: 0;
+  text-align: center;
+}
+
+/* ── Motion-Primitives InfiniteSlider Container ── */
+.infinite-slider-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  user-select: none;
+  touch-action: pan-y;
+  cursor: grab;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.infinite-slider-container:active {
+  cursor: grabbing;
+}
+
+.infinite-slider-track {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+  will-change: transform;
+}
+
+.infinite-slider-group {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
+}
+
+.pg-creative-card {
+  width: clamp(200px, 22vw, 270px);
+  aspect-ratio: 0.635;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  background: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+  flex-shrink: 0;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.35s ease;
+}
+
+.pg-creative-card:hover {
+  transform: translateY(-8px) scale(1.025);
+  border-color: rgba(67, 206, 162, 0.45);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(67, 206, 162, 0.18);
+}
+
+.pg-creative-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+/* ── Responsive Adaptations ── */
+@media (max-width: 900px) {
+  .pg-gallery-section {
+    padding: 45px 0 40px;
+  }
+
+  .pg-gallery-header {
+    margin-bottom: 32px;
+  }
+
+  .pg-creative-card {
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pg-gallery-section {
+    padding: 35px 0 30px;
+  }
+
+  .pg-gallery-header {
+    margin-bottom: 24px;
+  }
+
+  .pg-creative-card {
+    border-radius: 14px;
+  }
+}

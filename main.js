@@ -304,6 +304,12 @@ function initHeroWordTicker() {
     track.style.transition = 'transform 0.65s cubic-bezier(0.16, 1, 0.3, 1)';
     track.style.transform = `translate3d(0, -${percent}%, 0)`;
 
+    // Clean up initial page-load entrance animation class after first tick
+    if (words[0] && words[0].classList.contains('mp-word')) {
+      words[0].classList.remove('mp-word');
+      words[0].style.animation = 'none';
+    }
+
     // Update is-current for fade-in-blur transition
     if (words[prevIndex]) words[prevIndex].classList.remove('is-current');
     if (words[currentIndex]) words[currentIndex].classList.add('is-current');
@@ -340,7 +346,121 @@ function initHeroWordTicker() {
 }
 
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initHeroWordTicker);
+  document.addEventListener('DOMContentLoaded', () => {
+    initHeroWordTicker();
+    initInfiniteSliders();
+  });
 } else {
   initHeroWordTicker();
+  initInfiniteSliders();
+}
+
+// ==========================================================================
+// Motion-Primitives InfiniteSlider Component (speedOnHover={20} gap={24})
+// ==========================================================================
+function initInfiniteSliders() {
+  const containers = document.querySelectorAll('.infinite-slider-container');
+  if (!containers.length) return;
+
+  containers.forEach(container => {
+    const track = container.querySelector('.infinite-slider-track');
+    const group = container.querySelector('.infinite-slider-group');
+    if (!track || !group) return;
+
+    const normalSpeed = parseFloat(container.dataset.speed) || 85;
+    const speedOnHover = parseFloat(container.dataset.speedOnHover) || 20;
+    const gap = parseFloat(container.dataset.gap) || 24;
+
+    let currentSpeed = normalSpeed;
+    let targetSpeed = normalSpeed;
+    let position = 0;
+    let lastTimestamp = null;
+    let isDragging = false;
+    let startX = 0;
+    let groupWidth = 0;
+
+    function measure() {
+      groupWidth = group.offsetWidth + gap;
+    }
+
+    measure();
+    window.addEventListener('resize', measure, { passive: true });
+    window.addEventListener('load', measure, { passive: true });
+
+    const images = container.querySelectorAll('img');
+    images.forEach(img => {
+      if (!img.complete) {
+        img.addEventListener('load', measure, { once: true });
+      }
+    });
+
+    // Motion-Primitives speedOnHover: smoothly glides from cruising speed to 20px/s on hover
+    container.addEventListener('mouseenter', () => {
+      targetSpeed = speedOnHover;
+    });
+
+    container.addEventListener('mouseleave', () => {
+      targetSpeed = normalSpeed;
+    });
+
+    // Touch & pointer drag scrub
+    container.addEventListener('pointerdown', (e) => {
+      isDragging = true;
+      startX = e.clientX;
+      try {
+        container.setPointerCapture(e.pointerId);
+      } catch (_) {}
+    });
+
+    container.addEventListener('pointermove', (e) => {
+      if (!isDragging) return;
+      const deltaX = e.clientX - startX;
+      startX = e.clientX;
+      position += deltaX;
+    });
+
+    function endDrag(e) {
+      if (!isDragging) return;
+      isDragging = false;
+      try {
+        container.releasePointerCapture(e.pointerId);
+      } catch (_) {}
+    }
+
+    container.addEventListener('pointerup', endDrag);
+    container.addEventListener('pointercancel', endDrag);
+
+    // Smooth tab visibility resume
+    document.addEventListener('visibilitychange', () => {
+      lastTimestamp = null;
+    });
+
+    function tick(timestamp) {
+      if (!lastTimestamp) lastTimestamp = timestamp;
+      const delta = Math.min((timestamp - lastTimestamp) / 1000, 0.1);
+      lastTimestamp = timestamp;
+
+      if (!isDragging) {
+        // Smooth exponential lerp deceleration/acceleration
+        const lerpFactor = 0.08;
+        currentSpeed += (targetSpeed - currentSpeed) * lerpFactor;
+        position -= currentSpeed * delta;
+      }
+
+      if (groupWidth > 0) {
+        while (position <= -groupWidth) {
+          position += groupWidth;
+        }
+        while (position > 0) {
+          position -= groupWidth;
+        }
+      }
+
+      track.style.transform = `translate3d(${position}px, 0, 0)`;
+
+      requestAnimationFrame(tick);
+    }
+
+    requestAnimationFrame(tick);
+  });
 }

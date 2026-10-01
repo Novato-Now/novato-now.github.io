@@ -11,16 +11,17 @@
     rel="stylesheet">
   <title>ZoneUp</title>
   <link rel="icon" type="image/x-icon" href="https://web-assets-r2.zoneup.in/favIcon.svg">
-  <link rel="stylesheet" href="style.css?v=42.0">
-  <link rel="stylesheet" href="css/base.css?v=42.0">
-  <link rel="stylesheet" href="css/header.css?v=42.0">
-  <link rel="stylesheet" href="css/hero.css?v=42.0">
-  <link rel="stylesheet" href="css/create-zoneup.css?v=42.0">
-  <link rel="stylesheet" href="css/showcase.css?v=42.0">
-  <link rel="stylesheet" href="css/targeting.css?v=42.0">
-  <link rel="stylesheet" href="css/features.css?v=42.0">
-  <link rel="stylesheet" href="css/faq.css?v=42.0">
-  <link rel="stylesheet" href="css/footer.css?v=42.0">
+  <link rel="stylesheet" href="style.css?v=48.0">
+  <link rel="stylesheet" href="css/base.css?v=48.0">
+  <link rel="stylesheet" href="css/header.css?v=48.0">
+  <link rel="stylesheet" href="css/hero.css?v=48.0">
+  <link rel="stylesheet" href="css/create-zoneup.css?v=48.0">
+  <link rel="stylesheet" href="css/gallery.css?v=48.0">
+  <link rel="stylesheet" href="css/showcase.css?v=48.0">
+  <link rel="stylesheet" href="css/targeting.css?v=48.0">
+  <link rel="stylesheet" href="css/features.css?v=48.0">
+  <link rel="stylesheet" href="css/faq.css?v=48.0">
+  <link rel="stylesheet" href="css/footer.css?v=48.0">
   <script>
     (function () {
       var params = new URLSearchParams(window.location.search);
@@ -95,7 +96,8 @@
           </span>
           <span class="hero-dynamic-slot" id="heroDynamicSlot">
             <span class="hero-words-track" id="heroWordsTrack">
-              <span class="hero-word is-brand is-current">ZoneUp</span>
+              <span class="hero-word is-brand is-current mp-word"
+                style="--mp-index: 9; --mp-base-delay: 0.12s">ZoneUp</span>
               <span class="hero-word">neighbors</span>
               <span class="hero-word">community</span>
               <span class="hero-word">friends</span>
@@ -121,11 +123,13 @@
 
           <!-- Content Left -->
           <div class="create-zoneup-content">
-            <h2 class="create-zoneup-title">Create for ZoneUp.</h2>
+            <h2 class="create-zoneup-title">Your city. Your people. Your community.</h2>
             <p class="create-zoneup-desc">
-              ZoneUp is built to bring your local community closer, helping you discover what’s happening around you,
-              connect with people nearby, and be part of the conversations, places, and moments that make your
-              neighborhood feel like home. </p>
+              ZoneUp is where you discover and meet people who actually live near you. See what's happening around you
+              in real time, join local communities, message people directly, and start conversations that turn into real
+              friendships.
+
+            </p>
           </div>
 
           <!-- Phone & Overlays Illustration Right -->
@@ -147,6 +151,48 @@
             </div>
           </div>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery of Best Creatives Ticker -->
+    <section class="pg-gallery-section" id="gallery">
+      <div class="pg-gallery-container">
+        <div class="pg-gallery-header">
+          <h2 class="pg-section-title">Gallery of best creatives</h2>
+        </div>
+      </div>
+
+      <!-- Motion-Primitives InfiniteSlider (speedOnHover={20} gap={24}) -->
+      <div class="infinite-slider-container" id="creativeInfiniteSlider" data-gap="24" data-speed="85" data-speed-on-hover="20">
+        <div class="infinite-slider-track">
+          <!-- Slide Group 1 -->
+          <div class="infinite-slider-group">
+            <div class="pg-creative-card"><img src="https://framerusercontent.com/images/hlMy8VzqvoCqDballlzaYt1ATYg.png?width=1572&height=2472" alt="Creative Example 1" loading="lazy"></div>
+            <div class="pg-creative-card"><img src="https://framerusercontent.com/images/stXjYPeD21C7ml0R3QkVlJZQ7lM.png?width=1572&height=2472" alt="Creative Example 2" loading="lazy"></div>
+            <div class="pg-creative-card"><img src="https://framerusercontent.com/images/16rqM0kwV4gwj2GpUQdcruPChb0.png?width=1572&height=2472" alt="Creative Example 3" loading="lazy"></div>
+            <div class="pg-creative-card"><img src="https://framerusercontent.com/images/1EaMkbfM5vcEER9NfLZ8I2lJAEU.png?width=1572&height=2472" alt="Creative Example 4" loading="lazy"></div>
+            <div class="pg-creative-card"><img src="https://framerusercontent.com/images/p6wNT9m0S05XJSuEuHFTt0OpOZQ.png?width=1572&height=2472" alt="Creative Example 5" loading="lazy"></div>
+            <div class="pg-creative-card"><img src="https://framerusercontent.com/images/1u5gQKll3q2mmGJLMJQU4rRl7c.png?width=1572&height=2472" alt="Creative Example 6" loading="lazy"></div>
+            <div class="pg-creative-card"><img src="https://framerusercontent.com/images/KFJFWF8bUCWyZRtDimroPwqAPr8.png?width=1572&height=2472" alt="Creative Example 7" loading="lazy"></div>
+            <div class="pg-creative-card"><img src="https://framerusercontent.com/images/7xGUQrEVisaZuxis3EorEH8Z1c.png?width=1572&height=2472" alt="Creative Example 8" loading="lazy"></div>
+            <div class="pg-creative-card"><img src="https://framerusercontent.com/images/DB5gnDOfDw2cYw9UfrLhj98ax34.png?width=1572&height=2472" alt="Creative Example 9" loading="lazy"></div>
+            <div class="pg-creative-card"><img src="https://framerusercontent.com/images/VZSd6M8osh2yaQWr6bn2hJCvk.png?width=1572&height=2472" alt="Creative Example 10" loading="lazy"></div>
+          </div>
+
+          <!-- Slide Group 2 (Clone for seamless infinite loop) -->
+          <div class="infinite-slider-group" aria-hidden="true">
+            <div class="pg-creative-card"><img src="https://framerusercontent.com/images/hlMy8VzqvoCqDballlzaYt1ATYg.png?width=1572&height=2472" alt="Creative Example 1" loading="lazy"></div>
+            <div class="pg-creative-card"><img src="https://framerusercontent.com/images/stXjYPeD21C7ml0R3QkVlJZQ7lM.png?width=1572&height=2472" alt="Creative Example 2" loading="lazy"></div>
+            <div class="pg-creative-card"><img src="https://framerusercontent.com/images/16rqM0kwV4gwj2GpUQdcruPChb0.png?width=1572&height=2472" alt="Creative Example 3" loading="lazy"></div>
+            <div class="pg-creative-card"><img src="https://framerusercontent.com/images/1EaMkbfM5vcEER9NfLZ8I2lJAEU.png?width=1572&height=2472" alt="Creative Example 4" loading="lazy"></div>
+            <div class="pg-creative-card"><img src="https://framerusercontent.com/images/p6wNT9m0S05XJSuEuHFTt0OpOZQ.png?width=1572&height=2472" alt="Creative Example 5" loading="lazy"></div>
+            <div class="pg-creative-card"><img src="https://framerusercontent.com/images/1u5gQKll3q2mmGJLMJQU4rRl7c.png?width=1572&height=2472" alt="Creative Example 6" loading="lazy"></div>
+            <div class="pg-creative-card"><img src="https://framerusercontent.com/images/KFJFWF8bUCWyZRtDimroPwqAPr8.png?width=1572&height=2472" alt="Creative Example 7" loading="lazy"></div>
+            <div class="pg-creative-card"><img src="https://framerusercontent.com/images/7xGUQrEVisaZuxis3EorEH8Z1c.png?width=1572&height=2472" alt="Creative Example 8" loading="lazy"></div>
+            <div class="pg-creative-card"><img src="https://framerusercontent.com/images/DB5gnDOfDw2cYw9UfrLhj98ax34.png?width=1572&height=2472" alt="Creative Example 9" loading="lazy"></div>
+            <div class="pg-creative-card"><img src="https://framerusercontent.com/images/VZSd6M8osh2yaQWr6bn2hJCvk.png?width=1572&height=2472" alt="Creative Example 10" loading="lazy"></div>
+          </div>
         </div>
       </div>
     </section>
@@ -173,97 +219,108 @@
           <!-- Row 1: Left Scroll -->
           <div class="chips-row row-scroll-left">
             <div class="chips-track">
-              <span class="chip chip-avatar">👨</span>
-              <span class="chip"><span class="chip-emoji">💻</span> Tech &amp; Electronics</span>
-              <span class="chip"><span class="chip-emoji">🎮</span> Gaming</span>
-              <span class="chip"><span class="chip-emoji">☕</span> Coffee Lovers</span>
-              <span class="chip"><span class="chip-emoji">⚽</span> Sports Fans</span>
+              <span class="chip"><span class="chip-emoji">⚽</span> Sports</span>
+              <span class="chip"><span class="chip-badge">EN</span> English</span>
+              <span class="chip"><span class="chip-emoji">💻</span> Tech &amp; Careers</span>
+              <span class="chip"><span class="chip-badge">தமிழ்</span> Tamil</span>
+              <span class="chip"><span class="chip-emoji">🎉</span> Parties</span>
             </div>
             <div class="chips-track" aria-hidden="true">
-              <span class="chip chip-avatar">👨</span>
-              <span class="chip"><span class="chip-emoji">💻</span> Tech &amp; Electronics</span>
-              <span class="chip"><span class="chip-emoji">🎮</span> Gaming</span>
-              <span class="chip"><span class="chip-emoji">☕</span> Coffee Lovers</span>
-              <span class="chip"><span class="chip-emoji">⚽</span> Sports Fans</span>
+              <span class="chip"><span class="chip-emoji">⚽</span> Sports</span>
+              <span class="chip"><span class="chip-badge">EN</span> English</span>
+              <span class="chip"><span class="chip-emoji">💻</span> Tech &amp; Careers</span>
+              <span class="chip"><span class="chip-badge">தமிழ்</span> Tamil</span>
+              <span class="chip"><span class="chip-emoji">🎉</span> Parties</span>
             </div>
           </div>
 
           <!-- Row 2: Right Scroll -->
           <div class="chips-row row-scroll-right">
             <div class="chips-track">
-              <span class="chip"><span class="chip-emoji">👔</span> Professional Activity</span>
-              <span class="chip"><span class="chip-emoji">👗</span> Fashion Experts</span>
-              <span class="chip"><span class="chip-emoji">🎸</span> Music Lovers</span>
-              <span class="chip"><span class="chip-emoji">🍿</span> Film &amp; Cinema</span>
+              <span class="chip"><span class="chip-emoji">🍕</span> Food</span>
+              <span class="chip"><span class="chip-badge">हिंदी</span> Hindi</span>
+              <span class="chip"><span class="chip-emoji">🏋️</span> Fitness</span>
+              <span class="chip"><span class="chip-badge">తెలుగు</span> Telugu</span>
+              <span class="chip"><span class="chip-emoji">🎮</span> Gaming</span>
             </div>
             <div class="chips-track" aria-hidden="true">
-              <span class="chip"><span class="chip-emoji">👔</span> Professional Activity</span>
-              <span class="chip"><span class="chip-emoji">👗</span> Fashion Experts</span>
-              <span class="chip"><span class="chip-emoji">🎸</span> Music Lovers</span>
-              <span class="chip"><span class="chip-emoji">🍿</span> Film &amp; Cinema</span>
+              <span class="chip"><span class="chip-emoji">🍕</span> Food</span>
+              <span class="chip"><span class="chip-badge">हिंदी</span> Hindi</span>
+              <span class="chip"><span class="chip-emoji">🏋️</span> Fitness</span>
+              <span class="chip"><span class="chip-badge">తెలుగు</span> Telugu</span>
+              <span class="chip"><span class="chip-emoji">🎮</span> Gaming</span>
             </div>
           </div>
 
           <!-- Row 3: Left Scroll -->
           <div class="chips-row row-scroll-left-slow">
             <div class="chips-track">
-              <span class="chip"><span class="chip-emoji">⚙️</span> Gear Lovers</span>
-              <span class="chip chip-avatar">👩</span>
-              <span class="chip"><span class="chip-emoji">🚗</span> Car Owners</span>
-              <span class="chip"><span class="chip-emoji">🇯🇵</span> Tokyo</span>
-              <span class="chip"><span class="chip-emoji">🎨</span> Creative Design</span>
+              <span class="chip"><span class="chip-emoji">✈️</span> Travel</span>
+              <span class="chip"><span class="chip-badge">ಕನ್ನಡ</span> Kannada</span>
+              <span class="chip"><span class="chip-emoji">🎬</span> Entertainment</span>
+              <span class="chip"><span class="chip-badge">മലയാളം</span> Malayalam</span>
+              <span class="chip"><span class="chip-emoji">🤝</span> Connections</span>
             </div>
             <div class="chips-track" aria-hidden="true">
-              <span class="chip"><span class="chip-emoji">⚙️</span> Gear Lovers</span>
-              <span class="chip chip-avatar">👩</span>
-              <span class="chip"><span class="chip-emoji">🚗</span> Car Owners</span>
-              <span class="chip"><span class="chip-emoji">🇯🇵</span> Tokyo</span>
-              <span class="chip"><span class="chip-emoji">🎨</span> Creative Design</span>
+              <span class="chip"><span class="chip-emoji">✈️</span> Travel</span>
+              <span class="chip"><span class="chip-badge">ಕನ್ನಡ</span> Kannada</span>
+              <span class="chip"><span class="chip-emoji">🎬</span> Entertainment</span>
+              <span class="chip"><span class="chip-badge">മലയാളം</span> Malayalam</span>
+              <span class="chip"><span class="chip-emoji">🤝</span> Connections</span>
             </div>
           </div>
 
           <!-- Row 4: Right Scroll -->
           <div class="chips-row row-scroll-right-slow">
             <div class="chips-track">
-              <span class="chip"><span class="chip-emoji">🏟️</span> Sports Fans</span>
-              <span class="chip"><span class="chip-emoji">🧳</span> Travelers</span>
-              <span class="chip"><span class="chip-emoji">😻</span> Pets &amp; Animal Lovers</span>
-              <span class="chip"><span class="chip-emoji">🏃</span> Runners</span>
+              <span class="chip"><span class="chip-emoji">🎨</span> Art &amp; Creativity</span>
+              <span class="chip"><span class="chip-badge">اردو</span> Urdu</span>
+              <span class="chip"><span class="chip-emoji">🏘️</span> Community</span>
+              <span class="chip"><span class="chip-badge">मराठी</span> Marathi</span>
+              <span class="chip"><span class="chip-emoji">🎟️</span> Events</span>
             </div>
             <div class="chips-track" aria-hidden="true">
-              <span class="chip"><span class="chip-emoji">🏟️</span> Sports Fans</span>
-              <span class="chip"><span class="chip-emoji">🧳</span> Travelers</span>
-              <span class="chip"><span class="chip-emoji">😻</span> Pets &amp; Animal Lovers</span>
-              <span class="chip"><span class="chip-emoji">🏃</span> Runners</span>
+              <span class="chip"><span class="chip-emoji">🎨</span> Art &amp; Creativity</span>
+              <span class="chip"><span class="chip-badge">اردو</span> Urdu</span>
+              <span class="chip"><span class="chip-emoji">🏘️</span> Community</span>
+              <span class="chip"><span class="chip-badge">मराठी</span> Marathi</span>
+              <span class="chip"><span class="chip-emoji">🎟️</span> Events</span>
             </div>
           </div>
 
           <!-- Row 5: Left Scroll -->
           <div class="chips-row row-scroll-left-fast">
             <div class="chips-track">
-              <span class="chip"><span class="chip-emoji">🍸</span> Nightlife Enthusiasts</span>
-              <span class="chip"><span class="chip-emoji">🛋️</span> Home Styling</span>
-              <span class="chip"><span class="chip-emoji">✨</span> Bargain Hunters</span>
-              <span class="chip chip-avatar">🏄</span>
+              <span class="chip"><span class="chip-emoji">💻</span> Tech &amp; Careers</span>
+              <span class="chip"><span class="chip-badge">বাংলা</span> Bengali</span>
+              <span class="chip"><span class="chip-emoji">🍕</span> Food</span>
+              <span class="chip"><span class="chip-badge">ਪੰਜਾਬੀ</span> Punjabi</span>
+              <span class="chip"><span class="chip-emoji">⚽</span> Sports</span>
             </div>
             <div class="chips-track" aria-hidden="true">
-              <span class="chip"><span class="chip-emoji">🍸</span> Nightlife Enthusiasts</span>
-              <span class="chip"><span class="chip-emoji">🛋️</span> Home Styling</span>
-              <span class="chip"><span class="chip-emoji">✨</span> Bargain Hunters</span>
-              <span class="chip chip-avatar">🏄</span>
+              <span class="chip"><span class="chip-emoji">💻</span> Tech &amp; Careers</span>
+              <span class="chip"><span class="chip-badge">বাংলা</span> Bengali</span>
+              <span class="chip"><span class="chip-emoji">🍕</span> Food</span>
+              <span class="chip"><span class="chip-badge">ਪੰਜਾਬੀ</span> Punjabi</span>
+              <span class="chip"><span class="chip-emoji">⚽</span> Sports</span>
             </div>
           </div>
 
           <!-- Row 6: Right Scroll -->
           <div class="chips-row row-scroll-right-fast">
             <div class="chips-track">
-              <span class="chip"><span class="chip-emoji">💻</span> Tech &amp; Electronics Gear</span>
-              <span class="chip"><span class="chip-emoji">👔</span> Professional Activity</span>
-              <span class="chip"><span class="chip-emoji">📸</span> Photography</span>
+              <span class="chip"><span class="chip-emoji">🏋️</span> Fitness</span>
+              <span class="chip"><span class="chip-badge">EN</span> English</span>
+              <span class="chip"><span class="chip-emoji">🎉</span> Parties</span>
+              <span class="chip"><span class="chip-badge">தமிழ்</span> Tamil</span>
+              <span class="chip"><span class="chip-emoji">🎮</span> Gaming</span>
             </div>
             <div class="chips-track" aria-hidden="true">
-              <span class="chip"><span class="chip-emoji">💻</span> Tech &amp; Electronics Gear</span>
-              <span class="chip"><span class="chip-emoji">📸</span> Photography</span>
+              <span class="chip"><span class="chip-emoji">🏋️</span> Fitness</span>
+              <span class="chip"><span class="chip-badge">EN</span> English</span>
+              <span class="chip"><span class="chip-emoji">🎉</span> Parties</span>
+              <span class="chip"><span class="chip-badge">தமிழ்</span> Tamil</span>
+              <span class="chip"><span class="chip-emoji">🎮</span> Gaming</span>
             </div>
           </div>
 
@@ -613,7 +670,7 @@
     </div>
   </footer>
 
-  <script src="main.js?v=42.0"></script>
+  <script src="main.js?v=48.0"></script>
   <script>
     // Page transition: fade in on load, fade out on navigate
     function showPage() {
