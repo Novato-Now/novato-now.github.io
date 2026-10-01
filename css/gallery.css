@@ -3,7 +3,7 @@
    ========================================================================== */
 
 .pg-gallery-section {
-  padding: 60px 0 50px;
+  padding: clamp(80px, 8vw, 110px) 0 clamp(70px, 7vw, 100px);
   background: #000000;
   overflow: hidden;
   position: relative;

@@ -697,7 +697,7 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
 
 .create-zoneup-section {
   position: relative;
-  padding: 60px 0 50px;
+  padding: clamp(80px, 8vw, 110px) 0 clamp(70px, 7vw, 100px);
   background: #000000;
   color: #ededed;
   display: flex;
@@ -915,7 +915,7 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
   position: relative;
   background: #000000;
   color: #ededed;
-  padding: 220px 32px 180px;
+  padding: clamp(80px, 8vw, 110px) 32px clamp(80px, 8vw, 110px);
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -928,7 +928,7 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 160px;
+  gap: 80px;
 }
 
 /* ── Individual Showcase Row ── */
@@ -1174,11 +1174,11 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
 /* ── Responsive Adaptations ── */
 @media (max-width: 900px) {
   .showcase-section {
-    padding: 140px 24px 120px;
+    padding: 50px 24px 50px;
   }
 
   .showcase-container {
-    gap: 90px;
+    gap: 60px;
   }
 
   .showcase-row,
@@ -1227,11 +1227,11 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
 
 @media (max-width: 480px) {
   .showcase-section {
-    padding: 100px 16px 90px;
+    padding: 40px 16px 40px;
   }
 
   .showcase-container {
-    gap: 75px;
+    gap: 48px;
   }
 
   .showcase-video-card {
@@ -1273,7 +1273,7 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
   position: relative;
   background: #000000;
   color: #ededed;
-  padding: 60px 32px 20px;
+  padding: clamp(80px, 8vw, 110px) 32px clamp(70px, 7vw, 100px);
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -1524,7 +1524,7 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
   width: 100%;
   background: #000000;
   color: #ededed;
-  padding: 120px 24px 140px;
+  padding: clamp(90px, 9vw, 130px) 24px clamp(90px, 9vw, 130px);
   display: flex;
   justify-content: center;
   position: relative;
@@ -1563,12 +1563,16 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
   grid-template-columns: repeat(3, 1fr);
   gap: 48px 32px;
   width: 100%;
+  perspective: 1000px;
 }
 
 .feature-item {
   display: flex;
   flex-direction: column;
   background: transparent;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
 }
 
 .feature-img-wrap {
@@ -1579,6 +1583,13 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
   overflow: hidden;
   background-color: #111111;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  transform: translateZ(16px);
+  transform-style: preserve-3d;
+  transition: box-shadow 0.4s ease;
+}
+
+.feature-item:hover .feature-img-wrap {
+  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.65), 0 0 24px rgba(255, 255, 255, 0.05);
 }
 
 .feature-img {
@@ -1600,6 +1611,8 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
   display: flex;
   flex-direction: column;
   gap: 10px;
+  transform: translateZ(24px);
+  transform-style: preserve-3d;
 }
 
 .feature-item-title {
@@ -1624,11 +1637,11 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
 /* ── Responsive Media Queries ── */
 @media (max-width: 960px) {
   .features {
-    padding: 90px 20px 100px;
+    padding: 60px 20px 60px;
   }
 
   .features-header {
-    margin-bottom: 48px;
+    margin-bottom: 40px;
   }
 
   .features-grid {
@@ -1651,7 +1664,7 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
 
 @media (max-width: 720px) {
   .features {
-    padding: 70px 16px 80px;
+    padding: 50px 16px 50px;
   }
 
   .features-header {
@@ -1678,7 +1691,7 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
 .faq {
   width: 100%;
   background: #000000;
-  padding: 120px 20px 100px;
+  padding: clamp(90px, 9vw, 130px) 20px clamp(90px, 9vw, 120px);
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
@@ -2350,7 +2363,7 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
    ========================================================================== */
 
 .pg-gallery-section {
-  padding: 60px 0 50px;
+  padding: clamp(80px, 8vw, 110px) 0 clamp(70px, 7vw, 100px);
   background: #000000;
   overflow: hidden;
   position: relative;

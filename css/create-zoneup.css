@@ -4,7 +4,7 @@
 
 .create-zoneup-section {
   position: relative;
-  padding: 60px 0 50px;
+  padding: clamp(80px, 8vw, 110px) 0 clamp(70px, 7vw, 100px);
   background: #000000;
   color: #ffffff;
   display: flex;

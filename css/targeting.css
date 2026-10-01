@@ -6,7 +6,7 @@
   position: relative;
   background: #000000;
   color: #ededed;
-  padding: 60px 32px 20px;
+  padding: clamp(80px, 8vw, 110px) 32px clamp(70px, 7vw, 100px);
   overflow: hidden;
   display: flex;
   justify-content: center;

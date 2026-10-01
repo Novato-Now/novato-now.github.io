@@ -5,7 +5,7 @@
 .faq {
   width: 100%;
   background: #000000;
-  padding: 120px 20px 100px;
+  padding: clamp(90px, 9vw, 130px) 20px clamp(90px, 9vw, 120px);
   position: relative;
   overflow: hidden;
   box-sizing: border-box;

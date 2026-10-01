@@ -6,7 +6,7 @@
   position: relative;
   background: #000000;
   color: #ffffff;
-  padding: 220px 32px 180px;
+  padding: clamp(80px, 8vw, 110px) 32px clamp(80px, 8vw, 110px);
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -19,7 +19,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 160px;
+  gap: 80px;
 }
 
 /* ── Individual Showcase Row ── */
@@ -265,11 +265,11 @@
 /* ── Responsive Adaptations ── */
 @media (max-width: 900px) {
   .showcase-section {
-    padding: 140px 24px 120px;
+    padding: 50px 24px 50px;
   }
 
   .showcase-container {
-    gap: 90px;
+    gap: 60px;
   }
 
   .showcase-row,
@@ -318,11 +318,11 @@
 
 @media (max-width: 480px) {
   .showcase-section {
-    padding: 100px 16px 90px;
+    padding: 40px 16px 40px;
   }
 
   .showcase-container {
-    gap: 75px;
+    gap: 48px;
   }
 
   .showcase-video-card {

@@ -464,3 +464,83 @@ function initInfiniteSliders() {
     requestAnimationFrame(tick);
   });
 }
+
+// ============================================================================
+// Motion-Primitives Tilt Animation for "ZoneUp is where people stay real"
+// Settings: rotationFactor = 8, isReverse = true, perspective = 1000px
+// ============================================================================
+(function initFeaturesTilt() {
+  const cards = document.querySelectorAll('.features-grid .feature-item');
+  if (!cards.length) return;
+
+  const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (isCoarsePointer || prefersReduced) return;
+
+  const ROTATION_FACTOR = 8;
+  const IS_REVERSE = true;
+  const PERSPECTIVE = 1000;
+  const SPRING_DAMPING = 0.12;
+
+  cards.forEach(card => {
+    let currentX = 0;
+    let currentY = 0;
+    let targetX = 0;
+    let targetY = 0;
+    let rafId = null;
+    let isHovered = false;
+
+    function tick() {
+      currentX += (targetX - currentX) * SPRING_DAMPING;
+      currentY += (targetY - currentY) * SPRING_DAMPING;
+
+      card.style.transform = `perspective(${PERSPECTIVE}px) rotateX(${currentX.toFixed(3)}deg) rotateY(${currentY.toFixed(3)}deg)`;
+
+      if (!isHovered && Math.abs(currentX) < 0.01 && Math.abs(currentY) < 0.01) {
+        card.style.transform = `perspective(${PERSPECTIVE}px) rotateX(0deg) rotateY(0deg)`;
+        rafId = null;
+        return;
+      }
+
+      rafId = requestAnimationFrame(tick);
+    }
+
+    function onPointerMove(e) {
+      const rect = card.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+
+      const xPos = mouseX / rect.width - 0.5;
+      const yPos = mouseY / rect.height - 0.5;
+
+      targetX = IS_REVERSE ? -yPos * 2 * ROTATION_FACTOR : yPos * 2 * ROTATION_FACTOR;
+      targetY = IS_REVERSE ? xPos * 2 * ROTATION_FACTOR : -xPos * 2 * ROTATION_FACTOR;
+
+      if (!rafId) {
+        rafId = requestAnimationFrame(tick);
+      }
+    }
+
+    function onPointerEnter() {
+      isHovered = true;
+      if (!rafId) {
+        rafId = requestAnimationFrame(tick);
+      }
+    }
+
+    function onPointerLeave() {
+      isHovered = false;
+      targetX = 0;
+      targetY = 0;
+      if (!rafId) {
+        rafId = requestAnimationFrame(tick);
+      }
+    }
+
+    card.addEventListener('pointerenter', onPointerEnter);
+    card.addEventListener('pointermove', onPointerMove);
+    card.addEventListener('pointerleave', onPointerLeave);
+  });
+})();
