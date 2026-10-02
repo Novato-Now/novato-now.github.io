@@ -6,7 +6,7 @@
   position: relative;
   background: #000000;
   color: #ededed;
-  padding: clamp(80px, 8vw, 110px) 32px clamp(70px, 7vw, 100px);
+  padding: clamp(50px, 5vw, 70px) 32px clamp(46px, 4.6vw, 64px);
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -207,7 +207,7 @@
 /* ── Responsive Adaptations ── */
 @media (max-width: 900px) {
   .targeting-section {
-    padding: 45px 24px 20px;
+    padding: 36px 24px 18px;
   }
 
   .targeting-container {
@@ -230,7 +230,7 @@
 
 @media (max-width: 480px) {
   .targeting-section {
-    padding: 35px 16px 15px;
+    padding: 28px 16px 14px;
   }
 
   .targeting-portal {

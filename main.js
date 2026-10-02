@@ -272,32 +272,55 @@ if (document.readyState === 'loading') {
   setupAutoplayVideos();
 }
 
-// ── Hero Kinetic Word Conveyor (Fixed Slot, Zero Overlap, Seamless Loop) ──
+// ── Motion-Primitives TextLoop (Custom 3D Spring Variants Transition) ──
 function initHeroWordTicker() {
   const slot = document.getElementById('heroDynamicSlot');
-  const track = document.getElementById('heroWordsTrack');
-  if (!slot || !track) return;
-  if (track.dataset.tickerInit) return;
-  track.dataset.tickerInit = 'true';
+  if (!slot) return;
+  if (slot.dataset.tickerInit) return;
+  slot.dataset.tickerInit = 'true';
 
-  const words = track.querySelectorAll('.hero-word');
+  const words = Array.from(slot.querySelectorAll('.hero-word'));
   if (!words.length) return;
-
-  const totalItems = words.length; // 5 (ZoneUp, neighbors, community, friends, ZoneUp clone)
-  const originalWordCount = totalItems - 1; // 4 unique words
 
   let currentIndex = 0;
   let timerId = null;
+  let isAnimating = false;
+
+  // Clean up initial page-load entrance animation class after entrance finishes
+  if (words[0] && words[0].classList.contains('mp-word')) {
+    words[0].addEventListener('animationend', () => {
+      words[0].classList.remove('mp-word');
+      words[0].style.animation = 'none';
+    }, { once: true });
+    setTimeout(() => {
+      if (words[0] && words[0].classList.contains('mp-word')) {
+        words[0].classList.remove('mp-word');
+        words[0].style.animation = 'none';
+      }
+    }, 1500);
+  }
+
+  // Ensure initial states are applied: word 0 active, others waiting at initial
+  words.forEach((w, i) => {
+    if (i === 0) {
+      w.classList.add('is-animate');
+      w.classList.remove('is-initial', 'is-exit');
+    } else {
+      w.classList.add('is-initial');
+      w.classList.remove('is-animate', 'is-exit');
+    }
+  });
 
   // Measure and set slot width to the longest word so "Get connect with" never shifts
   function updateSlotWidth() {
     let maxWidth = 0;
     words.forEach(w => {
-      const wWidth = w.getBoundingClientRect().width;
+      // offsetWidth or scrollWidth measures the layout box independent of 3D rotation
+      const wWidth = w.offsetWidth || w.scrollWidth || w.getBoundingClientRect().width;
       if (wWidth > maxWidth) maxWidth = wWidth;
     });
     if (maxWidth > 0) {
-      slot.style.width = Math.ceil(maxWidth) + 'px';
+      slot.style.width = Math.ceil(maxWidth + 4) + 'px';
     }
   }
 
@@ -308,41 +331,53 @@ function initHeroWordTicker() {
   window.addEventListener('resize', updateSlotWidth, { passive: true });
 
   function step() {
+    if (isAnimating) return;
+    isAnimating = true;
+
     const prevIndex = currentIndex;
-    currentIndex++;
-    const percent = (currentIndex * 100) / totalItems;
-    track.style.transition = 'transform 0.65s cubic-bezier(0.16, 1, 0.3, 1)';
-    track.style.transform = `translate3d(0, -${percent}%, 0)`;
+    currentIndex = (currentIndex + 1) % words.length;
 
-    // Clean up initial page-load entrance animation class after first tick
-    if (words[0] && words[0].classList.contains('mp-word')) {
-      words[0].classList.remove('mp-word');
-      words[0].style.animation = 'none';
+    const prevWord = words[prevIndex];
+    const nextWord = words[currentIndex];
+
+    // Clean up entrance class if still present
+    if (prevWord && prevWord.classList.contains('mp-word')) {
+      prevWord.classList.remove('mp-word');
+      prevWord.style.animation = 'none';
     }
 
-    // Update is-current for fade-in-blur transition
-    if (words[prevIndex]) words[prevIndex].classList.remove('is-current');
-    if (words[currentIndex]) words[currentIndex].classList.add('is-current');
+    // 1. Reset nextWord to initial (y: 20, rotateX: 90, opacity: 0, blur: 4px) with no transition
+    nextWord.classList.remove('is-animate', 'is-exit');
+    nextWord.classList.add('is-initial');
 
-    if (currentIndex === originalWordCount) {
-      // Slid up to cloned ZoneUp at index 4; silently jump back to index 0 after transition
-      setTimeout(() => {
-        track.style.transition = 'none';
-        currentIndex = 0;
-        track.style.transform = 'translate3d(0, 0%, 0)';
-        if (words[originalWordCount]) words[originalWordCount].classList.remove('is-current');
-        if (words[0]) words[0].classList.add('is-current');
-        void track.offsetHeight; // Force reflow
-      }, 670);
-    }
+    // Force layout reflow so the browser commits the initial state
+    void nextWord.offsetHeight;
 
-    // ZoneUp gets longer showcase time (3.4s), others get 2.5s
-    const isBrand = (currentIndex === 0 || currentIndex === originalWordCount);
-    const dwell = isBrand ? 3400 : 2500;
+    // 2. Trigger concurrent 3D flip:
+    // Prev word: animate -> exit (y: -20, rotateX: -90, opacity: 0, blur: 4px)
+    prevWord.classList.remove('is-initial', 'is-animate');
+    prevWord.classList.add('is-exit');
+
+    // Next word: initial -> animate (y: 0, rotateX: 0, opacity: 1, blur: 0px)
+    nextWord.classList.remove('is-initial');
+    nextWord.classList.add('is-animate');
+
+    // 3. Reset the exited word back to initial state after transition finishes (660ms)
+    setTimeout(() => {
+      if (prevWord && prevWord.classList.contains('is-exit')) {
+        prevWord.classList.remove('is-exit');
+        prevWord.classList.add('is-initial');
+      }
+      isAnimating = false;
+    }, 660);
+
+    // ZoneUp gets longer showcase time (3.2s), others get 2.4s
+    const dwell = (currentIndex === 0) ? 3200 : 2400;
+    clearTimeout(timerId);
     timerId = setTimeout(step, dwell);
   }
 
-  timerId = setTimeout(step, 3200);
+  timerId = setTimeout(step, 3000);
 
   // Pause when tab is inactive to prevent timer drift, resume cleanly
   document.addEventListener('visibilitychange', () => {
@@ -350,7 +385,7 @@ function initHeroWordTicker() {
       clearTimeout(timerId);
     } else {
       clearTimeout(timerId);
-      timerId = setTimeout(step, 1800);
+      timerId = setTimeout(step, 1600);
     }
   });
 }
@@ -359,11 +394,88 @@ if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
     initHeroWordTicker();
     initInfiniteSliders();
+    initTextScramble();
   });
 } else {
   initHeroWordTicker();
   initInfiniteSliders();
+  initTextScramble();
 }
+
+// ==========================================================================
+// Motion-Primitives TextScramble Component (Coming soon....)
+// duration={1.2}, characterSet='. '
+// ==========================================================================
+function initTextScramble() {
+  const el = document.getElementById('comingSoonScramble');
+  if (!el) return;
+  if (el.dataset.scrambleInit) return;
+  el.dataset.scrambleInit = 'true';
+
+  const text = el.dataset.text || 'New features coming soon....';
+  const duration = 1.2;
+  const speed = 0.04;
+  const characterSet = '. ';
+  const steps = Math.round(duration / speed);
+  const dwell = 1800;
+
+  let timer = null;
+  let loopTimeout = null;
+  let isAnimating = false;
+
+  function scramble() {
+    if (isAnimating) return;
+    isAnimating = true;
+
+    let step = 0;
+    clearInterval(timer);
+
+    timer = setInterval(() => {
+      let scrambled = '';
+      const progress = step / steps;
+
+      for (let i = 0; i < text.length; i++) {
+        if (text[i] === ' ') {
+          scrambled += ' ';
+          continue;
+        }
+
+        if (progress * text.length > i) {
+          scrambled += text[i];
+        } else {
+          scrambled += characterSet[Math.floor(Math.random() * characterSet.length)];
+        }
+      }
+
+      el.textContent = scrambled;
+      step++;
+
+      if (step > steps) {
+        clearInterval(timer);
+        el.textContent = text;
+        isAnimating = false;
+        loopTimeout = setTimeout(scramble, dwell);
+      }
+    }, speed * 1000);
+  }
+
+  // Initial animation start
+  scramble();
+
+  // Pause on hidden tab, resume on return
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      clearInterval(timer);
+      clearTimeout(loopTimeout);
+      isAnimating = false;
+      el.textContent = text;
+    } else {
+      clearTimeout(loopTimeout);
+      loopTimeout = setTimeout(scramble, 600);
+    }
+  });
+}
+
 
 // ==========================================================================
 // Motion-Primitives InfiniteSlider Component (speedOnHover={20} gap={24})

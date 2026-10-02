@@ -3,7 +3,7 @@
    ========================================================================== */
 
 .pg-gallery-section {
-  padding: clamp(80px, 8vw, 110px) 0 clamp(70px, 7vw, 100px);
+  padding: clamp(48px, 4.8vw, 68px) 0 clamp(44px, 4.4vw, 62px);
   background: #000000;
   overflow: hidden;
   position: relative;
@@ -97,7 +97,7 @@
 /* ── Responsive Adaptations ── */
 @media (max-width: 900px) {
   .pg-gallery-section {
-    padding: 45px 0 40px;
+    padding: 34px 0 30px;
   }
 
   .pg-gallery-header {
@@ -111,7 +111,7 @@
 
 @media (max-width: 480px) {
   .pg-gallery-section {
-    padding: 35px 0 30px;
+    padding: 26px 0 22px;
   }
 
   .pg-gallery-header {

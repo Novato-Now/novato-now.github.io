@@ -5,7 +5,7 @@
 .faq {
   width: 100%;
   background: #000000;
-  padding: clamp(90px, 9vw, 130px) 20px clamp(90px, 9vw, 120px);
+  padding: clamp(56px, 5.6vw, 78px) 20px clamp(50px, 5vw, 70px);
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
@@ -178,7 +178,7 @@
 /* ── FAQ Responsive ── */
 @media (max-width: 768px) {
   .faq {
-    padding: 70px 16px 60px;
+    padding: 46px 16px 42px;
   }
 
   .faq-title {

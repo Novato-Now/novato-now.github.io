@@ -499,12 +499,28 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
   line-height: 1.35em;
 }
 
-/* Dynamic Text Slot: strictly transparent, clips to one word at a time */
+/* ── Motion-Primitives TextLoop Custom Variants Transition ── */
+:root {
+  --text-loop-spring: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@supports (animation-timing-function: linear(0, 1)) {
+  :root {
+    /* Exact spring curve: stiffness: 900, damping: 80, mass: 10 */
+    --text-loop-spring: linear(
+      0, 0.0326, 0.1194, 0.2442, 0.3914, 0.5474, 0.7004, 0.8416, 0.9644,
+      1.0648, 1.141, 1.193, 1.2225, 1.232, 1.2251, 1.2054, 1.1768, 1.1427,
+      1.1066, 1.071, 1.0381, 1.0094, 0.9858, 0.9679, 0.9556, 0.965, 0.985,
+      0.998, 1.006, 1.008, 1.004, 1.001, 1
+    );
+  }
+}
+
+/* Dynamic Text Slot (TextLoop Container) */
 .hero-dynamic-slot {
   display: inline-flex;
-  align-items: flex-start;
+  align-items: center;
   text-align: left;
-  overflow: hidden;
   position: relative;
   height: 1.35em;
   line-height: 1.35em;
@@ -514,25 +530,38 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
   box-shadow: none !important;
   outline: none !important;
   vertical-align: middle;
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  overflow: hidden;
+  overflow-y: clip;
 }
 
-/* Continuous Vertical Conveyor Track: strictly transparent */
+/* Words Track wrapper */
 .hero-words-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   margin: 0;
   padding: 0;
-  width: 100%;
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
   outline: none !important;
-  will-change: transform;
-  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
 }
 
+/* Individual Word in the Loop */
 .hero-word {
+  position: absolute;
+  left: 0;
+  top: 0;
   height: 1.35em;
   line-height: 1.35em;
   display: inline-flex !important;
@@ -540,23 +569,62 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
   white-space: nowrap;
   font-weight: 700;
   letter-spacing: -0.01em;
-  color: #ffffff;
   width: max-content;
   flex-shrink: 0;
-  background: transparent;
+  background: linear-gradient(135deg, #43cea2 0%, #38bdf8 52%, #185a9d 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   border: none !important;
   box-shadow: none !important;
   outline: none !important;
-  opacity: 0;
-  filter: blur(10px);
+  padding-right: 2px;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-origin: 50% 50%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   will-change: transform, opacity, filter;
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-    filter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
 }
 
-.hero-word.is-current {
+/* Motion-Primitives TextLoop Variants:
+   initial: { y: 20, rotateX: 90, opacity: 0, filter: 'blur(4px)' }
+   animate: { y: 0, rotateX: 0, opacity: 1, filter: 'blur(0px)' }
+   exit:    { y: -20, rotateX: -90, opacity: 0, filter: 'blur(4px)' }
+*/
+.hero-word.is-initial {
+  transform: translate3d(0, 20px, 0) rotateX(90deg);
+  opacity: 0;
+  filter: blur(4px);
+  -webkit-filter: blur(4px);
+  pointer-events: none;
+  transition: none !important;
+}
+
+.hero-word.is-animate {
+  transform: translate3d(0, 0px, 0) rotateX(0deg);
   opacity: 1;
   filter: blur(0px);
+  -webkit-filter: blur(0px);
+  pointer-events: auto;
+  transition:
+    transform 0.65s var(--text-loop-spring),
+    opacity 0.45s ease-out,
+    filter 0.45s ease-out;
+}
+
+.hero-word.is-exit {
+  transform: translate3d(0, -20px, 0) rotateX(-90deg);
+  opacity: 0;
+  filter: blur(4px);
+  -webkit-filter: blur(4px);
+  pointer-events: none;
+  transition:
+    transform 0.65s var(--text-loop-spring),
+    opacity 0.4s ease-in,
+    filter 0.4s ease-in;
 }
 
 /* ZoneUp signature vibrant gradient - clipped strictly to text letters */
@@ -576,13 +644,19 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
     transform: none !important;
   }
 
-  .hero-words-track {
-    transition: none !important;
-  }
-
   .hero-word {
     transition: none !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .hero-word.is-animate {
     opacity: 1 !important;
+  }
+
+  .hero-word.is-initial,
+  .hero-word.is-exit {
+    opacity: 0 !important;
   }
 }
 
@@ -700,7 +774,7 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
 
 .create-zoneup-section {
   position: relative;
-  padding: clamp(80px, 8vw, 110px) 0 clamp(70px, 7vw, 100px);
+  padding: clamp(52px, 5.2vw, 72px) 0 clamp(44px, 4.4vw, 62px);
   background: #000000;
   color: #ededed;
   display: flex;
@@ -916,7 +990,7 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
   }
 
   .create-zoneup-section {
-    padding: 40px 0 30px;
+    padding: 34px 0 25px;
   }
 
   .create-zoneup-phone-frame {
@@ -958,7 +1032,7 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
   position: relative;
   background: #000000;
   color: #ededed;
-  padding: clamp(80px, 8vw, 110px) 32px clamp(80px, 8vw, 110px);
+  padding: clamp(50px, 5vw, 72px) 32px clamp(50px, 5vw, 72px);
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -1144,11 +1218,16 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
   border-radius: 28px;
   overflow: hidden;
   background: #000000;
+  display: flex;
+  flex-direction: column;
+  padding-top: clamp(10px, 1.4vw, 16px);
+  box-sizing: border-box;
 }
 
 .device-video {
   width: 100%;
   height: 100%;
+  flex: 1 1 0;
   object-fit: cover;
   object-position: center top;
   display: block;
@@ -1214,7 +1293,7 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
 /* ── Responsive Adaptations ── */
 @media (max-width: 900px) {
   .showcase-section {
-    padding: 50px 24px 50px;
+    padding: 40px 24px 40px;
   }
 
   .showcase-container {
@@ -1267,7 +1346,7 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
 
 @media (max-width: 480px) {
   .showcase-section {
-    padding: 40px 16px 40px;
+    padding: 30px 16px 30px;
   }
 
   .showcase-container {
@@ -1313,7 +1392,7 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
   position: relative;
   background: #000000;
   color: #ededed;
-  padding: clamp(80px, 8vw, 110px) 32px clamp(70px, 7vw, 100px);
+  padding: clamp(50px, 5vw, 70px) 32px clamp(46px, 4.6vw, 64px);
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -1516,7 +1595,7 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
 /* ── Responsive Adaptations ── */
 @media (max-width: 900px) {
   .targeting-section {
-    padding: 45px 24px 20px;
+    padding: 36px 24px 18px;
   }
 
   .targeting-container {
@@ -1539,7 +1618,7 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
 
 @media (max-width: 480px) {
   .targeting-section {
-    padding: 35px 16px 15px;
+    padding: 28px 16px 14px;
   }
 
   .targeting-portal {
@@ -1566,7 +1645,7 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
   width: 100%;
   background: #000000;
   color: #ededed;
-  padding: clamp(90px, 9vw, 130px) 24px clamp(90px, 9vw, 130px);
+  padding: clamp(56px, 5.6vw, 78px) 24px clamp(56px, 5.6vw, 78px);
   display: flex;
   justify-content: center;
   position: relative;
@@ -1681,10 +1760,118 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
   margin: 0;
 }
 
+/* ── Motion-Primitives TextScramble & Coming Soon Card ── */
+.font-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.feature-item-coming-soon {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 721px) {
+  .feature-item-coming-soon {
+    grid-column: 2;
+  }
+}
+
+.coming-soon-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.5;
+  border-radius: 20px;
+  background: #0d0d10;
+  border: 1px dashed rgba(255, 255, 255, 0.16);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px;
+  box-sizing: border-box;
+  overflow: hidden;
+  transform: translateZ(16px);
+  transform-style: preserve-3d;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.coming-soon-ambient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(67, 206, 162, 0.09) 0%, rgba(24, 90, 157, 0.04) 50%, transparent 75%);
+  pointer-events: none;
+}
+
+.feature-item-coming-soon:hover .coming-soon-card {
+  border-color: rgba(67, 206, 162, 0.45);
+  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.65), 0 0 28px rgba(67, 206, 162, 0.18);
+  transform: scale(1.02);
+}
+
+.coming-soon-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transform: translateZ(8px);
+}
+
+.coming-soon-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #43cea2;
+  box-shadow: 0 0 10px rgba(67, 206, 162, 0.8);
+  animation: pulseComingSoonDot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulseComingSoonDot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(0.8);
+  }
+}
+
+.coming-soon-badge-text {
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #a4a9b3;
+}
+
+.coming-soon-scramble {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: clamp(0.85rem, 1.15vw, 1.05rem);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: #ededed;
+  white-space: pre;
+  display: inline-block;
+  min-height: 1.5em;
+  text-align: center;
+  transform: translateZ(12px);
+}
+
 /* ── Responsive Media Queries ── */
 @media (max-width: 960px) {
   .features {
-    padding: 60px 20px 60px;
+    padding: 46px 20px 46px;
   }
 
   .features-header {
@@ -1711,7 +1898,7 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
 
 @media (max-width: 720px) {
   .features {
-    padding: 50px 16px 50px;
+    padding: 36px 16px 36px;
   }
 
   .features-header {
@@ -1738,7 +1925,7 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
 .faq {
   width: 100%;
   background: #000000;
-  padding: clamp(90px, 9vw, 130px) 20px clamp(90px, 9vw, 120px);
+  padding: clamp(56px, 5.6vw, 78px) 20px clamp(50px, 5vw, 70px);
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
@@ -1911,7 +2098,7 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
 /* ── FAQ Responsive ── */
 @media (max-width: 768px) {
   .faq {
-    padding: 70px 16px 60px;
+    padding: 46px 16px 42px;
   }
 
   .faq-title {
@@ -2423,7 +2610,7 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
    ========================================================================== */
 
 .pg-gallery-section {
-  padding: clamp(80px, 8vw, 110px) 0 clamp(70px, 7vw, 100px);
+  padding: clamp(48px, 4.8vw, 68px) 0 clamp(44px, 4.4vw, 62px);
   background: #000000;
   overflow: hidden;
   position: relative;
@@ -2517,7 +2704,7 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
 /* ── Responsive Adaptations ── */
 @media (max-width: 900px) {
   .pg-gallery-section {
-    padding: 45px 0 40px;
+    padding: 34px 0 30px;
   }
 
   .pg-gallery-header {
@@ -2531,7 +2718,7 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
 
 @media (max-width: 480px) {
   .pg-gallery-section {
-    padding: 35px 0 30px;
+    padding: 26px 0 22px;
   }
 
   .pg-gallery-header {

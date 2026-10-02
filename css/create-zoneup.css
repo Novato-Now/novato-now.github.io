@@ -4,7 +4,7 @@
 
 .create-zoneup-section {
   position: relative;
-  padding: clamp(80px, 8vw, 110px) 0 clamp(70px, 7vw, 100px);
+  padding: clamp(52px, 5.2vw, 72px) 0 clamp(44px, 4.4vw, 62px);
   background: #000000;
   color: #ffffff;
   display: flex;
@@ -220,7 +220,7 @@
   }
 
   .create-zoneup-section {
-    padding: 40px 0 30px;
+    padding: 34px 0 25px;
   }
 
   .create-zoneup-phone-frame {
