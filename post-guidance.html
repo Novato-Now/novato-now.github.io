@@ -63,17 +63,27 @@
           <div class="pg-hero-illustration">
             <!-- Center Phone Mock Frame -->
             <div class="pg-phone-frame">
-              <img src="Assets/guidance3.png" alt="ZoneUp Device Frame">
+              <picture>
+                <source srcset="Assets/guidance3.webp" type="image/webp">
+                <img src="Assets/guidance3.png" alt="ZoneUp Device Frame" loading="lazy">
+              </picture>
             </div>
 
             <!-- Left Rotated Video Overlay -->
             <div class="pg-hero-video-card">
-              <video src="Assets/guidance2.mp4" autoplay loop muted playsinline webkit-playsinline x5-playsinline preload="auto"></video>
+              <video autoplay loop muted playsinline webkit-playsinline x5-playsinline preload="metadata" poster="Assets/guidance2-poster.webp">
+                <source src="Assets/guidance2.webm" type="video/webm">
+                <source src="Assets/guidance2.mp4" type="video/mp4">
+              </video>
             </div>
 
             <!-- Right Rotated GIF Overlay -->
             <div class="pg-hero-gif-card">
-              <img src="Assets/guidance1.gif" alt="ZoneUp Real Moment">
+              <video autoplay loop muted playsinline webkit-playsinline x5-playsinline preload="metadata">
+                <source src="Assets/guidance1.webm" type="video/webm">
+                <source src="Assets/guidance1.mp4" type="video/mp4">
+                <img src="Assets/guidance1.gif" alt="ZoneUp Real Moment">
+              </video>
             </div>
           </div>
 

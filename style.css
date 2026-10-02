@@ -883,7 +883,8 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
   transform: rotate(4deg) scale(1.04);
 }
 
-.create-zoneup-gif-card img {
+.create-zoneup-gif-card img,
+.create-zoneup-gif-card video {
   width: 100%;
   height: 100%;
   object-fit: cover;
