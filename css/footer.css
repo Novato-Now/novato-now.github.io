@@ -21,6 +21,10 @@
   position: relative;
 }
 
+.footer-banner-wrapper picture {
+  display: contents;
+}
+
 .footer-banner-img {
   position: absolute;
   top: -20%;
