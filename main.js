@@ -30,20 +30,22 @@ window.addEventListener('resize', updateHeaderScroll, { passive: true });
 updateHeaderScroll();
 
 // Toggle mobile menu expand
-hamburger.addEventListener('click', () => {
-  const isOpen = mobileExpand.classList.toggle('open');
-  hamburger.classList.toggle('active');
-  hamburger.setAttribute('aria-expanded', isOpen);
-});
-
-// Close on link click
-mobileExpand.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    mobileExpand.classList.remove('open');
-    hamburger.classList.remove('active');
-    hamburger.setAttribute('aria-expanded', 'false');
+if (hamburger && mobileExpand) {
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileExpand.classList.toggle('open');
+    hamburger.classList.toggle('active');
+    hamburger.setAttribute('aria-expanded', isOpen);
   });
-});
+
+  // Close on link click
+  mobileExpand.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileExpand.classList.remove('open');
+      hamburger.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
 
 // FAQ accordion from JSON (Motion-Primitives AccordionVariant)
 const faqList = document.getElementById('faqList');
