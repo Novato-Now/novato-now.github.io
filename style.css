@@ -1965,6 +1965,10 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
   position: relative;
 }
 
+.footer-banner-wrapper picture {
+  display: contents;
+}
+
 .footer-banner-img {
   position: absolute;
   top: -20%;
