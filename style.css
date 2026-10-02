@@ -2439,7 +2439,7 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
 
 .pg-gallery-header {
   text-align: center;
-  margin-bottom: 44px;
+  margin-bottom: 24px;
 }
 
 .pg-gallery-section .pg-section-title {
@@ -2461,6 +2461,7 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
   user-select: none;
   touch-action: pan-y;
   cursor: grab;
+  padding: 24px 0 32px;
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
   mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
 }

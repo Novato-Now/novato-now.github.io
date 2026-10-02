@@ -213,39 +213,47 @@ function setupAutoplayVideos() {
       }
     });
 
-    // 4. Initial play attempt
-    const promise = video.play();
-    if (promise !== undefined) {
-      promise.catch(() => {
-        // Will be resumed by IntersectionObserver or interaction
-      });
+    // 4. Initial play attempt (only for above-the-fold hero video)
+    if (video.classList.contains('hero-video')) {
+      const promise = video.play();
+      if (promise !== undefined) {
+        promise.catch(() => {});
+      }
     }
   });
 
-  // 5. IntersectionObserver for viewport-based playback (smooth on mobile)
+  // 5. IntersectionObserver for viewport-based playback (smooth 60/120fps scrolling)
   if ('IntersectionObserver' in window) {
     const videoObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         const vid = entry.target;
         if (entry.isIntersecting) {
           vid.muted = true;
+          if (vid.preload === 'none') {
+            vid.preload = 'metadata';
+          }
           const p = vid.play();
           if (p !== undefined) p.catch(() => {});
         } else {
-          // Pause offscreen videos to save memory and battery
-          vid.pause();
+          // Pause offscreen videos to free GPU hardware decoder, memory and CPU
+          if (!vid.classList.contains('hero-video') || window.scrollY > (window.innerHeight || 800)) {
+            vid.pause();
+          }
         }
       });
-    }, { threshold: 0.15 });
+    }, { rootMargin: '250px 0px', threshold: 0.1 });
 
     videos.forEach(vid => videoObserver.observe(vid));
   }
 
   // 6. User interaction unlocker (for iOS Low Power Mode and strict browsers)
+  // Only resumes videos that are currently in or near viewport
   const unlockVideos = () => {
     videos.forEach(v => {
       v.muted = true;
-      if (v.paused) {
+      const rect = v.getBoundingClientRect();
+      const inView = rect.top < window.innerHeight + 250 && rect.bottom > -250;
+      if (inView && v.paused) {
         v.play().catch(() => {});
       }
     });
