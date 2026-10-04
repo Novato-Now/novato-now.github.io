@@ -517,12 +517,10 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
 @supports (animation-timing-function: linear(0, 1)) {
   :root {
     /* Exact spring curve: stiffness: 900, damping: 80, mass: 10 */
-    --text-loop-spring: linear(
-      0, 0.0326, 0.1194, 0.2442, 0.3914, 0.5474, 0.7004, 0.8416, 0.9644,
-      1.0648, 1.141, 1.193, 1.2225, 1.232, 1.2251, 1.2054, 1.1768, 1.1427,
-      1.1066, 1.071, 1.0381, 1.0094, 0.9858, 0.9679, 0.9556, 0.965, 0.985,
-      0.998, 1.006, 1.008, 1.004, 1.001, 1
-    );
+    --text-loop-spring: linear(0, 0.0326, 0.1194, 0.2442, 0.3914, 0.5474, 0.7004, 0.8416, 0.9644,
+        1.0648, 1.141, 1.193, 1.2225, 1.232, 1.2251, 1.2054, 1.1768, 1.1427,
+        1.1066, 1.071, 1.0381, 1.0094, 0.9858, 0.9679, 0.9556, 0.965, 0.985,
+        0.998, 1.006, 1.008, 1.004, 1.001, 1);
   }
 }
 
@@ -1148,7 +1146,7 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
 .device-body {
   position: relative;
   width: 66%;
-  height: 96%;
+  height: 100%;
   background: #000000;
   border-radius: 36px;
   border: 3.5px solid #232730;
@@ -1849,10 +1847,13 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
 }
 
 @keyframes pulseComingSoonDot {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.35;
     transform: scale(0.8);
