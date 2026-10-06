@@ -18,7 +18,8 @@ window.legalData = {
         "content": [
           "When you register for an account or interact with the App, we collect personal information that you voluntarily provide to us. This includes:",
           "Personal Identification Information: Name, Date of Birth (to verify age eligibility), Username, Password, Mobile Number (verified via OTP).",
-          "Profile Information: Gender, Language, Interests"
+          "Profile Information: Gender, Language, Interests",
+          "Public Profile & Community Information: Your username, user profile picture, and any community profile picture(s) you upload are public to all ZoneUp users. Posts, comments, and media shared to the 'Nearby Feed' are public and broadcasted to users in your vicinity."
         ]
       },
       {
@@ -28,7 +29,8 @@ window.legalData = {
           "Location Data: Your current location, if you grant us permission during onboarding.",
           "Device Information: Information about your device, such as IP address, device type, operating system, and unique device identifiers.",
           "Usage Information: Information about your interactions with the App, such as pages viewed, features used, and the frequency and duration of your activities.",
-          "Cookies and Similar Technologies: Information collected through cookies and other tracking technologies to understand your usage patterns."
+          "Cookies and Similar Technologies: Information collected through cookies and other tracking technologies to understand your usage patterns.",
+          "Stickers and Third-Party Media (GIFs): Stickers and GIFs are served directly by third-party content providers (such as Giphy) to your device. These external assets are not stored on ZoneUp chat servers and are not encrypted. Viewing these assets transmits your device IP address directly to the third-party provider."
         ]
       },
       {
@@ -57,13 +59,15 @@ window.legalData = {
       {
         "heading": "6. Data Retention",
         "content": [
-          "We retain your personal information for as long as necessary to fulfill the purposes outlined in this policy, unless a longer retention period is required or permitted by law."
+          "We retain your personal information for as long as necessary to fulfill the purposes outlined in this policy, unless a longer retention period is required or permitted by law.",
+          "Chat media—including photos, videos, voice recordings, and files sent in chats—is retained on ZoneUp servers for a maximum Time-To-Live (TTL) duration of one (1) year, after which it is permanently purged. Users are advised to save important media to local storage."
         ]
       },
       {
         "heading": "7. Data Security",
         "content": [
-          "We implement appropriate technical and organizational measures to protect the security of your personal information. However, please note that no method of transmission over the internet, or method of electronic storage, is completely secure."
+          "We implement appropriate technical and organizational measures to protect the security of your personal information. However, please note that no method of transmission over the internet, or method of electronic storage, is completely secure.",
+          "ZoneUp implements end-to-end encryption (E2EE) for private chat messages. In the normal course of operation, only the sender and recipient can decrypt and view message content. While ZoneUp exercises rigorous security safeguards, no system is immune to technical bugs, zero-day vulnerabilities, or OS-level security breaches; ZoneUp disclaims liability for unforeseen technical failures affecting encryption integrity."
         ]
       },
       {
@@ -202,7 +206,8 @@ window.legalData = {
       {
         "heading": "5.1 Your Content",
         "content": [
-          "You retain ownership of any content you post on the App. By posting content, you grant us a non-exclusive, worldwide, royalty-free license to use, distribute, modify, and display your content in connection with the App."
+          "You retain ownership of any content you post on the App. By posting content, you grant us a non-exclusive, worldwide, royalty-free license to use, distribute, modify, and display your content in connection with the App.",
+          "Content posted to the Nearby Feed, public communities, and profile pictures are public. You grant ZoneUp a worldwide, royalty-free license to host, display, and distribute this public content across the platform."
         ]
       },
       {
@@ -234,6 +239,13 @@ window.legalData = {
         ]
       },
       {
+        "heading": "7.3 Messaging Encryption and Technical Disclaimer",
+        "content": [
+          "ZoneUp provides end-to-end encrypted messaging on a best-effort basis. ZoneUp, its operators, and affiliates shall not be held liable for any unintended decryption, interception, or exposure of communications caused by software defects, bugs, device vulnerabilities, or unauthorized third-party access.",
+          "All chat media is subject to a strict 1-year Time-To-Live (TTL) retention schedule. ZoneUp is not responsible for any loss of data or media occurring after this period."
+        ]
+      },
+      {
         "heading": "8. Indemnification",
         "content": [
           "You agree to indemnify, defend, and hold harmless ZoneUp and its affiliates from and against any claims, liabilities, damages, losses, and expenses, including, without limitation, reasonable legal and accounting fees, arising out of or in any way connected with your access to or use of the App or your violation of these Terms."
@@ -249,6 +261,12 @@ window.legalData = {
         "heading": "10. Changes to These Terms",
         "content": [
           "We may modify these Terms from time to time. We will notify you of any changes by posting the updated Terms on the App and updating the 'Last Updated' date. Your continued use of the App after the posting of changes constitutes your acceptance of the updated Terms."
+        ]
+      },
+      {
+        "heading": "11. Contact Us",
+        "content": [
+          "If you have any questions about these Terms and Conditions, please contact us at support@zoneup.in"
         ]
       }
     ]
@@ -275,13 +293,15 @@ window.legalData = {
           "Essential Cookies: These cookies are necessary for the App to function properly. Without these cookies, certain features of the App may not be available.",
           "Performance and Analytics Cookies: These cookies collect information about how you use the App, such as which pages you visit and whether you experience any errors. This information helps us improve the App's performance and your user experience.",
           "Functional Cookies: These cookies allow the App to remember your preferences, such as language settings, and provide enhanced, more personalized features.",
-          "Advertising and Targeting Cookies: These cookies are used to deliver relevant advertisements to you and track the effectiveness of our advertising campaigns."
+          "Advertising and Targeting Cookies: These cookies are used to deliver relevant advertisements to you and track the effectiveness of our advertising campaigns.",
+          "Local Media Caching: We use device cache and local storage to store stickers, GIFs, and temporary chat media locally on your device for fast rendering and bandwidth conservation."
         ]
       },
       {
         "heading": "4. Third-Party Cookies",
         "content": [
-          "In addition to our own cookies, we may also use third-party cookies, such as those provided by analytics providers or advertisers, to help us understand how the App is used and to deliver personalized content and ads."
+          "In addition to our own cookies, we may also use third-party cookies, such as those provided by analytics providers or advertisers, to help us understand how the App is used and to deliver personalized content and ads.",
+          "When loading interactive stickers, GIFs, or external media, your device establishes a direct connection with third-party servers (e.g., Giphy). These providers may track IP addresses, set tracking cookies, and log requests according to their independent privacy and cookie policies."
         ]
       },
       {
