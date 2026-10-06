@@ -216,7 +216,7 @@ body.post-guidance-page .header-spacer {
 
 /* ── Hamburger ── */
 .hamburger {
-  display: none;
+  display: none !important;
   flex-direction: column;
   justify-content: center;
   gap: 5px;
@@ -286,7 +286,7 @@ body:not(:has(.hero)):not(.post-guidance-page):not(.legal-page-body) .hamburger 
   }
 
   .hamburger {
-    display: flex;
+    display: none !important;
   }
 
   .nav {
