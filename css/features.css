@@ -257,13 +257,19 @@
   }
 }
 
+@media (max-width: 768px) {
+  .features-header {
+    margin-bottom: clamp(48px, 7vw, 56px);
+  }
+}
+
 @media (max-width: 720px) {
   .features {
     padding: 36px 16px 36px;
   }
 
   .features-header {
-    margin-bottom: 36px;
+    margin-bottom: clamp(48px, 7vw, 56px);
   }
 
   .features-grid {
