@@ -1,11 +1,18 @@
 {
   "title": "Terms and Conditions",
-  "lastUpdated": "October 1, 2025",
+  "lastUpdated": "November 20, 2026",
   "sections": [
     {
       "heading": "1. Introduction",
       "content": [
         "Welcome to ZoneUp! These Terms and Conditions ('Terms') govern your access to and use of our mobile application (the 'App'). By accessing or using the App, you agree to be bound by these Terms. If you do not agree to these Terms, please do not use the App."
+      ]
+    },
+    {
+      "heading": "1A. Who we are and our role",
+      "content": [
+        "ZoneUp app is operated by Zoneup, Trichy, Tamil Nadu (\"ZoneUp\", \"we\", \"us\").",
+        "ZoneUp is an intermediary under the Information Technology Act, 2000. We provide a platform where users post and share content and connect with people nearby. We do not create, edit, endorse or verify content posted by users, and users are solely responsible for what they post and how they act."
       ]
     },
     {
@@ -31,16 +38,45 @@
       ]
     },
     {
-      "heading": "4. User Conduct",
+      "heading": "4. User conduct and prohibited content",
       "content": [
-        "Violate any applicable laws or regulations.",
-        "Post or share content that is illegal, harmful, Pornography or offensive.",
-        "Use the App to harass, threaten, or harm others.",
-        "Share, post, or engage in any form of child endangerment, exploitation, or inappropriate interaction with minors. Our app includes a strict reporting system that allows users to immediately flag such content or accounts, and we take swift and decisive action against any violation.",
-        "Privacy and child safety are our top priorities. Any post or user activity that violates these standards will be removed immediately, and appropriate actions will be taken.",
-        "Impersonate any person or entity, or falsely state or otherwise misrepresent your affiliation with a person or entity.",
-        "Interfere with or disrupt the operation of the App or servers or networks connected to the App.",
-        "Violation of these terms may result in legal action being taken against you. This could include, but is not limited to, civil or criminal penalties under applicable laws and regulations."
+        "You must not post, share, upload, send or otherwise make available any content that:",
+        "1. belongs to another person and to which you have no right;",
+        "2. is obscene, pornographic, paedophilic, or invades another person's privacy, including bodily privacy;",
+        "3. insults or harasses anyone on the basis of gender, or is racially or ethnically objectionable;",
+        "4. relates to or encourages money laundering, gambling or any illegal activity;",
+        "5. promotes enmity between groups or incites violence;",
+        "6. is harmful to children, or involves any form of child sexual abuse material, exploitation or inappropriate contact with minors;",
+        "7. infringes any patent, trademark, copyright or other intellectual property right;",
+        "8. deceives or misleads people about where a message came from, or knowingly spreads information that is false or misleading;",
+        "9. impersonates another person or entity, or misrepresents your affiliation with anyone;",
+        "10. is synthetically generated or altered (for example, deepfakes or AI-generated images, audio or video) in a way that misleads people about a real person or event, unless clearly labelled;",
+        "11. threatens the unity, integrity, defence, security or sovereignty of India, friendly relations with other countries, or public order, or incites any offence;",
+        "12. contains viruses, malware or any code designed to disrupt or damage any system;",
+        "13. is an online game or real-money game not permitted under Indian law, or advertises one; or",
+        "14. otherwise violates any law in force.",
+        "You also must not harass, threaten, stalk or harm other users, create fake accounts, use the App to collect other users' information, or interfere with the App, its servers or networks.",
+        "Breaking these rules may lead to removal of content, suspension or termination of your account, and reporting to law enforcement where required by law."
+      ]
+    },
+    {
+      "heading": "4A. Interactions with other users and meeting in person",
+      "content": [
+        "ZoneUp helps people nearby discover each other and connect. You are solely responsible for your interactions with other users, both on the App and offline.",
+        "We do not conduct criminal background checks or screen users, and we do not verify the identity, statements, intentions or conduct of users. We cannot guarantee that any user is who they claim to be or that they are safe to meet.",
+        "If you choose to meet anyone you connected with through ZoneUp, you do so at your own risk. Meet in public places, tell someone you trust where you are going, and follow our Safety Tips. ZoneUp is not responsible for the conduct of any user, on or off the App, and is not a party to any arrangement made between users.",
+        "If you feel unsafe or are in danger, contact the police immediately by calling 112. You can also report a user through the App."
+      ]
+    },
+    {
+      "heading": "4B. Specific features",
+      "content": [
+        "Alert posts: Alert posts let you notify people nearby. ZoneUp is not an emergency service, and we do not monitor, respond to or guarantee that anyone will see or act on an Alert post. In an emergency, always call 112 or the relevant emergency service first. Do not post false or misleading alerts.",
+        "Services, classes and offers: Users may post about services, classes, events or offers (for example, a painter, an electrician or a dance class). ZoneUp is not a party to any arrangement between users, and does not verify the skills, licences, pricing, quality or reliability of anyone offering services. Any payment, dispute or loss is solely between the users involved.",
+        "Gender-only posts: Gender is self-declared by users. ZoneUp cannot guarantee that a gender-only post is seen only by people of that gender, and does not verify the gender of users.",
+        "Burn posts: Burn posts disappear from view after a set time. Other users may still take screenshots or recordings before a post disappears, and ZoneUp may retain related information as required by law (see section 5A).",
+        "Location: ZoneUp uses your location to show you content and people nearby. Other users see your approximate area, not your exact location. Content you post to the Nearby feed is public and can be seen by anyone using ZoneUp, including people outside your area.",
+        "Direct messages (DMs) and communities: DMs (one-to-one chats): text messages in DMs are end-to-end encrypted, so in normal operation only the sender and recipient can read them. Photos, videos, voice notes and other media shared in DMs are also end-to-end encrypted, and are kept in encrypted form on our servers for up to one year, then deleted. If you forward media from a DM to a community, the forwarded copy is no longer end-to-end encrypted, and ZoneUp stores that copy so community members can see it. Communities: text messages in communities are not end-to-end encrypted. They are encrypted while travelling between your device and our servers, and ZoneUp relays them to community members without keeping them on our servers after delivery, except for content that has been reported, or where we are required by law to retain or disclose it. Do not share anything in a community that you would not want other members to see, save or share."
       ]
     },
     {
@@ -58,6 +94,15 @@
       "heading": "5.2 Our Content",
       "content": [
         "All materials on the App, including text, graphics, logos, and images, are the property of ZoneUp or its licensors and are protected by copyright and other intellectual property laws. You agree not to reproduce, distribute, or create derivative works from our content without our express permission."
+      ]
+    },
+    {
+      "heading": "5A. Reporting, moderation and retention",
+      "content": [
+        "You can report any post, comment, message or user through the App, or by writing to our Grievance Officer (section 11A). We review reports and act on them in line with applicable law, including the timelines under the Information Technology (Intermediary Guidelines and Digital Media Ethics Code) Rules, 2021, as amended.",
+        "We may remove or disable access to any content, and suspend or terminate any account, if we believe it breaks these Terms or the law, or if we are required to by a court order or a lawful direction from a government authority. We are not obliged to monitor content before it is posted.",
+        "Where required by law, we may retain information about removed content and deleted accounts, including registration details, for 180 days or longer, and may share it with law enforcement agencies in response to a lawful request.",
+        "We will remind users of these Terms and our Privacy Policy from time to time, as required by law."
       ]
     },
     {
@@ -79,7 +124,9 @@
     {
       "heading": "7.2 Limitation of Liability",
       "content": [
-        "To the fullest extent permitted by law, ZoneUp and its affiliates will not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses, resulting from (a) your use of or inability to use the App; (b) any unauthorized access to or use of our servers and/or any personal information stored therein; (c) any interruption or cessation of transmission to or from the App; or (d) any bugs, viruses, trojan horses, or the like that may be transmitted to or through the App by any third party."
+        "To the fullest extent permitted by law, ZoneUp and its affiliates will not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses, resulting from (a) your use of or inability to use the App; (b) any unauthorized access to or use of our servers and/or any personal information stored therein; (c) any interruption or cessation of transmission to or from the App; or (d) any bugs, viruses, trojan horses, or the like that may be transmitted to or through the App by any third party.",
+        "In addition, to the fullest extent permitted by law, ZoneUp, its proprietor, affiliates and team members will not be liable for any loss, injury, damage or claim arising from (e) the content, statements or conduct of any user or third party, whether on the App or offline, including any meeting, transaction or interaction between users; or (f) any reliance on an Alert post or any other content on the App.",
+        "To the fullest extent permitted by law, our total liability to you for all claims relating to the App or these Terms will not exceed the greater of the amount you paid us in the 12 months before the claim, or INR 1,000."
       ]
     },
     {
@@ -96,9 +143,9 @@
       ]
     },
     {
-      "heading": "9. Governing Law",
+      "heading": "9. Governing law and jurisdiction",
       "content": [
-        "These Terms shall be governed by and construed in accordance with the laws of India, without regard to its conflict of law principles."
+        "These Terms are governed by the laws of India, without regard to conflict of law principles. Subject to section 11A (Grievance Officer), the courts at Bengaluru, Karnataka shall have exclusive jurisdiction over any dispute arising from these Terms or your use of the App."
       ]
     },
     {
@@ -111,6 +158,14 @@
       "heading": "11. Contact Us",
       "content": [
         "If you have any questions about these Terms and Conditions, please contact us at support@zoneup.in"
+      ]
+    },
+    {
+      "heading": "11A. Grievance Officer",
+      "content": [
+        "In line with the Information Technology Act, 2000 and the rules made under it, our Grievance Officer is: Grievance Officer, ZoneUp. Email: support@zoneup.in.",
+        "You can complain about any content or user, or about how we handled your earlier report. We will acknowledge your complaint within 24 hours and resolve it within the time required by law. Complaints about content that shows a person in a sexual act or conduct, nudity, or that impersonates someone, including morphed images, will be acted on as a priority.",
+        "If you are not satisfied with the Grievance Officer's decision, you may appeal to the Grievance Appellate Committee set up by the Government of India, within the time allowed under the rules."
       ]
     }
   ]
